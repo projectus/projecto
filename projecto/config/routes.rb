@@ -5,6 +5,7 @@ Projecto::Application.routes.draw do
   resources :users
 
   get "main/home"
+  get 'tags/:tag', to: 'projects#index', as: :tag
 
   resources :projects
 

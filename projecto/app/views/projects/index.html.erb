@@ -20,6 +20,10 @@
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <tr>
+        <td>Tags:</td> 
+        <td colspan="4"><%= raw project.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
