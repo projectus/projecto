@@ -1,5 +1,7 @@
 Projecto::Application.routes.draw do
 
+  resources :collaborations
+
   resources :users
 
   get "main/home"
