@@ -976,3 +976,58 @@ Started GET "/" for 127.0.0.1 at 2013-09-01 00:26:03 -0400
 Processing by Rails::WelcomeController#index as HTML
   Rendered /home/thenit/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
 Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (19.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (81.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjects (20130901044414)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (87.6ms)[0m  [1mCREATE TABLE "projects" ("id" serial primary key, "name" character varying(255), "category" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20130901044414"]]
+  [1m[36m (30.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 00:45:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/thenit/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 57ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 00:46:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 602ms (Views: 547.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 00:46:05 -0400
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2013-09-01 00:53:46 -0400
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form.html.erb (81.1ms)
+  Rendered projects/new.html.erb within layouts/application (111.0ms)
+Completed 200 OK in 123ms (Views: 119.3ms | ActiveRecord: 1.5ms)
