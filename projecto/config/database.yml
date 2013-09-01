@@ -1,11 +1,10 @@
-# SQLite version 3.x
-#   gem install sqlite3
 #
 #   Ensure the Postgres gem is defined in your Gemfile
 #   gem 'pg'
 development:
   adapter: postgresql
   database: projecto_development
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -13,7 +12,9 @@ development:
 test:
   adapter: postgresql
   database: projecto_test
+  host: localhost
 
 production:
   adapter: postgresql
   database: projecto_production
+  host: localhost
