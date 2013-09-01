@@ -24,6 +24,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.0.0, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v4.0.0, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="atomic (v1.1.13, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bcrypt-ruby (v3.0.1, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.1.4, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.5, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.0.0, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
@@ -57,9 +58,9 @@
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.1.2, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="treetop (v1.4.15, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="turbolinks (v1.3.0, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.37, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.2.1, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="zurb-foundation (v4.3.1, RVM: ruby-2.0.0-p247 [Rails4.0.0]) [gem]" level="application" />
   </component>
 </module>
 

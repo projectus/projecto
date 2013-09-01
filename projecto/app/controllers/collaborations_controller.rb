@@ -9,7 +9,7 @@ class CollaborationsController < ApplicationController
 
   # GET /collaborations/1
   # GET /collaborations/1.json
-  def show
+  def show	
   end
 
   # GET /collaborations/new
@@ -40,6 +40,7 @@ class CollaborationsController < ApplicationController
   # PATCH/PUT /collaborations/1
   # PATCH/PUT /collaborations/1.json
   def update
+	
     respond_to do |format|
       if @collaboration.update(collaboration_params)
         format.html { redirect_to @collaboration, notice: 'Collaboration was successfully updated.' }
