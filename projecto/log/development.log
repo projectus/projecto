@@ -1031,3 +1031,364 @@ Processing by ProjectsController#new as HTML
   Rendered projects/_form.html.erb (81.1ms)
   Rendered projects/new.html.erb within layouts/application (111.0ms)
 Completed 200 OK in 123ms (Views: 119.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:02:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 128ms (Views: 73.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:02:27 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:04 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:05 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:06 -0400
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2013-09-01 01:06:17 -0400
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form.html.erb (92.1ms)
+  Rendered projects/new.html.erb within layouts/application (96.2ms)
+Completed 200 OK in 104ms (Views: 101.0ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2013-09-01 01:06:28 -0400
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qdqh7sn6RF1Cm/+74I5ry4iBLwv2uAbYHLwCEpbSvO4=", "project"=>{"name"=>"test", "category"=>"others"}, "commit"=>"Create Project"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (116.1ms)[0m  [1mINSERT INTO "projects" ("category", "created_at", "name", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "others"], ["created_at", Sun, 01 Sep 2013 05:06:28 UTC +00:00], ["name", "test"], ["updated_at", Sun, 01 Sep 2013 05:06:28 UTC +00:00]]
+  [1m[35m (11.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 139ms (ActiveRecord: 128.3ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2013-09-01 01:06:28 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (1.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered projects/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:29 -0400
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered projects/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:33 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-01 01:06:38 -0400
