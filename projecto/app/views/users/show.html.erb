@@ -1,13 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<br>
 <p>
   <strong>Username:</strong>
   <%= @user.username %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
 </p>
 
 <p>
@@ -16,11 +10,8 @@
 </p>
 
 <p>
-  <strong>Projects:</strong>
-  <% @user.projects.each do |project| %>
-    <li><%= project %></li>
-  <% end %>
+  <strong>Encrypted password:</strong>
+  <%= @user.encrypted_password %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
