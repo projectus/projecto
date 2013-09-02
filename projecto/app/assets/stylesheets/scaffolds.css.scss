@@ -19,9 +19,9 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #C20C49;
   &:visited {
-    color: #666;
+    color: #C20C49;
   }
   &:hover {
     color: #fff;
@@ -35,8 +35,16 @@ div {
   }
 }
 
+#alert {
+	background: pink;
+	color:      darkred;
+	padding:    0.5em;
+}
+
 #notice {
-  color: green;
+	background: lightblue;
+	color:      green;
+	padding:    0.5em;
 }
 
 .field_with_errors {
