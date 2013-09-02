@@ -16,3 +16,16 @@
 #alert {
 	background: pink;
 }
+
+#notice {
+	background: lightblue;
+}
+
+#user_nav {
+	background: #EDCD6B;
+	padding: 1em;
+}
+
+#login_info {
+	float: right;
+}

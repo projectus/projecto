@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Projecto" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -23,12 +23,17 @@
   <body>
 
     <div id="user_nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %> Not you?
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Projects', projects_path %>
+      <%= link_to 'Users', users_path %>
+      <span id="login_info">
+        <% if user_signed_in? %>
+          Signed in as <%= current_user.email %> Not you?
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </span>
     </div>
 
     <% flash.each do |name, msg| %>
