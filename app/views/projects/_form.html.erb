@@ -11,22 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+<fieldset>
+  <legend>Enter project details</legend>
+  <div class="row">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autocomplete: :off %>
   </div>
   
-  <div class="field">
+  <div class="row">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
   </div>
   
-  <div class="field">
+  <div class="row">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.text_field :tag_list, autocomplete: :off %>
   </div>
   
   <div class="actions">
     <%= f.submit %>
   </div>
+</fieldset>
 <% end %>
