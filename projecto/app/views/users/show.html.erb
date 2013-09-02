@@ -14,4 +14,12 @@
   <%= @user.encrypted_password %>
 </p>
 
+<p>
+<strong>Collaborations:</strong>
+<% @user.collaborations.each do |collab| %>
+  <br>
+  Role: <%= collab.role %>, Project name: <%= collab.project.name %>
+<% end %>
+</p>
+
 <%= link_to 'Back', users_path %>

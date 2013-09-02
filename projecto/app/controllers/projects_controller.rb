@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_current_user_as_project_owner, except: [:show, :index, :new, :create]
 
   # GET /projects
   # GET /projects.json
@@ -32,7 +34,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+	      collab = Collaboration.create(role: 'owner', project: @project, user: current_user)
+        format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{collab.user.username}" }
         format.json { render action: 'show', status: :created, location: @project }
       else
         format.html { render action: 'new' }
@@ -43,7 +46,7 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
-  def update
+  def update	
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -57,7 +60,7 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
   # DELETE /projects/1.json
-  def destroy
+  def destroy		
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url }
@@ -75,4 +78,11 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name, :category, :tag_list)
     end
+
+    def authenticate_current_user_as_project_owner
+		  if current_user.collaborations.find_by_project_id_and_role(params[:id],'owner').nil?
+		    flash[:alert] = "You don't have the permissions to make changes to this project"
+		    redirect_to :back
+		  end
+		end
 end
