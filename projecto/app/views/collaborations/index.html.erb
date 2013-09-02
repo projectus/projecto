@@ -16,8 +16,8 @@
     <% @collaborations.each do |collaboration| %>
       <tr>
         <td><%= collaboration.role %></td>
-        <td><%= collaboration.user %></td>
-        <td><%= collaboration.project %></td>
+        <td><%= collaboration.user.username %></td>
+        <td><%= collaboration.project.name %></td>
         <td><%= link_to 'Show', collaboration %></td>
         <td><%= link_to 'Edit', edit_collaboration_path(collaboration) %></td>
         <td><%= link_to 'Destroy', collaboration, method: :delete, data: { confirm: 'Are you sure?' } %></td>

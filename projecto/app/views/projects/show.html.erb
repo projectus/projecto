@@ -10,5 +10,13 @@
   <%= @project.category %>
 </p>
 
+<p>
+<strong>Collaborations:</strong>
+<% @project.collaborations.each do |collab| %>
+  <br>
+  Role: <%= collab.role %>, Username: <%= collab.user.username %>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
