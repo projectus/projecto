@@ -8,6 +8,8 @@ class CollaborationApplicationController < ApplicationController
 	  
   def create
 	  @project = Project.find(params[:project_id])
+	
+	  # Check that the user is not already collaborating on this project
 	  unless current_user.collaborations.find_by_project_id(@project).nil?
 		  redirect_to @project, alert: 'You are already collaborating on this project.'
 		  return
@@ -17,9 +19,9 @@ class CollaborationApplicationController < ApplicationController
 
     respond_to do |format|
       if @application.save
-        format.html { redirect_to @application, notice: "Successfully applied to #{@project.name}" }	
+        format.html { redirect_to @project, notice: "Successfully applied to #{@project.name}" }	
       else
-        format.html { render action: 'show' }
+        format.html { render action: 'application_errors' }
         format.json { render json: @application.errors, status: :unprocessable_entity }    
       end
     end
@@ -53,7 +55,7 @@ class CollaborationApplicationController < ApplicationController
     end
 
     def authenticate_current_user_as_project_owner
-	    if current_user.collaborations.find_by_project_id_and_role(@application.project,'owner').nil?
+	    if current_user.collaborations.find_by_project_id_and_role(@project,'owner').nil?
 	      flash[:alert] = "You don't have the permissions to make changes to this project"
 	      redirect_to :back
 	    end
