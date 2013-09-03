@@ -1,0 +1,30 @@
+<% if @application.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being completed:</h2>
+
+    <ul>
+    <% @application.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @project.category %>
+</p>
+
+<p>
+<strong>Applicant username:</strong>
+<%= @application.user.username %><br>
+</p>
+
+<%= link_to 'Accept', accept_project_application_path(@application), method: :post %> | 
+<%= link_to 'Deny', deny_project_application_path(@application), method: :post %> | 
+<%= link_to 'Back', project_path(@project) %>

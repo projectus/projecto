@@ -1,7 +1,12 @@
 Projecto::Application.routes.draw do
 
+  post "collaboration/project/:project_id/apply", to: "collaboration_application#create", as: :apply_to_project
+	post "collaboration/application/:id/accept", to: "collaboration_application#accept", as: :accept_project_application
+  post "collaboration/application/:id/deny", to: "collaboration_application#deny", as: :deny_project_application																			
+  get "collaboration_application/show/:id", to: 'collaboration_application#show', as: :collaboration_application
+  
   get "users", to: "users#index", as: :users
-  get "users/show/:id", to: 'users#show', as: 'user'
+  get "users/show/:id", to: 'users#show', as: :user
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 

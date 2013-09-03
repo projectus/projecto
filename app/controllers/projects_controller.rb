@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+	before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :authenticate_current_user_as_project_owner, except: [:show, :index, :new, :create]
 
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-	      collab = Collaboration.create(role: 'owner', project: @project, user: current_user)
+	      collab = Collaboration.create!(role: 'owner', project: @project, user: current_user)
         format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{collab.user.username}" }
         format.json { render action: 'show', status: :created, location: @project }
       else
@@ -80,7 +80,7 @@ class ProjectsController < ApplicationController
     end
 
     def authenticate_current_user_as_project_owner
-		  if current_user.collaborations.find_by_project_id_and_role(params[:id],'owner').nil?
+		  if current_user.collaborations.find_by_project_id_and_role(@project,'owner').nil?
 		    flash[:alert] = "You don't have the permissions to make changes to this project"
 		    redirect_to :back
 		  end
