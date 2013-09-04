@@ -1,0 +1,18 @@
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @project.category %>
+</p>
+
+<p>
+<strong>Applicant username:</strong>
+<%= @application.user.username %><br>
+</p>
+
+<%= link_to 'Accept', accept_project_application_path(@application), method: :post %> | 
+<%= link_to 'Deny', deny_project_application_path(@application), method: :post %> | 
+<%= link_to 'Back', project_path(@project) %>

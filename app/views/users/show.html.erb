@@ -1,0 +1,25 @@
+<br>
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Encrypted password:</strong>
+  <%= @user.encrypted_password %>
+</p>
+
+<p>
+<strong>Collaborations:</strong>
+<% @user.collaborations.each do |collab| %>
+  <br>
+  Role: <%= collab.role %>, Project name: <%= collab.project.name %>
+<% end %>
+</p>
+
+<%= link_to 'Back', users_path %>
