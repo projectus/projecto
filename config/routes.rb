@@ -1,5 +1,7 @@
 Projecto::Application.routes.draw do
 
+  resources :comments
+
   post "collaboration/project/:project_id/apply", to: "collaboration_application#create", as: :apply_to_project
 	post "collaboration/application/:id/accept", to: "collaboration_application#accept", as: :accept_project_application
   post "collaboration/application/:id/deny", to: "collaboration_application#deny", as: :deny_project_application																			
@@ -10,7 +12,11 @@ Projecto::Application.routes.draw do
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :collaborations, :projects
+  resources :collaborations, :projects, :comments
+
+  resources :projects do
+    resources :comments
+  end
 
   get "main/home"
   get 'tags/:tag', to: 'projects#index', as: :tag

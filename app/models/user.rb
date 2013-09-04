@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
+
+  has_many :comments
 end

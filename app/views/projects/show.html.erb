@@ -26,4 +26,8 @@
 </p>
 
 <%= link_to 'Apply', apply_to_project_path(@project), method: :post %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %> |
+
+<%= link_to 'New Comment', new_project_comment_path(@project)%> |
+
+<%= link_to 'show', project_comments_path(@project)%>
