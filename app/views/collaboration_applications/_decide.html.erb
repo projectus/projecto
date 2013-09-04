@@ -1,0 +1,17 @@
+<%= form_for(@collaboration_application) do |f| %>
+  <%= f.hidden_field :status, value: 'accepted' %>    
+
+  <div class="actions">
+    <%= f.submit 'Accept' %>
+  </div>
+  
+<% end %>
+
+<%= form_for(@collaboration_application) do |f| %>
+  <%= f.hidden_field :status, value: 'denied' %>    
+
+  <div class="actions">
+    <%= f.submit 'Deny' %>
+  </div>
+  
+<% end %>

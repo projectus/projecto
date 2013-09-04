@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 
+  invited_by_user_id: 1
+  invited_user_id: 1
+
+two:
+  project_id: 
+  invited_by_user_id: 1
+  invited_user_id: 1

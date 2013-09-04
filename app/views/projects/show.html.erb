@@ -16,14 +16,5 @@
 <% end %>
 </p>
 
-<p>
-<strong>Applications:</strong>
-<% @project.applications.each do |application| %>
-  <br>
-  Applicant: <%= application.user.username %> |
-  <%= link_to 'Details', collaboration_application_path(application) %>
-<% end %>
-</p>
-
-<%= link_to 'Apply', apply_to_project_path(@project), method: :post %> |
+<%= link_to 'Apply', new_project_collaboration_application_path(@project) %> |
 <%= link_to 'Back', projects_path %>

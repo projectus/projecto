@@ -1,0 +1,32 @@
+<p>
+  <strong>User:</strong>
+  <%= @collaboration_invitation.invited_user.username %>
+</p>
+
+<p>
+  <strong>Invited by:</strong>
+  <%= @collaboration_invitation.invited_by_user.username %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @collaboration_invitation.project.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @collaboration_invitation.status %>
+</p>
+
+<p>
+  <strong>Active?:</strong>
+  <%= @collaboration_invitation.active %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @collaboration_invitation.message %>
+</p>
+
+<%= link_to 'Accept/Decline', edit_collaboration_invitation_path(@collaboration_invitation) %> |
+<%= link_to 'Back', collaboration_invitations_path %>

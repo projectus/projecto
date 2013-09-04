@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902205625) do
+ActiveRecord::Schema.define(version: 20130904205109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,28 @@ ActiveRecord::Schema.define(version: 20130902205625) do
     t.integer  "applicant_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "message"
+    t.string   "status",            default: "pending"
+    t.string   "active",            default: "yes"
   end
 
+  add_index "collaboration_applications", ["applicant_user_id"], name: "index_collaboration_applications_on_applicant_user_id", using: :btree
   add_index "collaboration_applications", ["project_id"], name: "index_collaboration_applications_on_project_id", using: :btree
+
+  create_table "collaboration_invitations", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "invited_by_user_id"
+    t.integer  "invited_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "active",             default: "yes"
+    t.string   "status",             default: "pending"
+    t.string   "message"
+  end
+
+  add_index "collaboration_invitations", ["invited_by_user_id"], name: "index_collaboration_invitations_on_invited_by_user_id", using: :btree
+  add_index "collaboration_invitations", ["invited_user_id"], name: "index_collaboration_invitations_on_invited_user_id", using: :btree
+  add_index "collaboration_invitations", ["project_id"], name: "index_collaboration_invitations_on_project_id", using: :btree
 
   create_table "collaborations", force: true do |t|
     t.string   "role"

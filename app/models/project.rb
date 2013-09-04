@@ -6,7 +6,11 @@ class Project < ActiveRecord::Base
 	has_many :tags, through: :taggings
 	
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
-	
+
+  def owner
+	  collaborations.find_by_role('owner')
+	end
+		
 	def self.tagged_with(name)
 		Tag.find_by_name!(name.downcase).projects
 	end

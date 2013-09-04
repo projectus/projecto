@@ -1,25 +1,28 @@
 Projecto::Application.routes.draw do
+  # You can have the root of your site routed with "root"
+  root 'main#index'
 
-  post "collaboration/project/:project_id/apply", to: "collaboration_application#create", as: :apply_to_project
-	post "collaboration/application/:id/accept", to: "collaboration_application#accept", as: :accept_project_application
-  post "collaboration/application/:id/deny", to: "collaboration_application#deny", as: :deny_project_application																			
-  get "collaboration_application/show/:id", to: 'collaboration_application#show', as: :collaboration_application
+  get "main/home"
+  get 'tags/:tag', to: 'projects#index', as: :tag
   
   get "users", to: "users#index", as: :users
   get "users/show/:id", to: 'users#show', as: :user
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :collaborations, :projects
+  resources :collaborations, except: [:new, :create]
 
-  get "main/home"
-  get 'tags/:tag', to: 'projects#index', as: :tag
+  resources :collaboration_invitations, except: [:new, :destroy]
+  get  "users/:user_id/invitation/new", to: 'collaboration_invitations#new', as: :new_collaboration_invitation
+
+  #get  "projects/:project_id/application/new", to: 'collaboration_applications#new', as: :new_project_collaboration_application
+  resources :collaboration_applications, except: [:new, :destroy]
+  resources :projects do
+		resources :collaboration_applications, only: [:new]
+	end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'main#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

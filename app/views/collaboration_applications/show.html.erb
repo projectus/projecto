@@ -1,0 +1,27 @@
+<p>
+  <strong>User:</strong>
+  <%= @collaboration_application.user.username %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @collaboration_application.project.name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @collaboration_application.status %>
+</p>
+
+<p>
+  <strong>Active?:</strong>
+  <%= @collaboration_application.active %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @collaboration_application.message %>
+</p>
+
+<%= link_to 'Accept/Decline', edit_collaboration_application_path(@collaboration_application) %> |
+<%= link_to 'Back', collaboration_applications_path %>

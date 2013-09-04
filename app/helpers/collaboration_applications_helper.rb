@@ -1,0 +1,2 @@
+module CollaborationApplicationsHelper
+end
