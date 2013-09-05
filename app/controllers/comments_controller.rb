@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-    @comment.user_id = current_user.id
-    @comment.project_id = Project.find(params[:project_id]).id
+    @comment.user = current_user
+    @comment.project = Project.find(params[:project_id])
   end
 
   # GET /comments/1/edit
