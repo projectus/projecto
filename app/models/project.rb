@@ -1,7 +1,9 @@
 class Project < ActiveRecord::Base
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
-	
+
+  has_many :comments
+
 	has_many :taggings
 	has_many :tags, through: :taggings
 	

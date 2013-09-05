@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :collaboration_applications, foreign_key: :applicant_user_id
   has_many :collaboration_invitations, foreign_key: :invited_user_id
 
+  has_many :comments
+
   def owned_projects
 	  collaborations.find_all_by_role('owner').collect {|c| c.project}
 	end

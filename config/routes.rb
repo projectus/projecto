@@ -15,10 +15,12 @@ Projecto::Application.routes.draw do
   resources :collaboration_invitations, except: [:new, :destroy]
   get  "users/:user_id/invitation/new", to: 'collaboration_invitations#new', as: :new_collaboration_invitation
 
-  #get  "projects/:project_id/application/new", to: 'collaboration_applications#new', as: :new_project_collaboration_application
   resources :collaboration_applications, except: [:new, :destroy]
-  resources :projects do
+  resources :comments, except: [:new, :index]
+
+  resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
+		resources :comments, only: [:new, :index]    
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -22,10 +22,39 @@
 
   <body>
 
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "PROJECTO", root_path %></a></h1>
+      </li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="divider"></li>
+        <li></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Home', root_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Projects', projects_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Users', users_path %></li>
+      </ul>
+
+      <ul class="right">
+        <li><input type="text" placeholder="large-12.columns"></li>
+        <li><a href="#" class="button">Search</a></li>
+
+      </ul>
+      </section>
+  </nav>
+
+
+
+
     <div id="user_nav">
-      <%= link_to 'Home', root_path %>
-      <%= link_to 'Projects', projects_path %>
-      <%= link_to 'Users', users_path %>
+
+
+
       <span id="login_info">
         <% if user_signed_in? %>
           Signed in as <b><%= current_user.username %></b> (<%= current_user.email %>). Not you?
