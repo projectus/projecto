@@ -10,6 +10,7 @@
       <th>Minus</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,6 +19,7 @@
       <tr>
         <td><%= comment.content %></td>
         <td><%= comment.user.username %></td>
+        <td><%= comment.project.name %></td>       
         <td><%= comment.plus %></td>
         <td><%= comment.minus %></td>
         <td><%= link_to 'Show', comment %></td>
