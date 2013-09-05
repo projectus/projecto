@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130904205109) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "collaboration_applications", force: true do |t|
     t.integer  "project_id"
     t.integer  "applicant_user_id"
@@ -26,7 +23,6 @@ ActiveRecord::Schema.define(version: 20130904205109) do
     t.string   "active",            default: "yes"
   end
 
-  add_index "collaboration_applications", ["applicant_user_id"], name: "index_collaboration_applications_on_applicant_user_id", using: :btree
   add_index "collaboration_applications", ["project_id"], name: "index_collaboration_applications_on_project_id", using: :btree
 
   create_table "collaboration_invitations", force: true do |t|
@@ -64,6 +60,15 @@ ActiveRecord::Schema.define(version: 20130904205109) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "project_profiles", force: true do |t|
+    t.integer  "Project_id"
+    t.string   "detail_xml"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_profiles", ["Project_id"], name: "index_project_profiles_on_Project_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"

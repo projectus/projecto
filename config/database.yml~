@@ -1,8 +1,8 @@
 # SQLite version 3.x
-#   gem install sqlite3
+# gem install sqlite3
 #
-#   Ensure the Postgres gem is defined in your Gemfile
-#   gem 'pg'
+# Ensure the Postgres gem is defined in your Gemfile
+# gem 'pg'
 development:
   adapter: postgresql
   encoding: utf8
