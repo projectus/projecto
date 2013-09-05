@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
 
   def owner
-	  collaborations.find_by_role('owner')
+	  collaborations.find_by_role('owner').user
 	end
 		
 	def self.tagged_with(name)

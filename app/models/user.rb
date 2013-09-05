@@ -31,4 +31,12 @@ class User < ActiveRecord::Base
 	def has_active_invitation?(project)
 	  !collaboration_invitations.find_by_project_id_and_active(project,'yes').nil?
 	end
+	
+	def has_pending_application_to_project?(project)
+		!collaboration_applications.find_by_project_id_and_status(project,'pending').nil?
+	end
+
+	def has_pending_invitation_to_project?(project)
+	  !collaboration_invitations.find_by_project_id_and_status(project,'pending').nil?
+	end
 end

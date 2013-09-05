@@ -1,8 +1,9 @@
 class CollaborationInvitationsController < ApplicationController
   before_action :set_collaboration_invitation, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
-	before_action :authenticate_current_user_as_invited_user, only: [:edit, :update]
-  #before_action :authenticate_current_user_as_project_owner, only: [:new, :create]
+	before_action :set_invited_user, only: [:new]
+	before_action :check_current_user_not_invited_user, only: [:new]
+	before_action :check_current_user_is_invited_user, only: [:edit, :update]
   before_action :check_invitation_active, only: [:edit, :update]
   before_action :check_invitation_pending, only: [:edit, :update]
 
@@ -19,8 +20,8 @@ class CollaborationInvitationsController < ApplicationController
 
   # GET /projects/:project_id/users/:user_id/invitation/new
   def new
-    @collaboration_invitation = CollaborationInvitation.new
-    @collaboration_invitation.invited_user = User.find(params[:user_id])		
+	  @collaboration_invitation = CollaborationInvitation.new
+    @collaboration_invitation.invited_user = @invited_user		
   end
 
   # GET /collaboration_invitations/1/edit
@@ -39,15 +40,15 @@ class CollaborationInvitationsController < ApplicationController
 		  return
 		end
 
-	  # Check that the user does not already have active application. Move this to model?
-	  if invited_user.has_active_application?(project)
-		  redirect_to project, alert: 'This user has already applied to this project.'
+	  # Check that the user does not already have a pending application. Move this to model?
+	  if invited_user.has_pending_application_to_project?(project)
+		  redirect_to project, alert: 'This user has a pending application to this project.'
 		  return
 		end
 		
-		# Check that the user does not already have active invitation. Move this to model?
-	  if invited_user.has_active_invitation?(project)
-		  redirect_to project, alert: 'This user has already been invited to this project.'
+		# Check that the user does not already have a pending invitation. Move this to model?
+	  if invited_user.has_pending_invitation_to_project?(project)
+		  redirect_to project, alert: 'This user already has a pending invitation to this project.'
 		  return
 		end
 		
@@ -103,15 +104,27 @@ class CollaborationInvitationsController < ApplicationController
       @collaboration_invitation = CollaborationInvitation.find(params[:id])
     end
 
+    def set_invited_user
+	    @invited_user = User.find(params[:user_id])
+    end
+
     # Authenticate the signed in user as the invited user
-    def authenticate_current_user_as_invited_user
+    def check_current_user_is_invited_user
 	    invited_user = @collaboration_invitation.invited_user
 	    unless current_user == invited_user
 	      flash[:alert] = 'This invitation is not for you!'
 	      redirect_to :back
 	    end
 	  end
-	
+
+    # Make sure a user does not invite himself to a project
+    def check_current_user_not_invited_user
+	    if current_user == @invited_user
+	      flash[:alert] = "You can't invite yourself!"
+	      redirect_to :back
+	    end
+	  end
+	    	
     # Never trust parameters from the scary internet, only allow the white list through.
     #def collaboration_invitation_params
     #  params.require(:collaboration_invitation).permit(:project_id, :message, :invited_user_id, :invited_by_user_id, :status)

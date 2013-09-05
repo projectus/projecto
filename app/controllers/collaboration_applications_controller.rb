@@ -2,7 +2,7 @@ class CollaborationApplicationsController < ApplicationController
 	# See the bottom of this controller for the definitions of these methods
   before_action :set_collaboration_application, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
-  before_action :authenticate_current_user_as_project_owner, only: [:edit, :update]
+  before_action :check_current_user_is_project_owner, only: [:edit, :update]
   before_action :check_application_active, only: [:edit, :update]
   before_action :check_application_pending, only: [:edit, :update]
 
@@ -28,14 +28,14 @@ class CollaborationApplicationsController < ApplicationController
 		end
 
 	  # Check that the user does not already have active application. Move this to model?
-	  if current_user.has_active_application?(project)
-		  redirect_to project, alert: 'You have already applied to this project.'
+	  if current_user.has_pending_application_to_project?(project)
+		  redirect_to project, alert: 'You already have a pending application to this project.'
 		  return
 		end
 		
 		# Check that the user does not already have active invitation. Move this to model?
-	  if current_user.has_active_invitation?(project)
-		  redirect_to project, alert: 'You have already been invited to this project.'
+	  if current_user.has_pending_invitation_to_project?(project)
+		  redirect_to project, alert: 'You already have a pending invitation to this project.'
 		  return
 		end
 				
@@ -57,7 +57,7 @@ class CollaborationApplicationsController < ApplicationController
 		
     respond_to do |format|
       if @collaboration_application.save
-        format.html { redirect_to @collaboration_application, notice: 'Collaboration application was successfully created.' }
+        format.html { redirect_to @collaboration_application, notice: 'Application was successfully created.' }
         format.json { render action: 'show', status: :created, location: @collaboration_application }
       else
         format.html { render action: 'new' }
@@ -100,9 +100,9 @@ class CollaborationApplicationsController < ApplicationController
     end
 
     # Authenticate the signed in user as the project owner
-    def authenticate_current_user_as_project_owner
+    def check_current_user_is_project_owner
 	    project = @collaboration_application.project
-	    if current_user.collaborations.find_by_project_id_and_role(project,'owner').nil?
+	    unless current_user == project.owner
 	      flash[:alert] = "You don't have the permissions to make changes to this project"
 	      redirect_to :back
 	    end
