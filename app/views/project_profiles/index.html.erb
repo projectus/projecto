@@ -1,0 +1,31 @@
+<h1>Listing project_profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Outline xml</th>
+      <th>Project</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_profiles.each do |project_profile| %>
+      <tr>
+        <td><%= project_profile.project_id %></td>
+        <td><%= project_profile.outline_xml %></td>
+        <td><%= project_profile.Project %></td>
+        <td><%= link_to 'Show', project_profile %></td>
+        <td><%= link_to 'Edit', edit_project_profile_path(project_profile) %></td>
+        <td><%= link_to 'Destroy', project_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project profile', new_project_profile_path %>

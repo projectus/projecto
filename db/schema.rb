@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130904205109) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20130906171609) do
 
   create_table "collaboration_applications", force: true do |t|
     t.integer  "project_id"
@@ -63,11 +60,32 @@ ActiveRecord::Schema.define(version: 20130904205109) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", force: true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.integer  "User_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["User_id"], name: "index_messages_on_User_id", using: :btree
+
+  create_table "project_profiles", force: true do |t|
+    t.integer  "project_id"
+    t.string   "outline_xml"
+    t.integer  "Project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_profiles", ["Project_id"], name: "index_project_profiles_on_Project_id", using: :btree
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
   create_table "taggings", force: true do |t|

@@ -1,0 +1,3 @@
+<% broadcast "/messages/new" do %>
+$("#chat").append("<%= escape_javascript render(@message) %>");
+<% end %>

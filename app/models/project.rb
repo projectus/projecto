@@ -5,6 +5,9 @@ class Project < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
 	has_many :taggings, dependent: :destroy
+
+  has_one :project_profile
+
 	has_many :tags, through: :taggings
 	
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
