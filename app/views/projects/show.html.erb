@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
 <strong>Collaborations:</strong>
 <% @project.collaborations.each do |collab| %>
   <br>
@@ -19,13 +24,3 @@
 <%= link_to 'Apply', new_project_collaboration_application_path(@project) %> |
 <%= link_to 'Show Comments', project_comments_path(@project) %> | 
 <%= link_to 'Back', projects_path %>
-
-|
-
-<%= link_to 'Edit Project Details', edit_project_profile_path %>
-
-<br>
-
-<%= @xml.outline_xml %>
-
-

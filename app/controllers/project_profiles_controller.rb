@@ -69,6 +69,6 @@ class ProjectProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_profile_params
-      params.require(:project_profile).permit(:project_id, :outline_xml, :Project_id)
+      params.require(:project_profile).permit(:outline_xml)
     end
 end

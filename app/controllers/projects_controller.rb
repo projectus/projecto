@@ -17,8 +17,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
      @project = Project.find(params[:id])
-
-     @xml = @project.project_profile
   end
 
   # GET /projects/new
@@ -36,23 +34,14 @@ class ProjectsController < ApplicationController
 
     @project = Project.new(project_params)
 
-    #Creates a project profile associates with the Project
-    # Dennis
-    @project_profile = @project.create_project_profile
-
-    @project_profile.Project = @project
-
-    @project_profile.outline_xml= "<outline><description></description><mission-statement></mission-statement></outline>"
-
-    # -------------------------------------------------------------
-
     respond_to do |format|
       if @project.save
-	      collab = Collaboration.create!(role: 'owner', project: @project, user: current_user)
-        format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{collab.user.username}" }
-        format.json { render action: 'show', status: :created, location: @project }
-
+	
+        @project.set_owner(current_user)
         @project_profile.save
+
+        format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{current_user.username}" }
+        format.json { render action: 'show', status: :created, location: @project }
       else
         format.html { render action: 'new' }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -92,7 +81,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :category, :tag_list)
+      params.require(:project).permit(:name, :category, :tag_list, :description)
     end
 
     def authenticate_current_user_as_project_owner
