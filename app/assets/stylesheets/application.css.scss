@@ -13,6 +13,8 @@
  *= require_tree .
  */
 
+@import "bootstrap";
+
 #login_info {
 	float: right;
 }
@@ -20,3 +22,11 @@
 #content {
 	margin:  30px 80px;
 }
+
+#stuff {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
