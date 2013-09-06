@@ -6,7 +6,6 @@
       <th>User</th>
       <th>Project</th>
       <th>Status</th>
-      <th>Active?</th>
       <th>Invited By</th>
       <th></th>
       <th></th>      
@@ -19,7 +18,6 @@
         <td><%= collaboration_invitation.invited_user.username %></td>
         <td><%= collaboration_invitation.project.name %></td>
         <td><%= collaboration_invitation.status %></td>
-        <td><%= collaboration_invitation.active %></td>
         <td><%= collaboration_invitation.invited_by_user.username %></td>
         <td><%= link_to 'Show', collaboration_invitation %></td>
         <td><%= link_to 'Destroy', collaboration_invitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

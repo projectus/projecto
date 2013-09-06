@@ -12,11 +12,6 @@ class CollaborationApplication < ActiveRecord::Base
 			deny
 	  end
 	end
-
-  def deactivate
-    self.active = 'no'
-    save
-	end
 		
   private
     def accept

@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20130904205109) do
     t.datetime "updated_at"
     t.string   "message"
     t.string   "status",            default: "pending"
-    t.string   "active",            default: "yes"
   end
 
   add_index "collaboration_applications", ["applicant_user_id"], name: "index_collaboration_applications_on_applicant_user_id", using: :btree
@@ -35,7 +34,6 @@ ActiveRecord::Schema.define(version: 20130904205109) do
     t.integer  "invited_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "active",             default: "yes"
     t.string   "status",             default: "pending"
     t.string   "message"
   end

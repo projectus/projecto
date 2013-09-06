@@ -31,30 +31,37 @@ class CollaborationInvitationsController < ApplicationController
   # POST /collaboration_invitations
   # POST /collaboration_invitations.json
   def create
-		invited_user = User.find(params[:collaboration_invitation][:invited_user_id])
-	  project = Project.find(params[:collaboration_invitation][:project_id])
+	  message = params[:collaboration_invitation][:message]
+	  @collaboration_invitation = CollaborationInvitation.new(message: message)
 	
+		@invited_user = User.find(params[:collaboration_invitation][:invited_user_id])
+	  project = Project.find(params[:collaboration_invitation][:project_id])
+
+		@collaboration_invitation.project = project
+		@collaboration_invitation.invited_user = @invited_user
+			
 	  # Check that the user is not already collaborating on this project. Move this to model?
-	  if invited_user.is_collaborating?(project)
-		  redirect_to project, alert: 'User is already collaborating on this project.'
+	  if @invited_user.is_collaborating_on_project?(project)
+		  @collaboration_invitation.errors[:base] << 'User is already collaborating on this project.'
+		  render action: 'new'
 		  return
 		end
 
 	  # Check that the user does not already have a pending application. Move this to model?
-	  if invited_user.has_pending_application_to_project?(project)
-		  redirect_to project, alert: 'This user has a pending application to this project.'
+	  if @invited_user.has_pending_application_to_project?(project)
+		  @collaboration_invitation.errors[:base] << 'This user has a pending application to this project.'
+		  render action: 'new'
 		  return
 		end
 		
 		# Check that the user does not already have a pending invitation. Move this to model?
-	  if invited_user.has_pending_invitation_to_project?(project)
-		  redirect_to project, alert: 'This user already has a pending invitation to this project.'
+	  if @invited_user.has_pending_invitation_to_project?(project)
+		  @collaboration_invitation.errors[:base] << 'This user has a pending invitation to this project.'
+		  render action: 'new'
 		  return
 		end
 		
-		# Create invitation using only permitted parameters
-	  permitted_params = params.require(:collaboration_invitation).permit(:project_id, :message, :invited_user_id)
-    @collaboration_invitation = CollaborationInvitation.new(permitted_params)
+    # Set the user which made the invitation to the current user
 		@collaboration_invitation.invited_by_user = current_user
 		
     respond_to do |format|

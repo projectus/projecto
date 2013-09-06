@@ -6,7 +6,6 @@
       <th>User</th>
       <th>Project</th>
       <th>Status</th>
-      <th>Active?</th>
       <th></th>
     </tr>
   </thead>
@@ -17,7 +16,6 @@
         <td><%= collaboration_application.user.username %></td>
         <td><%= collaboration_application.project.name %></td>
         <td><%= collaboration_application.status %></td>
-        <td><%= collaboration_application.active %></td>
         <td><%= link_to 'Show', collaboration_application %></td>
     <% end %>
   </tbody>

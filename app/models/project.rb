@@ -2,19 +2,25 @@ class Project < ActiveRecord::Base
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-	has_many :taggings
+	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
 	
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
+	has_many :invitations, class_name: 'CollaborationInvitation', dependent: :destroy
 
   def owner
 	  collaborations.find_by_role('owner').user
 	end
 		
 	def self.tagged_with(name)
-		Tag.find_by_name!(name.downcase).projects
+		tag = Tag.find_by_name(name.downcase)
+		unless tag.nil?
+			tag.projects
+		else
+			return []
+		end
 	end
 	
 	def self.tag_counts

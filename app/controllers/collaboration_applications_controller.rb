@@ -19,10 +19,10 @@ class CollaborationApplicationsController < ApplicationController
 
   # GET /projects/:project_id/application/new
   def new
-    project = Project.find(params[:project_id])
-		
+	  project = Project.find(params[:project_id])
+  		
 	  # Check that the user is not already collaborating on this project. Move this to model?
-	  if current_user.is_collaborating?(project)
+	  if current_user.is_collaborating_on_project?(project)
 		  redirect_to project, alert: 'You are already collaborating on this project.'
 		  return
 		end
@@ -51,8 +51,10 @@ class CollaborationApplicationsController < ApplicationController
   # POST /collaboration_applications.json
   def create
     #params[:collaboration_application].update({applicant_user_id: current_user.id})
-    permitted_params = params.require(:collaboration_application).permit(:project_id, :message)    
-    @collaboration_application = CollaborationApplication.new(permitted_params)
+    #permitted_params = params.require(:collaboration_application).permit(:project_id, :message)    
+    project = Project.find(params[:collaboration_application][:project_id])
+    message = params[:collaboration_application][:message]
+    @collaboration_application = CollaborationApplication.new(project: project, message: message)
 		@collaboration_application.user = current_user
 		
     respond_to do |format|
