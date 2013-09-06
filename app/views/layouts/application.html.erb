@@ -44,16 +44,31 @@
         <li><%= link_to 'Projects', projects_path %></li>
         <li class="divider"></li>
         <li><%= link_to 'Users', users_path %></li>
+	      <li class="divider"></li>
+      </ul>
+		
+      <ul class="right">
+	      <li class="has-form">
+		      <%= form_tag projects_path, method: :get do %>
+		        <div class="row collapse">
+	            <div class="small-8 columns">
+				        <%= text_field_tag :tag %>
+	            </div>
+	            <div class="small-4 columns">
+				        <%= submit_tag 'Search', class: 'button radius postfix', name: nil %>
+	            </div>
+		        </div>
+			    <% end %>	          
+	      </li>
       </ul>
 
-      <ul class="right">
-        <%= form_tag projects_path, method: :get do %>
-          <li><%= text_field_tag :tag %></li>
-          <li><%= submit_tag 'Search', class: :button, name: nil %></li>
-        <% end %>
-      </ul>
       </section>
   </nav>
+
+  <li class="divider"></li>	
+  <li class="has-form">
+
+  </li>
 
     <span id="login_info">
       <% if user_signed_in? %>
