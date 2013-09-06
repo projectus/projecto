@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_profile.project_id %>
+</p>
+
+<p>
+  <strong>Outline xml:</strong>
+  <%= @project_profile.outline_xml %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_profile.Project %>
+</p>
+
+<%= link_to 'Edit', edit_project_profile_path(@project_profile) %> |
+<%= link_to 'Back', project_profiles_path %>

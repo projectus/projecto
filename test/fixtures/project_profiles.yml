@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  outline_xml: MyString
+  Project_id: 
+
+two:
+  project_id: 1
+  outline_xml: MyString
+  Project_id: 

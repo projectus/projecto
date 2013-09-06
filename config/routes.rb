@@ -1,4 +1,8 @@
 Projecto::Application.routes.draw do
+  resources :messages
+
+  resources :project_profiles
+
   # You can have the root of your site routed with "root"
   root 'main#index'
 

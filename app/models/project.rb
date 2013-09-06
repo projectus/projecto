@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 
   has_many :comments
 
+  has_one :project_profile
+
 	has_many :taggings
 	has_many :tags, through: :taggings
 	

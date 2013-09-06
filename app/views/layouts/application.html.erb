@@ -14,9 +14,15 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   	<title><%= content_for?(:title) ? yield(:title) : "Projecto" %></title>
-
+    <%#= javascript_include_tag "jquery" %>
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
+
+    <%= javascript_include_tag "rails" %>
+
+    <%#= javascript_include_tag "application" %>
+
     <%= csrf_meta_tags %>
   </head>
 
