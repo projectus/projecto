@@ -1,10 +1,11 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require_tree .
 
-$(function(){ $(document).foundation(); });
+//= require_tree .
+//= require bootstrap
+
+//$(function(){ $(document).foundation(); });
 
 $(function() {
     var faye = new Faye.Client('http://localhost:9292/faye');

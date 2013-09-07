@@ -11,6 +11,8 @@ Projecto::Application.routes.draw do
   
   get "users", to: "users#index", as: :users
   get "users/show/:id", to: 'users#show', as: :user
+
+
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
