@@ -4,165 +4,61 @@
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-  <head>
-  	<meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
 
-  	<!-- Uncomment to make IE8 render like IE7 -->
-  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+  <!-- Uncomment to make IE8 render like IE7 -->
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Projecto" %></title>
-    <%#= javascript_include_tag "jquery" %>
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
+  <title><%= content_for?(:title) ? yield(:title) : "Projecto" %></title>
+  <%#= javascript_include_tag "jquery" %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
 
-    <%= javascript_include_tag "rails" %>
+  <%= javascript_include_tag "rails" %>
 
-    <%#= javascript_include_tag "application" %>
+  <%#= javascript_include_tag "application" %>
 
-    <%= csrf_meta_tags %>
-  </head>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <!-- Title Area -->
-      <li class="name">
-        <h1><a href="#">PROJECTORE</a></h1>
-      </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+<div class="navbar">
+  <div class="navbar-inner">
+
+    <ul class="nav">
+
+
+      <li><%= link_to "PROJECTO", root_path %></li>
+      <li><%= link_to 'Projects', projects_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to 'Users', users_path %></li>
     </ul>
+  </div>
+</div>
 
-    <section class="top-bar-section">
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <li><%= link_to 'Projects', projects_path %></li>
-        <li class="divider"></li>
-        <li><%= link_to 'Users', users_path %></li>
-        <li class="divider"></li>
-        <li class="has-dropdown"><a href="#">About</a>
-
-          <ul class="dropdown">
-            <li class="has-dropdown"><a href="#">Dropdown Level 1a</a>
-
-              <ul class="dropdown">
-                <li><label>Dropdown Level 2 Label</label></li>
-                <li><a href="#">Dropdown Level 2a</a></li>
-                <li><a href="#">Dropdown Level 2b</a></li>
-                <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
-
-                  <ul class="dropdown">
-                    <li><label>Dropdown Level 3 Label</label></li>
-                    <li><a href="#">Dropdown Level 3a</a></li>
-                    <li><a href="#">Dropdown Level 3b</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Dropdown Level 3c</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown Level 2d</a></li>
-                <li><a href="#">Dropdown Level 2e</a></li>
-                <li><a href="#">Dropdown Level 2f</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown Level 1b</a></li>
-            <li><a href="#">Dropdown Level 1c</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Dropdown Level 1d</a></li>
-            <li><a href="#">Dropdown Level 1e</a></li>
-            <li><a href="#">Dropdown Level 1f</a></li>
-            <li class="divider"></li>
-            <li><a href="#">See all &rarr;</a></li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-      </ul>
-
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="divider hide-for-small"></li>
-        <li class="has-dropdown"><a href="#">Main Item 4</a>
-
-          <ul class="dropdown">
-            <li><label>Dropdown Level 1 Label</label></li>
-            <li class="has-dropdown"><a href="#" class="">Dropdown Level 1a</a>
-
-              <ul class="dropdown">
-                <li><a href="#">Dropdown Level 2a</a></li>
-                <li><a href="#">Dropdown Level 2b</a></li>
-                <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
-
-                  <ul class="dropdown">
-                    <li><a href="#">Dropdown Level 3a</a></li>
-                    <li><a href="#">Dropdown Level 3b</a></li>
-                    <li><a href="#">Dropdown Level 3c</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown Level 2d</a></li>
-                <li><a href="#">Dropdown Level 2e</a></li>
-                <li><a href="#">Dropdown Level 2f</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Dropdown Level 1b</a></li>
-            <li><a href="#">Dropdown Level 1c</a></li>
-            <li class="divider"></li>
-            <li><label>Dropdown Level 1 Label</label></li>
-            <li><a href="#">Dropdown Level 1d</a></li>
-            <li><a href="#">Dropdown Level 1e</a></li>
-            <li><a href="#">Dropdown Level 1f</a></li>
-            <li class="divider"></li>
-            <li><a href="#">See all &rarr;</a></li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-        <li class="has-form">
-          <form>
-            <div class="row collapse">
-              <div class="small-8 columns">
-                <input type="text">
-              </div>
-              <div class="small-4 columns">
-                <a href="#" class="alert button">Search</a>
-              </div>
-            </div>
-          </form>
-        </li>
-        <li class="divider show-for-small"></li>
-        <li class="has-form">
-          <a class="button" href="#">Button!</a>
-        </li>
-
-        <li><%= link_to "New Project", new_project_path %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      </ul>
-    </section>
-  </nav>
-
-
-  <span id="login_info">
+    <span id="login_info">
       <% if user_signed_in? %>
         Signed in as <b><%= current_user.username %></b> (<%= current_user.email %>). Not you?
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
       <% end %>
-  </span>
+    </span>
 
-  <% flash.each do |name, msg| %>
-     <%= content_tag :div, msg, id: "#{name}" %>
-  <% end %>
- 
-  <div id="content">
-     <%= yield %>
-  </div>
-   
-    <%= javascript_include_tag "application" %>
-  </body>
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, id: "#{name}" %>
+<% end %>
+
+<div id="content">
+  <%= yield %>
+</div>
+
+<%= javascript_include_tag "application" %>
+</body>
 </html>
