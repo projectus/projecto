@@ -101,18 +101,10 @@ class CollaborationApplicationsController < ApplicationController
     # Authenticate the signed in user as the project owner
     def check_current_user_is_project_owner
 	    project = @collaboration_application.project
-	    unless current_user == project.owner
+	    unless project.owned_by?(current_user)
 	      flash[:alert] = "You don't have the permissions to make changes to this project"
 	      redirect_to :back
 	    end
-	  end
-
-    # Only allow active applications to be accepted or denied.
-    def check_application_active
-	    unless @collaboration_application.active == 'yes'
-		    flash[:alert] = 'This application is not active.'
-		    redirect_to :back
-		  end
 	  end
 	
     # Only allow pending applications to be accepted or denied.

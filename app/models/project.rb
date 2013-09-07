@@ -1,17 +1,26 @@
 class Project < ActiveRecord::Base
+
+  PROJECT_CATEGORIES = [ "Engineering", "Science", "Arts", "Music", "Sports" ]
+	
+# Associations ################################
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
 
   has_many :comments, dependent: :destroy
-
 	has_many :taggings, dependent: :destroy
+	has_many :tags, through: :taggings
 
   has_one :project_profile
-
-	has_many :tags, through: :taggings
 	
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
 	has_many :invitations, class_name: 'CollaborationInvitation', dependent: :destroy
+
+##################################################
+# Validation goes here ###########################
+
+  validates :category, inclusion: PROJECT_CATEGORIES
+
+##################################################
 
   def set_owner(user)
 	  owner_collab = collaborations.find_by_role('owner')
@@ -26,7 +35,11 @@ class Project < ActiveRecord::Base
   def owner
 	  collaborations.find_by_role('owner').user
 	end
-	
+
+  def owned_by?(user)
+	  return user == self.owner
+	end
+		
 	def self.tagged_with(name)
 		tag = Tag.find_by_name(name.downcase)
 		unless tag.nil?

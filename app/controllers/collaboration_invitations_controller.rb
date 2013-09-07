@@ -21,7 +21,11 @@ class CollaborationInvitationsController < ApplicationController
   # GET /projects/:project_id/users/:user_id/invitation/new
   def new
 	  @collaboration_invitation = CollaborationInvitation.new
-    @collaboration_invitation.invited_user = @invited_user		
+    @collaboration_invitation.invited_user = @invited_user
+    @owned_projects = current_user.owned_projects
+    if @owned_projects.empty?
+	    redirect_to user_path(@invited_user), alert: 'You have no projects you can invite to.'
+	  end		
   end
 
   # GET /collaboration_invitations/1/edit

@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <%= f.select(:project_id, current_user.owned_projects.collect {|p| [ p.name, p.id ] }) %>
+  <%= f.select(:project_id, @owned_projects.collect {|p| [ p.name, p.id ] }, selected: @owned_projects.first.id) %>
   
   <div class="row">
     <%= f.label :message %>
     <%= f.text_area :message %>    
   </div>
-  
+    
   <%= f.hidden_field :invited_user_id %>
   
   <div class="actions">

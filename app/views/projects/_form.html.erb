@@ -20,7 +20,7 @@
   
   <div class="row">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.select(:category, Project::PROJECT_CATEGORIES) %>
   </div>
   
   <div class="row">

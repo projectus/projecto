@@ -35,10 +35,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     respond_to do |format|
-      if @project.save
-	
+      if @project.save	
         @project.set_owner(current_user)
-        #@project_profile.save
 
         format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{current_user.username}" }
         format.json { render action: 'show', status: :created, location: @project }
