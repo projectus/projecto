@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
       if @project.save
 	
         @project.set_owner(current_user)
-        @project_profile.save
+        #@project_profile.save
 
         format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{current_user.username}" }
         format.json { render action: 'show', status: :created, location: @project }

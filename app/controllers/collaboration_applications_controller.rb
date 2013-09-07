@@ -49,9 +49,7 @@ class CollaborationApplicationsController < ApplicationController
 
   # POST /collaboration_applications
   # POST /collaboration_applications.json
-  def create
-    #params[:collaboration_application].update({applicant_user_id: current_user.id})
-    #permitted_params = params.require(:collaboration_application).permit(:project_id, :message)    
+  def create   
     project = Project.find(params[:collaboration_application][:project_id])
     message = params[:collaboration_application][:message]
     @collaboration_application = CollaborationApplication.new(project: project, message: message)
@@ -71,7 +69,6 @@ class CollaborationApplicationsController < ApplicationController
   # PATCH/PUT /collaboration_applications/1
   # PATCH/PUT /collaboration_applications/1.json
   def update
-	  #puts collaboration_application_params
     respond_to do |format|
 	    permitted_params = params.require(:collaboration_application).permit(:status)
       if @collaboration_application.update(permitted_params)
@@ -109,11 +106,6 @@ class CollaborationApplicationsController < ApplicationController
 	      redirect_to :back
 	    end
 	  end
-	
-    # Never trust parameters from the scary internet, only allow the white list through.
-    #def collaboration_application_params
-    #  params.require(:collaboration_application).permit(:project_id, :message, :applicant_user_id, :status)
-    #end
 
     # Only allow active applications to be accepted or denied.
     def check_application_active
