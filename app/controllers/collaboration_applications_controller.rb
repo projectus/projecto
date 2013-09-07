@@ -3,7 +3,6 @@ class CollaborationApplicationsController < ApplicationController
   before_action :set_collaboration_application, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
   before_action :check_current_user_is_project_owner, only: [:edit, :update]
-  before_action :check_application_active, only: [:edit, :update]
   before_action :check_application_pending, only: [:edit, :update]
 
   # GET /collaboration_applications
@@ -49,10 +48,8 @@ class CollaborationApplicationsController < ApplicationController
 
   # POST /collaboration_applications
   # POST /collaboration_applications.json
-  def create   
-    project = Project.find(params[:collaboration_application][:project_id])
-    message = params[:collaboration_application][:message]
-    @collaboration_application = CollaborationApplication.new(project: project, message: message)
+  def create
+    @collaboration_application = CollaborationApplication.new(collaboration_application_params)
 		@collaboration_application.user = current_user
 		
     respond_to do |format|
@@ -96,6 +93,11 @@ class CollaborationApplicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_collaboration_application
       @collaboration_application = CollaborationApplication.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def collaboration_application_params
+      params.require(:collaboration_application).permit(:project_id, :message)
     end
 
     # Authenticate the signed in user as the project owner

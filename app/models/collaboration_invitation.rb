@@ -6,6 +6,9 @@ class CollaborationInvitation < ActiveRecord::Base
   # Make sure that a user cannot be invited more than once to a project.
   #validates_uniqueness_of :invited_user_id, :scope => :project_id
 
+  validates :invited_user, presence: true
+  validates :invited_by_user, presence: true
+
   def cash_in
 	  if self.status == 'accepted'
 		  accept

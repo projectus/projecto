@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_current_user_is_project_owner, only: [:edit, :update]
 
   # GET /comments
   # GET /comments.json
@@ -13,11 +15,11 @@ class CommentsController < ApplicationController
   def show
   end
 
-  # GET /comments/new
+  # GET projects/:project_id/comments/new
   def new
     @comment = Comment.new
     @comment.user = current_user
-    @comment.project = Project.find(params[:project_id])
+    @comment.project_id = params[:project_id]
   end
 
   # GET /comments/1/edit
@@ -72,6 +74,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :project_id, :plus, :minus)
+      params.require(:comment).permit(:content, :user_id, :project_id)
     end
 end
