@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  details: MyString
+  priority: 1
+  status: MyString
+  poster_id: 1
+
+two:
+  title: MyString
+  details: MyString
+  priority: 1
+  status: MyString
+  poster_id: 1

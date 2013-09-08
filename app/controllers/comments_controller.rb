@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_current_user_is_project_owner, only: [:edit, :update]
+  before_action :check_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
   # GET projects/:project_id/comments/new
   def new
     @comment = Comment.new
-    @comment.user = current_user
     @comment.project_id = params[:project_id]
   end
 
@@ -29,7 +28,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.build(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -74,6 +73,13 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :user_id, :project_id)
+      params.require(:comment).permit(:content, :project_id)
     end
+
+    # Authenticate the signed in user as the one who wrote the comment
+    def check_comment_belongs_to_current_user
+	    unless @comment.user == current_user
+	      redirect_to :back, alert: "This comment doesn't belong to you!"
+	    end
+	  end
 end

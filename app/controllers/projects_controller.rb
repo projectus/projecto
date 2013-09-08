@@ -6,7 +6,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-	  if params[:tag]
+	  if params[:cat]
+	    @projects = Project.find_all_by_category(params[:cat])
+    elsif params[:tag]
 	    @projects = Project.tagged_with(params[:tag])
 	  else
 	    @projects = Project.all
@@ -31,13 +33,11 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-
     @project = Project.new(project_params)
+    @project.owner = current_user
 
     respond_to do |format|
       if @project.save	
-        @project.set_owner(current_user)
-
         format.html { redirect_to @project, notice: "Project was successfully created. Owned by #{current_user.username}" }
         format.json { render action: 'show', status: :created, location: @project }
       else
@@ -83,7 +83,7 @@ class ProjectsController < ApplicationController
     end
 
     def authenticate_current_user_as_project_owner
-		  if current_user.collaborations.find_by_project_id_and_role(@project,'owner').nil?
+		  unless @project.owned_by?(current_user)
 		    flash[:alert] = "You don't have the permissions to make changes to this project"
 		    redirect_to :back
 		  end

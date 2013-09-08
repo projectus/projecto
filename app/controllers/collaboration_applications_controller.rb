@@ -18,28 +18,28 @@ class CollaborationApplicationsController < ApplicationController
 
   # GET /projects/:project_id/application/new
   def new
-	  project = Project.find(params[:project_id])
+	  @project = Project.find(params[:project_id])
   		
 	  # Check that the user is not already collaborating on this project. Move this to model?
-	  if current_user.is_collaborating_on_project?(project)
-		  redirect_to project, alert: 'You are already collaborating on this project.'
+	  if current_user.is_associated_with_project?(@project)
+		  redirect_to @project, alert: 'You are already collaborating on this project.'
 		  return
 		end
 
 	  # Check that the user does not already have active application. Move this to model?
-	  if current_user.has_pending_application_to_project?(project)
-		  redirect_to project, alert: 'You already have a pending application to this project.'
+	  if current_user.has_pending_application_to_project?(@project)
+		  redirect_to @project, alert: 'You already have a pending application to this project.'
 		  return
 		end
 		
 		# Check that the user does not already have active invitation. Move this to model?
-	  if current_user.has_pending_invitation_to_project?(project)
-		  redirect_to project, alert: 'You already have a pending invitation to this project.'
+	  if current_user.has_pending_invitation_to_project?(@project)
+		  redirect_to @project, alert: 'You already have a pending invitation to this project.'
 		  return
 		end
 				
     @collaboration_application = CollaborationApplication.new		
-    @collaboration_application.project = project
+    @collaboration_application.project = @project
   end
 
   # GET /collaboration_applications/1/edit
@@ -49,8 +49,7 @@ class CollaborationApplicationsController < ApplicationController
   # POST /collaboration_applications
   # POST /collaboration_applications.json
   def create
-    @collaboration_application = CollaborationApplication.new(collaboration_application_params)
-		@collaboration_application.user = current_user
+		@collaboration_application = current_user.collaboration_applications.build(collaboration_application_params)
 		
     respond_to do |format|
       if @collaboration_application.save
@@ -102,8 +101,7 @@ class CollaborationApplicationsController < ApplicationController
 
     # Authenticate the signed in user as the project owner
     def check_current_user_is_project_owner
-	    project = @collaboration_application.project
-	    unless project.owned_by?(current_user)
+	    unless @collaboration_application.project.owned_by?(current_user)
 	      flash[:alert] = "You don't have the permissions to make changes to this project"
 	      redirect_to :back
 	    end

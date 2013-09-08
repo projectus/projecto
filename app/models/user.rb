@@ -10,18 +10,22 @@ class User < ActiveRecord::Base
 
   has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
+  has_many :owned_projects, class_name: 'Project', foreign_key: :owner_id, dependent: :destroy
 	
   has_many :collaboration_applications, foreign_key: :applicant_user_id, dependent: :destroy
   has_many :collaboration_invitations, foreign_key: :invited_user_id, dependent: :destroy
 
   has_many :comments, dependent: :destroy
+  has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
-  def owned_projects
-	  collaborations.find_all_by_role('owner').collect {|c| c.project}
-	end
+  #def owned_projects
+	#  collaborations.find_all_by_role('owner').collect {|c| c.project}
+	#end
 
-  def is_collaborating_on_project?(project)
-	  !collaborations.find_by_project_id(project).nil?
+  def is_associated_with_project?(project)
+	  a = !collaborations.find_by_project_id(project).nil?
+	  b = self == project.owner
+	  return a || b
 	end
 	
 	def has_pending_application_to_project?(project)

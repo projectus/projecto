@@ -1,4 +1,4 @@
-<h1>Apply to <%= @collaboration_application.project.name %></h1>
+<h1>Apply to <%= link_to @project.name, project_path(@project) %></h1>
 
 <%= render 'form' %>
 

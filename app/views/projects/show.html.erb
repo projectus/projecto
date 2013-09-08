@@ -14,11 +14,16 @@
 </p>
 
 <p>
-<strong>Collaborations:</strong>
-<% @project.collaborations.each do |collab| %>
-  <br>
-  Role: <%= collab.role %>, Username: <%= collab.user.username %> 
-<% end %>
+  <strong>Owned by:</strong>
+  <%= link_to @project.owner.username, user_path(@project.owner) %>
+</p>
+
+<p>
+<strong>Collaborations: <%= link_to 'Show', project_collaborations_path(@project) %></strong>
+</p>
+
+<p>
+<strong>Task groups: <%= link_to 'Show', project_task_groups_path(@project) %></strong>
 </p>
 
 <%= link_to 'Apply', new_project_collaboration_application_path(@project) %> |

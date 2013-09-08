@@ -5,13 +5,13 @@
 
 <p>
   <strong>User:</strong>
-  <%= @collaboration.user %>
+  <%= @collaboration.user.username %>
 </p>
 
 <p>
   <strong>Project:</strong>
-  <%= @collaboration.project %>
+  <%= @collaboration.project.name %>
 </p>
 
 <%= link_to 'Edit', edit_collaboration_path(@collaboration) %> |
-<%= link_to 'Back', collaborations_path %>
+<%= link_to 'Back', project_collaborations_path(@collaboration.project) %>

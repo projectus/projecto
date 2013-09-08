@@ -1,0 +1,9 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @task_group.name %>
+</p>
+
+<%= link_to 'View tasks', task_group_tasks_path(@task_group) %> | 
+<%= link_to 'Edit', edit_task_group_path(@task_group) %> |
+<%= link_to 'Back to task groups', project_task_groups_path(@task_group.project) %>

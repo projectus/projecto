@@ -2,8 +2,8 @@ class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
       t.string :content
-      t.integer :user_id
-      t.integer :project_id
+      t.belongs_to :user, index: true
+      t.belongs_to :project, index: true
       t.integer :plus
       t.integer :minus
 

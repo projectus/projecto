@@ -1,8 +1,8 @@
 class CollaborationInvitationsController < ApplicationController
   before_action :set_collaboration_invitation, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
+	before_action :set_invited_user, only: [:new]
 	before_action :check_current_user_not_invited_user, only: [:new]
-	before_action :get_current_user_owned_projects, only: [:new, :create]
 	before_action :check_current_user_is_invited_user, only: [:edit, :update]
   before_action :check_invitation_pending, only: [:edit, :update]
 
@@ -20,7 +20,8 @@ class CollaborationInvitationsController < ApplicationController
   # GET /projects/:project_id/users/:user_id/invitation/new
   def new
 	  @collaboration_invitation = CollaborationInvitation.new
-    @collaboration_invitation.invited_user_id = params[:user_id]		
+    @collaboration_invitation.invited_user = @invited_user
+    set_owned_projects		
   end
 
   # GET /collaboration_invitations/1/edit
@@ -36,22 +37,25 @@ class CollaborationInvitationsController < ApplicationController
 	  project = Project.find(@collaboration_invitation.project)
 				
 	  # Check that the user is not already collaborating on this project. Move this to model?
-	  if @invited_user.is_collaborating_on_project?(project)
-		  @collaboration_invitation.errors[:base] << 'User is already collaborating on this project.'
+	  if @invited_user.is_associated_with_project?(project)
+		  @collaboration_invitation.errors[:base] << "#{@invited_user.username} is already collaborating on this project."
+		  set_owned_projects
 		  render action: 'new'
 		  return
 		end
 
 	  # Check that the user does not already have a pending application. Move this to model?
 	  if @invited_user.has_pending_application_to_project?(project)
-		  @collaboration_invitation.errors[:base] << 'This user has a pending application to this project.'
+		  @collaboration_invitation.errors[:base] << "#{@invited_user.username} has a pending application to this project."
+		  set_owned_projects
 		  render action: 'new'
 		  return
 		end
 		
 		# Check that the user does not already have a pending invitation. Move this to model?
 	  if @invited_user.has_pending_invitation_to_project?(project)
-		  @collaboration_invitation.errors[:base] << 'This user has a pending invitation to this project.'
+		  @collaboration_invitation.errors[:base] << "#{@invited_user.username} has a pending invitation to this project."
+		  set_owned_projects
 		  render action: 'new'
 		  return
 		end
@@ -111,8 +115,12 @@ class CollaborationInvitationsController < ApplicationController
       params.require(:collaboration_invitation).permit(:project_id, :message, :invited_user_id)
     end
 
-    def get_current_user_owned_projects
-	    @owned_projects = current_user.owned_projects
+    def set_invited_user
+		  @invited_user = User.find(params[:user_id])
+	  end
+		
+    def set_owned_projects
+	    @owned_projects = current_user.owned_projects.all
 	    if @owned_projects.empty?
 		    redirect_to :back, alert: 'You have no projects you can invite to.'
 		  end
@@ -127,7 +135,7 @@ class CollaborationInvitationsController < ApplicationController
 
     # Make sure a user does not invite himself to a project
     def check_current_user_not_invited_user
-	    if current_user.id == params[:user_id]
+	    if current_user == @invited_user
 	      redirect_to :back, alert: "You can't invite yourself!"
 	    end
 	  end

@@ -6,7 +6,8 @@ class CollaborationsController < ApplicationController
   # GET /collaborations
   # GET /collaborations.json
   def index
-    @collaborations = Collaboration.all
+	  @project = Project.find(params[:project_id])
+    @collaborations = @project.collaborations
   end
 
   # GET /collaborations/1
@@ -41,8 +42,7 @@ class CollaborationsController < ApplicationController
 
   # PATCH/PUT /collaborations/1
   # PATCH/PUT /collaborations/1.json
-  def update
-	
+  def update	
     respond_to do |format|
       if @collaboration.update(params.require(:collaboration).permit(:role))
         format.html { redirect_to @collaboration, notice: 'Collaboration was successfully updated.' }
@@ -59,7 +59,7 @@ class CollaborationsController < ApplicationController
   def destroy
     @collaboration.destroy
     respond_to do |format|
-      format.html { redirect_to collaborations_url }
+      format.html { redirect_to project_collaborations_url }
       format.json { head :no_content }
     end
   end
@@ -72,8 +72,7 @@ class CollaborationsController < ApplicationController
 
     # Authenticate the signed in user as the project owner
     def authenticate_current_user_as_project_owner
-	    owner = @collaboration.project.owner
-	    unless current_user == owner
+	    unless @collaboration.project.owned_by?(current_user)
 	      flash[:alert] = "You don't have the permissions to modify this collaboration"
 	      redirect_to :back
 	    end
@@ -81,8 +80,7 @@ class CollaborationsController < ApplicationController
 	
 	  # Authenticate the signed in user as the project owner or collaborator in question
     def authenticate_current_user_as_collaborator_or_owner
-	    owner = @collaboration.project.owner
-	    unless current_user == owner
+	    unless @collaboration.project.owned_by?(current_user)
 		    unless @collaboration.user == current_user
 	        flash[:alert] = "You don't have the permissions to delete this collaboration"
 	        redirect_to :back
