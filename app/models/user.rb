@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	
   validates :username, presence: true
 
+  before_create :b_profile
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -18,6 +20,8 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
+  has_one :profile, foreign_key: :User_id
+
   def is_associated_with_project?(project)
 	  a = !collaborations.find_by_project_id(project).nil?
 	  b = self == project.owner
@@ -30,5 +34,11 @@ class User < ActiveRecord::Base
 
 	def has_pending_invitation_to_project?(project)
 	  !collaboration_invitations.find_by_project_id_and_status(project,'pending').nil?
-	end
+  end
+
+  def b_profile
+     build_profile
+
+  end
+
 end
