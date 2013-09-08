@@ -22,10 +22,13 @@
 <% end %>
 </p>
 
-<% form_for :invitation do |f| %>
-  <%= hidden_field(:user, :id) %>
-  <%= f.submit %>
+<p>
+<strong>Owned projects:</strong>
+<% @user.owned_projects.each do |project| %>
+  <br>
+  <%= project.name %>
 <% end %>
+</p>
 
 <%= link_to 'Invite to project', new_user_collaboration_invitation_path(@user) %> | 
 <%= link_to 'Back', users_path %>

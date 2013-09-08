@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def show
   end
 
-  # GET projects/:project_id/comments/new
+  # GET projects/1/comments/new
   def new
     @comment = Comment.new
     @comment.project_id = params[:project_id]

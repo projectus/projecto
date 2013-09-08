@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.select(:project_id, @owned_projects.collect {|p| [ p.name, p.id ] }, selected: @owned_projects.first.id) %>
+  <%= f.select(:project_id, current_user.owned_projects.collect {|p| [ p.name, p.id ] }) %>
   
   <div class="row">
     <%= f.label :message %>

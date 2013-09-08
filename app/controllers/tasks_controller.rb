@@ -1,14 +1,22 @@
 class TasksController < ApplicationController
-  before_action :set_task_and_project, only: [:show, :edit, :update, :destroy]
-  before_action :set_task_group_and_project, only: [:new, :index, :create]
-  before_action(except: [:index, :show]) do 
-	  authenticate_current_user_as_project_owner(@project, 
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+
+  # Authenticate current user as project owner. Set project depending on the action.
+  before_action(except: [:index, :show]) do
+	  if @task.nil?
+		  task_group = TaskGroup.find(params[:task_group_id]||=params[:task][:task_group_id])
+		  project = task_group.project
+		else
+	    project = @task.task_group.project
+	  end
+	  authenticate_current_user_as_project_owner(project, 
 	                       "You don't have the permissions to modify tasks.")
 	end
 
   # GET /tasks
   # GET /tasks.json
   def index
+	  @task_group = TaskGroup.find(params[:task_group_id])
     @tasks = @task_group.tasks
   end
 
@@ -17,10 +25,10 @@ class TasksController < ApplicationController
   def show
   end
 
-  # GET /tasks/new
+  # GET task_groups/1/tasks/new
   def new
     @task = Task.new
-    @task.task_group = @task_group
+    @task.task_group_id = params[:task_group_id]
   end
 
   # GET /tasks/1/edit
@@ -70,19 +78,9 @@ class TasksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_task_and_project
+    def set_task
       @task = Task.find(params[:id])
-      @project = @task.task_group.project
     end
-
-    def set_task_group_and_project
-	    unless params[:task_group_id].nil?
-	      @task_group = TaskGroup.find(params[:task_group_id])
-	    else
-		    @task_group = TaskGroup.find(params[:task][:task_group_id])
-      end
-	    @project = @task_group.project
-	  end
 	
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params

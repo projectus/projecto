@@ -6,7 +6,7 @@ class CollaborationApplicationsController < ApplicationController
 	  authenticate_current_user_as_project_owner(@collaboration_application.project, 
 	                       "You don't have the permissions to accept or decline this application.")
 	end
-  before_action :check_application_pending, only: [:edit, :update]
+  #before_action :check_application_pending, only: [:edit, :update]
 
   # GET /collaboration_applications
   # GET /collaboration_applications.json
@@ -21,28 +21,8 @@ class CollaborationApplicationsController < ApplicationController
 
   # GET /projects/1/application/new
   def new
-	  project = Project.find(params[:project_id])
-	  		
-	  # Check that the user is not already collaborating on this project. Move this to model?
-	  if current_user.is_associated_with_project?(project)
-		  redirect_to project, alert: 'You are already collaborating on this project.'
-		  return
-	  end
-
-	  # Check that the user does not already have active application. Move this to model?
-	  if current_user.has_pending_application_to_project?(project)
-		  redirect_to project, alert: 'You already have a pending application to this project.'
-		  return
-		end
-		
-		# Check that the user does not already have active invitation. Move this to model?
-	  if current_user.has_pending_invitation_to_project?(project)
-		  redirect_to project, alert: 'You already have a pending invitation to this project.'
-		  return
-		end
-				
     @collaboration_application = CollaborationApplication.new		
-    @collaboration_application.project = project
+    @collaboration_application.project_id = params[:project_id]
   end
 
   # GET /collaboration_applications/1/edit
@@ -52,7 +32,7 @@ class CollaborationApplicationsController < ApplicationController
   # POST /collaboration_applications
   # POST /collaboration_applications.json
   def create
-		@collaboration_application = current_user.collaboration_applications.build(collaboration_application_params)
+		@collaboration_application = current_user.collaboration_applications.build(application_params)
 		
     respond_to do |format|
       if @collaboration_application.save
@@ -69,9 +49,9 @@ class CollaborationApplicationsController < ApplicationController
   # PATCH/PUT /collaboration_applications/1.json
   def update
     respond_to do |format|
-	    permitted_params = params.require(:collaboration_application).permit(:status)
-      if @collaboration_application.update(permitted_params)
-	      @collaboration_application.cash_in
+	    status_param = params.require(:collaboration_application).permit(:status)
+	
+      if @collaboration_application.update(status_param)
         format.html { redirect_to @collaboration_application, notice: "Application was successfully #{@collaboration_application.status}." }
         format.json { head :no_content }
       else
@@ -98,15 +78,7 @@ class CollaborationApplicationsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def collaboration_application_params
+    def application_params
       params.require(:collaboration_application).permit(:project_id, :message)
     end
-		
-    # Only allow pending applications to be accepted or denied.
-    def check_application_pending
-	    unless @collaboration_application.status == 'pending'
-		    flash[:alert] = "This application has already been #{@collaboration_application.status}"
-		    redirect_to :back
-		  end
-	  end
 end
