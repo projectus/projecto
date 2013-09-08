@@ -1,7 +1,8 @@
 Projecto::Application.routes.draw do
 
+  resources :user_profiles
   resources :messages
-  resources :project_profiles
+  resources :project_profiles, except: [:new, :create, :destroy]
 
   # You can have the root of your site routed with "root"
   root 'main#index'

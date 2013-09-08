@@ -2,7 +2,8 @@ class Project < ActiveRecord::Base
 
   CATEGORIES = [ "Engineering", "Science", "Arts", "Music", "Sports" ]
 	
-# Associations ################################
+  # Associations ################################
+
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
 	belongs_to :owner, class_name: 'User', foreign_key: :owner_id
@@ -20,13 +21,12 @@ class Project < ActiveRecord::Base
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
 	has_many :invitations, class_name: 'CollaborationInvitation', dependent: :destroy
 
-##################################################
-# Validation goes here ###########################
+  # Validation ################################
 
   validates :category, inclusion: CATEGORIES
   validates :owner, presence: true
 
-##################################################
+  # Public methods #################################
 
   def owned_by?(user)
 	  return user == self.owner

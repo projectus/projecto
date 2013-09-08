@@ -1,13 +1,21 @@
 class User < ActiveRecord::Base
 	
-  validates :username, presence: true
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Validation ##################################
+
+	validates :username, presence: true
+  
+  # After save ###################################
+ 
+	after_save :create_empty_profile, on: :create
+	
+	# Associations #################################
+			
   has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
   has_many :owned_projects, class_name: 'Project', foreign_key: :owner_id, dependent: :destroy
@@ -18,6 +26,10 @@ class User < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
+
+  has_one :user_profile, dependent: :destroy
+
+  # Public methods ###################################
 
   def is_associated_with_project?(project)
 	  a = collaborations.exists?(project: project)
@@ -31,5 +43,13 @@ class User < ActiveRecord::Base
 
 	def has_pending_invitation_to_project?(project)
 	  received_collaboration_invitations.exists?(project: project, status: 'pending')
-	end
+  end
+
+  # Private methods ###################################
+
+  private
+    # Create empty user_profile associated with self
+    def create_empty_profile
+      user_profile.create(card_xml: 'card', resume_xml: 'resume')
+    end
 end
