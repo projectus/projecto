@@ -18,10 +18,6 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
-  #def owned_projects
-	#  collaborations.find_all_by_role('owner').collect {|c| c.project}
-	#end
-
   def is_associated_with_project?(project)
 	  a = !collaborations.find_by_project_id(project).nil?
 	  b = self == project.owner

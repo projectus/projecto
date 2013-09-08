@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @collaboration %> |
-<%= link_to 'Back', collaborations_path %>
+<%= link_to 'Back', project_collaborations_path(@collaboration.project) %>

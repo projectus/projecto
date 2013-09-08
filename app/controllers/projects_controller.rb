@@ -1,8 +1,11 @@
 class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :authenticate_current_user_as_project_owner, except: [:show, :index, :new, :create]
-
+  before_action(except: [:show, :index, :new, :create]) do 
+	  authenticate_current_user_as_project_owner(@project, 
+	          "You don't have the permissions to modify this project.")
+	end
+	
   # GET /projects
   # GET /projects.json
   def index
@@ -33,8 +36,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
-    @project.owner = current_user
+    @project = current_user.owned_projects.build(project_params)
 
     respond_to do |format|
       if @project.save	
@@ -81,11 +83,4 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name, :category, :tag_list, :description)
     end
-
-    def authenticate_current_user_as_project_owner
-		  unless @project.owned_by?(current_user)
-		    flash[:alert] = "You don't have the permissions to make changes to this project"
-		    redirect_to :back
-		  end
-		end
 end

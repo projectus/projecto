@@ -1,12 +1,15 @@
 class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_current_user_as_project_owner, except: [:index, :destroy, :show]
+  before_action :set_project, only: [:index]
+	before_action(except: [:index, :destroy, :show]) do 
+	  authenticate_current_user_as_project_owner(@project||=@collaboration.project, 
+	                       "You don't have the permissions to modify this collaboration.")
+	end
   before_action :authenticate_current_user_as_collaborator_or_owner, only: [:destroy]
 
   # GET /collaborations
   # GET /collaborations.json
   def index
-	  @project = Project.find(params[:project_id])
     @collaborations = @project.collaborations
   end
 
@@ -57,9 +60,10 @@ class CollaborationsController < ApplicationController
   # DELETE /collaborations/1
   # DELETE /collaborations/1.json
   def destroy
+	  project = @collaboration.project
     @collaboration.destroy
     respond_to do |format|
-      format.html { redirect_to project_collaborations_url }
+      format.html { redirect_to project_collaborations_url(project) }
       format.json { head :no_content }
     end
   end
@@ -70,14 +74,10 @@ class CollaborationsController < ApplicationController
       @collaboration = Collaboration.find(params[:id])
     end
 
-    # Authenticate the signed in user as the project owner
-    def authenticate_current_user_as_project_owner
-	    unless @collaboration.project.owned_by?(current_user)
-	      flash[:alert] = "You don't have the permissions to modify this collaboration"
-	      redirect_to :back
-	    end
+    def set_project
+	    @project = Project.find(params[:project_id])
 	  end
-	
+		
 	  # Authenticate the signed in user as the project owner or collaborator in question
     def authenticate_current_user_as_collaborator_or_owner
 	    unless @collaboration.project.owned_by?(current_user)

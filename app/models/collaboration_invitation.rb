@@ -1,7 +1,9 @@
 class CollaborationInvitation < ActiveRecord::Base
   belongs_to :project
-  belongs_to :invited_user, :class_name => 'User', foreign_key: :invited_user_id
-  belongs_to :invited_by_user, :class_name => 'User', foreign_key: :invited_by_user_id
+  belongs_to :invited_user, class_name: 'User', foreign_key: :invited_user_id
+  belongs_to :invited_by_user, class_name: 'User', foreign_key: :invited_by_user_id
+
+  STATUSES = {accepted: 'accepted', declined: 'declined', pending: 'pending'}
 
   # Make sure that a user cannot be invited more than once to a project.
   #validates_uniqueness_of :invited_user_id, :scope => :project_id
@@ -9,10 +11,12 @@ class CollaborationInvitation < ActiveRecord::Base
   validates :invited_user, presence: true
   validates :invited_by_user, presence: true
 
+  validates :status, inclusion: {in: STATUSES}
+
   def cash_in
 	  if self.status == 'accepted'
 		  accept
-		elsif self.status == 'denied'
+		elsif self.status == 'declined'
 			deny
 	  end
 	end

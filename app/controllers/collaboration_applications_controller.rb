@@ -1,8 +1,11 @@
 class CollaborationApplicationsController < ApplicationController
 	# See the bottom of this controller for the definitions of these methods
-  before_action :set_collaboration_application, only: [:show, :edit, :update, :destroy]
+  before_action :set_collaboration_application, only: [:show, :edit, :update]
 	before_action :authenticate_user!
-  before_action :check_current_user_is_project_owner, only: [:edit, :update]
+	before_action(only: [:edit, :update]) do 
+	  authenticate_current_user_as_project_owner(@collaboration_application.project, 
+	                       "You don't have the permissions to accept or decline this application.")
+	end
   before_action :check_application_pending, only: [:edit, :update]
 
   # GET /collaboration_applications
@@ -16,30 +19,30 @@ class CollaborationApplicationsController < ApplicationController
   def show
   end
 
-  # GET /projects/:project_id/application/new
+  # GET /projects/1/application/new
   def new
-	  @project = Project.find(params[:project_id])
-  		
+	  project = Project.find(params[:project_id])
+	  		
 	  # Check that the user is not already collaborating on this project. Move this to model?
-	  if current_user.is_associated_with_project?(@project)
-		  redirect_to @project, alert: 'You are already collaborating on this project.'
-		  return
-		end
+	  #if current_user.is_associated_with_project?(@project)
+		#  redirect_to @project, alert: 'You are already collaborating on this project.'
+		#  return
+	  #end
 
 	  # Check that the user does not already have active application. Move this to model?
-	  if current_user.has_pending_application_to_project?(@project)
-		  redirect_to @project, alert: 'You already have a pending application to this project.'
-		  return
-		end
+	  #if current_user.has_pending_application_to_project?(project)
+		#  redirect_to project, alert: 'You already have a pending application to this project.'
+		#  return
+		#end
 		
 		# Check that the user does not already have active invitation. Move this to model?
-	  if current_user.has_pending_invitation_to_project?(@project)
-		  redirect_to @project, alert: 'You already have a pending invitation to this project.'
-		  return
-		end
+	  #if current_user.has_pending_invitation_to_project?(project)
+		#  redirect_to project, alert: 'You already have a pending invitation to this project.'
+		#  return
+		#end
 				
     @collaboration_application = CollaborationApplication.new		
-    @collaboration_application.project = @project
+    @collaboration_application.project = project
   end
 
   # GET /collaboration_applications/1/edit
@@ -98,15 +101,7 @@ class CollaborationApplicationsController < ApplicationController
     def collaboration_application_params
       params.require(:collaboration_application).permit(:project_id, :message)
     end
-
-    # Authenticate the signed in user as the project owner
-    def check_current_user_is_project_owner
-	    unless @collaboration_application.project.owned_by?(current_user)
-	      flash[:alert] = "You don't have the permissions to make changes to this project"
-	      redirect_to :back
-	    end
-	  end
-	
+		
     # Only allow pending applications to be accepted or denied.
     def check_application_pending
 	    unless @collaboration_application.status == 'pending'

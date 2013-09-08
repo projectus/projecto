@@ -24,22 +24,9 @@ class Project < ActiveRecord::Base
 # Validation goes here ###########################
 
   validates :category, inclusion: CATEGORIES
+  validates :owner, presence: true
 
 ##################################################
-
-#  def set_owner(user)
-#	  owner_collab = collaborations.find_by_role('owner')
-#	  if owner_collab.nil?
-#		  Collaboration.create!(role: 'owner', project: self, user: user)
-#		else
-#		  owner_collab.user = user
-#		  owner_collab.save
-#		end
-#	end
-		
-#  def owner
-#	  collaborations.find_by_role('owner').user
-#	end
 
   def owned_by?(user)
 	  return user == self.owner

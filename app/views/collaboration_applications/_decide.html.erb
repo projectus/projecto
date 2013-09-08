@@ -8,10 +8,10 @@
 <% end %>
 
 <%= form_for(@collaboration_application) do |f| %>
-  <%= f.hidden_field :status, value: 'denied' %>    
+  <%= f.hidden_field :status, value: 'declined' %>    
 
   <div class="actions">
-    <%= f.submit 'Deny' %>
+    <%= f.submit 'Decline' %>
   </div>
   
 <% end %>

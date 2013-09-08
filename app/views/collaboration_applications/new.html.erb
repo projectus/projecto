@@ -1,5 +1,6 @@
-<h1>Apply to <%= link_to @project.name, project_path(@project) %></h1>
+<h1>Apply to <%= link_to @collaboration_application.project.name, 
+                         @collaboration_application.project %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Cancel', project_path(@project) %>
+<%= link_to 'Cancel', @collaboration_application.project %>

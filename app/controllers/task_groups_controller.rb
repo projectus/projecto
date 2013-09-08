@@ -1,10 +1,14 @@
 class TaskGroupsController < ApplicationController
   before_action :set_task_group, only: [:show, :edit, :update, :destroy]
-
-  # GET /task_groups
-  # GET /task_groups.json
+  before_action :set_project, only: [:new, :index]
+  before_action(except: [:index, :show]) do 
+	  authenticate_current_user_as_project_owner(@project||=@task_group.project, 
+	                       "You don't have the permissions to modify task groups.")
+	end
+	
+  # GET /projects/1/task_groups
+  # GET /projects/1/task_groups.json
   def index
-	  @project = Project.find(params[:project_id])
     @task_groups = @project.task_groups
   end
 
@@ -13,10 +17,10 @@ class TaskGroupsController < ApplicationController
   def show
   end
 
-  # GET /task_groups/new
+  # GET /projects/1/task_groups/new
   def new
     @task_group = TaskGroup.new
-    @task_group.project_id = params[:project_id]
+    @task_group.project = @project
   end
 
   # GET /task_groups/1/edit
@@ -69,6 +73,10 @@ class TaskGroupsController < ApplicationController
       @task_group = TaskGroup.find(params[:id])
     end
 
+    def set_project
+	    @project = Project.find(params[:project_id])
+	  end
+	
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_group_params
       params.require(:task_group).permit(:name, :project_id)

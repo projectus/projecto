@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -77,7 +77,7 @@ class CommentsController < ApplicationController
     end
 
     # Authenticate the signed in user as the one who wrote the comment
-    def check_comment_belongs_to_current_user
+    def authenticate_comment_belongs_to_current_user
 	    unless @comment.user == current_user
 	      redirect_to :back, alert: "This comment doesn't belong to you!"
 	    end

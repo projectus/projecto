@@ -1,6 +1,6 @@
 <h1>Listing collaboration_applications</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>User</th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @collaboration_applications.each do |collaboration_application| %>
       <tr>
-        <td><%= collaboration_application.user.username %></td>
+        <td><%= collaboration_application.applicant.username %></td>
         <td><%= collaboration_application.project.name %></td>
         <td><%= collaboration_application.status %></td>
         <td><%= link_to 'Show', collaboration_application %></td>
