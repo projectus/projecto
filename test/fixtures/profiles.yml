@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  card_xml: MyString
+  resume_xml: MyString
+  User_id: 
+
+two:
+  card_xml: MyString
+  resume_xml: MyString
+  User_id: 

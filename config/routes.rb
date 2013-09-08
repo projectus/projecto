@@ -1,5 +1,7 @@
 Projecto::Application.routes.draw do
 
+  resources :profiles
+
   resources :messages
   resources :project_profiles
 
