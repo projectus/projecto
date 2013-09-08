@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_task_group, only: [:new, :index]
+  before_action :set_task_and_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_task_group_and_project, only: [:new, :index, :create]
   before_action(except: [:index, :show]) do 
-	  authenticate_current_user_as_project_owner(@task_group.project||=@task.task_group.project, 
+	  authenticate_current_user_as_project_owner(@project, 
 	                       "You don't have the permissions to modify tasks.")
 	end
 
@@ -60,25 +60,32 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+	  task_group = @task.task_group
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to task_group_tasks_url(task_group) }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_task
+    def set_task_and_project
       @task = Task.find(params[:id])
+      @project = @task.task_group.project
     end
 
-    def set_task_group
-	    @task_group = TaskGroup.find(params[:task_group_id])
+    def set_task_group_and_project
+	    unless params[:task_group_id].nil?
+	      @task_group = TaskGroup.find(params[:task_group_id])
+	    else
+		    @task_group = TaskGroup.find(params[:task][:task_group_id])
+      end
+	    @project = @task_group.project
 	  end
 	
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :details, :priority, :status, :task_group_id)
+      params.require(:task).permit(:title, :details, :priority, :task_group_id)
     end
 end

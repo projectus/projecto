@@ -24,22 +24,22 @@ class CollaborationApplicationsController < ApplicationController
 	  project = Project.find(params[:project_id])
 	  		
 	  # Check that the user is not already collaborating on this project. Move this to model?
-	  #if current_user.is_associated_with_project?(@project)
-		#  redirect_to @project, alert: 'You are already collaborating on this project.'
-		#  return
-	  #end
+	  if current_user.is_associated_with_project?(project)
+		  redirect_to project, alert: 'You are already collaborating on this project.'
+		  return
+	  end
 
 	  # Check that the user does not already have active application. Move this to model?
-	  #if current_user.has_pending_application_to_project?(project)
-		#  redirect_to project, alert: 'You already have a pending application to this project.'
-		#  return
-		#end
+	  if current_user.has_pending_application_to_project?(project)
+		  redirect_to project, alert: 'You already have a pending application to this project.'
+		  return
+		end
 		
 		# Check that the user does not already have active invitation. Move this to model?
-	  #if current_user.has_pending_invitation_to_project?(project)
-		#  redirect_to project, alert: 'You already have a pending invitation to this project.'
-		#  return
-		#end
+	  if current_user.has_pending_invitation_to_project?(project)
+		  redirect_to project, alert: 'You already have a pending invitation to this project.'
+		  return
+		end
 				
     @collaboration_application = CollaborationApplication.new		
     @collaboration_application.project = project

@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 20130907195144) do
     t.string   "title"
     t.string   "details"
     t.integer  "priority"
-    t.string   "status"
+    t.string   "status",                 default: 'in progress'
     t.integer  "poster_id"
     t.integer  "task_group_id"
     t.datetime "created_at"

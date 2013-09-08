@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @task_group %> |
-<%= link_to 'Back', task_groups_path %>
+<%= link_to 'Back', project_task_groups_path(@task_group.project) %>

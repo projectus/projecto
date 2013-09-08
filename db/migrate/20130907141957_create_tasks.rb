@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :title
       t.string :details
       t.integer :priority
-      t.string :status
+      t.string :status, default: 'in progress'
       t.integer :poster_id
 
       t.timestamps

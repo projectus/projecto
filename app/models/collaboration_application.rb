@@ -5,9 +5,9 @@ class CollaborationApplication < ActiveRecord::Base
   validates :applicant, presence: true
   validates :project, presence: true
 
-  validate :applicant_is_not_associated_with_project
-  validate :applicant_does_not_have_pending_application_to_project
-  validate :applicant_does_not_have_pending_invitation_to_project
+  #validate :applicant_is_not_associated_with_project
+  #validate :applicant_has_at_most_one_pending_application_to_project
+  #validate :applicant_does_not_have_pending_invitation_to_project
 
   # Make sure that a user cannot apply more than once to a project.
   #validates_uniqueness_of :applicant_user_id, :scope => :project_id
@@ -22,7 +22,7 @@ class CollaborationApplication < ActiveRecord::Base
 		
   private
     def accept
-	    Collaboration.create!(user: self.user, role: 'peasant', project: self.project)
+	    Collaboration.create!(user: self.applicant, role: 'peasant', project: self.project)
       #self.destroy
 	  end
 
@@ -30,21 +30,21 @@ class CollaborationApplication < ActiveRecord::Base
 	    #self.destroy
 	  end
 	
-	  def applicant_is_not_associated_with_project
-		  if applicant.is_associated_with_project?(project)
-			  errors[:base] << "You are already associated with this project."
-			end
-		end
+	  #def applicant_is_not_associated_with_project
+		#  if applicant.is_associated_with_project?(project)
+		#	  errors[:base] << "You are already associated with this project."
+		#	end
+		#end
 		
-		def applicant_does_not_have_pending_application_to_project
-		  if applicant.has_pending_application_to_project?(project)
-				errors[:base] << "You have a pending application to this project."
-			end
-		end
+		#def applicant_has_at_most_one_pending_application_to_project
+		#  if applica(project)
+		#		errors[:base] << "You may only have a single pending application to this project."
+		#	end
+		#end
 		
-		def applicant_does_not_have_pending_invitation_to_project
-		  if applicant.has_pending_invitation_to_project?(project)
-				errors[:base] << "You have a pending invitation to this project."
-			end
-		end
+		#def applicant_does_not_have_pending_invitation_to_project
+		#  if applicant.has_pending_invitation_to_project?(project)
+		#		errors[:base] << "You have a pending invitation to this project."
+		#	end
+		#end
 end
