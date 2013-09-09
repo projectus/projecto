@@ -26,7 +26,7 @@
 
 <body>
 
-  <div class="navbar navbar-static-top">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <ul class="nav">
         <li><%= link_to  "PROJECTORE", root_path, class: "brand" %></li>
@@ -66,7 +66,7 @@
       <ul class="nav">
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
-              <%= text_field_tag :tag %>
+              <%= text_field_tag :tag, nil, class: 'input-xxlarge', placeholder: 'What are you looking for?' %>
               <%= submit_tag 'Search', class: 'btn', name: nil %>
           <% end %>
         </li>
