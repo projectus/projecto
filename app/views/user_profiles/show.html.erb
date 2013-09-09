@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Card xml:</strong>
-  <%= @profile.card_xml %>
+  <%= @user_profile.card_xml %>
 </p>
 
 <p>
   <strong>Resume xml:</strong>
-  <%= @profile.resume_xml %>
+  <%= @user_profile.resume_xml %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @profile.User %>
+  <%= @user_profile.user.username %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>

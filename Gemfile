@@ -10,12 +10,12 @@ gem 'rails', '4.0.0'
 # Use Postgresql as the database for Active Record
 gem 'pg'
 
-gem 'faye'
+#gem 'faye'
 
-gem 'thin'
+#gem 'thin'
 
 # Use foundation framework
-gem 'zurb-foundation'
+#gem 'zurb-foundation'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
