@@ -27,10 +27,9 @@
 <body>
 
   <div class="navbar">
-    <div class="navbar-inner" style="padding: 0 10em">
+    <div class="navbar-inner">
       <ul class="nav">
-        <li><%= link_to  "PROJECTORE", root_path, :class=> "brand" %></li>
-
+        <li><%= link_to  "PROJECTORE", root_path, class: "brand" %></li>
         <li><%= link_to 'Projects', projects_path %></li>
         <li><%= link_to 'Members', users_path %></li>
         <li class="dropdown">
@@ -41,10 +40,30 @@
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
             <li class="nav-header">Nav header</li>
-             <li><a href="#">Separated link</a></li>
+            <li><a href="#">Separated link</a></li>
             <li><a href="#">One more separated link</a></li>
-          </ul></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav pull-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Profile", user_profile_path(current_user) %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+	        <li><%= link_to "Sign up", new_user_registration_path %></li>
+	        <li><%= link_to "Sign in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav pull-right">
+	      <% if user_signed_in? %>
+          <li><a>Signed in as <b><%= current_user.username %></b></a></li>
+        <% end %>
+      </ul>
+  </div>
 
+  <div class="bottom-navbar">
+    <div class="navbar-inner">
+      <ul class="nav nav-center">
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <%= text_field_tag :tag %>
@@ -52,35 +71,6 @@
           <% end %>
         </li>
       </ul>
-      <ul class="nav pull-right">
-
-            <li>
-              <% if user_signed_in? %>
-                  <%= link_to "Profile", user_profile_path(current_user) %>
-              <% end %>
-
-            </li>
-
-
-            <li>
-              <% if user_signed_in? %>
-                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-              <% end %>
-
-            </li>
-
-      </ul>
-
-
-  </div>
-
-  <div id="login_info">
-    <% if user_signed_in? %>
-      Signed in as <b><%= current_user.username %></b> (<%= current_user.email %>). Not you?
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
   </div>
 
   <% flash.each do |name, msg| %>

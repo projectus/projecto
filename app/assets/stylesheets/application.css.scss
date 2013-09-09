@@ -14,20 +14,15 @@
 
 @import "bootstrap";
 
-#login_info {
-	float: right;
-	margin-right: 20px;
-	color: #FF7538;
+.bottom-navbar .nav{
+    float: none;
+    text-align: center;
+}
+.bottom-navbar .nav > li{
+    float: none;
+    display: inline-block;
 }
 
 #content {
 	margin:  30px 15em;
 }
-
-#stuff {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
