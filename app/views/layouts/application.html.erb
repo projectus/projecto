@@ -26,23 +26,15 @@
 
 <body>
 
-  <div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
-      <ul class="nav">
-        <li><%= link_to  "PROJECTORE", root_path, class: "brand" %></li>
-        <li><%= link_to 'Projects', projects_path %></li>
-        <li><%= link_to 'Members', users_path %></li>
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="nav-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
+	    <ul class="nav">
+		    <li><%= link_to "PROJECTORE", root_path, class: "navbar-brand" %></li>
+        <li>
+          <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
+              <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'What are you looking for?' %>
+              <%= submit_tag 'Search', class: 'btn', name: nil %>
+          <% end %>
         </li>
       </ul>
       <ul class="nav pull-right">
@@ -59,21 +51,8 @@
           <li><a>Signed in as <b><%= current_user.username %></b></a></li>
         <% end %>
       </ul>
-  </div>
-
-  <div class="navbar-inverse navbar-center">
-    <div class="navbar-inner">
-      <ul class="nav">
-        <li>
-          <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
-              <%= text_field_tag :tag, nil, class: 'input-xxlarge', placeholder: 'What are you looking for?' %>
-              <%= submit_tag 'Search', class: 'btn', name: nil %>
-          <% end %>
-        </li>
-      </ul>
     </div>
   </div>
-</div>
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "#{name}" %>
@@ -81,6 +60,27 @@
 
   <div id="content">
     <%= yield %>
+  </div>
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-inner">
+	    <ul class="nav">
+        <li><%= link_to 'Projects', projects_path %></li>
+        <li><%= link_to 'Members', users_path %></li>
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </body>
