@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Card xml:</strong>
-  <%= @profile.card_xml %>
+  <strong>Username:</strong>
+  <%= @user_profile.user.username %>
 </p>
 
 <p>
-  <strong>Resume xml:</strong>
-  <%= @profile.resume_xml %>
+  <strong>Contact:</strong>
+  <% @contact.each do |type,info| %>
+    <li><b><%= type %>:</b> <%= info %>
+  <% end %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @profile.User %>
+  <strong>Resume:</strong>
+  <% @resume.each do |section,entries| %>
+    <p><b><%= section %>:</b>
+    <% entries.sort.map do |entry,data| %>
+      <ul><u><%= entry %></u>
+      <% data.each do |type,info| %>
+        <li><%= type %>: <%= info %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    </p>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>

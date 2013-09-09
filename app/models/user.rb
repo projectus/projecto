@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
 
 	validates :username, presence: true
   
-  # After save ###################################
+  # After create ###################################
  
-	after_save :create_empty_profile, on: :create
+	after_create :create_empty_profile
 	
 	# Associations #################################
 			
@@ -50,6 +50,8 @@ class User < ActiveRecord::Base
   private
     # Create empty user_profile associated with self
     def create_empty_profile
-      user_profile.create(card_xml: 'card', resume_xml: 'resume')
+      profile = build_user_profile
+      profile.generate_empty_resume
+      profile.generate_empty_card
     end
 end

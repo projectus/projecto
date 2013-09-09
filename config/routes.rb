@@ -1,8 +1,8 @@
 Projecto::Application.routes.draw do
 
-  resources :user_profiles
+  resources :project_profiles
   resources :messages
-  resources :project_profiles, except: [:new, :create, :destroy]
+  resources :user_profiles, except: [:new, :create, :destroy]
 
   # You can have the root of your site routed with "root"
   root 'main#index'
@@ -12,12 +12,12 @@ Projecto::Application.routes.draw do
   get 'category/:cat', to: 'projects#index', as: :cat
   
   #get "users", to: "users#index", as: :users
-  #get "users/show/:id", to: 'users#show', as: :user
+  get "users/:id/show", to: 'users#show', as: :user
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :collaboration_invitations, except: [:new, :destroy]
-  resources :users, only: [:show, :index] do
+  resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]
     resources :user_profiles
 	end

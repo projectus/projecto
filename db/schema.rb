@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908213934) do
+ActiveRecord::Schema.define(version: 20130908172717) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "collaboration_applications", force: true do |t|
     t.integer  "project_id"
@@ -60,9 +63,6 @@ ActiveRecord::Schema.define(version: 20130908213934) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
   create_table "messages", force: true do |t|
     t.string   "title"
     t.string   "content"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20130908213934) do
 
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"
-    t.string   "outline_xml"
+    t.string   "outline_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -111,9 +111,9 @@ ActiveRecord::Schema.define(version: 20130908213934) do
 
   create_table "task_groups", force: true do |t|
     t.string   "name"
-    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
   end
 
   add_index "task_groups", ["project_id"], name: "index_task_groups_on_project_id", using: :btree
@@ -124,17 +124,17 @@ ActiveRecord::Schema.define(version: 20130908213934) do
     t.integer  "priority"
     t.string   "status",        default: "in progress"
     t.integer  "poster_id"
+    t.integer  "task_group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "task_group_id"
   end
 
   add_index "tasks", ["poster_id"], name: "index_tasks_on_poster_id", using: :btree
   add_index "tasks", ["task_group_id"], name: "index_tasks_on_task_group_id", using: :btree
 
   create_table "user_profiles", force: true do |t|
-    t.string   "card_xml"
-    t.string   "resume_xml"
+    t.string   "card_hash"
+    t.string   "resume_hash"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

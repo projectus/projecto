@@ -15,7 +15,7 @@ class CollaborationInvitation < ActiveRecord::Base
   validate :invited_user_does_not_have_pending_invitation_to_project, on: :create
 
   validate :only_update_status_from_pending, on: :update
-  after_save :cash_in, on: :update
+  after_update :cash_in
 				
   private
     def cash_in
