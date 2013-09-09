@@ -1,0 +1,11 @@
+<div class="well">
+  <% experience_entry.each do |type,info| %>
+    <% if type == :content %>
+      <div><%= info %></div>
+    <% else %>
+      <span class="label label-info"><%= type.to_s.gsub('_',' ').capitalize %></span>
+      <div><%= info %></div>
+    <% end %>
+    <br>
+  <% end %>
+</div>
