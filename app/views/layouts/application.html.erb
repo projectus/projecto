@@ -26,7 +26,7 @@
 
 <body>
 
-  <div class="navbar">
+  <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <ul class="nav">
         <li><%= link_to  "PROJECTORE", root_path, class: "brand" %></li>
@@ -61,9 +61,9 @@
       </ul>
   </div>
 
-  <div class="bottom-navbar">
+  <div class="navbar-inverse navbar-center">
     <div class="navbar-inner">
-      <ul class="nav nav-center">
+      <ul class="nav">
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <%= text_field_tag :tag %>
@@ -71,7 +71,9 @@
           <% end %>
         </li>
       </ul>
+    </div>
   </div>
+</div>
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, id: "#{name}" %>

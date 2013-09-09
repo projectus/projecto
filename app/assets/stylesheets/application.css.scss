@@ -14,13 +14,13 @@
 
 @import "bootstrap";
 
-.bottom-navbar .nav{
-    float: none;
-    text-align: center;
-}
-.bottom-navbar .nav > li{
-    float: none;
-    display: inline-block;
+.navbar-center .nav{
+  float: none;
+  text-align: center;
+  > li {
+	  float: none;
+	  display: inline-block;
+	}	 
 }
 
 #content {
