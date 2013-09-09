@@ -16,10 +16,10 @@ class UserProfile < ActiveRecord::Base
 		resume = Jbuilder.encode do |resume|
 		  resume.experience do |experience|
 			  experience.entry_1 do |entry|
-		      entry.content "Worked at McDonald's"
-		      entry.location "Fredericton, NB"
-		      entry.start_date "July 16, 2008"
-		      entry.end_date "July 17, 2008"
+		      entry.content "e.g. Worked at McDonald's"
+		      entry.location "e.g. Fredericton, NB"
+		      entry.start_date "e.g. July 16, 2008"
+		      entry.end_date "e.g. July 17, 2008"
 		    end
 		  end
 		end
@@ -27,21 +27,11 @@ class UserProfile < ActiveRecord::Base
 	end
 
   def generate_empty_card
-		#self.card_xml = ''
-		#xml = ::Builder::XmlMarkup.new(target: self.card_xml)
-		#xml.instruct!
-		
-		#xml.contact do |contact|
-		#  contact.email "email@mail.com"
-		#  contact.name  "John Doe"
-		#  contact.age   "21"
-		#  contact.location "Waterloo, ON"
-		#end
     contact = Jbuilder.encode do |contact|
-      contact.email 'email@mail.com'
-      contact.name 'eric webster'
-      contact.age  '21'
-      contact.location 'waterloo, ON'
+      contact.email self.user.email
+      contact.name  'e.g. Brian Zhang'
+      contact.age  'e.g. 23'
+      contact.location 'e.g. Waterloo, ON'
     end
     self.card_hash = MultiJson.load(contact, symbolize_keys: true).inspect
 	end

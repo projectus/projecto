@@ -13,11 +13,11 @@
 <p>
   <strong>Resume:</strong>
   <% @resume.each do |section,entries| %>
-    <p><%= section %>
+    <p><b><%= section %>:</b>
     <% entries.sort.map do |entry,data| %>
-      <ul><%= entry %>
-      <% data.each do |info| %>
-        <li><%= info %></li>
+      <ul><u><%= entry %></u>
+      <% data.each do |type,info| %>
+        <li><%= type %>: <%= info %></li>
       <% end %>
       </ul>
     <% end %>
