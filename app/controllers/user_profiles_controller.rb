@@ -1,5 +1,7 @@
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update]
+	before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_current_user_as_profile_owner, except: [:index, :show] 
 
   # GET /user_profiles
   # GET /user_profiles.json
@@ -42,4 +44,9 @@ class UserProfilesController < ApplicationController
     def user_profile_params
       params.require(:user_profile).permit(:card_xml, :resume_xml)
     end
+
+    # Only let current user modify his own profile
+    def authenticate_current_user_as_profile_owner
+	    redirect_to :back, alert: "This is not your profile!" unless current_user == @user_profile.user
+	  end
 end

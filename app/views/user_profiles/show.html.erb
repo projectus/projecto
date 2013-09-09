@@ -1,28 +1,18 @@
 <p>
-  <strong>Username:</strong>
-  <%= @user_profile.user.username %>
+  <fieldset>
+    <legend>Username</legend>
+    <div class="well well-small">
+      <%= @user_profile.user.username %>
+    </div>
+  </fieldset>
 </p>
 
 <p>
-  <strong>Contact:</strong>
-  <% @contact.each do |type,info| %>
-    <li><b><%= type %>:</b> <%= info %>
-  <% end %>
+  <%= render partial: 'contact', object: @contact %>
 </p>
 
 <p>
-  <strong>Resume:</strong>
-  <% @resume.each do |section,entries| %>
-    <p><b><%= section %>:</b>
-    <% entries.sort.map do |entry,data| %>
-      <ul><u><%= entry %></u>
-      <% data.each do |type,info| %>
-        <li><%= type %>: <%= info %></li>
-      <% end %>
-      </ul>
-    <% end %>
-    </p>
-  <% end %>
+  <%= render partial: 'resume', object: @resume %>
 </p>
 
 <%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
