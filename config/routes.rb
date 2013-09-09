@@ -2,7 +2,6 @@ Projecto::Application.routes.draw do
 
   resources :project_profiles
   resources :messages
-  resources :user_profiles, except: [:new, :create, :destroy]
 
   # You can have the root of your site routed with "root"
   root 'main#index'
@@ -16,14 +15,12 @@ Projecto::Application.routes.draw do
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  resources :user_profiles, except: [:new, :create, :destroy]
+
   resources :collaboration_invitations, except: [:new, :destroy]
   resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]
-    resources :user_profiles
 	end
-
-  resources :collaboration_applications, except: [:new, :destroy]
-  resources :comments, only: [:create]
 
   resources :tasks, except: [:new, :index]
 	resources :task_groups, only: [:create] 	   
@@ -31,7 +28,8 @@ Projecto::Application.routes.draw do
 	  resources :tasks, only: [:new, :index]
 	end
 
-
+  resources :collaboration_applications, except: [:new, :destroy]
+  resources :comments, only: [:create]
 
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]

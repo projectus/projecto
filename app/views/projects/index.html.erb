@@ -24,7 +24,7 @@
       </tr>
       <tr>
         <td>Tags:</td> 
-        <td colspan="4"><%= raw project.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
+        <td colspan="5"><%= raw project.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
       </tr>
     <% end %>
   </tbody>
