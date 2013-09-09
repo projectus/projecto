@@ -1,17 +1,28 @@
-
 <p>
-  <strong>Card xml:</strong>
-  <%= @user_profile.card_xml %>
-</p>
-
-<p>
-  <strong>Resume xml:</strong>
-  <%= @user_profile.resume_xml %>
-</p>
-
-<p>
-  <strong>User:</strong>
+  <strong>Username:</strong>
   <%= @user_profile.user.username %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <% @contact.each do |type,info| %>
+    <li><b><%= type %>:</b> <%= info %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <% @resume.each do |section,entries| %>
+    <p><%= section %>
+    <% entries.sort.map do |entry,data| %>
+      <ul><%= entry %>
+      <% data.each do |info| %>
+        <li><%= info %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    </p>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |

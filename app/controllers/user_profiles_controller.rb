@@ -10,6 +10,8 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
+	  @resume = @user_profile.resume
+	  @contact = @user_profile.card
   end
 
   # GET /user_profiles/1/edit

@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
 
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"
-    t.string   "outline_xml"
+    t.string   "outline_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20130908172717) do
   add_index "tasks", ["task_group_id"], name: "index_tasks_on_task_group_id", using: :btree
 
   create_table "user_profiles", force: true do |t|
-    t.string   "card_xml"
-    t.string   "resume_xml"
+    t.string   "card_hash"
+    t.string   "resume_hash"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

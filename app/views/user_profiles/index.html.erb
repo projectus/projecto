@@ -3,8 +3,8 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Card xml</th>
-      <th>Resume xml</th>
+      <th>Card hash</th>
+      <th>Resume hash</th>
       <th>User</th>
       <th></th>
       <th></th>
@@ -14,8 +14,8 @@
   <tbody>
     <% @user_profiles.each do |profile| %>
       <tr>
-        <td><%= profile.card_xml %></td>
-        <td><%= profile.resume_xml %></td>
+        <td><%= profile.card_hash %></td>
+        <td><%= profile.resume_hash %></td>
         <td><%= profile.user.username %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_user_profile_path(profile) %></td>

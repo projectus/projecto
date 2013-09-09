@@ -50,6 +50,8 @@ class User < ActiveRecord::Base
   private
     # Create empty user_profile associated with self
     def create_empty_profile
-      self.create_user_profile!(card_xml: 'card', resume_xml: 'resume')
+      profile = build_user_profile
+      profile.generate_empty_resume
+      profile.generate_empty_card
     end
 end
