@@ -14,6 +14,12 @@
 
 @import "bootstrap";
 
+.table {
+	tbody,thead tr {
+    background-color: #dff0d8;
+  }
+}
+
 .navbar-center .nav{
   float: none;
   text-align: center;
