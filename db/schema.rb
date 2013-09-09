@@ -73,16 +73,6 @@ ActiveRecord::Schema.define(version: 20130908213934) do
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
-  create_table "user_profiles", force: true do |t|
-    t.string   "card_xml"
-    t.string   "resume_xml"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
-
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"
     t.string   "outline_xml"
@@ -141,6 +131,16 @@ ActiveRecord::Schema.define(version: 20130908213934) do
 
   add_index "tasks", ["poster_id"], name: "index_tasks_on_poster_id", using: :btree
   add_index "tasks", ["task_group_id"], name: "index_tasks_on_task_group_id", using: :btree
+
+  create_table "user_profiles", force: true do |t|
+    t.string   "card_xml"
+    t.string   "resume_xml"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

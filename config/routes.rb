@@ -19,6 +19,7 @@ Projecto::Application.routes.draw do
   resources :collaboration_invitations, except: [:new, :destroy]
   resources :users, only: [:show, :index] do
 	  resources :collaboration_invitations, only: [:new]
+    resources :user_profiles
 	end
 
   resources :collaboration_applications, except: [:new, :destroy]
@@ -29,7 +30,9 @@ Projecto::Application.routes.draw do
   resources :task_groups, except: [:create, :new, :index] do
 	  resources :tasks, only: [:new, :index]
 	end
-	
+
+
+
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create]
