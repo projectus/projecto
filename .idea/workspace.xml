@@ -51,10 +51,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="16" selection-start="3037" selection-end="3037" vertical-scroll-proportion="-20.125">
+            <state line="45" column="33" selection-start="1853" selection-end="1853" vertical-scroll-proportion="-0.4920071">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -89,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="50" selection-start="644" selection-end="644" vertical-scroll-proportion="0.4937833">
+            <state line="36" column="10" selection-start="953" selection-end="953" vertical-scroll-proportion="-19.708334">
               <folding />
             </state>
           </provider>
@@ -147,10 +147,10 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/views/projects/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/projects/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -908,15 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="16" selection-start="3037" selection-end="3037" vertical-scroll-proportion="-20.125">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="46" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
@@ -940,8 +931,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/projects/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="50" selection-start="644" selection-end="644" vertical-scroll-proportion="0.4937833">
+        <state line="36" column="10" selection-start="953" selection-end="953" vertical-scroll-proportion="-19.708334">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="33" selection-start="1853" selection-end="1853" vertical-scroll-proportion="-0.4920071">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
