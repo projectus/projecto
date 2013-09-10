@@ -1,19 +1,24 @@
-<p>
-  <fieldset>
-    <legend>Username</legend>
-    <div class="well well-small">
-      <%= @user_profile.user.username %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <fieldset>
+        <legend>Username</legend>
+        <div class="well well-small">
+          <%= @user_profile.user.username %>
+        </div>
+      </fieldset>
+
+      <%= render partial: 'contact', object: @contact %>
+      <%= render partial: 'resume', object: @resume %>
     </div>
-  </fieldset>
-</p>
-
-<p>
-  <%= render partial: 'contact', object: @contact %>
-</p>
-
-<p>
-  <%= render partial: 'resume', object: @resume %>
-</p>
-
-<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
-<%= link_to 'Back', user_profiles_path %>
+  
+    <div class="span3">
+      <div class="well sidebar-nav pull-right">
+        <ul class="nav nav-list">
+          <li><%= link_to 'Projects', user_collaborations_path(@user_profile.user) %></li>
+          <li><%= link_to 'Edit Profile', edit_user_profile_path(@user_profile) %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

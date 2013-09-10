@@ -1,0 +1,16 @@
+<% content_for :content do %>
+  <ul class="nav nav-tabs">
+    <li class="<%= 'active' if params[:action] == 'collaborations' %>">
+      <%= link_to 'Collaborations', user_collaborations_path(@user) %>
+    </li>
+    <li class="<%= 'active' if params[:action] == 'invitations' %>">
+      <%= link_to 'Invitations', user_collaboration_invitations_path(@user) %>
+    </li>
+    <li class="<%= 'active' if params[:action] == 'applications' %>">
+      <%= link_to 'Applications', user_collaboration_applications_path(@user) %>
+    </li>
+  </ul>
+  <%= content_for?(:user_collaboration_info_content) ? yield(:user_collaboration_info_content) : yield %>
+  <%= link_to 'Back to profile', @user.user_profile %>
+<% end %>
+<%= render template: "layouts/application" %>

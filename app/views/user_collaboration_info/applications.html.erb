@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Project</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.collaboration_applications.each do |application| %>
+      <tr>
+        <td><%= application.status %></td>
+        <td><%= application.project.name %></td>
+        <td><%= link_to 'Details', application %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

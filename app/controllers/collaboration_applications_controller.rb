@@ -1,8 +1,8 @@
 class CollaborationApplicationsController < ApplicationController
 	# See the bottom of this controller for the definitions of these methods
-  before_action :set_collaboration_application, only: [:show, :edit, :update]
+  before_action :set_collaboration_application, only: [:show, :update]
 	before_action :authenticate_user!
-	before_action(only: [:edit, :update]) do 
+	before_action(only: [:update]) do 
 	  authenticate_current_user_as_project_owner(@collaboration_application.project, 
 	                       "You don't have the permissions to accept or decline this application.")
 	end
@@ -23,10 +23,6 @@ class CollaborationApplicationsController < ApplicationController
   def new
     @collaboration_application = CollaborationApplication.new		
     @collaboration_application.project_id = params[:project_id]
-  end
-
-  # GET /collaboration_applications/1/edit
-  def edit
   end
 
   # POST /collaboration_applications

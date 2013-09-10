@@ -1,11 +1,14 @@
 <div class="well">
   <% experience_entry.each do |type,info| %>
-    <% if type == :content %>
-      <div><%= info %></div>
-    <% else %>
-      <span class="label label-info"><%= type.to_s.gsub('_',' ').capitalize %></span>
-      <div><%= info %></div>
+  <div class="panel panel-primary">
+    <% unless type == :content %>
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= type.to_s.gsub('_',' ').capitalize %></h3>
+    </div>
     <% end %>
-    <br>
+    <div class="panel-body">
+      <%= info %>
+    </div>
+  </div>    
   <% end %>
 </div>

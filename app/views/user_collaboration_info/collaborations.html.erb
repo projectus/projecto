@@ -1,0 +1,19 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Project</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.collaborations.each do |collaboration| %>
+      <tr>
+        <td><%= collaboration.role %></td>
+        <td><%= link_to collaboration.project.name, collaboration.project %></td>
+        <td><%= link_to 'Details', collaboration %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

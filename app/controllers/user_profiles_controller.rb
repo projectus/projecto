@@ -8,7 +8,7 @@ class UserProfilesController < ApplicationController
   def index
     @user_profiles = UserProfile.all
   end
-
+	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
@@ -42,7 +42,7 @@ class UserProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:card_xml, :resume_xml)
+      params.require(:user_profile).permit(:card, :resume)
     end
 
     # Only let current user modify his own profile

@@ -1,15 +1,20 @@
 class CollaborationInvitationsController < ApplicationController
-  before_action :set_collaboration_invitation, only: [:show, :edit, :update, :destroy]
+  before_action :set_collaboration_invitation, only: [:show, :update, :destroy]
 	before_action :authenticate_user!
 	before_action :check_has_owned_projects, only: [:new]
-	before_action :authenticate_current_user_as_invited_user, only: [:edit, :update]
-
+	before_action :authenticate_current_user_as_invited_user, only: [:update]
+	before_action(only: [:create]) do
+		project = Project.find(invitation_params[:project_id]) 
+	  authenticate_current_user_as_project_owner(project, 
+	                       "You don't have the permissions to invite to this project.")
+	end
+	
   # GET /collaboration_invitations
   # GET /collaboration_invitations.json
   def index
     @collaboration_invitations = CollaborationInvitation.all
   end
-
+	
   # GET /collaboration_invitations/1
   # GET /collaboration_invitations/1.json
   def show
@@ -19,10 +24,6 @@ class CollaborationInvitationsController < ApplicationController
   def new
 	  @collaboration_invitation = CollaborationInvitation.new
     @collaboration_invitation.invited_user_id = params[:user_id]
-  end
-
-  # GET /collaboration_invitations/1/edit
-  def edit
   end
 
   # POST /collaboration_invitations
@@ -52,7 +53,7 @@ class CollaborationInvitationsController < ApplicationController
         format.html { redirect_to @collaboration_invitation, notice: "Invitation was successfully #{@collaboration_invitation.status}." }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'show' }
         format.json { render json: @collaboration_invitation.errors, status: :unprocessable_entity }
       end
     end

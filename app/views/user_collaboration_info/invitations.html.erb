@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Project</th>
+      <th>Invited by</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.received_collaboration_invitations.each do |invitation| %>
+      <tr>
+        <td><%= invitation.status %></td>
+        <td><%= link_to invitation.project.name, invitation.project %></td>
+        <td><%= link_to invitation.invited_by_user.username, invitation.invited_by_user %></td>
+        <td><%= link_to 'Details', invitation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
