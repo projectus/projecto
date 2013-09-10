@@ -9,6 +9,9 @@
     <li class="<%= 'active' if params[:action] == 'applications' %>">
       <%= link_to 'Applications', user_collaboration_applications_path(@user) %>
     </li>
+    <li class="<%= 'active' if params[:action] == 'projects' %>">
+      <%= link_to 'Projects', user_projects_path(@user) %>
+    </li>
   </ul>
   <%= content_for?(:user_collaboration_info_content) ? yield(:user_collaboration_info_content) : yield %>
   <%= link_to 'Back to profile', @user.user_profile %>

@@ -3,9 +3,11 @@ Projecto::Application.routes.draw do
   get "project_collaboration_info/collaborations"
   get "project_collaboration_info/applications"
   get "project_collaboration_info/invitations"
+
   get "user/:user_id/collaborations", to: 'user_collaboration_info#collaborations', as: :user_collaborations
   get "user/:user_id/applications", to: 'user_collaboration_info#applications', as: :user_collaboration_applications
   get "user/:user_id/invitations", to: 'user_collaboration_info#invitations', as: :user_collaboration_invitations
+  get "user/:user_id/projects", to: 'user_collaboration_info#projects', as: :user_projects
 
   resources :project_profiles
   resources :messages

@@ -1,3 +1,5 @@
 <% resume.each do |section,entries| %>
-  <%= render partial: 'resume_experience', object: entries %>
+  <%= render partial: 'resume_experience', object: entries if section==:experience %>
+  <%= render partial: 'resume_education', object: entries if section==:education %>
+  <%= render partial: 'resume_skills', object: entries if section==:skills %>
 <% end %>

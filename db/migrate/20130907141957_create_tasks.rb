@@ -1,10 +1,10 @@
 class CreateTasks < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
-      t.string :title
-      t.string :details
+      t.string  :title
+      t.text    :details
       t.integer :priority
-      t.string :status, default: 'in progress'
+      t.string  :status,    default: 'in progress'
       t.integer :poster_id
 
       t.timestamps

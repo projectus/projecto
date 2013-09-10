@@ -1,0 +1,17 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.owned_projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project %></td>
+        <td><%= link_to 'Details', project %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

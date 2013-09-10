@@ -16,11 +16,26 @@ class UserProfile < ActiveRecord::Base
 		resume = Jbuilder.encode do |resume|
 		  resume.experience do |experience|
 			  experience.entry_1 do |entry|
-		      entry.content "e.g. Worked at McDonald's"
+		      entry.title "e.g. Worked at McDonald's"
 		      entry.location "e.g. Fredericton, NB"
+		      entry.description "e.g. flipped burgs"
 		      entry.start_date "e.g. July 16, 2008"
 		      entry.end_date "e.g. July 17, 2008"
 		    end
+		  end
+		  resume.education do |education|
+			  education.entry_1 do |entry|
+		      entry.school "e.g. University of Waterloo"
+		      entry.location "e.g. Waterloo, ON"
+		      entry.field "e.g. Physics"
+		      entry.degree "e.g. BSc"
+		      entry.description "e.g. I like school."
+		      entry.start_date "e.g. September 1st, 2011"
+		      entry.end_date "e.g. September 1st, 2013"
+		    end
+		  end
+		  resume.skills do |skills|
+			  skills.entry_1 "e.g. Ruby on Rails"
 		  end
 		end
 		self.resume_hash = MultiJson.load(resume, symbolize_keys: true).inspect
