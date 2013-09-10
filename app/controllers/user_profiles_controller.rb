@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
-  before_action :set_user_profile, only: [:show, :edit, :update]
+  before_action :set_user_profile_and_user, only: [:show, :edit, :update, :show_resume]
 	before_action :authenticate_user!, except: [:index, :show]
-  before_action :authenticate_current_user_as_profile_owner, except: [:index, :show] 
+  before_action :authenticate_current_user_as_profile_owner, except: [:index, :show, :show_resume] 
 
   # GET /user_profiles
   # GET /user_profiles.json
@@ -12,10 +12,13 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
-	  @resume = @user_profile.resume
 	  @contact = @user_profile.card
   end
 
+  def show_resume
+	  @resume = @user_profile.resume
+	end
+	
   # GET /user_profiles/1/edit
   def edit
   end
@@ -36,8 +39,9 @@ class UserProfilesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user_profile
+    def set_user_profile_and_user
       @user_profile = UserProfile.find(params[:id])
+      @user = @user_profile.user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -47,6 +51,6 @@ class UserProfilesController < ApplicationController
 
     # Only let current user modify his own profile
     def authenticate_current_user_as_profile_owner
-	    redirect_to :back, alert: "This is not your profile!" unless current_user == @user_profile.user
+	    redirect_to :back, alert: "This is not your profile!" unless current_user == @user
 	  end
 end

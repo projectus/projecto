@@ -1,0 +1,22 @@
+<% content_for :content do %>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+		  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
+    </div>
+  
+    <div class="span3">
+      <div class="well well-small sidebar-nav pull-right">
+        <ul class="nav nav-list">
+          <li><%= link_to 'Feed (wall)', @user_profile %></li>	        
+          <li><%= link_to 'Projects', user_collaborations_path(@user) %></li>
+          <li><%= link_to 'Resume', resume_path(@user_profile) %></li> 
+          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(@user) %></li> 
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<%= render template: "layouts/application" %>

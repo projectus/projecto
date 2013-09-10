@@ -22,17 +22,17 @@
     <%= f.label :category %><br>
     <%= f.select(:category, Project::CATEGORIES) %>
   </div>
-  
+
   <div class="row-fluid">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  
+
   <div class="row-fluid">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
     <%= f.text_field :tag_list, autocomplete: :off %>
   </div>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
