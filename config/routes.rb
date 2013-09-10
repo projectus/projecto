@@ -28,7 +28,7 @@ Projecto::Application.routes.draw do
   get "user_profiles/:id/resume", to: 'user_profiles#show_resume', as: :resume
   resources :user_profiles, except: [:new, :create, :destroy]
 
-  resources :collaboration_invitations, except: [:new, :destroy, :edit]
+  resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
 
   resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]

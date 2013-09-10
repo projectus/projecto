@@ -5,8 +5,11 @@ class CollaborationInvitation < ActiveRecord::Base
 
   STATUSES = [STATUS_ACCEPTED = 'accepted', STATUS_DECLINED = 'declined', STATUS_PENDING = 'pending']
 
+  # Validation #######################################
+
   validates :invited_user, presence: true
   validates :invited_by_user, presence: true
+
   validates :status, inclusion: {in: STATUSES}
 
   validate :invited_user_is_not_invited_by_himself
@@ -15,6 +18,9 @@ class CollaborationInvitation < ActiveRecord::Base
   validate :invited_user_does_not_have_pending_invitation_to_project, on: :create
 
   validate :only_update_status_from_pending, on: :update
+
+  ######################################################
+
   after_update :cash_in
 				
   private

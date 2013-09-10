@@ -1,6 +1,6 @@
 <p>
   <strong>User:</strong>
-  <%= @collaboration_invitation.invited_user.username %>
+  <%= @user.username %>
 </p>
 
 <p>
@@ -23,4 +23,4 @@
   <%= @collaboration_invitation.message %>
 </p>
 <%= render partial: 'decide' %>
-<%= link_to 'Back', user_collaboration_invitations_path(@collaboration_invitation.invited_user) %>
+<%= link_to 'Back', user_collaboration_invitations_path(@user) %>
