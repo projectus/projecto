@@ -1,11 +1,7 @@
 
-//= require jquery
 //= require jquery_ujs
+//= require jquery
 //= require bootstrap
-//= require bootstrap-scrollspy
-//= require bootstrap-modal
-//= require bootstrap-dropdown
-//= require bootstrap-collapse
 //= require_tree .
 
 //$(function(){ $(document).foundation(); });

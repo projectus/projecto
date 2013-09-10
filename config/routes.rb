@@ -1,5 +1,14 @@
 Projecto::Application.routes.draw do
 
+  get "project_collaboration_info/collaborations"
+  get "project_collaboration_info/applications"
+  get "project_collaboration_info/invitations"
+
+  get "users/:id/collaborations", to: 'user_collaboration_info#collaborations', as: :user_collaborations
+  get "users/:id/applications", to: 'user_collaboration_info#applications', as: :user_collaboration_applications
+  get "users/:id/invitations", to: 'user_collaboration_info#invitations', as: :user_collaboration_invitations
+  get "users/:id/projects", to: 'user_collaboration_info#projects', as: :user_projects
+
   resources :project_profiles
   resources :messages
 
@@ -12,12 +21,15 @@ Projecto::Application.routes.draw do
   
   #get "users", to: "users#index", as: :users
   get "users/:id/show", to: 'users#show', as: :user
+  get "users/:id/collaboration_info", to: 'users#collaboration_info', as: :user_collaboration_info
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  get "user_profiles/:id/resume", to: 'user_profiles#show_resume', as: :resume
   resources :user_profiles, except: [:new, :create, :destroy]
 
-  resources :collaboration_invitations, except: [:new, :destroy]
+  resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
+
   resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]
 	end
@@ -28,7 +40,7 @@ Projecto::Application.routes.draw do
 	  resources :tasks, only: [:new, :index]
 	end
 
-  resources :collaboration_applications, except: [:new, :destroy]
+  resources :collaboration_applications, except: [:new, :destroy, :edit]
   resources :comments, only: [:create]
 
   resources :projects, shallow: true do

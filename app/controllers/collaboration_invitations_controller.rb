@@ -1,34 +1,42 @@
 class CollaborationInvitationsController < ApplicationController
-  before_action :set_collaboration_invitation, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
+  before_action :set_collaboration_invitation, only: [:show, :update, :destroy]
 	before_action :check_has_owned_projects, only: [:new]
-	before_action :authenticate_current_user_as_invited_user, only: [:edit, :update]
-
+	before_action :authenticate_current_user_as_invited_user, only: [:update]
+	before_action(only: [:create]) do
+		project = Project.find(invitation_params[:project_id]) 
+	  authenticate_current_user_as_project_owner(project, 
+	                       "You don't have the permissions to invite to this project.")
+	end
+	
   # GET /collaboration_invitations
   # GET /collaboration_invitations.json
-  def index
-    @collaboration_invitations = CollaborationInvitation.all
-  end
-
+  #def index
+  #  @collaboration_invitations = CollaborationInvitation.all
+  #end
+	
   # GET /collaboration_invitations/1
   # GET /collaboration_invitations/1.json
   def show
+	  @user = @collaboration_invitation.invited_user
+    @user_profile = @user.user_profile
   end
 
   # GET /projects/:project_id/users/:user_id/invitation/new
   def new
 	  @collaboration_invitation = CollaborationInvitation.new
-    @collaboration_invitation.invited_user_id = params[:user_id]
-  end
-
-  # GET /collaboration_invitations/1/edit
-  def edit
+	  @user = User.find(params[:user_id])
+	  @user_profile = @user.user_profile
+    @collaboration_invitation.invited_user = @user
   end
 
   # POST /collaboration_invitations
   # POST /collaboration_invitations.json
   def create
 	  @collaboration_invitation = current_user.sent_collaboration_invitations.build(invitation_params)
+
+    @user = @collaboration_invitation.invited_user
+    @user_profile = @user.user_profile
 		
     respond_to do |format|
       if @collaboration_invitation.save
@@ -48,11 +56,14 @@ class CollaborationInvitationsController < ApplicationController
 			# Update status of the invitation only
 	    status_param = params.require(:collaboration_invitation).permit(:status)
 	
+	    @user = @collaboration_invitation.invited_user
+	    @user_profile = @user.user_profile
+	
       if @collaboration_invitation.update(status_param)	
-        format.html { redirect_to @collaboration_invitation, notice: "Invitation was successfully #{@collaboration_invitation.status}." }
+        format.html { redirect_to user_collaboration_invitations_path(@user), notice: "Invitation was successfully #{@collaboration_invitation.status}." }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'show' }
         format.json { render json: @collaboration_invitation.errors, status: :unprocessable_entity }
       end
     end
@@ -73,7 +84,7 @@ class CollaborationInvitationsController < ApplicationController
     def set_collaboration_invitation
       @collaboration_invitation = CollaborationInvitation.find(params[:id])
     end
-
+	
     # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
       params.require(:collaboration_invitation).permit(:project_id, :message, :invited_user_id)

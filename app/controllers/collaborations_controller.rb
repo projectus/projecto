@@ -12,7 +12,7 @@ class CollaborationsController < ApplicationController
   def index
     @collaborations = @project.collaborations
   end
-
+	
   # GET /collaborations/1
   # GET /collaborations/1.json
   def show	

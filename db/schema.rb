@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
     t.integer  "applicant_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "message"
+    t.text     "message"
     t.string   "status",            default: "pending"
   end
 
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status",             default: "pending"
-    t.string   "message"
+    t.text     "message"
   end
 
   add_index "collaboration_invitations", ["invited_by_user_id"], name: "index_collaboration_invitations_on_invited_by_user_id", using: :btree
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
   add_index "collaborations", ["user_id"], name: "index_collaborations_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "plus"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
 
   create_table "messages", force: true do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
 
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"
-    t.string   "outline_hash"
+    t.text     "outline_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20130908172717) do
 
   create_table "tasks", force: true do |t|
     t.string   "title"
-    t.string   "details"
+    t.text     "details"
     t.integer  "priority"
     t.string   "status",        default: "in progress"
     t.integer  "poster_id"
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 20130908172717) do
   add_index "tasks", ["task_group_id"], name: "index_tasks_on_task_group_id", using: :btree
 
   create_table "user_profiles", force: true do |t|
-    t.string   "card_hash"
-    t.string   "resume_hash"
+    t.text     "card_hash"
+    t.text     "resume_hash"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

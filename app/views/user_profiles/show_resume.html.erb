@@ -1,0 +1,9 @@
+<p>
+  <%= link_to 'Edit Resume', edit_user_profile_path(@user_profile), class: 'btn' %>
+</p>
+
+<% @resume.each do |section,entries| %>
+  <%= render partial: 'resume_experience', object: entries if section==:experience %>
+  <%= render partial: 'resume_education', object: entries if section==:education %>
+  <%= render partial: 'resume_skills', object: entries if section==:skills %>
+<% end %>

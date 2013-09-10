@@ -11,9 +11,12 @@
     </div>
   <% end %>
 
-  <%= f.select(:project_id, current_user.owned_projects.collect {|p| [ p.name, p.id ] }) %>
-  
-  <div class="row">
+  <div class="row-fluid">
+    <h4>Invite me to work on</h4>
+		<%= f.select(:project_id, current_user.owned_projects.collect {|p| [ p.name, p.id ] }) %>
+  </div>
+ 
+  <div class="row-fluid">
     <%= f.label :message %>
     <%= f.text_area :message %>    
   </div>
@@ -21,6 +24,6 @@
   <%= f.hidden_field :invited_user_id %>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Invite', class: 'btn' %>
   </div>
 <% end %>

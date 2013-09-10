@@ -1,19 +1,13 @@
-<p>
-  <fieldset>
-    <legend>Username</legend>
-    <div class="well well-small">
-      <%= @user_profile.user.username %>
-    </div>
-  </fieldset>
-</p>
-
-<p>
+<div class="row-fluid">
   <%= render partial: 'contact', object: @contact %>
-</p>
+</div>
 
-<p>
-  <%= render partial: 'resume', object: @resume %>
-</p>
-
-<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
-<%= link_to 'Back', user_profiles_path %>
+<div class="row-fluid">
+	<div class="well">
+    <h2>User feed goes here</h2><br>
+    <h4>Infinite scroll MTF!</h4>
+		<div class="panel">
+		 <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
+		</div>
+  </div>
+</div>
