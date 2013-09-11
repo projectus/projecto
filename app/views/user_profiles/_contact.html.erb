@@ -1,8 +1,8 @@
+<div class="well well-small">
 <fieldset>
   <legend>Contact</legend>
-  <div class="well well-small">
     <% contact.each do |type,entry| %>
       <%= render partial: 'contact_entry', object: entry, locals: {type: type} %>
     <% end %>
-  </div>
 </fieldset>
+</div>

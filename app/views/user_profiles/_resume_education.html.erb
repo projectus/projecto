@@ -1,6 +1,8 @@
+<div class="well well-small">
 <fieldset>
   <legend>Education</legend>
   <% resume_education.sort.map do |key,entry| %>
     <%= render partial: 'education_entry', object: entry %>
   <% end %>
 </fieldset>
+</div>
