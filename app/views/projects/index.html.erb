@@ -1,9 +1,9 @@
 <h1>PROJECTS</h1>
 
 <ul class="nav nav-pills">
-  <li class="<%= 'active' if params[:cat].nil? %>"><%= link_to 'All', projects_path %></li>
-  <% Project::CATEGORIES.each do |cat| %>
-    <li class="<%= 'active' if params[:cat]==cat %>"><%= link_to cat, cat_path(cat) %></li>
+  <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
+  <% Project.categories.each do |cat| %>
+    <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat) %></li>
   <% end %>
 </ul>
 
@@ -23,7 +23,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.name %></td>
-        <td><%= project.category %></td>
+        <td><%= project.category.capitalize %></td>
         <td><%= project.description %></td>
         <td><%= link_to 'Details', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>

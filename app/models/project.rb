@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  CATEGORIES = [ "Engineering", "Science", "Arts", "Music", "Sports" ]
+  CATEGORIES = [ "engineering", "science", "arts", "music", "sports" ]
 	
   # Associations ################################
 
@@ -26,8 +26,16 @@ class Project < ActiveRecord::Base
   validates :category, inclusion: CATEGORIES
   validates :owner, presence: true
 
+  # Before validation ##############################
+
+  before_validation do self.category.downcase! end
+
   # Public methods #################################
 
+  def self.categories
+	  CATEGORIES.map(&:capitalize)
+	end
+	
   def owned_by?(user)
 	  return user == self.owner
 	end

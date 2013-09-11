@@ -20,7 +20,7 @@
   
   <div class="row-fluid">
     <%= f.label :category %><br>
-    <%= f.select(:category, Project::CATEGORIES) %>
+    <%= f.select(:category, Project::CATEGORIES.map(&:capitalize)) %>
   </div>
 
   <div class="row-fluid">

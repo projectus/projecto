@@ -10,9 +10,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
 	  if params[:cat]
-	    @projects = Project.find_all_by_category(params[:cat])
+	    @projects = Project.find_all_by_category(params[:cat].downcase)
     elsif params[:tag]
-	    @projects = Project.tagged_with(params[:tag])
+	    @projects = Project.tagged_with(params[:tag].downcase)
 	  else
 	    @projects = Project.all
 	  end
