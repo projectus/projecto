@@ -29,7 +29,7 @@
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
 	    <ul class="nav">
-		    <li><%= link_to "PROJECTORE", root_path, class: "navbar-brand" %></li>
+		    <li><%= link_to "PROJECTORE", root_path, class: "navbar-brand brand" %></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'What are you looking for?' %>
@@ -40,6 +40,24 @@
       <ul class="nav pull-right">
         <% if user_signed_in? %>
           <li><%= link_to "Profile", user_profile_path(current_user) %></li>
+          <li>
+            <div class="btn-group">
+              <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> User</a>
+              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+                <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="i"></i> Make admin</a></li>
+              </ul>
+            </div>
+
+          </li>
+
+
+
+
 	        <li><p class="navbar-text">Signed in as <b><%= current_user.username %></b></p></li>
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
@@ -64,7 +82,7 @@
   </div>
 
   <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="navbar-inner">
+    <div class="navbar-inner"">
 	    <ul class="nav">
         <li><%= link_to 'Projects', projects_path %></li>
         <li><%= link_to 'Members', users_path %></li>

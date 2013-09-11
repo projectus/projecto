@@ -3,27 +3,32 @@
 <div class="container-fluid">
 	<div class="row-fluid">
     <div class="well well-small">
-      <b><%= @user.username %></b>
-      <% if current_user == @user %>
-        <span style="color:orange;">(you)</span>
-      <% end %>
+      <div class="row-fluid">
+        <div class="span3">
+          <b><%= @user.username %></b>
+          <% if current_user == @user %>
+              <span style="color:orange;">(you)</span>
+          <% end %>
+        </div>
+
+        <div class="span8">
+            <%= link_to "Edit Profile", edit_user_profile_path(current_user) %>
+          <%= link_to "My Projects","#"  %>
+        </div>
+      </div>
+
+
+
+
+
     </div>
   </div>
   <div class="row-fluid">
-    <div class="span10">
+    <div class="span12">
 		  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
     </div>
   
-    <div class="span2">
-      <div class="well well-small sidebar-nav pull-right">
-        <ul class="nav nav-list">
-          <li><%= link_to 'Feed (wall)', @user_profile %></li>	        
-          <li><%= link_to 'Projects', user_collaborations_path(@user) %></li>
-          <li><%= link_to 'Resume', resume_path(@user_profile) %></li> 
-          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(@user) %></li> 
-        </ul>
-      </div>
-    </div>
+
   </div>
 </div>
 <% end %>

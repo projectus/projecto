@@ -1,3 +1,19 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#card {
+
+  background: #F6F6F6;
+  border: 1px solid #BBB;
+}
+
+#avatar{
+  float: left;
+
+  width: 20%
+}
+
+.row-fluid div {
+  min-height: 0 !important;
+}

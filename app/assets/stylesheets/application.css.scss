@@ -20,10 +20,18 @@
 
 .table {
 	tbody,thead tr {
-    background-color: #dff0d8;
+    background-color: #FFF;
   }
 }
 
 #content {
-	margin:  0 15px 0 15px;
+  margin: 2em 25em !important;
+}
+
+.navbar-inner{
+  padding: 0em 25em !important;
+}
+
+.hero-unit {
+  padding: 1em 2em !important;
 }
