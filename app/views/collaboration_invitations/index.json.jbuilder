@@ -1,4 +1,4 @@
-json.array!(@collaboration_invitations) do |collaboration_invitation|
-  json.extract! collaboration_invitation, 
-  json.url collaboration_invitation_url(collaboration_invitation, format: :json)
+json.array!(@invitations) do |invitation|
+  json.extract! invitation, 
+  json.url collaboration_invitation_url(invitation, format: :json)
 end
