@@ -1,16 +1,11 @@
-<p>
-  <strong>User:</strong>
-  <%= user.username %>
-</p>
-
+<div class="well well-small">
+	<div style="text-align:center;">
+		<h4>Invitation to <%= link_to @invitation.project.name, @invitation.project %></h4>
+	</div>
+	
 <p>
   <strong>Invited by:</strong>
   <%= @invitation.invited_by_user.username %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= @invitation.project.name %>
 </p>
 
 <p>
@@ -22,5 +17,8 @@
   <strong>Message:</strong>
   <%= @invitation.message %>
 </p>
+
 <%= render partial: 'decide' %>
-<%= link_to 'Back', user_collaboration_invitations_path(user) %>
+</div>
+<%= link_to 'Back', :back %>
+

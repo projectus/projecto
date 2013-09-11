@@ -1,4 +1,4 @@
-<h1>Listing collaboration_applications</h1>
+<h1>Listing Applications</h1>
 
 <table class="table table-striped table-bordered">
   <thead>
@@ -11,12 +11,12 @@
   </thead>
 
   <tbody>
-    <% @collaboration_applications.each do |collaboration_application| %>
+    <% @applications.each do |application| %>
       <tr>
-        <td><%= collaboration_application.applicant.username %></td>
-        <td><%= collaboration_application.project.name %></td>
-        <td><%= collaboration_application.status %></td>
-        <td><%= link_to 'Show', collaboration_application %></td>
+        <td><%= application.applicant.username %></td>
+        <td><%= application.project.name %></td>
+        <td><%= application.status %></td>
+        <td><%= link_to 'Show', application %></td>
     <% end %>
   </tbody>
 </table>

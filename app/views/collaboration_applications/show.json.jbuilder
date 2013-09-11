@@ -1,1 +1,1 @@
-json.extract! @collaboration_application, :created_at, :updated_at
+json.extract! @application, :created_at, :updated_at

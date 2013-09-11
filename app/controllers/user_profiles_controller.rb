@@ -4,12 +4,6 @@ class UserProfilesController < ApplicationController
   before_action :authenticate_current_user_as_profile_owner, except: [:index, :show, :show_resume] 
 
   helper_method :user, :profile
-
-  # GET /user_profiles
-  # GET /user_profiles.json
-  def index
-    @user_profiles = UserProfile.all
-  end
 	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
@@ -60,6 +54,6 @@ class UserProfilesController < ApplicationController
 
     # Only let current user modify his own profile
     def authenticate_current_user_as_profile_owner
-	    redirect_to :back, alert: "This is not your profile!" unless current_user == @user
+	    redirect_to :back, alert: "This is not your profile!" unless current_user == user
 	  end
 end

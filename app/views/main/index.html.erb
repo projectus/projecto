@@ -7,12 +7,3 @@
     </a>
   </p>
 </div>
-
-
-<dl class="sub-nav">
-  <dt>Categories</dt>
-  <dd class="active"><%= link_to 'All', projects_path %></dd>
-  <% Project::CATEGORIES.each do |cat| %>
-    <dd><%= link_to cat, cat_path(cat) %></dd>  
-  <% end %>
-</dl>

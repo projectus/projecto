@@ -26,13 +26,7 @@ Projecto::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   get "user_profiles/:id/resume", to: 'user_profiles#show_resume', as: :resume
-  resources :user_profiles, except: [:new, :create, :destroy]
-
-  resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
-
-  resources :users, only: [:index] do
-	  resources :collaboration_invitations, only: [:new]
-	end
+  resources :user_profiles, except: [:index, :new, :create, :destroy]
 
   resources :tasks, except: [:new, :index]
 	resources :task_groups, only: [:create] 	   
@@ -40,7 +34,8 @@ Projecto::Application.routes.draw do
 	  resources :tasks, only: [:new, :index]
 	end
 
-  resources :collaboration_applications, except: [:new, :destroy, :edit]
+  resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
+  resources :collaboration_applications, except: [:index, :new, :destroy, :edit]
   resources :comments, only: [:create]
 
   resources :projects, shallow: true do
@@ -50,6 +45,10 @@ Projecto::Application.routes.draw do
 		resources :task_groups, only: [:new, :index]    
 	end
 
+  resources :users, only: [:index] do
+	  resources :collaboration_invitations, only: [:new]
+	end
+	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,19 +1,13 @@
 <%= render partial: 'errors' %>
 
-<%= form_for(@invitation) do |f| %>
+<div class="row-fluid" style="text-align: center">
+<%= form_for(@invitation, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.hidden_field :status, value: CollaborationInvitation::STATUS_ACCEPTED %>    
-
-  <div class="actions">
-    <%= f.submit 'Accept' %>
-  </div>
-  
+  <%= f.submit 'Accept', class: 'btn' %>  
 <% end %>
 
-<%= form_for(@invitation) do |f| %>
+<%= form_for(@invitation, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.hidden_field :status, value: CollaborationInvitation::STATUS_DECLINED %>    
-
-  <div class="actions">
-    <%= f.submit 'Decline' %>
-  </div>
-  
+  <%= f.submit 'Decline', class: 'btn btn-inverse' %>  
 <% end %>
+</div>

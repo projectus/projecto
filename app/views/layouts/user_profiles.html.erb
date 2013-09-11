@@ -18,9 +18,9 @@
       <div class="well well-small sidebar-nav pull-right">
         <ul class="nav nav-list">
           <li><%= link_to 'Feed (wall)', profile %></li>	        
-          <li><%= link_to 'Projects', user_collaborations_path(user) %></li>
-          <li><%= link_to 'Resume', resume_path(profile) %></li> 
-          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(user) %></li> 
+          <li><%= link_to 'Projects', user_projects_path(user) %></li>
+          <li><%= link_to 'Resume', resume_path(profile) %></li>
+          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(user) %></li>
         </ul>
       </div>
     </div>
