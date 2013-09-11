@@ -1,29 +1,13 @@
-<% if @collaboration_invitation.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@collaboration_invitation.errors.count, "error") %> prohibited this collaboration_invitation from being saved:</h2>
+<%= render partial: 'errors' %>
 
-    <ul>
-    <% @collaboration_invitation.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for(@collaboration_invitation) do |f| %>
+<div class="row-fluid" style="text-align: center">
+<%= form_for(@invitation, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.hidden_field :status, value: CollaborationInvitation::STATUS_ACCEPTED %>    
-
-  <div class="actions">
-    <%= f.submit 'Accept' %>
-  </div>
-  
+  <%= f.submit 'Accept', class: 'btn' %>  
 <% end %>
 
-<%= form_for(@collaboration_invitation) do |f| %>
+<%= form_for(@invitation, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.hidden_field :status, value: CollaborationInvitation::STATUS_DECLINED %>    
-
-  <div class="actions">
-    <%= f.submit 'Decline' %>
-  </div>
-  
+  <%= f.submit 'Decline', class: 'btn btn-inverse' %>  
 <% end %>
+</div>

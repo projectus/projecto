@@ -1,5 +1,7 @@
 class UserCollaborationInfoController < ApplicationController
-	before_action :set_user_and_profile
+	before_action :set_user
+
+  helper_method :user, :profile
 	
   def collaborations
   end
@@ -16,8 +18,15 @@ class UserCollaborationInfoController < ApplicationController
 	
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user_and_profile
+    def set_user
       @user = User.find(params[:id])
-      @user_profile = @user.user_profile
     end
+
+    def user
+	    @user
+	  end
+	
+	  def profile
+		  @user.user_profile
+		end
 end

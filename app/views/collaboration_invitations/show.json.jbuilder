@@ -1,1 +1,1 @@
-json.extract! @collaboration_invitation, :created_at, :updated_at
+json.extract! @invitation, :created_at, :updated_at

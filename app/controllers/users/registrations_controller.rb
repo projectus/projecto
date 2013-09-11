@@ -3,6 +3,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	before_filter :account_update_permitted_parameters, :only => [:update]
 
   protected
+    def after_sign_up_path_for(resource)
+	    user = User.find(resource)
+      user_profile_path(user.user_profile)
+    end
 
     def sign_up_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << :username

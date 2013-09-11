@@ -1,15 +1,5 @@
-<%= form_for(@collaboration_invitation) do |f| %>
-  <% if @collaboration_invitation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@collaboration_invitation.errors.count, "error") %> prohibited this collaboration_invitation from being saved:</h2>
-
-      <ul>
-      <% @collaboration_invitation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@invitation) do |f| %>
+  <%= render partial: 'errors' %>
 
   <div class="row-fluid">
     <h4>Invite me to work on</h4>

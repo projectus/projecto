@@ -1,22 +1,22 @@
+<div class="well well-small">
+	<div style="text-align:center;">
+		<h4>Application for <%= link_to @application.project.name, @application.project %></h4>
+	</div>
 <p>
   <strong>User:</strong>
-  <%= @collaboration_application.applicant.username %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= @collaboration_application.project.name %>
+  <%= @application.applicant.username %>
 </p>
 
 <p>
   <strong>Status:</strong>
-  <%= @collaboration_application.status %>
+  <%= @application.status %>
 </p>
 
 <p>
   <strong>Message:</strong>
-  <%= @collaboration_application.message %>
+  <%= @application.message %>
 </p>
 
 <%= render partial: 'decide' %>
-<%= link_to 'Back', user_collaboration_applications_path(@collaboration_application.applicant) %>
+</div>
+<%= link_to 'Back', user_collaboration_applications_path(@application.applicant) %>

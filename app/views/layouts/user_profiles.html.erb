@@ -2,23 +2,28 @@
 
 <div class="container-fluid">
 	<div class="row-fluid">
-    <div class="well well-small">
+
+    <div class="box well well-small">
+
       <div class="row-fluid">
         <div class="span3">
-          <b><%= @user.username %></b>
-          <% if current_user == @user %>
+          <b><%= user.username %></b>
+          <% if current_user == user %>
               <span style="color:orange;">(you)</span>
           <% end %>
         </div>
 
-        <div class="span8">
-            <%= link_to "Edit Profile", edit_user_profile_path(current_user) %>
-          <%= link_to "My Projects","#"  %>
+        <div class="pull-right">
+          <div class="btn-group">
+            <button class="btn btn-small"><%= link_to "Edit Profile", edit_user_profile_path(current_user) %></button>
+            <button class="btn btn-small"><%= link_to "My Projects","#"  %></button>
+            <button class="btn btn-small">Right</button>
+          </div>
+
+
+
         </div>
       </div>
-
-
-
 
 
     </div>
@@ -27,7 +32,10 @@
     <div class="span12">
 		  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
     </div>
-  
+
+
+
+
 
   </div>
 </div>

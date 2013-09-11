@@ -1,6 +1,6 @@
 class CollaborationInvitationsController < ApplicationController
 	before_action :authenticate_user!
-  before_action :set_collaboration_invitation, only: [:show, :update, :destroy]
+  before_action :set_invitation, only: [:show, :update]
 	before_action :check_has_owned_projects, only: [:new]
 	before_action :authenticate_current_user_as_invited_user, only: [:update]
 	before_action(only: [:create]) do
@@ -8,6 +8,8 @@ class CollaborationInvitationsController < ApplicationController
 	  authenticate_current_user_as_project_owner(project, 
 	                       "You don't have the permissions to invite to this project.")
 	end
+
+  helper_method :user, :profile
 	
   # GET /collaboration_invitations
   # GET /collaboration_invitations.json
@@ -18,33 +20,26 @@ class CollaborationInvitationsController < ApplicationController
   # GET /collaboration_invitations/1
   # GET /collaboration_invitations/1.json
   def show
-	  @user = @collaboration_invitation.invited_user
-    @user_profile = @user.user_profile
   end
 
-  # GET /projects/:project_id/users/:user_id/invitation/new
+  # GET /users/:user_id/collaboration_invitation/new
   def new
-	  @collaboration_invitation = CollaborationInvitation.new
-	  @user = User.find(params[:user_id])
-	  @user_profile = @user.user_profile
-    @collaboration_invitation.invited_user = @user
+	  @invitation = CollaborationInvitation.new
+    @invitation.invited_user = User.find(params[:user_id])
   end
 
   # POST /collaboration_invitations
   # POST /collaboration_invitations.json
   def create
-	  @collaboration_invitation = current_user.sent_collaboration_invitations.build(invitation_params)
-
-    @user = @collaboration_invitation.invited_user
-    @user_profile = @user.user_profile
+	  @invitation = current_user.sent_collaboration_invitations.build(invitation_params)
 		
     respond_to do |format|
-      if @collaboration_invitation.save
-        format.html { redirect_to @collaboration_invitation, notice: 'Collaboration invitation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @collaboration_invitation }
+      if @invitation.save
+        format.html { redirect_to @invitation, notice: 'Invitation was sent successfully.' }
+        format.json { render action: 'show', status: :created, location: @invitation }
       else
         format.html { render action: 'new' }
-        format.json { render json: @collaboration_invitation.errors, status: :unprocessable_entity }
+        format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,15 +51,12 @@ class CollaborationInvitationsController < ApplicationController
 			# Update status of the invitation only
 	    status_param = params.require(:collaboration_invitation).permit(:status)
 	
-	    @user = @collaboration_invitation.invited_user
-	    @user_profile = @user.user_profile
-	
-      if @collaboration_invitation.update(status_param)	
-        format.html { redirect_to user_collaboration_invitations_path(@user), notice: "Invitation was successfully #{@collaboration_invitation.status}." }
+      if @invitation.update(status_param)	
+        format.html { redirect_to user_collaboration_invitations_path(@invitation.invited_user), notice: "Invitation was successfully #{@invitation.status}." }
         format.json { head :no_content }
       else
         format.html { render action: 'show' }
-        format.json { render json: @collaboration_invitation.errors, status: :unprocessable_entity }
+        format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -78,13 +70,21 @@ class CollaborationInvitationsController < ApplicationController
   #    format.json { head :no_content }
   #  end
   #end
-
+		
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_collaboration_invitation
-      @collaboration_invitation = CollaborationInvitation.find(params[:id])
+    def set_invitation
+      @invitation = CollaborationInvitation.find(params[:id])
     end
+
+    def user
+      @invitation.invited_user
+	  end
 	
+	  def profile
+      @invitation.invited_user.user_profile	  
+	  end
+			
     # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
       params.require(:collaboration_invitation).permit(:project_id, :message, :invited_user_id)
@@ -99,7 +99,7 @@ class CollaborationInvitationsController < ApplicationController
 	
     # Authenticate the signed in user as the invited user
     def authenticate_current_user_as_invited_user
-	    unless current_user == @collaboration_invitation.invited_user
+	    unless current_user == @invitation.invited_user
 	      redirect_to :back, alert: 'This invitation is not for you!'
 	    end
 	  end

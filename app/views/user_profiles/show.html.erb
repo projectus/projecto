@@ -6,33 +6,23 @@
 
 
 
-  <div class="span6" id="card">
+  <div class="span6 box" id="card">
     <%= render partial: 'contact', object: @contact %>
 
 
 
   </div>
 
-  <div class="span3">
-
-      <div class="well well-small sidebar-nav pull-right">
-        <ul class="nav nav-list">
-          <li><%= link_to 'Feed (wall)', @user_profile %></li>
-          <li><%= link_to 'Projects', user_collaborations_path(@user) %></li>
-          <li><%= link_to 'Resume', resume_path(@user_profile) %></li>
-          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(@user) %></li>
-        </ul>
-      </div>
-
+  <div class="span3" id="profile_side">
+    <div class="well well-small sidebar-nav pull-right box">
+      <ul class="nav nav-list">
+        <li><%= link_to 'Feed (wall)', profile %></li>
+        <li><%= link_to 'Projects', user_projects_path(user) %></li>
+        <li><%= link_to 'Resume', resume_path(profile) %></li>
+        <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(user) %></li>
+      </ul>
+    </div>
   </div>
-
-</div>
-
-
-
-
-
-
 
 
 <div class="row-fluid">
@@ -48,8 +38,6 @@
 	<div class="well span6">
     <h2>User feed goes here</h2><br>
     <h4>Infinite scroll MTF!</h4>
-		<div class="panel">
-		 <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
-		</div>
+		<%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
   </div>
 </div>

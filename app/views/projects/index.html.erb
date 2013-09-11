@@ -1,5 +1,12 @@
 <h1>PROJECTS</h1>
 
+<ul class="nav nav-pills">
+  <li class="<%= 'active' if params[:cat].nil? %>"><%= link_to 'All', projects_path %></li>
+  <% Project::CATEGORIES.each do |cat| %>
+    <li class="<%= 'active' if params[:cat]==cat %>"><%= link_to cat, cat_path(cat) %></li>
+  <% end %>
+</ul>
+
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
