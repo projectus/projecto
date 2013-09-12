@@ -7,32 +7,31 @@
   <% end %>
 </ul>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.category.capitalize %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'View Profile', project.profile %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <tr>
-        <td>Tags:</td> 
-        <td colspan="5"><%= raw project.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-      </tr>
+        <div class="project-box">
+          <div class="project-image-box">
+
+            <img src="http://findicons.com/files/icons/329/simple/128/closed_folder.png" class="img-polaroid"/>
+          </div>
+
+          <div>
+            <%= project.name %>
+
+          </div>
+          <div class="project-description">
+            <%= project.category.capitalize %>
+            <%= project.description %>
+          </div>
+
+          <div class="project-action-panel">
+            <i class="icon-eye-open"></i>         <%= link_to 'View Profile', project.profile %>
+
+            <i class="icon-user"></i><%= link_to 'Edit', edit_project_path(project) %>
+            <i class="icon-pencil"></i>   <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <i class="icon-trash"></i>
+
+          </div>
+        </div>
     <% end %>
-  </tbody>
-</table>
+

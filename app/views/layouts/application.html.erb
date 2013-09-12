@@ -28,12 +28,16 @@
 
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
+      <div id="nav-center">
+
 	    <ul class="nav">
 		    <li><%= link_to "PROJECTORE", root_path, class: "brand" %></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <div class="input-prepend">
-                <%= text_field_tag :tag, nil, class: 'input-xlarge search-query', placeholder: 'Search for Projects?' %>
+                <span class="add-on"><i class="icon-search"></i></span>
+                <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'Search for Projects' %>
+                <%= submit_tag 'Search', class: 'btn search', name: nil %>
               </div>
           <% end %>
         </li>
@@ -74,6 +78,7 @@
 	        <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>
+      </div>
     </div>
   </div>
 
@@ -87,9 +92,9 @@
   </div>
 
   <div id="content" class="container">
-    <div class="span10">
+
       <%= content_for?(:content) ? yield(:content) : yield %>
-    </div>
+
   </div>
 
 

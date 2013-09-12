@@ -23,11 +23,19 @@
 }
 
 #content {
-  margin-left: 1em !important;
+  margin: auto;
+  margin-top: 1.5em;
 }
 
 .navbar-inner{
-  padding: 0em 8em !important;
+  /*padding: 0em 8em !important;*/
+  padding-top: 0.4em;
+
+}
+
+#nav-center{
+  width: 75em;
+  margin: auto;
 }
 
 .hero-unit {
@@ -45,4 +53,35 @@
 
 #card{
   padding: 1em;
+}
+
+.search{
+  margin-left: 0.5em;
+}
+
+.hero-unit {
+  border: 1px solid #BBB;
+}
+
+.project-box{
+  height: 220px;
+  width: 170px;
+  background-color: #FFF;
+  border: 1px solid #BBB;
+}
+
+.project-image-box{
+  margin: auto;
+  width: 75%;
+
+
+}
+
+.project-description {
+  font-size: 9pt;
+  line-height: 1.2em;
+}
+
+.project-action-panel{
+  font-size: 9pt;
 }
