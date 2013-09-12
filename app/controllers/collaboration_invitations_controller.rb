@@ -9,7 +9,7 @@ class CollaborationInvitationsController < ApplicationController
 	                       "You don't have the permissions to invite to this project.")
 	end
 
-  helper_method :user, :profile
+  helper_method :associated_user
 	
   # GET /collaboration_invitations
   # GET /collaboration_invitations.json
@@ -77,12 +77,8 @@ class CollaborationInvitationsController < ApplicationController
       @invitation = CollaborationInvitation.find(params[:id])
     end
 
-    def user
+    def associated_user
       @invitation.invited_user
-	  end
-	
-	  def profile
-      @invitation.invited_user.user_profile	  
 	  end
 			
     # Never trust parameters from the scary internet, only allow the white list through.

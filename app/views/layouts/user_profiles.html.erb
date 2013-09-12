@@ -3,8 +3,8 @@
 <div class="container-fluid">
 	<div class="row-fluid">
     <div class="well well-small">
-      <b><%= user.username %></b>
-      <% if current_user == user %>
+      <b><%= associated_user.username %></b>
+      <% if current_user == associated_user %>
         <span style="color:orange;">(you)</span>
       <% end %>
     </div>
@@ -17,10 +17,10 @@
     <div class="span2">
       <div class="well well-small sidebar-nav pull-right">
         <ul class="nav nav-list">
-          <li><%= link_to 'Feed (wall)', profile %></li>	        
-          <li><%= link_to 'Projects', user_projects_path(user) %></li>
-          <li><%= link_to 'Resume', resume_path(profile) %></li>
-          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(user) %></li>
+          <li><%= link_to 'Feed (wall)', associated_user.profile %></li>	        
+          <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
+          <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
+          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
         </ul>
       </div>
     </div>

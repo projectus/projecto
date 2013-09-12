@@ -2,15 +2,15 @@
   <thead>
     <tr>
       <th>Project</th>
-      <th></th>
+      <th>Description</th>
     </tr>
   </thead>
 
   <tbody>
     <% @user.owned_projects.each do |project| %>
       <tr>
-        <td><%= link_to project.name, project %></td>
-        <td><%= link_to 'Details', project %></td>
+        <td><%= link_to project.name, project.profile %></td>
+        <td><%= project.description %></td>
       </tr>
     <% end %>
   </tbody>

@@ -11,7 +11,7 @@
     <% @user.collaboration_applications.each do |application| %>
       <tr>
         <td><%= application.status %></td>
-        <td><%= application.project.name %></td>
+        <td><%= link_to application.project.name, application.project.profile %></td>
         <td><%= link_to 'Details', application %></td>
       </tr>
     <% end %>

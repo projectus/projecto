@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Project:</strong>
-  <%= @project_profile.project_id %>
-</p>
+<div class="row-fluid">
+  <%= render partial: 'outline', object: @outline %>
+</div>
 
-<p>
-  <strong>Outline xml:</strong>
-  <%= @project_profile.outline_xml %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= @project_profile.Project %>
-</p>
-
-<%= link_to 'Edit', edit_project_profile_path(@project_profile) %> |
-<%= link_to 'Back', project_profiles_path %>
+<div class="row-fluid">
+	<div class="well">
+    <h2>Project feed goes here</h2><br>
+    <h4>Infinite scroll MTF!</h4>
+		<%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
+  </div>
+</div>

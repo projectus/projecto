@@ -1,10 +1,12 @@
 class TaskGroupsController < ApplicationController
   before_action :set_task_group, only: [:show, :edit, :update, :destroy]
 
+  helper_method :associated_project
+
   # Authenticate current user as project owner. Set project depending on the action.
   before_action(except: [:index, :show]) do
 	  if @task_group.nil?
-	    project = Project.find(params[:project_id]||=params[:task_group][:project_id])
+	    project = Project.find(params[:project_id]||=task_group_params[:project_id])
 	  else
 		  project = @task_group.project
 		end
@@ -79,19 +81,14 @@ class TaskGroupsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task_group
       @task_group = TaskGroup.find(params[:id])
-      @project = @task_group.project
     end
-
-    #def set_project
-	  #  unless params[:project_id].nil?
-	  #    @project = Project.find(params[:project_id])
-	  #  else
-	  #    @project = Project.find(params[:task_group][:project_id])
-	  #  end		
-	  #end
 	
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_group_params
       params.require(:task_group).permit(:name, :project_id)
     end
+
+    def associated_project
+	    @project ||= @task_group.project 
+	  end
 end

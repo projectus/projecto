@@ -1,0 +1,16 @@
+<% content_for :project_profiles_content do %>
+  <ul class="nav nav-tabs">
+    <li class="<%= 'active' if params[:action] == 'collaborations' %>">
+      <%= link_to 'Current Collaborators', project_collaborations_path(associated_project) %>
+    </li>
+    <li class="<%= 'active' if params[:action] == 'applications' %>">
+      <%= link_to 'Applications Received', project_applications_path(associated_project) %>
+    </li>
+    <li class="<%= 'active' if params[:action] == 'invitations' %>">
+      <%= link_to 'Invitations Sent', project_invitations_path(associated_project) %>
+    </li>
+  </ul>
+  <%= content_for?(:project_collaboration_info_content) ? yield(:project_collaboration_info_content) : yield %>
+<% end %>
+
+<%= render template: "layouts/project_profiles" %>

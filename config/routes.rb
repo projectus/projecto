@@ -1,15 +1,14 @@
 Projecto::Application.routes.draw do
 
-  get "project_collaboration_info/collaborations"
-  get "project_collaboration_info/applications"
-  get "project_collaboration_info/invitations"
+  get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
+  get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
+  get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
 
   get "users/:id/collaborations", to: 'user_collaboration_info#collaborations', as: :user_collaborations
   get "users/:id/applications", to: 'user_collaboration_info#applications', as: :user_collaboration_applications
   get "users/:id/invitations", to: 'user_collaboration_info#invitations', as: :user_collaboration_invitations
   get "users/:id/projects", to: 'user_collaboration_info#projects', as: :user_projects
 
-  resources :project_profiles
   resources :messages
 
   # You can have the root of your site routed with "root"
@@ -25,8 +24,16 @@ Projecto::Application.routes.draw do
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  # USER PROFILES ################
+
   get "user_profiles/:id/resume", to: 'user_profiles#show_resume', as: :resume
   resources :user_profiles, except: [:index, :new, :create, :destroy]
+
+  # PROJECT PROFILES ########################
+
+  resources :project_profiles, except: [:index, :new, :create, :destroy]
+
+  # TASKS and TASK GROUPS ###################
 
   resources :tasks, except: [:new, :index]
 	resources :task_groups, only: [:create] 	   
@@ -40,7 +47,7 @@ Projecto::Application.routes.draw do
 
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
-		resources :comments, except: [:create]
+		resources :comments, except: [:create, :show]
 		resources :collaborations, except: [:new, :create]
 		resources :task_groups, only: [:new, :index]    
 	end
