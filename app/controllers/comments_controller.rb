@@ -1,18 +1,15 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_comment, only: [:edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index]
   before_action :authenticate_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
+
+  helper_method :associated_project
 
   # GET /comments
   # GET /comments.json
   def index
 	  @project = Project.find(params[:project_id])
     @comments = @project.comments
-  end
-
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
   end
 
   # GET projects/1/comments/new
@@ -83,4 +80,8 @@ class CommentsController < ApplicationController
 	      redirect_to :back, alert: "This comment doesn't belong to you!"
 	    end
 	  end
+	
+	  def associated_project
+		  @project ||= @comment.project
+		end
 end

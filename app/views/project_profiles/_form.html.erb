@@ -1,6 +1,4 @@
 
-
-
 <%= form_for(@project_profile) do |f| %>
   <% if @project_profile.errors.any? %>
     <div id="error_explanation">
@@ -16,8 +14,8 @@
 
 
     <div class="field">
-    <%= f.label :outline_xml %><br>
-    <%= f.text_field :outline_xml %>
+    <%= f.label :outline_hash %><br>
+    <%= f.text_field :outline_hash %>
   </div>
 
   <div class="actions">

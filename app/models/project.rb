@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  CATEGORIES = [ "Engineering", "Science", "Arts", "Music", "Sports" ]
+  CATEGORIES = [ "engineering", "science", "arts", "music", "sports" ]
 	
   # Associations ################################
 
@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
 	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
 
-  has_one :project_profile
+  has_one :profile, class_name: 'ProjectProfile', dependent: :destroy
 	
 	has_many :applications, class_name: 'CollaborationApplication', dependent: :destroy
 	has_many :invitations, class_name: 'CollaborationInvitation', dependent: :destroy
@@ -26,8 +26,20 @@ class Project < ActiveRecord::Base
   validates :category, inclusion: CATEGORIES
   validates :owner, presence: true
 
+  # Before validation ##############################
+
+  before_validation do self.category.downcase! end
+
+	# After create ###################################
+
+  after_create :create_empty_profile
+		
   # Public methods #################################
 
+  def self.categories
+	  CATEGORIES.map(&:capitalize)
+	end
+	
   def owned_by?(user)
 	  return user == self.owner
 	end
@@ -54,5 +66,15 @@ class Project < ActiveRecord::Base
 		self.tags = names.split(",").map do |n|
 			Tag.where(name: n.strip.downcase).first_or_create!
 	  end
-	end	
+	end
+	
+	# Private methods ###################################
+
+  private
+    # Create empty project profile associated with self
+    def create_empty_profile
+      profile = build_profile
+      profile.generate_empty_outline
+      profile.save!
+    end	
 end

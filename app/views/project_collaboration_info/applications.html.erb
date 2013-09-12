@@ -1,2 +1,19 @@
-<h1>ProjectCollaborationInfo#applications</h1>
-<p>Find me in app/views/project_collaboration_info/applications.html.erb</p>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>User</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project.applications.each do |application| %>
+      <tr>
+        <td><%= application.status %></td>
+        <td><%= link_to application.user.username, application.user.profile %></td>
+        <td><%= link_to 'Details', application %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

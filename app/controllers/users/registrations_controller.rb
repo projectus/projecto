@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
     def after_sign_up_path_for(resource)
 	    user = User.find(resource)
-      user_profile_path(user.user_profile)
+      user_profile_path(user.profile)
     end
 
     def sign_up_permitted_parameters

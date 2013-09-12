@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
-  has_one :user_profile, dependent: :destroy
+  has_one :profile, class_name: 'UserProfile', dependent: :destroy
 
   # Public methods ###################################
 
@@ -48,9 +48,9 @@ class User < ActiveRecord::Base
   # Private methods ###################################
 
   private
-    # Create empty user_profile associated with self
+    # Create empty user profile associated with self
     def create_empty_profile
-      profile = build_user_profile
+      profile = build_profile
       profile.generate_empty_resume
       profile.generate_empty_card
     end

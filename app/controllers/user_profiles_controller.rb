@@ -3,7 +3,7 @@ class UserProfilesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show, :show_resume]
   before_action :authenticate_current_user_as_profile_owner, except: [:index, :show, :show_resume] 
 
-  helper_method :user, :profile
+  helper_method :associated_user
 	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
@@ -39,21 +39,17 @@ class UserProfilesController < ApplicationController
       @user_profile = UserProfile.find(params[:id])
     end
 
-    def user
+    def associated_user
 	    @user_profile.user
-	  end
-
-    def profile
-	    @user_profile
 	  end
 		
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
-      params.require(:user_profile).permit(:card, :resume)
+      params.require(:user_profile).permit()
     end
 
     # Only let current user modify his own profile
     def authenticate_current_user_as_profile_owner
-	    redirect_to :back, alert: "This is not your profile!" unless current_user == user
+	    redirect_to :back, alert: "This is not your profile!" unless current_user == associated_user
 	  end
 end

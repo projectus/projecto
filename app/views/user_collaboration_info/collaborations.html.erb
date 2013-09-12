@@ -11,7 +11,7 @@
     <% @user.collaborations.each do |collaboration| %>
       <tr>
         <td><%= collaboration.role %></td>
-        <td><%= link_to collaboration.project.name, collaboration.project %></td>
+        <td><%= link_to collaboration.project.name, collaboration.project.profile %></td>
         <td><%= link_to 'Details', collaboration %></td>
       </tr>
     <% end %>

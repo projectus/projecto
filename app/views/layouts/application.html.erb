@@ -62,11 +62,11 @@
         <% if user_signed_in? %>
           <li>
             <div class="btn-group">
-              <a class="btn " href="#"><i class="icon-user icon-black"></i> <%= current_user.username %></a>
+              <a class="btn" href="<%= user_profile_path(current_user.profile) %>"><i class="icon-user icon-black"></i><%= current_user.username %></a>
               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret caret-white"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><i class="icon-pencil"></i> Account</a></li>
-                <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", user_profile_path(current_user) %></a></li>
+                <li><a href="#"><i class="icon-pencil"></i>Account</a></li>
+                <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", current_user.profile %></a></li>
                 <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
                 <li class="divider"></li>
                 <li><a href="#"><i class="i"></i> Make admin</a></li>
@@ -99,7 +99,7 @@
 
 
     <div class="footer">
-      <
+ 
     </div>
 
 

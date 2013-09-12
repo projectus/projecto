@@ -1,7 +1,7 @@
 class UserCollaborationInfoController < ApplicationController
 	before_action :set_user
 
-  helper_method :user, :profile
+  helper_method :associated_user
 	
   def collaborations
   end
@@ -22,11 +22,7 @@ class UserCollaborationInfoController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def user
+    def associated_user
 	    @user
 	  end
-	
-	  def profile
-		  @user.user_profile
-		end
 end

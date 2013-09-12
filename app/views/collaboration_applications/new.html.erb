@@ -1,5 +1,9 @@
-<h1>Apply to <%= link_to @application.project.name, @application.project %></h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Cancel', @application.project %>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="offset4 span4">
+			<h1>Apply to <%= link_to @application.project.name, @application.project.profile %></h1>
+      <%= render 'form' %>
+      <%= link_to 'Cancel', :back %>
+    </div>
+  </div>
+</div>
