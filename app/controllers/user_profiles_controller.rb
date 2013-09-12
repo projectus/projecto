@@ -50,6 +50,6 @@ class UserProfilesController < ApplicationController
 
     # Only let current user modify his own profile
     def authenticate_current_user_as_profile_owner
-	    redirect_to :back, alert: "This is not your profile!" unless current_user == user
+	    redirect_to :back, alert: "This is not your profile!" unless current_user == associated_user
 	  end
 end

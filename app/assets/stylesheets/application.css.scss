@@ -23,5 +23,26 @@
 }
 
 #content {
-	margin:  0 15px 0 15px;
+  margin: 2em 25em !important;
+}
+
+.navbar-inner{
+  padding: 0em 25em !important;
+}
+
+.hero-unit {
+  padding: 1em 2em !important;
+}
+
+.footer{
+  background: #666 !important;
+}
+
+.box{
+  border: 1px solid #BBB;
+  box-shadow: 4px 4px 5px #888;
+}
+
+#card{
+  padding: 1em;
 }

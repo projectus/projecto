@@ -29,18 +29,52 @@
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
 	    <ul class="nav">
-		    <li><%= link_to "PROJECTORE", root_path, class: "navbar-brand" %></li>
+		    <li><%= link_to "PROJECTORE", root_path, class: "navbar-brand brand" %></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
-              <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'What are you looking for?' %>
+              <div class="input-prepend">
+                <span class="add-on">@</span>
+                <%= text_field_tag :tag, nil, class: 'input-xlarge search-query', placeholder: 'Search for Projects?' %>
+              </div>
+
+
+
+
+
               <%= submit_tag 'Search', class: 'btn', name: nil %>
           <% end %>
         </li>
       </ul>
       <ul class="nav pull-right">
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">About <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+
         <% if user_signed_in? %>
-          <li><%= link_to "Profile", user_profile_path(current_user) %></li>
-	        <li><p class="navbar-text">Signed in as <b><%= current_user.username %></b></p></li>
+          <li>
+            <div class="btn-group">
+              <a class="btn" href="<%= user_profile_path(current_user.profile) %>"><i class="icon-user icon-black"></i><%= current_user.username %></a>
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret caret-white"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon-pencil"></i>Account</a></li>
+                <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", current_user.profile %></a></li>
+                <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="i"></i> Make admin</a></li>
+              </ul>
+            </div>
+
+          </li>
+
           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
 	        <li><%= link_to "Sign up", new_user_registration_path %></li>
@@ -63,26 +97,11 @@
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 
-  <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="navbar-inner">
-	    <ul class="nav">
-        <li><%= link_to 'Projects', projects_path %></li>
-        <li><%= link_to 'Members', users_path %></li>
-        <li class="dropdown">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="nav-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+
+    <div class="footer">
+ 
     </div>
-  </div>
+
 
 </body>
 </html>

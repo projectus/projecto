@@ -7,3 +7,25 @@
     </a>
   </p>
 </div>
+
+<div class="hero-unit">
+  <h4>Projects by Category</h4>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#">All</a>
+    </li>
+
+    <% Project::CATEGORIES.each do |cat| %>
+        <li><%= link_to cat, cat_path(cat) %></li>
+    <% end %>
+  </ul>
+
+
+</div>
+
+<div class="hero-unit">
+  <h4>Projects by Location</h4>
+
+
+
+</div>

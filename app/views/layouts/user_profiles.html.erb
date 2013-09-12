@@ -2,27 +2,31 @@
 
 <div class="container-fluid">
 	<div class="row-fluid">
-    <div class="well well-small">
-      <b><%= associated_user.username %></b>
-      <% if current_user == associated_user %>
-        <span style="color:orange;">(you)</span>
-      <% end %>
+
+    <div class="box well well-small">
+
+      <div class="row-fluid">
+        <div class="span3">
+          <b><%= associated_user.username %></b>
+          <% if current_user == associated_user %>
+              <span style="color:orange;">(you)</span>
+          <% end %>
+        </div>
+
+        <div class="pull-right">
+          <div class="btn-group">
+            <button class="btn btn-small"><%= link_to "Edit Profile", edit_user_profile_path(current_user) %></button>
+            <button class="btn btn-small"><%= link_to "Projects", user_projects_path(associated_user)  %></button>
+            <button class="btn btn-small">Right</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
   <div class="row-fluid">
-    <div class="span10">
+    <div class="span12">
 		  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
-    </div>
-  
-    <div class="span2">
-      <div class="well well-small sidebar-nav pull-right">
-        <ul class="nav nav-list">
-          <li><%= link_to 'Feed (wall)', associated_user.profile %></li>	        
-          <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
-          <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
-          <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
-        </ul>
-      </div>
     </div>
   </div>
 </div>
