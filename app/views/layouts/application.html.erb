@@ -37,10 +37,6 @@
                 <%= text_field_tag :tag, nil, class: 'input-xlarge search-query', placeholder: 'Search for Projects?' %>
               </div>
 
-
-
-
-
               <%= submit_tag 'Search', class: 'btn', name: nil %>
           <% end %>
         </li>
@@ -93,8 +89,10 @@
     <% end %>
   </div>
 
-  <div id="content">
-    <%= content_for?(:content) ? yield(:content) : yield %>
+  <div class="row-fluid">
+    <div class="span10 offset1">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
   </div>
 
 
