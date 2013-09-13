@@ -15,7 +15,7 @@
       <a href="#">All</a>
     </li>
 
-    <% Project::CATEGORIES.each do |cat| %>
+    <% Project.categories.each do |cat| %>
         <li><%= link_to cat, cat_path(cat) %></li>
     <% end %>
   </ul>
