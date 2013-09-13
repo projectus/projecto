@@ -1,4 +1,5 @@
 <% content_for :project_profiles_content do %>
+  <p>Project owned by: <%= link_to associated_project.owner.username, associated_project.owner.profile %></p>
   <ul class="nav nav-tabs">
     <li class="<%= 'active' if params[:action] == 'collaborations' %>">
       <%= link_to 'Current Collaborators', project_collaborations_path(associated_project) %>
