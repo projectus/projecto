@@ -44,22 +44,26 @@ class Project < ActiveRecord::Base
 	  return user == self.owner
 	end
 		
-	def self.tagged_with(name)
-		tag = Tag.find_by_name(name.downcase)
+	def self.tagged_with(tagname)
+		tag = Tag.find_by_name(tagname.downcase)
 		unless tag.nil?
 			tag.projects
 		else
 			return []
 		end
 	end
-	
+
+	def self.tagged_with_something_like(tagname)
+		Project.joins(:tags).where("tags.name LIKE ?", "%#{tagname.downcase}%")
+	end
+		
 	def self.tag_counts
 		Tag.select("tags.*, count(taggings.tag_id) as count").
 		  joins(:taggings).group("taggings.tag_id")
 	end
 	
 	def tag_list
-		tags.map(&:name).join(", ")
+		tags.map(&:name).join(",")
 	end
 	
 	def tag_list=(names)

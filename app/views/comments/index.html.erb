@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <% @comments.includes(user: :profile).each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
         <td><%= link_to comment.user.username, comment.user.profile %></td>

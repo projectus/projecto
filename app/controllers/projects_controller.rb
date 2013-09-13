@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
 	  if params[:cat]
 	    @projects = Project.find_all_by_category(params[:cat].downcase)
     elsif params[:tag]
-	    @projects = Project.tagged_with(params[:tag].downcase)
+	    @projects = Project.tagged_with_something_like(params[:tag])
 	  else
 	    @projects = Project.all
 	  end

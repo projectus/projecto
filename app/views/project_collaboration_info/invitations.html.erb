@@ -9,10 +9,10 @@
   </thead>
 
   <tbody>
-    <% @project.invitations.each do |invitation| %>
+    <% @project.invitations.includes({invited_user: :profile,invited_by_user: :profile}).each do |invitation| %>
       <tr>
         <td><%= invitation.status %></td>
-        <td><%= link_to invitation.user.username, invitation.user.profile %></td>
+        <td><%= link_to invitation.invited_user.username, invitation.invited_user.profile %></td>
         <td><%= link_to invitation.invited_by_user.username, invitation.invited_by_user.profile %></td>
         <td><%= link_to 'Details', invitation %></td>
       </tr>

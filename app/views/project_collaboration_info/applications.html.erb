@@ -8,10 +8,10 @@
   </thead>
 
   <tbody>
-    <% @project.applications.each do |application| %>
+    <% @project.applications.includes({applicant: :profile}).each do |application| %>
       <tr>
         <td><%= application.status %></td>
-        <td><%= link_to application.user.username, application.user.profile %></td>
+        <td><%= link_to application.applicant.username, application.applicant.profile %></td>
         <td><%= link_to 'Details', application %></td>
       </tr>
     <% end %>
