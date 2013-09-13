@@ -10,7 +10,6 @@
   <div class="span3" id="profile_side">
     <div class="well well-small sidebar-nav pull-right box">
       <ul class="nav nav-list">
-        <li><%= link_to 'Feed (wall)', associated_user.profile %></li>
         <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
         <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
         <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
@@ -20,7 +19,7 @@
 </div>
 
 <div class="row">
- <div class="well">
+  <div class="well">
     <h2>User feed goes here</h2><br>
     <h4>Infinite scroll MTF!</h4>
     <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>

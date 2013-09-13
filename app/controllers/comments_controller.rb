@@ -10,13 +10,15 @@ class CommentsController < ApplicationController
   def index
 	  @project = Project.find(params[:project_id])
     @comments = @project.comments
+    @comment = Comment.new
+    @comment.project = @project
   end
 
   # GET projects/1/comments/new
-  def new
-    @comment = Comment.new
-    @comment.project_id = params[:project_id]
-  end
+  #def new
+  #  @comment = Comment.new
+  #  @comment.project_id = params[:project_id]
+  #end
 
   # GET /comments/1/edit
   def edit
@@ -43,7 +45,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to project_comments_url(@comment.project), notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

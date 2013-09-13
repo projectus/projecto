@@ -7,7 +7,6 @@
       <th>Minus</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -18,7 +17,6 @@
         <td><%= link_to comment.user.username, comment.user.profile %></td>
         <td><%= comment.plus %></td>
         <td><%= comment.minus %></td>
-        <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -27,4 +25,4 @@
 </table>
 
 <br>
-<%= link_to 'New Comment', new_project_comment_path(associated_project) %> 
+<%= render 'new' %>

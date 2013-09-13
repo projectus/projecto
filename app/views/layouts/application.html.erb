@@ -26,10 +26,9 @@
 
 <body>
 
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-inner">
-      <div id="nav-center">
-
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-inner">
+    <div id="nav-center">
 	    <ul class="nav">
 		    <li><%= link_to "PROJECTORE", root_path, class: "brand" %></li>
         <li>
@@ -57,30 +56,29 @@
         </li>
 
         <% if user_signed_in? %>
-          <li>
-            <div class="btn-group">
-              <a class="btn" href="<%= user_profile_path(current_user.profile) %>"><i class="icon-user icon-black"></i><%= current_user.username %></a>
-              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret caret-white"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="icon-pencil"></i>Account</a></li>
-                <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", current_user.profile %></a></li>
-                <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="i"></i> Make admin</a></li>
-              </ul>
-            </div>
+        <li>
+          <div class="btn-group">
+            <a class="btn" href="<%= user_profile_path(current_user.profile) %>"><i class="icon-user icon-black"></i><%= current_user.username %></a>
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret caret-white"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-pencil"></i>Account</a></li>
+              <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", current_user.profile %></a></li>
+              <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="i"></i> Make admin</a></li>
+            </ul>
+          </div>
+        </li>
 
-          </li>
-
-          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-	        <li><%= link_to "Sign up", new_user_registration_path %></li>
-	        <li><%= link_to "Sign in", new_user_session_path %></li>
+	      <li><%= link_to "Sign up", new_user_registration_path %></li>
+	      <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>
-      </div>
     </div>
   </div>
+</div>
 
   <div id="alerts">
     <% flash.each do |name, msg| %>
@@ -92,15 +90,11 @@
   </div>
 
   <div id="content" class="container">
-
-      <%= content_for?(:content) ? yield(:content) : yield %>
-
+    <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
-
 
   <div class="footer"> 
   </div>
-
 
 </body>
 </html>
