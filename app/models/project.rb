@@ -12,6 +12,7 @@ class Project < ActiveRecord::Base
 	has_many :tasks, through: :task_groups
 	
   has_many :comments, dependent: :destroy
+  has_many :news, class_name: 'NewsPost', dependent: :destroy
 
 	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings

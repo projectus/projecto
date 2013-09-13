@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered box">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Project</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% news_posts.each do |news_post| %>
+      <tr>
+        <td><%= news_post.content %></td>
+        <td><%= news_post.title %></td>
+        <td><%= news_post.species %></td>
+        <td><%= link_to_project_profile(news_post.project) %></td>
+        <td><%= link_to_user_profile(news_post.user) %></td>
+        <td><%= link_to 'Show', news_post %></td>
+        <td><%= link_to 'Edit', edit_news_post_path(news_post) %></td>
+        <td><%= link_to 'Destroy', news_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

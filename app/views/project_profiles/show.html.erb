@@ -1,8 +1,7 @@
 
-<%= render partial: 'outline', object: @outline %>
-
 <div class="well">
-  <h2>Project feed goes here</h2><br>
-  <h4>Infinite scroll MTF!</h4>
+	<h3>Project News</h3>
+  <%= render partial: 'news_posts/index', locals: {news_posts: associated_project.news} %>
+	<%= link_to 'New Post', new_project_news_post_path(associated_project) %>
   <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
 </div>

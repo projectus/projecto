@@ -1,14 +1,17 @@
 class ProjectProfilesController < ApplicationController
-  before_action :set_project_profile, only: [:show, :edit, :update]
+  before_action :set_project_profile, only: [:show, :about, :edit, :update]
 
   helper_method :associated_project
 
   # GET /project_profiles/1
   # GET /project_profiles/1.json
   def show
-	  @outline = @project_profile.outline
   end
 	
+	def about
+	  @outline = @project_profile.outline
+  end
+
   # GET /project_profiles/1/edit
   def edit
   end

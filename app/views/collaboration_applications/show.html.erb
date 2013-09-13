@@ -1,6 +1,6 @@
 <div class="well well-small">
 	<div style="text-align:center;">
-		<h4>Application for <%= link_to @application.project.name, @application.project %></h4>
+		<h4>Application for <%= link_to_project_profile(@application.project) %></h4>
 	</div>
 <p>
   <strong>User:</strong>
@@ -19,4 +19,4 @@
 
 <%= render partial: 'decide' %>
 </div>
-<%= link_to 'Back', user_collaboration_applications_path(@application.applicant) %>
+<%= link_to 'Back', project_collaboration_applications_path(@application.project) %>

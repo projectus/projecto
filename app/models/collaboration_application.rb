@@ -8,7 +8,8 @@ class CollaborationApplication < ActiveRecord::Base
   validates :project, presence: true
   validates :status, inclusion: {in: STATUSES}
 
-  validate :applicant_is_not_associated_with_project, on: :create
+  validate :applicant_does_not_own_project, on: :create
+  validate :applicant_is_not_collaborating_on_project, on: :create
   validate :applicant_does_not_have_pending_application_to_project, on: :create
   validate :applicant_does_not_have_pending_invitation_to_project, on: :create
 
@@ -34,12 +35,19 @@ class CollaborationApplication < ActiveRecord::Base
 	  end
 
 	  # Check that the applicant is not already collaborating on this project.	
-	  def applicant_is_not_associated_with_project
-		  if applicant.is_associated_with_project?(project)
-			  errors[:base] << "You are already associated with this project."
+	  def applicant_is_not_collaborating_on_project
+		  if applicant.is_collaborating_on_project?(project)
+			  errors[:base] << "You are already collaborating on this project."
 			end
 		end
-
+		
+		# Check that the applicant is not the owner of this project.	
+	  def applicant_does_not_own_project
+		  if applicant.is_owner_of_project?(project)
+			  errors[:base] << "You can't apply to your own project!"
+			end
+		end
+		
 	  # Check that the applicant does not already have a pending application.				
 		def applicant_does_not_have_pending_application_to_project
 		  if applicant.has_pending_application_to_project?(project)

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @news_post.content %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @news_post.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @news_post.species %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @news_post.project %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @news_post.user %>
+</p>
+
+<%= link_to 'Edit', edit_news_post_path(@news_post) %> |
+<%= link_to_project_profile(@news_post.project,'Back to Project News') %>

@@ -25,18 +25,27 @@ class User < ActiveRecord::Base
   has_many :sent_collaboration_invitations, class_name: 'CollaborationInvitation', foreign_key: :invited_by_user_id, dependent: :destroy
 
   has_many :comments, dependent: :destroy
+  has_many :news, class_name: 'NewsPost', dependent: :destroy
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
   has_one :profile, class_name: 'UserProfile', dependent: :destroy
 
   # Public methods ###################################
-
-  def is_associated_with_project?(project)
-	  a = collaborations.exists?(project: project)
-	  b = self == project.owner
-	  return a || b
+	
+	def is_owner_of_project?(project)
+	  self == project.owner
 	end
 	
+	def is_collaborating_on_project?(project)
+	  collaborations.exists?(project: project)
+	end
+
+  def is_associated_with_project?(project)
+	  a = is_owner_of_project?(project)
+	  b = is_collaborating_on_project?(project)
+	  return a || b
+	end
+		
 	def has_pending_application_to_project?(project)
 		collaboration_applications.exists?(project: project, status: 'pending')
 	end
