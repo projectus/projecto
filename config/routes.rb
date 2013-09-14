@@ -50,7 +50,7 @@ Projecto::Application.routes.draw do
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
-		resources :news_posts, except: [:create]
+		resources :news_posts, except: [:create, :new]
 		resources :collaborations, except: [:new, :create]
 		resources :task_groups, only: [:new, :index]    
 	end

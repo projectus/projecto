@@ -10,10 +10,8 @@
   </div>
 
   <ul class="nav nav-pills">
-	  <% if params[:controller] == 'project_profiles' %>
 	  <li class="<%= 'active' if params[:action] == 'about'%>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
-    <li class="<%= 'active' if params[:action] == 'show'%>"><%= link_to 'News', associated_project.profile %></li>
-    <% end %>
+    <li class="<%= 'active' if params[:controller] == 'news_posts'%>"><%= link_to 'News', associated_project.profile %></li>
     <li class="<%= 'active' if params[:controller] == 'project_collaboration_info'%>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
     <li class="<%= 'active' if params[:controller] == 'comments'%>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
     <li class="<%= 'active' if params[:controller] == 'task_groups'%>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>

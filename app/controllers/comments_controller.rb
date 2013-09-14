@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
 	before_action :authenticate_user!, except: [:index]
   before_action :authenticate_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
 
-  helper_method :associated_project
-
   # GET /comments
   # GET /comments.json
   def index

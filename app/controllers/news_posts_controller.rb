@@ -3,9 +3,11 @@ class NewsPostsController < ApplicationController
 
   # GET /news_posts
   # GET /news_posts.json
-  #def index
-  #  @news_posts = NewsPost.all
-  #end
+  def index
+    @news_posts = NewsPost.all
+    @news_post = NewsPost.new
+    @news_post.project_id = params[:project_id]
+  end
 
   # GET /news_posts/1
   # GET /news_posts/1.json
@@ -13,10 +15,10 @@ class NewsPostsController < ApplicationController
   end
 
   # GET /news_posts/new
-  def new
-    @news_post = NewsPost.new
-    @news_post.project_id = params[:project_id]
-  end
+  #def new
+  #  @news_post = NewsPost.new
+  #  @news_post.project_id = params[:project_id]
+  #end
 
   # GET /news_posts/1/edit
   def edit
@@ -27,6 +29,7 @@ class NewsPostsController < ApplicationController
   def create
     #@news_post = NewsPost.new(news_post_params)
     @news_post = current_user.news.build(news_post_params)
+    @news_post.species = 'regular'
 
     respond_to do |format|
       if @news_post.save
@@ -56,9 +59,10 @@ class NewsPostsController < ApplicationController
   # DELETE /news_posts/1
   # DELETE /news_posts/1.json
   def destroy
+	  project_id = @news_post.project_id
     @news_post.destroy
     respond_to do |format|
-      format.html { redirect_to news_posts_url }
+      format.html { redirect_to project_news_posts_url(project_id) }
       format.json { head :no_content }
     end
   end
@@ -71,6 +75,10 @@ class NewsPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_post_params
-      params.require(:news_post).permit(:content, :title, :species, :project_id)
+      params.require(:news_post).permit(:content, :title, :project_id)
     end
+
+	  def associated_project
+		  @news_post.project
+		end
 end
