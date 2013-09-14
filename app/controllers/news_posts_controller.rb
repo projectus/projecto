@@ -1,5 +1,5 @@
 class NewsPostsController < ApplicationController
-  before_action :set_news_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_news_post, only: [:edit, :update, :destroy]
 
   # GET /news_posts
   # GET /news_posts.json
@@ -11,8 +11,8 @@ class NewsPostsController < ApplicationController
 
   # GET /news_posts/1
   # GET /news_posts/1.json
-  def show
-  end
+  #def show
+  #end
 
   # GET /news_posts/new
   #def new

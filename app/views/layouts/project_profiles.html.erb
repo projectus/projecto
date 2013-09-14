@@ -1,5 +1,4 @@
 <% content_for :content do %>
-  <div class="row">
     <div class="well well-small box">
       <b><%= associated_project.name %></b>
       <% if current_user == associated_project.owner %>
@@ -7,7 +6,6 @@
       <% end %>
 			<%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
     </div>
-  </div>
 
   <ul class="nav nav-pills">
 	  <li class="<%= 'active' if params[:action] == 'about'%>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
@@ -19,9 +17,7 @@
     <li><a>Discussion Board (private)</a></li>
   </ul>
 
-  <div class="row">
-    <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
-  </div>
+  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 <% end %>
 
 <%= render template: "layouts/application" %>

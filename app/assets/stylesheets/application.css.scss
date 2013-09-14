@@ -23,7 +23,6 @@
 }
 
 #content {
-  margin: auto;
   margin-top: 1.5em;
 }
 
@@ -42,6 +41,26 @@
   padding: 1em 2em !important;
 }
 
+.well {
+	background-color: #FFF;
+}
+
+.hero-unit {
+  background-color: #FFF;	
+}
+
+.orange {
+	background-color: #FFDAB9;
+	background-image: none;
+}
+
+.white {
+  background-color: #FFF;
+  /* remove the gradient */
+  background-image: none;
+  /* set font color to white */
+}
+
 .footer{
   background: #666 !important;
 }
@@ -51,8 +70,14 @@
   box-shadow: 4px 4px 5px #888;
 }
 
-#card{
-  padding: 1em;
+#scroll {
+  background-color: #FFF;
+  padding-top: 60px;
+  margin: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 100%;
+  border: 1px solid #BBB;
 }
 
 .search{
@@ -61,25 +86,4 @@
 
 .hero-unit {
   border: 1px solid #BBB;
-}
-
-.project-box{
-  height: 220px;
-  width: 170px;
-  background-color: #FFF;
-  border: 1px solid #BBB;
-}
-
-.project-image-box{
-  margin: auto;
-  width: 75%;
-}
-
-.project-description {
-  font-size: 9pt;
-  line-height: 1.2em;
-}
-
-.project-action-panel{
-  font-size: 9pt;
 }

@@ -1,0 +1,12 @@
+<div class="news-post">
+  <h4><%= post.title %></h4>
+  <p>
+  <%= post.content %><br>
+  <b><%= post.species %> post</b>
+  </p>
+  <div>
+    <%= link_to_user_profile(post.user) %> | 
+	  <%= link_to 'Edit', edit_news_post_path(post) %> | 
+	  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>	
+</div>
