@@ -1,4 +1,9 @@
+Post to News
 <%= render 'new' %>
+
+<h3>Project News</h3>
+
+<div class="scroll-splitter"></div>
 
 <% @news_posts.each do |news_post| %>
   <%= render partial: 'post', object: news_post %>

@@ -1,5 +1,4 @@
 <% content_for :project_profiles_content do %>
-		<h3>Project News</h3>
 	  <%= content_for?(:news_posts_content) ? yield(:news_posts_content) : yield %>
 	  <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
 <% end %>

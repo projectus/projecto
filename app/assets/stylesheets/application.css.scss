@@ -30,19 +30,9 @@
   margin-top: 1.5em;
 }
 
-.navbar-inner{
-  /*padding: 0em 8em !important;*/
-  padding-top: 0.4em;
-
-}
-
-#nav-center{
-  width: 75em;
-  margin: auto;
-}
-
 .hero-unit {
   padding: 1em 2em !important;
+  border: 1px solid #BBB;
 }
 
 .well {
@@ -79,9 +69,17 @@
   background: #666 !important;
 }
 
-.box{
+.box {
   border: 1px solid #BBB;
-  box-shadow: 4px 4px 5px #888;
+  box-shadow: 4px 4px 5px #d4d4d4;
+}
+
+input {
+	border-radius: 0 !important;
+}
+
+textarea {
+	border-radius: 0 !important;
 }
 
 #scroll {
@@ -90,17 +88,47 @@
   margin: auto;
   padding-left: 1em;
   padding-right: 1em;
-  height: 100%;
   border: 1px solid #BBB;
+}
+
+.scroll-splitter {
+  border-bottom: 1px solid #BBB;	
+  margin: 1em -1em 1em -1em;
+}
+
+.nav.nav-pills {
+	margin: 0;
 }
 
 .search{
   margin-left: 0.5em;
 }
 
-.hero-unit {
-  border: 1px solid #BBB;
+.divider-vertical {
+	height: 45px !important;
+	border-left: 1px solid #BBB !important;
+	margin: 0 !important;
 }
+
+.divider-vertical-right {
+	border-right: 1px solid #BBB !important;
+	border-left: none !important;
+}
+
+.navbar-inner {
+	padding-top: 0;
+	li {
+		padding-top: 4px;
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+}
+
+.navbar-fixed-top {
+  width: 76em;
+  margin: auto;	
+}
+
 
 .sub-nav {
    float: left;
@@ -110,3 +138,16 @@
 #about-content {
   margin-left: 2em;
 }
+
+#nav-center{
+  width: 76em;
+  margin: auto;
+}
+
+.about-link {
+	color: #ff8700;
+	text-decoration: none !important;
+	vertical-align: middle;
+	display: table-cell;
+}
+

@@ -13,7 +13,8 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "Projecto" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "OrangePeel" %></title>
+  <%= favicon_link_tag %>
   <%#= javascript_include_tag "jquery" %>
   <%= stylesheet_link_tag    "application" %>
   <%#= javascript_include_tag "vendor/custom.modernizr" %>
@@ -33,7 +34,9 @@
   <div class="navbar-inner white">
     <div id="nav-center">
 	    <ul class="nav">
-		    <li><a class="brand" href="<%= root_path %>"><div><%= image_tag("site/orange-logo.jpg",style:'width:20px;height:20px;')%>PEEL</div></a></li>
+		    <li class="divider-vertical"></li>
+		    <li><a class="brand" href="<%= root_path %>"><%= image_tag("site/orange-logo.jpg",style:'width:20px;height:20px;')%>PEEL</a></li>
+		    <li class="divider-vertical"></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <div class="input-prepend">
@@ -45,6 +48,10 @@
         </li>
       </ul>
       <ul class="nav pull-right">
+		    <li class="divider-vertical"></li>
+	      <li><div style="width:80px; display: table;"><%= link_to "What is OrangePeel?", root_path, class: 'about-link' %></div></li>
+	      <ul class="nav pull-right"><!--
+		    <li class="divider-vertical"></li>
         <li class="dropdown">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">About <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -56,7 +63,8 @@
             <li><a href="#">Separated link</a></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
+        </li>-->
+		    <li class="divider-vertical"></li>
 
         <% if user_signed_in? %>
         <li>
@@ -76,8 +84,10 @@
         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
 	      <li><%= link_to "Sign up", new_user_registration_path %></li>
-	      <li><%= link_to "Sign in", new_user_session_path %></li>
+		    <li class="divider-vertical"></li>
+	      <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
+		    <li class="divider-vertical divider-vertical-right"></li>
       </ul>
     </div>
   </div>

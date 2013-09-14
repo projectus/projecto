@@ -1,5 +1,7 @@
 <h1>PROJECTS</h1>
 
+<div class="scroll-splitter"></div>
+
 <ul class="nav nav-pills">
   <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
   <% Project.categories.each do |cat| %>
@@ -7,22 +9,21 @@
   <% end %>
 </ul>
 
+<div class="scroll-splitter"></div>
 
     <% @projects.each do |project| %>
-        <div class="project-box">
-          <div class="project-image-box">
+      <div class="project-box">
+        <div class="project-image-box">
+          <img src="http://findicons.com/files/icons/329/simple/128/closed_folder.png" class="img-polaroid"/>
+        </div>
 
-            <img src="http://findicons.com/files/icons/329/simple/128/closed_folder.png" class="img-polaroid"/>
-          </div>
-
-          <div>
-            <%= project.name %>
-
-          </div>
-          <div class="project-description">
-            <%= project.category.capitalize %>
-            <%= project.description %>
-          </div>
+        <div>
+          <%= project.name %>
+        </div>
+        <div class="project-description">
+          <%= project.category.capitalize %>
+          <%= project.description %>
+        </div>
 
           <div class="project-action-panel">
             <i class="icon-eye-open"></i>         <%= link_to 'View Profile', project.profile %>

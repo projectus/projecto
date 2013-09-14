@@ -1,8 +1,4 @@
-<div class="well well-small">
-<fieldset>
-  <legend>Skills</legend>
+Skills
   <% resume_skills.sort.map do |type,entry| %>
     <%= render partial: 'skills_entry', object: entry %>
   <% end %>
-</fieldset>
-</div>

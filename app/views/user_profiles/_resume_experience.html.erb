@@ -1,8 +1,4 @@
-<div class="well well-small">
-<fieldset>
-  <legend>Experience</legend>
-  <% resume_experience.sort.map do |key,entry| %>
-    <%= render partial: 'experience_entry', object: entry %>
-  <% end %>
-</fieldset>
-</div>
+Experience
+<% resume_experience.sort.map do |key,entry| %>
+  <%= render partial: 'experience_entry', object: entry %>
+<% end %>
