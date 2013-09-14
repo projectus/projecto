@@ -49,6 +49,7 @@
       </ul>
       <ul class="nav pull-right">
 	      <li><div style="width:80px; display: table;"><%= link_to "What is OrangePeel?", root_path, class: 'about-link' %></div></li>
+
 	      <ul class="nav pull-right"><!--
 		    <li class="divider-vertical"></li>
         <li class="dropdown">
@@ -79,7 +80,7 @@
           </div>
         </li>
 
-        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
 	      <li><%= link_to "Sign up", new_user_registration_path %></li>
 		    <li class="divider-vertical"></li>

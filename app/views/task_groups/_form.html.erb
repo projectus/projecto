@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   
   <%= f.hidden_field :project_id %>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit 'Add Group', class: 'btn' %>
 <% end %>

@@ -5,5 +5,6 @@
 </p>
 
 <%= link_to 'View tasks', task_group_tasks_path(@task_group) %> | 
-<%= link_to 'Edit', edit_task_group_path(@task_group) %> |
+<%= link_to 'Edit', edit_task_group_path(@task_group) %> | 
+<%= link_to 'Destroy', @task_group, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back to task groups', project_task_groups_path(@task_group.project) %>

@@ -14,15 +14,11 @@ Projecto::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
-  get "about", to: 'main#about'
+  get "about", to: 'main#about', as: :about
 
   get "main/home"
   get 'tags/:tag', to: 'projects#index', as: :tag
   get 'category/:cat', to: 'projects#index', as: :cat
-  
-  #get "users", to: "users#index", as: :users
-  get "users/:id/show", to: 'users#show', as: :user
-  get "users/:id/collaboration_info", to: 'users#collaboration_info', as: :user_collaboration_info
 	
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
@@ -49,6 +45,8 @@ Projecto::Application.routes.draw do
   resources :comments, only: [:create]
   resources :news_posts, only: [:create]
 
+  # PROJECTS AND ASSOCIATED ####################################
+
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
@@ -56,6 +54,11 @@ Projecto::Application.routes.draw do
 		resources :collaborations, except: [:new, :create]
 		resources :task_groups, only: [:new, :index]    
 	end
+
+  # USERS AND ASSOCIATED ########################################
+
+  get "users/:id/show", to: 'users#show', as: :user
+  get "users/:id/collaboration_info", to: 'users#collaboration_info', as: :user_collaboration_info
 
   resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]
