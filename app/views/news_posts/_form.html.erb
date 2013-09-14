@@ -1,10 +1,10 @@
 <%= form_for(@news_post) do |f| %>
   <%= render 'errors' %>
 
-  <%= f.label :title %><br>
+  <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.label :content %><br>
+  <%= f.label :content %>
   <%= f.text_area :content, class:'input-xxlarge' %>
 
   <%= f.hidden_field :project_id %>    

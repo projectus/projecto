@@ -33,11 +33,10 @@
 .navbar-inner{
   /*padding: 0em 8em !important;*/
   padding-top: 0.4em;
-
 }
 
 #nav-center{
-  width: 75em;
+  width: 76em;
   margin: auto;
 }
 
@@ -100,6 +99,11 @@ textarea {
   padding-right: 1em;
   height: 100%;
   border: 1px solid #BBB;
+}
+
+.scroll-splitter {
+  border-bottom: 1px solid #BBB;	
+  margin: 1em -1em 1em -1em;
 }
 
 .search{
