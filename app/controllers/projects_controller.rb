@@ -27,7 +27,12 @@ class ProjectsController < ApplicationController
 	    @projects = Project.tagged_with_something_like(params[:tag])
 	  else
 	    @projects = Project.all
-	  end
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /projects/1
