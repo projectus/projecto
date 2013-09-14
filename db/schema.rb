@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908172717) do
+ActiveRecord::Schema.define(version: 20130913194505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,19 @@ ActiveRecord::Schema.define(version: 20130908172717) do
   end
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "news_posts", force: true do |t|
+    t.text     "content"
+    t.string   "title"
+    t.string   "species"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news_posts", ["project_id"], name: "index_news_posts_on_project_id", using: :btree
+  add_index "news_posts", ["user_id"], name: "index_news_posts_on_user_id", using: :btree
 
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"

@@ -34,6 +34,7 @@ Projecto::Application.routes.draw do
   # PROJECT PROFILES ########################
 
   resources :project_profiles, except: [:index, :new, :create, :destroy]
+  get "project_profiles/:id/about", to: 'project_profiles#about', as: :project_about
 
   # TASKS and TASK GROUPS ###################
 
@@ -46,10 +47,12 @@ Projecto::Application.routes.draw do
   resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
   resources :collaboration_applications, except: [:index, :new, :destroy, :edit]
   resources :comments, only: [:create]
+  resources :news_posts, only: [:create]
 
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
+		resources :news_posts, except: [:create, :new, :show]
 		resources :collaborations, except: [:new, :create]
 		resources :task_groups, only: [:new, :index]    
 	end

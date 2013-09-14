@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
 	before_action :authenticate_user!, except: [:index]
   before_action :authenticate_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
 
-  helper_method :associated_project
-
   # GET /comments
   # GET /comments.json
   def index
@@ -31,7 +29,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to project_comments_url(@comment.project), notice: 'Comment was successfully created.' }
+        format.html { redirect_to project_comments_url(@comment.project) }
         format.json { render action: 'show', status: :created, location: @comment }
       else
         format.html { render action: 'new' }

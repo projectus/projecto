@@ -2,16 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#card {
 
-  background: #F6F6F6;
+#card {
+  padding: 1em;
   border: 1px solid #BBB;
 }
 
 #avatar{
   float: left;
-
-  width: 20%
+  background: #F6F6F6;
 }
 
 .row-fluid div {

@@ -13,4 +13,4 @@
   <%= @collaboration.project.name %>
 </p>
 
-<%= link_to 'Destroy', @collaboration, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'End Collaboration', @collaboration, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

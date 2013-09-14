@@ -26,17 +26,20 @@
 
 <body>
 
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-inner">
+<div id="scroll" class="container">
+	
+	
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner white">
     <div id="nav-center">
 	    <ul class="nav">
-		    <li><%= link_to "PROJECTORE", root_path, class: "brand" %></li>
+		    <li><a class="brand" href="<%= root_path %>"><div><%= image_tag("site/orange-logo.jpg",style:'width:20px;height:20px;')%>PEEL</div></a></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-search"></i></span>
                 <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'Search for Projects' %>
-                <%= submit_tag 'Search', class: 'btn search', name: nil %>
+                <%= submit_tag 'Search', class: 'btn white search', name: nil %>
               </div>
           <% end %>
         </li>
@@ -89,12 +92,13 @@
     <% end %>
   </div>
 
-  <div id="content" class="container">
+  <div id="content">
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
 
   <div class="footer"> 
   </div>
 
+</div>
 </body>
 </html>

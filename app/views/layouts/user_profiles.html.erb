@@ -1,26 +1,26 @@
 <% content_for :content do %>
 
-  <div class="row">
 		<div class="box well well-small">
-      <div class="span3">
+			<div class="row-fluid"> 
+				<button style="border:none;background:none;">       
         <b><%= associated_user.username %></b>
-        <% if current_user == associated_user %>
-          <span style="color:orange;">(you)</span>
-        <% end %>
-      </div>
-      <div class="pull-right">
-        <div class="btn-group">
-          <button class="btn btn-small"><%= link_to "Edit Profile", edit_user_profile_path(current_user) %></button>
-          <button class="btn btn-small"><%= link_to "Projects", user_projects_path(associated_user)  %></button>
+          <% if current_user == associated_user %>
+            <span style="color:orange;">(you)</span>
+          <% end %>
+        </button>
+        <div class="btn-group" style="float:right;">
+          <button class="btn btn-small">
+            <%= link_to "Edit Profile", edit_user_profile_path(current_user) %>
+          </button>
+          <button class="btn btn-small">
+            <%= link_to "Projects", user_projects_path(associated_user)  %>
+          </button>
           <button class="btn btn-small">Right</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
 		<%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
-  </div>
 
 <% end %>
 <%= render template: "layouts/application" %>

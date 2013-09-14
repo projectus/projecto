@@ -1,5 +1,4 @@
 <% content_for :content do %>
-  <div class="row">
     <div class="well well-small box">
       <b><%= associated_project.name %></b>
       <% if current_user == associated_project.owner %>
@@ -7,20 +6,18 @@
       <% end %>
 			<%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
     </div>
-  </div>
 
   <ul class="nav nav-pills">
-    <li class="<%= 'active' if params[:controller] == 'project_profiles'%>"><%= link_to 'Feed (wall)', associated_project.profile %></li>
-    <li class="<%= 'active' if params[:controller] == 'task_groups'%>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-    <li><a>Blog (private)</a></li>
+	  <li class="<%= 'active' if params[:action] == 'about'%>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
+    <li class="<%= 'active' if params[:controller] == 'news_posts'%>"><%= link_to 'News', associated_project.profile %></li>
     <li class="<%= 'active' if params[:controller] == 'project_collaboration_info'%>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-    <li><a>Discussion</a></li>
     <li class="<%= 'active' if params[:controller] == 'comments'%>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+    <li class="<%= 'active' if params[:controller] == 'task_groups'%>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+    <li><a>Ideas (private)</a></li>
+    <li><a>Discussion Board (private)</a></li>
   </ul>
 
-  <div class="row">
-    <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
-  </div>
+  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 <% end %>
 
 <%= render template: "layouts/application" %>

@@ -1,0 +1,5 @@
+<%= render 'new' %>
+
+<% @news_posts.each do |news_post| %>
+  <%= render partial: 'post', object: news_post %>
+<% end %>

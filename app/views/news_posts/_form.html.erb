@@ -1,0 +1,16 @@
+<%= form_for(@news_post) do |f| %>
+  <%= render 'errors' %>
+
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %><br>
+  <%= f.text_area :content, class:'input-xxlarge' %>
+
+  <%= f.hidden_field :project_id %>    
+
+  <div>
+    <%= f.submit 'Post News', class: 'btn' %>
+  </div>
+<% end %>
+
