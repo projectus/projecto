@@ -106,8 +106,31 @@ textarea {
   margin: 1em -1em 1em -1em;
 }
 
+.nav.nav-pills {
+	margin: 0;
+}
+
 .search{
   margin-left: 0.5em;
+}
+
+.divider-vertical {
+	height: 45px !important;
+	border-right: 1px solid #BBB !important;
+}
+
+.navbar-inner {
+	padding-top: 0;
+	li {
+		padding-top: 4px;
+	}
+}
+
+.about-link {
+	color: #ff8700;
+	text-decoration: none !important;
+	vertical-align: middle;
+	display: table-cell;
 }
 
 .hero-unit {
