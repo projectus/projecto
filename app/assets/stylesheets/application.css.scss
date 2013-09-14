@@ -30,18 +30,9 @@
   margin-top: 1.5em;
 }
 
-.navbar-inner{
-  /*padding: 0em 8em !important;*/
-  padding-top: 0.4em;
-}
-
-#nav-center{
-  width: 76em;
-  margin: auto;
-}
-
 .hero-unit {
   padding: 1em 2em !important;
+  border: 1px solid #BBB;
 }
 
 .well {
@@ -97,7 +88,6 @@ textarea {
   margin: auto;
   padding-left: 1em;
   padding-right: 1em;
-  height: 100%;
   border: 1px solid #BBB;
 }
 
@@ -116,14 +106,32 @@ textarea {
 
 .divider-vertical {
 	height: 45px !important;
+	border-left: 1px solid #BBB !important;
+	margin: 0 !important;
+}
+
+.divider-vertical-right {
 	border-right: 1px solid #BBB !important;
+	border-left: none !important;
 }
 
 .navbar-inner {
 	padding-top: 0;
 	li {
 		padding-top: 4px;
+		margin-left: 8px;
+		margin-right: 8px;
 	}
+}
+
+.navbar-fixed-top {
+  width: 76em;
+  margin: auto;	
+}
+
+#nav-center{
+  width: 76em;
+  margin: auto;
 }
 
 .about-link {
@@ -133,6 +141,4 @@ textarea {
 	display: table-cell;
 }
 
-.hero-unit {
-  border: 1px solid #BBB;
-}
+
