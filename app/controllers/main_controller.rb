@@ -1,11 +1,9 @@
 class MainController < ApplicationController
+
   def index
-
-
   end
 
   def about
-
   end
 
   def s_projects
@@ -15,6 +13,5 @@ class MainController < ApplicationController
       format.html
       format.js
     end
-
   end
 end

@@ -3,4 +3,5 @@ class TaskGroup < ActiveRecord::Base
 	has_many :tasks, dependent: :destroy
 	
   validates :project, presence: true
+  validates :name, presence: true
 end
