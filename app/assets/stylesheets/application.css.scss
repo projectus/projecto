@@ -79,9 +79,17 @@
   background: #666 !important;
 }
 
-.box{
+.box {
   border: 1px solid #BBB;
-  box-shadow: 4px 4px 5px #888;
+  box-shadow: 4px 4px 5px #d4d4d4;
+}
+
+input {
+	border-radius: 0 !important;
+}
+
+textarea {
+	border-radius: 0 !important;
 }
 
 #scroll {
