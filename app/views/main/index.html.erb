@@ -16,7 +16,7 @@
     </li>
 
     <% Project.categories.each do |cat| %>
-        <li><%= link_to cat, cat_path(cat) %></li>
+        <li><%= link_to cat, cat_path(cat), :remote=> true %></li>
     <% end %>
   </ul>
 
@@ -49,4 +49,5 @@
 
 <div class="hero-unit">
   <h4>Projects by Location</h4>
+
 </div>

@@ -14,6 +14,8 @@ Projecto::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
+  get "about", to: 'main#about'
+
   get "main/home"
   get 'tags/:tag', to: 'projects#index', as: :tag
   get 'category/:cat', to: 'projects#index', as: :cat
