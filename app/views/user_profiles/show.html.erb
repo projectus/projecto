@@ -1,14 +1,14 @@
 <div class="row-fluid">
-  <div class="span3">
+  <div class="span2">
     <img src="http://onesentencereview.com/images/avatar_placeholder_large.png?1301662607" class="img-polaroid box">
   </div>
 
-  <div class="span6 box" id="card">
+  <div class="span8 box" id="card">
     <%= render partial: 'contact', object: @contact %>
   </div>
 
-  <div class="span3" id="profile_side">
-    <div class="well well-small sidebar-nav pull-right box">
+  <div class="span2" id="profile_side">
+    <div class="well well-small box">
       <ul class="nav nav-list">
         <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
         <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>

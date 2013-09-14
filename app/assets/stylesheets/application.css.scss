@@ -18,6 +18,10 @@
   margin: 0 40px 0 40px;
 }
 
+.square {
+  border-radius: 0 !important;
+}
+
 .table {
   background: white;
 }
@@ -43,6 +47,15 @@
 
 .well {
 	background-color: #FFF;
+	border-radius: 0;
+}
+
+.btn {
+	border-radius: 0 !important;
+	background-color: #FFF;
+  /* remove the gradient */
+  background-image: none;
+  color: #000;
 }
 
 .hero-unit {
@@ -50,7 +63,7 @@
 }
 
 .orange {
-	background-color: #FFDAB9;
+	background-color: #FF9640;
 	background-image: none;
 }
 

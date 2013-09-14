@@ -1,8 +1,5 @@
-
-<fieldset>
-  <h5>Contact Card</h5>
-    <% contact.each do |type,entry| %>
-      <%= render partial: 'contact_entry', object: entry, locals: {type: type} %>
-    <% end %>
-</fieldset>
+<h5>Contact Card</h5>
+<% contact.each do |type,entry| %>
+  <%= render partial: 'contact_entry', object: entry, locals: {type: type} %>
+<% end %>
 
