@@ -27,16 +27,16 @@
 
 <body>
 
-<div id="scroll" class="container">
+
+<div id="scroll">
+
 	
-	
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner white">
     <div id="nav-center">
 	    <ul class="nav">
-		    <li class="divider-vertical"></li>
-		    <li><a class="brand" href="<%= root_path %>"><%= image_tag("site/orange-logo.jpg",style:'width:20px;height:20px;')%>PEEL</a></li>
-		    <li class="divider-vertical"></li>
+
+		    <li><a class="brand" href="<%= root_path %>">Projectore</a></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <div class="input-prepend">
@@ -48,7 +48,6 @@
         </li>
       </ul>
       <ul class="nav pull-right">
-		    <li class="divider-vertical"></li>
 	      <li><div style="width:80px; display: table;"><%= link_to "What is OrangePeel?", root_path, class: 'about-link' %></div></li>
 	      <ul class="nav pull-right"><!--
 		    <li class="divider-vertical"></li>
@@ -64,7 +63,6 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>-->
-		    <li class="divider-vertical"></li>
 
         <% if user_signed_in? %>
         <li>
@@ -87,7 +85,7 @@
 		    <li class="divider-vertical"></li>
 	      <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
-		    <li class="divider-vertical divider-vertical-right"></li>
+
       </ul>
     </div>
   </div>
@@ -102,11 +100,17 @@
     <% end %>
   </div>
 
-  <div id="content">
+  <%= render 'introbar' %>
+
+  <div id="content" class="container">
+
     <%= content_for?(:content) ? yield(:content) : yield %>
+
   </div>
 
-  <div class="footer"> 
+  <div class="footer">
+
+    ddd
   </div>
 
 </div>
