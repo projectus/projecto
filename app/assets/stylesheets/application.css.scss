@@ -145,6 +145,7 @@ textarea {
 
 .brand{
   color: white !important;
+  font-family: 'Lily Script One', cursive;
 }
 
 
@@ -169,4 +170,21 @@ textarea {
 .introbar-heading{
   font-size: 15pt;
   font-weight: bold;
+  font-family: 'Denk One', sans-serif;
+
+}
+
+.intro-bar-right{
+  float: right;
+}
+.divider-nav{
+  background: url("http://cdn.wpbeginner.com/wp-content/themes/wpbv4/images/navborder.png") no-repeat scroll 0 0 transparent;
+  height: 33px;
+  position: relative;
+  width: 5px;
+}
+
+.nav-links a{
+  color: #FFF !important;
+  font-family: 'Merienda One', cursive;
 }

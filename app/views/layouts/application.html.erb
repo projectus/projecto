@@ -13,10 +13,14 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "OrangePeel" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Projectore" %></title>
   <%= favicon_link_tag %>
   <%#= javascript_include_tag "jquery" %>
   <%= stylesheet_link_tag    "application" %>
+
+  <link href='http://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Denk+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
   <%#= javascript_include_tag "vendor/custom.modernizr" %>
   <%#= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
 
@@ -42,16 +46,15 @@
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-search"></i></span>
                 <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'Search for Projects' %>
-                <%= submit_tag 'Search', class: 'btn white search', name: nil %>
               </div>
           <% end %>
         </li>
       </ul>
-      <ul class="nav pull-right">
-	      <li><div style="width:80px; display: table;"><%= link_to "What is OrangePeel?", root_path, class: 'about-link' %></div></li>
+      <ul class="nav pull-right nav-links">
 
-	      <ul class="nav pull-right"><!--
-		    <li class="divider-vertical"></li>
+
+
+            <li class="divider-vertical"></li>
         <li class="dropdown">
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">About <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -63,7 +66,11 @@
             <li><a href="#">Separated link</a></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>-->
+        </li>
+
+
+        <li class="divider-vertical"></li>
+
 
         <% if user_signed_in? %>
         <li>
@@ -74,7 +81,6 @@
               <li><a href="#"><i class="icon-pencil"></i>Account</a></li>
               <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", current_user.profile %></a></li>
               <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-              <li class="divider"></li>
               <li><a href="#"><i class="i"></i> Make admin</a></li>
             </ul>
           </div>
@@ -83,9 +89,11 @@
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>
 	      <li><%= link_to "Sign up", new_user_registration_path %></li>
-		    <li class="divider-vertical"></li>
+            <li class="divider-vertical"></li>
 	      <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
+
+        <li class="divider-vertical"></li>
 
       </ul>
     </div>
@@ -101,7 +109,11 @@
     <% end %>
   </div>
 
-  <%= render 'introbar' %>
+  <% if current_page?(root_url) %>
+
+    <%= render 'introbar' %>
+
+  <% end %>
 
   <div id="content" class="container">
 
