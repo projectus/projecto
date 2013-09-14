@@ -56,6 +56,10 @@ class CollaborationApplicationsController < ApplicationController
       @application = CollaborationApplication.find(params[:id])
     end
 
+    def associated_project
+      @application.project
+	  end
+	
     # Never trust parameters from the scary internet, only allow the white list through.
     def application_params
       params.require(:collaboration_application).permit(:project_id, :message)

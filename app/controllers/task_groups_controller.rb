@@ -1,8 +1,6 @@
 class TaskGroupsController < ApplicationController
   before_action :set_task_group, only: [:show, :edit, :update, :destroy]
 
-  helper_method :associated_project
-
   # Authenticate current user as project owner. Set project depending on the action.
   before_action(except: [:index, :show]) do
 	  if @task_group.nil?

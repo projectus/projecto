@@ -8,8 +8,6 @@ class CollaborationInvitationsController < ApplicationController
 	  authenticate_current_user_as_project_owner(project, 
 	                       "You don't have the permissions to invite to this project.")
 	end
-
-  helper_method :associated_user
 	
   # GET /collaboration_invitations
   # GET /collaboration_invitations.json

@@ -2,8 +2,6 @@ class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update, :show_resume]
 	before_action :authenticate_user!, except: [:index, :show, :show_resume]
   before_action :authenticate_current_user_as_profile_owner, except: [:index, :show, :show_resume] 
-
-  helper_method :associated_user
 	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
