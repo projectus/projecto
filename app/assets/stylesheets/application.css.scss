@@ -28,7 +28,7 @@
 
 #content {
   margin-top: 1.5em;
-  height: 400px;
+  margin-bottom: 1.5em;
 }
 
 .hero-unit {
@@ -67,8 +67,8 @@
 }
 
 .box {
-  border: 1px solid #BBB;
   box-shadow: 4px 4px 5px #d4d4d4;
+  background: white;
 }
 
 input {
@@ -151,7 +151,7 @@ textarea {
 
 #intro-bar{
   background: #CD5219;
-  height: 200px;
+  height: 190px;
 }
 
 .introbar-center{
@@ -184,7 +184,85 @@ textarea {
   width: 5px;
 }
 
-.nav-links a{
+.nav-links a.white{
   color: #FFF !important;
   font-family: 'Merienda One', cursive;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Denk One', sans-serif !important;
+}
+
+p {
+  font-family: 'Francois One', sans-serif !important;
+}
+
+.white-toggle {
+  color: white !important;
+
+}
+
+.introbar-buttondiv {
+  margin-top: 40px;
+}
+
+.introbar-buttondiv .button-left {
+  margin-right: 10px;
+}
+
+.radio-nav li {
+  float: left;
+  margin-right: 10px;
+}
+
+.radio-nav {
+  list-style-type: none;
+}
+
+
+
+#search-div{
+  background: #000;
+}
+
+#search-bar{
+
+  background-color: #E2E2E2;
+  background-image: -moz-linear-gradient(center top , #E4E4E4, #E2E2E2);
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 0 0 1px rgba(195, 195, 195, 0.5) inset;
+  padding: 8px;
+}
+
+#search-bar select {
+  background-color: #FFFFFF;
+  background-image: -moz-linear-gradient(center bottom , #EEEEEE 0%, #FFFFFF 50%);
+  height: 25px;
+  font-size: 9pt;
+}
+
+.navbar {
+  box-shadow: 0 1px 0 #4D4D4D outset, 0 2px 3px rgba(0, 0, 0, 0.25) !important;
+}
+
+.about-div{
+  float: left;
+  color: #FFF;
+  margin-right: 50px;
+
+}
+
+.footer-inner {
+  width: 76em;
+  margin: auto;
+
+}
+
+.alert, .alert-success {
+  margin-top: 30px !important;
+  margin: auto !important;
+}
+
+#alerts{
+  margin: 0;
 }

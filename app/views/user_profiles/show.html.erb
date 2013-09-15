@@ -1,18 +1,22 @@
 <div class="row-fluid">
   <div class="span3">
     <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
+    <h4><%= associated_user.username %></h4>
+
   </div>
 
-  <div class="span7 box" id="card">
+  <div class="span5 box" id="card">
     <%= render partial: 'contact', object: @contact %>
   </div>
 
-  <div class="span2" id="profile_side">
+
+  <div class="span3" id="profile_side">
     <div class="well well-small box">
       <ul class="nav nav-list">
         <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
         <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
         <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
+
       </ul>
     </div>
   </div>
@@ -28,7 +32,10 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <p>I'm in Section 1.</p>
+      <p>
+        ddd
+
+      </p>
     </div>
     <div class="tab-pane" id="tab2">
       <p>Howdy, I'm in Section 2.</p>
