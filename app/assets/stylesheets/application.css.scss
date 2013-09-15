@@ -28,6 +28,7 @@
 
 #content {
   margin-top: 1.5em;
+  height: 400px;
 }
 
 .hero-unit {
@@ -58,15 +59,11 @@
 	background-image: none;
 }
 
-.white {
-  background-color: #FFF;
-  /* remove the gradient */
-  background-image: none;
-  /* set font color to white */
-}
+
 
 .footer{
-  background: #666 !important;
+  background: #000 !important;
+  height: 200px;
 }
 
 .box {
@@ -83,14 +80,8 @@ textarea {
 }
 
 #scroll {
-  background-color: #FFF;
-  padding-top: 60px;
+  padding-top: 49px;
   margin: auto;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 60px;
-  border: 1px solid #BBB;
-  background-image: url(image_path('wood-grain.jpg')) !important;
 }
 
 .scroll-splitter {
@@ -127,7 +118,6 @@ textarea {
 }
 
 .navbar-fixed-top {
-  width: 76em;
   margin: auto;	
 }
 
@@ -153,3 +143,48 @@ textarea {
 	display: table-cell;
 }
 
+.brand{
+  color: white !important;
+  font-family: 'Lily Script One', cursive;
+}
+
+
+#intro-bar{
+  background: #CD5219;
+  height: 200px;
+}
+
+.introbar-center{
+  width: 76em;
+  margin: auto;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.intro-bar-left {
+  width: 30%;
+  float: left;
+  color: white;
+}
+
+.introbar-heading{
+  font-size: 15pt;
+  font-weight: bold;
+  font-family: 'Denk One', sans-serif;
+
+}
+
+.intro-bar-right{
+  float: right;
+}
+.divider-nav{
+  background: url("http://cdn.wpbeginner.com/wp-content/themes/wpbv4/images/navborder.png") no-repeat scroll 0 0 transparent;
+  height: 33px;
+  position: relative;
+  width: 5px;
+}
+
+.nav-links a{
+  color: #FFF !important;
+  font-family: 'Merienda One', cursive;
+}

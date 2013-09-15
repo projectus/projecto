@@ -1,9 +1,9 @@
 <div class="row-fluid">
-  <div class="span2">
-    <img src="http://onesentencereview.com/images/avatar_placeholder_large.png?1301662607" class="img-polaroid box">
+  <div class="span3">
+    <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
   </div>
 
-  <div class="span8 box" id="card">
+  <div class="span7 box" id="card">
     <%= render partial: 'contact', object: @contact %>
   </div>
 
@@ -20,8 +20,22 @@
 
 <div class="scroll-splitter"></div>
 
-<div class="well">
-  <h2>User feed goes here</h2><br>
-  <h4>Infinite scroll MTF!</h4>
-  <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Feed</a></li>
+    <li><a href="#tab2" data-toggle="tab">Endorsements</a></li>
+    <li><a href="#tab2" data-toggle="tab">Projects</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p>I'm in Section 1.</p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>Howdy, I'm in Section 2.</p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>Howdy, I'm in Section 2.</p>
+    </div>
+
+  </div>
 </div>
