@@ -1,7 +1,5 @@
 class UserCollaborationInfoController < ApplicationController
 	before_action :set_user
-
-  helper_method :associated_user
 	
   def collaborations
   end

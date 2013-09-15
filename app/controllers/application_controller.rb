@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :associated_project
+  helper_method :associated_project, :associated_user
 
   protected
   # Authenticate the signed in user as the project owner

@@ -1,8 +1,6 @@
 class ProjectCollaborationInfoController < ApplicationController
   before_action :set_project
 
-  helper_method :associated_project
-
   def collaborations
   end
 
