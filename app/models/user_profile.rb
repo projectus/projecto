@@ -4,6 +4,8 @@ class UserProfile < ActiveRecord::Base
   # Make sure every user profile has a user
   validates :user, presence: true
 
+  validate :card_format_is_correct
+
   def resume
 	  eval self.resume_hash
 	end
@@ -43,16 +45,31 @@ class UserProfile < ActiveRecord::Base
 
   def generate_empty_card
     contact = Jbuilder.encode do |contact|
-      contact.email self.user.email
-      contact.name  'e.g. Brian Zhang'
-      contact.age  'e.g. 23'
-      contact.location 'e.g. Waterloo, ON'
+      contact.secondary_email self.user.email
+      contact.name            'Brian,Gay,Zhang'
+      contact.birthday        '1989,7,16'
+      contact.location        'Waterloo, ON'
     end
     self.card_hash = MultiJson.load(contact, symbolize_keys: true).inspect
 	end
-		
+				
 	def destroy
 	  generate_empty_resume
 	  generate_empty_card
 	end
+	
+	private
+    def card_keys
+	    [:secondary_email,:name,:birthday,:location]
+	  end
+	
+	  def card_format_is_correct
+		  c = self.card
+		  c.each do |key,value|
+			  unless card_keys.include?(key)
+					errors[:base] << "Contact info is corrupted."
+					return
+				end
+			end
+		end	
 end

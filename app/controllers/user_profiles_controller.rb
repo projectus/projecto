@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: [:show, :edit, :update, :show_resume]
-	before_action :authenticate_user!, except: [:index, :show, :show_resume]
-  before_action :authenticate_current_user_as_profile_owner, except: [:index, :show, :show_resume] 
+	before_action :authenticate_user!, except: [:show, :show_resume]
+  before_action :authenticate_current_user_as_profile_owner, except: [:show, :show_resume] 
 	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
@@ -16,17 +16,17 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1/edit
   def edit
 	  @contact = @user_profile.card
+	  @name = @contact[:name].split(',')
+	  @birthday = @contact[:birthday].split(',')
   end
 
   # PATCH/PUT /user_profiles/1
   # PATCH/PUT /user_profiles/1.json
   def update
 	  unless params[:contact].nil?
-		  permitted_fields = params.require(:contact).permit(:name, :email, :age, :location)
-		  card = @user_profile.card
-	    card.update(permitted_fields.symbolize_keys)
-	    @user_profile.card_hash = card.inspect
+      update_contact_card      
 	  end
+	
     respond_to do |format|
       if @user_profile.save#update(user_profile_params)
         format.html { redirect_to @user_profile, notice: 'Profile was successfully updated.' }
@@ -47,7 +47,16 @@ class UserProfilesController < ApplicationController
     def associated_user
 	    @user_profile.user
 	  end
-		
+
+    def update_contact_card
+		  permitted_fields = params.require(:contact).permit(:secondary_email, :location)
+		  card = @user_profile.card
+	    card.update(permitted_fields.symbolize_keys)
+		  card[:name] = params[:contact][:name].values.join(',')
+		  card[:birthday] = params[:contact][:birthday].values.join(',')
+	    @user_profile.card_hash = card.inspect
+	  end
+			
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_profile_params
       params.require(:user_profile).permit()

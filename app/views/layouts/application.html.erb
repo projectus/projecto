@@ -37,7 +37,7 @@
 
 	
 <div class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner white">
+  <div class="navbar-inner white" id="navbar-inner">
     <div id="nav-center">
 	    <ul class="nav">
 
@@ -46,7 +46,7 @@
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-search"></i></span>
-                <%= text_field_tag :tag, nil, class: 'input-xlarge', placeholder: 'Search for Projects' %>
+                <%= text_field_tag :tag, nil, class: 'input-xlarge searchbar', placeholder: 'Search' %>
               </div>
           <% end %>
         </li>
@@ -86,21 +86,27 @@
             <a class="btn" href="<%= user_profile_path(current_user.profile) %>"><i class="icon-user icon-black"></i> <%= current_user.username %></a>
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret caret-white"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="icon-pencil"></i>Account</a></li>
-              <li><a href="#"><i class="icon-trash"></i><%= link_to "Profile", current_user.profile %></a></li>
-              <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-              <li><a href="#"><i class="i"></i> Make admin</a></li>
+              <li>
+                <%= link_to "Profile", user_profile_path(current_user.profile) %>
+              </li>
+
+              <li>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              </li>
+
             </ul>
           </div>
         </li>
 
         <li class="divider-vertical"></li>
 
-        <li><%= link_to "Sign out", destroy_user_session_path, :class => "white", method: :delete %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :class => "white", method: :delete %></li>
+        <li class="divider-vertical"></li>
+        <li><%= link_to "Projects", projects_path, :class => "white" %></li>
         <% else %>
-	      <li><%= link_to "Sign up", new_user_registration_path, :class => "white" %></li>
+	      <li><%= link_to "Sign Up", new_user_registration_path, :class => "white" %></li>
             <li class="divider-vertical"></li>
-	      <li><%= link_to "Login", new_user_session_path, :class => "white" %></li>
+	      <li><%= link_to "Sign In", new_user_session_path, :class => "white" %></li>
         <% end %>
 
         <li class="divider-vertical"></li>
