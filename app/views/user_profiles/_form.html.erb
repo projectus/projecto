@@ -1,52 +1,30 @@
 
 
 <%= form_for(@user_profile) do |f| %>
-  <% if @user_profile.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@user_profile.errors.count, "error") %> prohibited this profile from being saved:</h3>
-
-      <ul>
-      <% @user_profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'errors' %>
 
   <div class="edit-contact-card-div">
     <div class="edit-contact-card">
       <div class="field">
-        <%= label "Name", "Name" %>
-        <%= text_field "dddd", "ddd" %>
+        <%= label_tag :name %>
+        <%= text_field_tag "contact[name]", @contact[:name] %>
       </div>
 
       <div class="field">
-        <%= label "Email", "Email" %>
-        <%= text_field "email", "email" %>
+        <%= label_tag :email %>
+        <%= text_field_tag "contact[email]", @contact[:email] %>
       </div>
 
       <div class="field">
-        <%= label "age", "age" %>
-        <%= text_field "age", "age" %>
+        <%= label_tag :age %>
+        <%= text_field_tag "contact[age]", @contact[:age] %>
       </div>
 
       <div class="field">
-        <%= label "location", "location" %>
-        <%= text_field "location", "location" %>
+        <%= label_tag :location %>
+        <%= text_field_tag "contact[location]", @contact[:location] %>
       </div>
 
-      <div class="field">
-        <%= f.label :card_hash %>
-        <%= f.text_area :card_hash %>
-      </div>
-
-
-
-    </div>
-
-    <div>
-
-      dfdfddd
     </div>
 
   </div>
@@ -54,15 +32,12 @@
   <div class="edit-resume-div">
     <div class="edit-resume">
       <div class="field">
-        <%= f.label :resume_hash %><br>
-        <%= f.text_area :resume_hash %>
+        <%#= f.label :resume_hash %><br>
+        <%#= f.text_area :resume_hash %>
       </div>
 
     </div>
-
-
   </div>
-
 
   <div class="actions">
     <%= f.submit %>

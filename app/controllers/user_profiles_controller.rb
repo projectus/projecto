@@ -15,13 +15,20 @@ class UserProfilesController < ApplicationController
 	
   # GET /user_profiles/1/edit
   def edit
+	  @contact = @user_profile.card
   end
 
   # PATCH/PUT /user_profiles/1
   # PATCH/PUT /user_profiles/1.json
   def update
+	  unless params[:contact].nil?
+		  permitted_fields = params.require(:contact).permit(:name, :email, :age, :location)
+		  card = @user_profile.card
+	    card.update(permitted_fields.symbolize_keys)
+	    @user_profile.card_hash = card.inspect
+	  end
     respond_to do |format|
-      if @user_profile.update(user_profile_params)
+      if @user_profile.save#update(user_profile_params)
         format.html { redirect_to @user_profile, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else
@@ -48,6 +55,6 @@ class UserProfilesController < ApplicationController
 
     # Only let current user modify his own profile
     def authenticate_current_user_as_profile_owner
-	    redirect_to :back, alert: "This is not your profile!" unless current_user == associated_user
+	    redirect_to @user_profile, alert: "This is not your profile!" unless current_user == associated_user
 	  end
 end
