@@ -1,3 +1,29 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-form-div {
+  float: left;
+  background: white;
+  padding: 30px;
+  border: 1px solid #DDD;
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  font-family: 'Denk One',sans-serif;
+  color: #666666 !important;
+  margin-right: 40px;
+}
+
+.signup-form-div input.itext{
+  background: #FEF1E8 !important;
+  border-radius: 7px 7px 7px 7px !important;
+
+
+}
+
+.explaination-div {
+
+}
+
+
+

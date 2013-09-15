@@ -28,7 +28,7 @@
 
 #content {
   margin-top: 1.5em;
-  height: 400px;
+  margin-bottom: 1.5em;
 }
 
 .hero-unit {
@@ -67,8 +67,8 @@
 }
 
 .box {
-  border: 1px solid #BBB;
   box-shadow: 4px 4px 5px #d4d4d4;
+  background: white;
 }
 
 input {
@@ -151,7 +151,7 @@ textarea {
 
 #intro-bar{
   background: #CD5219;
-  height: 200px;
+  height: 190px;
 }
 
 .introbar-center{
@@ -184,7 +184,57 @@ textarea {
   width: 5px;
 }
 
-.nav-links a{
+.nav-links a.white{
   color: #FFF !important;
   font-family: 'Merienda One', cursive;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Denk One', sans-serif !important;
+
+
+}
+
+p {
+  font-family: 'Francois One', sans-serif !important;
+}
+
+.white-toggle {
+  color: white !important;
+
+}
+
+.introbar-buttondiv {
+  margin-top: 40px;
+}
+
+.introbar-buttondiv .button-left {
+  margin-right: 10px;
+}
+
+.radio-nav li {
+  float: left;
+  margin-right: 10px;
+}
+
+.radio-nav {
+  list-style-type: none;
+}
+
+#card{
+  height: 250px !important;
+}
+
+#search-div{
+  background: #000;
+}
+
+
+
+
+
+
+
+
+
+
