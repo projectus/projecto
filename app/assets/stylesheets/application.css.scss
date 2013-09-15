@@ -23,7 +23,7 @@
 }
 
 .table {
-  background: white;
+  background: white !important;
 }
 
 #content {
@@ -58,8 +58,6 @@
 	background-color: #FF9640;
 	background-image: none;
 }
-
-
 
 .footer{
   background: #000 !important;
@@ -136,11 +134,14 @@ textarea {
   margin: auto;
 }
 
-.about-link {
-	color: #ff8700;
-	text-decoration: none !important;
-	vertical-align: middle;
-	display: table-cell;
+.navbar-about {
+	display: table;
+	width: 75px;
+	.multiline {
+		text-decoration: none !important;
+		vertical-align: middle;
+		display: table-cell;
+	}
 }
 
 .brand{
@@ -173,12 +174,12 @@ textarea {
   font-size: 15pt;
   font-weight: bold;
   font-family: 'Denk One', sans-serif;
-
 }
 
 .intro-bar-right{
   float: right;
 }
+
 .divider-nav{
   background: url("http://cdn.wpbeginner.com/wp-content/themes/wpbv4/images/navborder.png") no-repeat scroll 0 0 transparent;
   height: 33px;
@@ -228,7 +229,6 @@ p {
 }
 
 #search-bar{
-
   background-color: #E2E2E2;
   background-image: -moz-linear-gradient(center top , #E4E4E4, #E2E2E2);
   border-radius: 6px 6px 6px 6px;
