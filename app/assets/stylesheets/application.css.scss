@@ -80,7 +80,7 @@ textarea {
 }
 
 #scroll {
-  padding-top: 49px;
+  padding-top: 41px;
   margin: auto;
 }
 
@@ -152,6 +152,8 @@ textarea {
 #intro-bar{
   background: #CD5219;
   height: 190px;
+  box-shadow: 0px 2px 5px #000000;
+
 }
 
 .introbar-center{
@@ -267,6 +269,38 @@ p {
   margin: 0;
 }
 
+.btn-group {
+  background: black !important;
+}
 
+.btn-group a:first-child {
 
+  border-radius: 5px 0px 0px 5px !important;
+}
+
+.btn-group a:nth-child(2) {
+
+  border-radius: 0px 5px 5px 0px !important;
+}
+
+.searchbar {
+
+  border-radius: 0px 5px 5px 0px !important;
+}
+
+#navbar-inner {
+  box-shadow: 0px 4px 5px #000000;
+}
+
+.nav {
+  height: 40px !important;
+}
+
+.nav li {
+  padding-top: 1px !important;
+}
+
+.divider-vertical {
+  height: 40px !important;
+}
 
