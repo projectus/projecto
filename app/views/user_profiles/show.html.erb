@@ -8,14 +8,12 @@
     <%= render partial: 'contact', object: @contact %>
   </div>
 
-
   <div class="span4">
     <div class="well well-small box">
       <ul class="nav nav-list">
         <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
         <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
         <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
-
       </ul>
     </div>
   </div>
