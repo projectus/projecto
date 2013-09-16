@@ -12,6 +12,7 @@ class UserCollaborationInfoController < ApplicationController
 
   # Owned projects
   def projects
+	  @owned_projects = @user.owned_projects
 	end
 	
   private
