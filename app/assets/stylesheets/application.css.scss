@@ -18,6 +18,12 @@
   margin: 0 40px 0 40px;
 }
 
+.nav-tabs > li > a {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
 .square {
   border-radius: 0 !important;
 }

@@ -26,7 +26,7 @@ class Collaboration < ActiveRecord::Base
 		end
 		
 		def add_destruction_activity_to_activity_feed
-	    activity = project.activities.build(species:'collaboration ended',headline:"#{user.username} left #{project.name}!")
+	    activity = activities.build(species:'collaboration ended',headline:"#{user.username} left #{project.name}!")
 	    activity.activity_feed = project.activity_feed
 	    activity.save!
 	  end

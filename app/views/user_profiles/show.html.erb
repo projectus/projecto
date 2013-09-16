@@ -37,13 +37,10 @@
     <li class="active"><a href="#tab1" data-toggle="tab">Feed</a></li>
     <li><a href="#tab2" data-toggle="tab">Endorsements</a></li>
     <li><a href="#tab2" data-toggle="tab">Projects</a></li>
+    <li><%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <p>
-        ddd
-
-      </p>
     </div>
     <div class="tab-pane" id="tab2">
       <p>Howdy, I'm in Section 2.</p>
@@ -51,6 +48,5 @@
     <div class="tab-pane" id="tab2">
       <p>Howdy, I'm in Section 2.</p>
     </div>
-
   </div>
 </div>

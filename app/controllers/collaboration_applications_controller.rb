@@ -39,12 +39,13 @@ class CollaborationApplicationsController < ApplicationController
   def update
     respond_to do |format|
 	    status_param = params.require(:collaboration_application).permit(:status)
-	
+	    status = @application.status
       if @application.update(status_param)
         format.html { redirect_to @application, notice: "Application was successfully #{@application.status}." }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+	      @application.status = status
+        format.html { render action: 'show' }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
