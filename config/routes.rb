@@ -14,6 +14,10 @@ Projecto::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
+  get "members", to: "users#index"
+
+  get "profile/:id", to: "user_profiles#show"
+
   get "about", to: 'main#about', as: :about
 
   get "main/home"

@@ -1,15 +1,12 @@
-<div class="row-fluid">
-  <div class="span3">
+<div class="profile-row">
+  <div class="avatar-div">
     <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
     <h4><%= associated_user.username %></h4>
   </div>
 
-  <div class="span5 box" id="card">
-    <%= render partial: 'contact', object: @contact %>
-  </div>
+  <div class="profile-links">
+    <div class="box sidebox">
 
-  <div class="span4">
-    <div class="well well-small box">
       <ul class="nav nav-list">
         <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
         <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
@@ -17,9 +14,23 @@
       </ul>
     </div>
   </div>
-</div>
 
-<div class="scroll-splitter"></div>
+  </div>
+
+  <div class="box" id="card">
+    <%= render partial: 'contact', object: @contact %>
+  </div>
+
+  <div class="side-links">
+    <div class="box sidebox">
+      <button class="orange">Projects</button>   <br>
+      <button class="orange">Follow Me</button>  <br>
+      <button class="orange">Message Me</button> <br>
+      <button class="orange">Invite Me</button>  <br>
+
+    </div>
+  </div>
+</div>
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
