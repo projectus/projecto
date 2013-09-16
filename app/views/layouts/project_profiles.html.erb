@@ -1,10 +1,17 @@
 <% content_for :content do %>
     <div class="well well-small box">
       <b><%= associated_project.name %></b>
-      <% if current_user == associated_project.owner %>
-        <span style="color:orange;">(your project)</span>
+      <% if user_signed_in? %>
+        <% if current_user == associated_project.owner %>
+          <span style="color:orange;">(your project)</span>
+        <% end %>
       <% end %>
 			<%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
+			<%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
+			  <%= hidden_field_tag :model, :project %>
+			  <%= hidden_field_tag :id, associated_project.id %>
+			  <%= submit_tag 'Subscribe', class: 'btn' %>
+			<% end %>
     </div>
 
 		<div class="scroll-splitter"></div>

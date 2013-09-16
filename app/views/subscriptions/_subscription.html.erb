@@ -1,0 +1,5 @@
+<div>
+	<% if subscription.subscribable.class == Project %>
+    <h4>Project: <%= link_to_project_profile(subscription.subscribable) %></h4>
+  <% end %>	
+</div>
