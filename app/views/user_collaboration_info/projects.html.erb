@@ -7,7 +7,7 @@
   </thead>
 
   <tbody>
-    <% @user.owned_projects.each do |project| %>
+    <% @owned_projects.each do |project| %>
       <tr>
         <td><%= link_to project.name, project.profile %></td>
         <td><%= project.description %></td>

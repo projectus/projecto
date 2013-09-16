@@ -1,2 +1,4 @@
-
+<% content_for :content do %>
+  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
+<% end %>
 <%= render template: "layouts/application" %>
