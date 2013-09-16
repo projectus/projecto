@@ -55,6 +55,9 @@
         <li class="divider-vertical"></li>
         <li><div class="navbar-about"><%= link_to "What is Projectore?", about_path, :class => "multiline white" %></div></li>
 
+        <li class="divider-vertical"></li>
+        <li><div class="navbar-projects"><%= link_to "Browse Projects", projects_path, :class => "multiline white" %></div></li>
+
         <!--
         <li class="dropdown">
 
@@ -91,12 +94,9 @@
             </ul>
           </div>
         </li>
-
         <li class="divider-vertical"></li>
 
         <li><%= link_to "Sign Out", destroy_user_session_path, :class => "white", method: :delete %></li>
-        <li class="divider-vertical"></li>
-        <li><%= link_to "Projects", projects_path, :class => "white" %></li>
         <% else %>
 	      <li><%= link_to "Sign Up", new_user_registration_path, :class => "white" %></li>
             <li class="divider-vertical"></li>

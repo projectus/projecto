@@ -135,8 +135,15 @@ textarea {
 }
 
 .navbar-about {
-	display: table;
 	width: 75px;
+}
+
+.navbar-projects {
+	width: 55px;
+}
+
+.navbar-about, .navbar-projects {
+	display: table;
 	.multiline {
 		text-decoration: none !important;
 		vertical-align: middle;
