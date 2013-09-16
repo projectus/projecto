@@ -139,6 +139,14 @@ textarea {
     line-height: 1.2em;
     margin-top: 5px;
 	width: 75px;
+}
+
+.navbar-projects {
+	width: 55px;
+}
+
+.navbar-about, .navbar-projects {
+	display: table;
 	.multiline {
 		text-decoration: none !important;
 		vertical-align: middle;
