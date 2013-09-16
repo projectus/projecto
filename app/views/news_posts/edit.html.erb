@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @news_post %> |
-<%= link_to 'Back', news_posts_path %>
+<%= link_to 'Show', @news_post %> | 
+<%= link_to 'Destroy', @news_post, method: :delete, data: { confirm: 'Are you sure?' } %>
