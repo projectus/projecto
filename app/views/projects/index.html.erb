@@ -1,6 +1,4 @@
-<h1>PROJECTS</h1>
-
-<div class="scroll-splitter"></div>
+<h3>PROJECTS</h3>
 
 <ul class="nav nav-pills">
   <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
@@ -9,16 +7,11 @@
   <% end %>
 </ul>
 
-<div class="scroll-splitter"></div>
-
     <% @projects.each do |project| %>
       <div class="project-box">
-
-
         <div class="project-image-box">
           <img src="http://png.findicons.com/files/icons/1035/human_o2/128/orange_folder.png" />
         </div>
-
         <div>
           <%= project.name %>
         </div>
