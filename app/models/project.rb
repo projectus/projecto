@@ -5,9 +5,8 @@ class Project < ActiveRecord::Base
   # Associations ################################
 
   #belongs_to :activity_feed
-  has_one  :activity_feed, as: :feedable
-  has_many :subscriptions, as: :subscribable
-  has_many :subscribers, through: :subscriptions, foreign_key: :user_id
+  has_one  :activity_feed, as: :subscribable
+  #has_many :subscribers, through: :activity_feed, foreign_key: :user_id
 
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
@@ -90,7 +89,7 @@ class Project < ActiveRecord::Base
 
     # Subscribe owner to his project
     def subscribe_owner
-	    owner.subscribe(self)
+	    owner.subscribe(activity_feed)
 	  end
 	
 	  def create_project_activity_feed

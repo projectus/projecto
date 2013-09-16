@@ -1,5 +1,9 @@
 class ActivityFeed < ActiveRecord::Base	
-  belongs_to :feedable, polymorphic: true
+  belongs_to :subscribable, polymorphic: true
 
-  has_many :activities, dependent: :destroy  	
+  has_many :activities, dependent: :destroy
+
+  def name
+	  subscribable.name if subscribable.class == Project
+	end 	
 end

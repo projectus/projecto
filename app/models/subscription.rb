@@ -1,12 +1,11 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
-  belongs_to :subscribable, polymorphic: true
+  belongs_to :activity_feed
 
-	validates :user_id, :uniqueness => { :scope => [:subscribable_type, :subscribable_id] }
-
-  # TODO Validate that subscribable has an activity_feed
+  # Make sure a user only subscribes once to a feed
+	validates :user_id, :uniqueness => { :scope => :activity_feed_id }
 
   def activities
-	  subscribable.activity_feed.activities
+	  activity_feed.activities
 	end
 end
