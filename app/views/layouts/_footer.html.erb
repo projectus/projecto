@@ -1,7 +1,7 @@
 <div class="footer">
    <div class="footer-inner">
       <div class="about-div">
-         <h4 class="footer-about-heading">Projectore</h4>
+         <h4 class="footer-about-heading">Activity</h4>
          <% if user_signed_in? %>
            <% current_user.subscriptions.each do |subscription| %>
              <% subscription.activities.each do |activity| %>
@@ -12,7 +12,6 @@
       </div>
 
       <div id="info-div">
-           About
       </div>
    </div>
 </div>

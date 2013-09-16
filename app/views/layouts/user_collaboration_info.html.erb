@@ -4,16 +4,16 @@
 </p>
 
   <ul class="nav nav-tabs">
-	  <li class="<%= 'active' if params[:action] == 'projects' %>">
+	  <li class="<%= tab_class('projects') %>">
       <%= link_to 'Projects', user_projects_path(associated_user) %>
     </li>
-    <li class="<%= 'active' if params[:action] == 'collaborations' %>">
+    <li class="<%= tab_class('collaborations') %>">
       <%= link_to 'Collaborations', user_collaborations_path(associated_user) %>
     </li>
-    <li class="<%= 'active' if params[:action] == 'invitations' %>">
+    <li class="<%= tab_class('invitations') %>">
       <%= link_to 'Invitations', user_collaboration_invitations_path(associated_user) %>
     </li>
-    <li class="<%= 'active' if params[:action] == 'applications' %>">
+    <li class="<%= tab_class('applications') %>">
       <%= link_to 'Applications', user_collaboration_applications_path(associated_user) %>
     </li>
   </ul>
