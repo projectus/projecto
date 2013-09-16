@@ -16,6 +16,8 @@ Projecto::Application.routes.draw do
 
   get "members", to: "users#index"
 
+  get "profile/:id", to: "user_profiles#show"
+
   get "about", to: 'main#about', as: :about
 
   get "main/home"
