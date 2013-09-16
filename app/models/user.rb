@@ -33,10 +33,14 @@ class User < ActiveRecord::Base
 
   # Public methods ###################################
 
-  def subscribe(mod)
-	  subscription = mod.subscriptions.build
-		subscription.user = self
+  def subscribe(feed)
+	  subscription = subscriptions.build
+		subscription.activity_feed = feed
 		subscription.save!
+	end
+	
+	def subscribed_to?(feed)
+	  subscriptions.exists?(activity_feed: feed)
 	end
 		
 	def is_owner_of_project?(project)

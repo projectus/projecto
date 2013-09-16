@@ -1,5 +1,3 @@
 <div>
-	<% if subscription.subscribable.class == Project %>
-    <h4>Project: <%= link_to_project_profile(subscription.subscribable) %></h4>
-  <% end %>	
+  <h4>Project: <%= link_to subscription.activity_feed.name, subscription.activity_feed.subscribable %></h4>
 </div>
