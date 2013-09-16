@@ -1,33 +1,36 @@
-<div class="profile-row">
-  <div class="avatar-div">
-    <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
-    <h4><%= associated_user.username %></h4>
-  </div>
+<div class="content">
 
-  <div class="profile-links">
-    <div class="box sidebox">
+    <div class="profile-row">
+      <div class="avatar-div">
+        <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
+        <h4><%= associated_user.username %></h4>
+      </div>
 
-      <ul class="nav nav-list">
-        <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
-        <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
-        <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
-      </ul>
-    </div>
-  </div>
+      <div class="profile-links">
+        <div class="box sidebox">
 
-  </div>
+           <div>
 
-  <div class="box" id="card">
-    <%= render partial: 'contact', object: @contact %>
-  </div>
 
-  <div class="side-links">
-    <div class="box sidebox">
-      <button class="orange">Projects</button>   <br>
-      <button class="orange">Follow Me</button>  <br>
-      <button class="orange">Message Me</button> <br>
-      <button class="orange">Invite Me</button>  <br>
+           </div>
+           <%= link_to 'Projects', user_projects_path(associated_user) %><br>
+           <%= link_to 'Resume', resume_path(associated_user.profile) %><br>
+           <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %>
 
+        </div>
+      </div>
+
+      </div>
+
+      <div class="box" id="card">
+        <%= render partial: 'contact', object: @contact %>
+      </div>
+
+      <div class="action-bar">
+          <button class="orange btn">Follow Me</button>  <br>
+          <button class="orange btn">Message Me</button> <br>
+          <button class="orange btn">Invite Me</button>  <br>
+      </div>
     </div>
   </div>
 </div>

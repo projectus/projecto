@@ -13,14 +13,20 @@
 			<% end %>
     </div>
 
-		<div class="scroll-splitter"></div>
-
   <ul class="nav nav-pills">
+<<<<<<< HEAD
+	<li class="<%= 'active' if params[:action] == 'about'%>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
+    <li class="<%= 'active' if params[:controller] == 'news_posts'%>"><%= link_to 'News', associated_project.profile %></li>
+    <li class="<%= 'active' if params[:controller] == 'project_collaboration_info'%>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
+    <li class="<%= 'active' if params[:controller] == 'comments'%>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+    <li class="<%= 'active' if params[:controller] == 'task_groups'%>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+=======
 	  <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
     <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
     <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
     <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
     <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+>>>>>>> 85144276c104b568eadac68f923247ad9a0551b1
     <li><a>Ideas (private)</a></li>
     <li><a>Discussion Board (private)</a></li>
   </ul>
