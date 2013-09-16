@@ -4,6 +4,11 @@ class Project < ActiveRecord::Base
 	
   # Associations ################################
 
+  #belongs_to :activity_feed
+  has_one  :activity_feed, as: :feedable
+  has_many :subscriptions, as: :subscribable
+  has_many :subscribers, through: :subscriptions, foreign_key: :user_id
+
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
 	belongs_to :owner, class_name: 'User', foreign_key: :owner_id
@@ -33,7 +38,7 @@ class Project < ActiveRecord::Base
 
 	# After create ###################################
 
-  after_create :create_empty_profile
+  after_create :create_empty_profile, :create_project_activity_feed, :subscribe_owner
 		
   # Public methods #################################
 
@@ -81,5 +86,14 @@ class Project < ActiveRecord::Base
       profile = build_profile
       profile.generate_empty_outline
       profile.save!
-    end	
+    end
+
+    # Subscribe owner to his project
+    def subscribe_owner
+	    owner.subscribe(self)
+	  end
+	
+	  def create_project_activity_feed
+		  create_activity_feed
+		end	
 end

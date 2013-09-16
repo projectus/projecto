@@ -52,9 +52,9 @@ Projecto::Application.routes.draw do
   resources :projects, shallow: true do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
-		resources :news_posts, except: [:create, :new, :show]
+		resources :news_posts, except: [:create, :new]
 		resources :collaborations, except: [:new, :create]
-		resources :task_groups, only: [:new, :index]    
+		resources :task_groups, only: [:new, :index] 
 	end
 
   # USERS AND ASSOCIATED ########################################
@@ -62,8 +62,11 @@ Projecto::Application.routes.draw do
   get "users/:id/show", to: 'users#show', as: :user
   get "users/:id/collaboration_info", to: 'users#collaboration_info', as: :user_collaboration_info
 
+	resources :subscriptions, only: [:create, :destroy]
+	
   resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]
+		resources :subscriptions, only: [:index]  
 	end
 	
   # The priority is based upon order of creation: first created -> highest priority.

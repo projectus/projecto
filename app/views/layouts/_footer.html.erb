@@ -2,7 +2,13 @@
    <div class="footer-inner">
       <div class="about-div">
          <h4 class="footer-about-heading">Projectore</h4>
-        Projectore is ...
+         <% if user_signed_in? %>
+           <% current_user.subscriptions.each do |subscription| %>
+             <% subscription.activities.each do |activity| %>
+				       <%= render partial: 'layouts/activity', object: activity %>
+				     <% end %>
+				   <% end %>
+				<% end %>
       </div>
 
       <div id="info-div">

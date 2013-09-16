@@ -1,6 +1,5 @@
 <% content_for :project_profiles_content do %>
 	  <%= content_for?(:news_posts_content) ? yield(:news_posts_content) : yield %>
-	  <%= image_tag("site/orange.jpg", border: 0, class: 'dock-item')  %>
 <% end %>
 
 <%= render template: "layouts/project_profiles" %>

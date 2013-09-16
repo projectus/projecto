@@ -29,9 +29,16 @@ class User < ActiveRecord::Base
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
   has_one :profile, class_name: 'UserProfile', dependent: :destroy
+  has_many :subscriptions
 
   # Public methods ###################################
-	
+
+  def subscribe(mod)
+	  subscription = mod.subscriptions.build
+		subscription.user = self
+		subscription.save!
+	end
+		
 	def is_owner_of_project?(project)
 	  self == project.owner
 	end
@@ -62,5 +69,6 @@ class User < ActiveRecord::Base
       profile = build_profile
       profile.generate_empty_resume
       profile.generate_empty_card
+      profile.save!
     end
 end
