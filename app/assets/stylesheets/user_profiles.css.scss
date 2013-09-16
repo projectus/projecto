@@ -3,20 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#card {
+#card{
   padding: 1em;
   float: left;
-}
-
-#card{
-  height: 120px !important;
-  background: white;
-  padding: 30px;
-  border: 1px solid #DDD;
+  background: #EDEDED;
+  border: 10px solid white;
   border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
   font-family: 'Denk One',sans-serif;
   color: #666666 !important;
+  height: 170px;
+  width: 300px;
 
 }
 
@@ -34,7 +31,6 @@
 }
 
 .sidebox {
-  height: 190px !important;
   background: white;
   padding: 12px;
   border: 1px solid #DDD;
@@ -48,12 +44,13 @@
 
 .avatar-div{
   float: left;
-  margin-right: 30px;
+  margin-right: 40px;
 }
 
 .profile-links{
   float: left;
-  margin-right: 30px;
+  margin-right: 40px;
+  width: 180px;
 }
 
 .side-links {

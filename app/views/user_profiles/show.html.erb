@@ -23,19 +23,11 @@
 
   <div class="side-links">
     <div class="box sidebox">
-      <button class="orange">Projects</button>
-      <button class="orange">Follow Me</button>
-      <button class="orange">Message Me</button>
-      <button class="orange">Invite Me</button>
+      <button class="orange">Projects</button>   <br>
+      <button class="orange">Follow Me</button>  <br>
+      <button class="orange">Message Me</button> <br>
+      <button class="orange">Invite Me</button>  <br>
 
-
-      <ul class="nav nav-list">
-
-
-        <li><%= link_to 'Projects', user_projects_path(associated_user) %></li>
-        <li><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
-        <li><%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %></li>
-      </ul>
     </div>
   </div>
 </div>
