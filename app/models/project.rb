@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
 
   #belongs_to :activity_feed
   has_one  :activity_feed, as: :subscribable, dependent: :destroy
-  #has_many :subscribers, through: :activity_feed, foreign_key: :user_id
+  has_many :subscriptions, through: :activity_feed
 
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
