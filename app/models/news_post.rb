@@ -4,7 +4,7 @@ class NewsPost < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  has_many :activities, as: :loggable
+  has_many :activities, as: :loggable, dependent: :destroy
 
   validates :user, presence: true
   validates :project, presence: true

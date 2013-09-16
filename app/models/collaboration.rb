@@ -12,6 +12,7 @@ class Collaboration < ActiveRecord::Base
   has_many :activities, as: :loggable
 
   after_create :add_creation_activity_to_activity_feed
+  before_destroy :add_destruction_activity_to_activity_feed
 
   def self.create_peasant(user, project)
 	  Collaboration.create!(user: user, role: ROLE_PEASANT, project: project)
@@ -23,5 +24,10 @@ class Collaboration < ActiveRecord::Base
 	    activity.activity_feed = project.activity_feed
 	    activity.save!
 		end
-	
+		
+		def add_destruction_activity_to_activity_feed
+	    activity = project.activities.build(species:'collaboration ended',headline:"#{user.username} left #{project.name}!")
+	    activity.activity_feed = project.activity_feed
+	    activity.save!
+	  end
 end
