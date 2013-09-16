@@ -12,18 +12,14 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
   font-family: 'Denk One',sans-serif;
   color: #666666 !important;
-  height: 170px;
-  width: 300px;
+  height: 160px;
+  width: 290px;
 
 }
 
 #avatar{
   float: left;
   background: #F6F6F6;
-}
-
-.row-fluid div {
-  min-height: 0 !important;
 }
 
 #user_avatar{
@@ -53,8 +49,22 @@
   width: 180px;
 }
 
-.side-links {
+.action-bar {
   float: right;
+  background: white;
+  padding: 12px;
+  border: 1px solid #DDD;
+  border-radius: 7px 7px 7px 7px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  font-family: 'Denk One',sans-serif;
+  color: #000 !important;
+  width: 110px;
+
+}
+
+.action-bar button{
+  margin-bottom: 10px;
+
 }
 
 .orange {
@@ -64,18 +74,21 @@
   background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
   background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+  font-family: 'Francois One',sans-serif !important;
 }
 .orange:hover {
   background: #f47c20;
   background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
   background: -moz-linear-gradient(top,  #f88e11,  #f06015);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+  font-family: 'Francois One',sans-serif !important;
 }
 .orange:active {
   color: #000;
   background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
   background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+  font-family: 'Francois One',sans-serif !important;
 }
 
 .tabbable {

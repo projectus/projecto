@@ -302,7 +302,7 @@ p {
   box-shadow: 0px 4px 5px #000000;
 }
 
-.nav {
+.navbar .nav {
   height: 40px !important;
 }
 
@@ -314,3 +314,14 @@ p {
   height: 40px !important;
 }
 
+.tabbable ul.nav-tabs {
+  margin-bottom: 0 !important;
+}
+
+.tabbable .tab-content {
+  background: #EDEDED;
+}
+
+.tabbable li.active a {
+  background: #EDEDED !important;
+}

@@ -1,11 +1,15 @@
 <h3>PROJECTS</h3>
 
+<%= render 'layouts/searchbar' %>
+
 <ul class="nav nav-pills">
   <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
   <% Project.categories.each do |cat| %>
     <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat) %></li>
   <% end %>
 </ul>
+
+<div class="projects-container">
 
     <% @projects.each do |project| %>
       <div class="project-box">
@@ -30,4 +34,4 @@
           </div>
         </div>
     <% end %>
-
+</div>
