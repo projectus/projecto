@@ -9,8 +9,19 @@ class Collaboration < ActiveRecord::Base
 
   validates :role, inclusion: {in: ROLES}
 
+  has_many :activities, as: :loggable
+
+  after_create :add_creation_activity_to_activity_feed
+
   def self.create_peasant(user, project)
 	  Collaboration.create!(user: user, role: ROLE_PEASANT, project: project)
 	end
+	
+	private
+	  def add_creation_activity_to_activity_feed
+	    activity = activities.build(species:'new collaboration',headline:"#{user.username} joined #{project.name}!")
+	    activity.activity_feed = project.activity_feed
+	    activity.save!
+		end
 	
 end
