@@ -11,6 +11,7 @@
 			  <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
 			  <%= submit_tag 'Subscribe', class: 'btn' %>
 			<% end %>
+			<b><%= associated_project.activity_feed.size %> Subscribers</b>
     </div>
 
   <ul class="nav nav-pills">
