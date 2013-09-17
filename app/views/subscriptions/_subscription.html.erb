@@ -1,3 +1,4 @@
 <div>
-  <h4>Project: <%= link_to_subscribeable_profile(subscription) %></h4>
+  <h5>Project: <%= link_to_subscribeable_profile(subscription) %> | 
+  <%= link_to 'Unsubscribe', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></h5>  
 </div>

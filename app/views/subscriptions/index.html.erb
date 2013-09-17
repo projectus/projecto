@@ -1,4 +1,4 @@
 <b>Subscriptions:</b>
-<% @subscriptions.each do |subscription| %>
+<% @subscriptions.includes(activity_feed: {subscribable: :profile}).each do |subscription| %>
   <%= render partial: 'subscription', object: subscription %>
 <% end %>
