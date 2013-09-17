@@ -175,14 +175,14 @@ textarea {
 }
 
 .introbar-center{
-  width: 76em;
+  width: 940px;
   margin: auto;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
 .intro-bar-left {
-  width: 30%;
+  width: 360px;
   float: left;
   color: white;
 }
@@ -326,3 +326,16 @@ p {
 .tabbable li.active a {
   background: #EDEDED !important;
 }
+
+.heading {
+  font-size: 16pt;
+  font-family: 'Denk One',sans-serif !important;
+  color: #888;
+  margin: 5px 0px;
+  font-weight: bold;
+}
+
+.heading-div {
+  margin: 8px 0px;
+}
+
