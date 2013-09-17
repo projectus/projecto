@@ -1,11 +1,17 @@
 <%= form_for(@news_post) do |f| %>
   <%= render 'errors' %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="post-left">
+    <span>Title:</span><br>
+    <%= f.text_field :title, class: 'input-title' %>
+  </div>
 
-  <%= f.label :content %>
-  <%= f.text_area :content, class:'input-xxlarge' %>
+    <div class="post-right">
+      <span style="vertical-align: top">Content:</span><br>
+      <%= f.text_area :content, class:'input-content' %>
+    </div>
+
+
 
   <%= f.hidden_field :project_id %>    
 
