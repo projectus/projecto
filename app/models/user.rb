@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 	after_create :create_empty_profile
 	
 	# Associations #################################
+	
+  has_many :activity_references, as: :referenceable, dependent: :destroy
 			
   has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
 
   # Public methods ###################################
 
-  def subscribe(feed)
+  def subscribe_to(feed)
 	  subscription = subscriptions.build
 		subscription.activity_feed = feed
 		subscription.save!

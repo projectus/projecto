@@ -11,23 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916051742) do
+ActiveRecord::Schema.define(version: 20130917053743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
-    t.string   "headline"
     t.string   "species"
     t.integer  "activity_feed_id"
-    t.integer  "loggable_id"
-    t.string   "loggable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "activities", ["activity_feed_id"], name: "index_activities_on_activity_feed_id", using: :btree
-  add_index "activities", ["loggable_id"], name: "index_activities_on_loggable_id", using: :btree
 
   create_table "activity_feeds", force: true do |t|
     t.integer  "subscribable_id"
@@ -37,6 +33,15 @@ ActiveRecord::Schema.define(version: 20130916051742) do
   end
 
   add_index "activity_feeds", ["subscribable_id"], name: "index_activity_feeds_on_subscribable_id", using: :btree
+
+  create_table "activity_references", force: true do |t|
+    t.integer "referenceable_id"
+    t.string  "referenceable_type"
+    t.integer "activity_id"
+    t.string  "title"
+  end
+
+  add_index "activity_references", ["referenceable_id", "referenceable_type", "activity_id"], name: "activity_references_index", unique: true, using: :btree
 
   create_table "collaboration_applications", force: true do |t|
     t.integer  "project_id"
@@ -103,12 +108,8 @@ ActiveRecord::Schema.define(version: 20130916051742) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "activity_id"
-    t.integer  "activity_entry_id"
   end
 
-  add_index "news_posts", ["activity_entry_id"], name: "index_news_posts_on_activity_entry_id", using: :btree
-  add_index "news_posts", ["activity_id"], name: "index_news_posts_on_activity_id", using: :btree
   add_index "news_posts", ["project_id"], name: "index_news_posts_on_project_id", using: :btree
   add_index "news_posts", ["user_id"], name: "index_news_posts_on_user_id", using: :btree
 
@@ -157,6 +158,8 @@ ActiveRecord::Schema.define(version: 20130916051742) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "task_groups", force: true do |t|
     t.string   "name"

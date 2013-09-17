@@ -4,7 +4,9 @@ class ActivityFeed < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   has_many :activities, dependent: :destroy
 
+  validates_presence_of :subscribable
+
   def name
-	  subscribable.name if subscribable.class == Project
+	  return subscribable.name if subscribable.class == Project
 	end 	
 end

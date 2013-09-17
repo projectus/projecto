@@ -23,4 +23,25 @@ module ApplicationHelper
 	  return link_to name, project.profile unless name.nil?
 	  link_to project.name, project.profile
 	end
+	
+	# Construct activity headline
+	def activity_headline(activity)
+	  species = activity.species
+	  if species == 'news post'
+		  post = activity.referenceable_by_type('post')
+			post.nil? ? '(news post removed)' : link_to(post.title, post)
+		elsif species == 'new collaboration'
+			prj = activity.referenceable_by_type('project')
+			usr = activity.referenceable_by_type('user')
+			x = usr.nil? ? '(user deleted)' : link_to_user_profile(usr)
+			y = prj.nil? ? '(project deleted)' : link_to_project_profile(prj)
+			x + ' joined ' + y + '!'
+		elsif species == 'collaboration ended'
+			prj = activity.referenceable_by_type('project')
+			usr = activity.referenceable_by_type('user')
+			x = usr.nil? ? '(user deleted)' : link_to_user_profile(usr)
+			y = prj.nil? ? '(project deleted)' : link_to_project_profile(prj)
+			x + ' is no longer with ' + y + '!'
+		end
+	end
 end

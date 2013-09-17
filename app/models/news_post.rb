@@ -4,7 +4,7 @@ class NewsPost < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  has_many :activities, as: :loggable, dependent: :destroy
+  has_many :activity_references, as: :referenceable, dependent: :destroy
 
   validates :user, presence: true
   validates :project, presence: true
@@ -13,8 +13,9 @@ class NewsPost < ActiveRecord::Base
 
   private
     def add_creation_activity_to_activity_feed
-	    activity = activities.build(species:'new post',headline:self.title)
+	    activity = Activity.new(species:'news post')
 	    activity.activity_feed = project.activity_feed
-	    activity.save!
+	    activity.save!	
+	    activity.activity_references.create(referenceable: self, title: 'post')
 	  end
 end

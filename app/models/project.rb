@@ -4,9 +4,9 @@ class Project < ActiveRecord::Base
 	
   # Associations ################################
 
-  #belongs_to :activity_feed
   has_one  :activity_feed, as: :subscribable, dependent: :destroy
   has_many :subscriptions, through: :activity_feed
+  has_many :activity_references, as: :referenceable, dependent: :destroy
 
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
