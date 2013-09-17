@@ -32,9 +32,6 @@
 
 <body>
 
-
-<div id="scroll">
-
 	
 <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner white" id="navbar-inner">
@@ -126,13 +123,10 @@
   <% end %>
 
   <div id="content" class="container">
-
     <%= content_for?(:content) ? yield(:content) : yield %>
-
   </div>
 
   <%= render "layouts/footer" %>
 
-</div>
 </body>
 </html>

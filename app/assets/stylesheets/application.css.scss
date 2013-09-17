@@ -15,7 +15,7 @@
 @import "bootstrap";
 
 #alerts {
-  margin: 0 40px 0 40px;
+  margin: 0;
 }
 
 .nav-tabs > li > a {
@@ -268,22 +268,16 @@ p {
   float: left;
   color: #FFF;
   margin-right: 50px;
-
 }
 
 .footer-inner {
   width: 76em;
   margin: auto;
-
 }
 
 .alert, .alert-success {
   margin-top: 30px !important;
   margin: auto !important;
-}
-
-#alerts{
-  margin: 0;
 }
 
 .btn-group {

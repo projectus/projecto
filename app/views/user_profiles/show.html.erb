@@ -3,16 +3,17 @@
     <div class="profile-row">
       <div class="avatar-div">
         <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
-        <h4><%= associated_user.username %></h4>
+        <h4>
+          <%= associated_user.username %>
+          <% if current_user == associated_user %>
+            <span style="color: orange;">(you)</span>
+          <% end %>
+	      </h4>
       </div>
 
       <div class="profile-links">
         <div class="box sidebox">
 
-           <div>
-
-
-           </div>
            <%= link_to 'Projects', user_projects_path(associated_user) %><br>
            <%= link_to 'Resume', resume_path(associated_user.profile) %><br>
            <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %>
