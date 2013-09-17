@@ -7,3 +7,39 @@
   -moz-border-radius: 0;
   border-radius: 0;
 }
+
+.project-logo {
+  width: 300px;
+}
+
+.project-logo-div {
+  float: left;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-top {
+  background: #E2E2E2;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.project-info-box {
+  float: right;
+  width: 570px;
+  height: 190px;
+  border-radius: 8px;
+  padding: 15px;
+
+}
+
+.info-row {
+  background: #FFF6EF;
+  padding: 4px;
+  margin-bottom: 10px;
+}
+
+.info-row .info-heading {
+  float: left;
+}
