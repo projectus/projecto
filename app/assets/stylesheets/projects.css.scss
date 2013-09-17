@@ -5,10 +5,15 @@
 .project-box{
   height: 220px;
   width: 170px;
-  background-color: #FFF;
+  background-color: #EEE;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(195, 195, 195, 0.5)
+}
+
+.project-box:hover {
+  background-color: #CCC;
 }
 
 .project-image-box{
@@ -26,5 +31,26 @@
 }
 
 .projects-container {
+  background: white;
+  padding: 20px;
+
+}
+
+.project-tab {
+  margin-top: 15px !important;
+}
+
+.project-tab li a{
+  margin-bottom: 0px;
+}
+
+.project-tab li.active a{
+  background: #FFFFFF !important;
+  color: #000 !important;
+}
+
+.heading-buttons {
+  float: right;
+
 
 }
