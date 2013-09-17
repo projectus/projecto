@@ -1,18 +1,23 @@
 <%= form_for(@comment) do |f| %>
   <%= render 'errors' %>
 
-  <img src="http://mediacdn.disqus.com/1379448753/images/noavatar92.png" />
+  <div class="comment-div">
 
-  <div class="field">
-    <%= f.text_area :content %>
+
+    <div class="comment-input">
+      <%= f.text_area :content %>
+    </div>
+
+    <div class="comment-avatar">
+      <img src="http://www.thegoodblog.com.au/assets/avatar-placeholder-64x59.png" /><br>
+      <%= f.submit 'Comment', class: 'btn' %>
+    </div>
   </div>
+
 
   <div class="field">
     <%= f.hidden_field :project_id %>
   </div>
 
-  <div class="actions">
-    <%= f.submit 'Post Comment', class: 'btn' %>
-  </div>
 <% end %>
 

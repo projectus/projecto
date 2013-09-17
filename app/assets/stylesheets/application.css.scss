@@ -249,7 +249,7 @@ p {
 #search-bar{
   background-color: #E2E2E2;
   background-image: -moz-linear-gradient(center top , #E4E4E4, #E2E2E2);
-  border-radius: 6px 6px 6px 6px;
+  /*border-radius: 6px 6px 6px 6px;*/
   box-shadow: 0 0 0 1px rgba(195, 195, 195, 0.5) inset;
   padding: 8px;
 }
@@ -340,3 +340,7 @@ p {
   margin: 8px 0px;
 }
 
+
+.add-on {
+  background: white !important;
+}
