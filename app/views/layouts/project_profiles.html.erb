@@ -12,9 +12,7 @@
 
         <div class="logo-bottom">
           <% if user_signed_in? %>
-              <% if current_user == associated_project.owner %>
-                  <span style="color:orange;">(your project)</span>
-              <% end %>
+
           <% end %>
           <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
           <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
@@ -90,24 +88,28 @@
 
     //-->
 
-  <div style="clear:both; margin-top: 20px !important">
-    <ul class="nav nav-pills">
-      <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
-      <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
-      <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-      <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
-      <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-      <li><a>Ideas (private)</a></li>
-      <li><a>Discussion Board (private)</a></li>
-    </ul>
+    <div class="project-tabs">
 
-  </div>
+        <ul class="nav nav-pills project-tab">
+          <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
+          <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
+          <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
+          <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+          <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+          <li><a>Ideas (private)</a></li>
+          <li><a>Discussion Board (private)</a></li>
+
+        </ul>
+
+        <div class="projects-container">
+          <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 
 
+        </div>
 
-	<div class="scroll-splitter"></div>
+    </div>
 
-  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+
 <% end %>
 
 <%= render template: "layouts/application" %>
