@@ -6,7 +6,6 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
-	  @contact = @user_profile.card
   end
 
   def show_resume
@@ -44,6 +43,10 @@ class UserProfilesController < ApplicationController
       @user_profile = UserProfile.find(params[:id])
     end
 
+    def set_user_contact
+	    @contact = @user_profile.card
+	  end
+	
     def associated_user
 	    @user_profile.user
 	  end

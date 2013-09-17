@@ -4,8 +4,7 @@ class NewsPost < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
-  has_many :activity_references, as: :referenceable
-  has_many :activities, through: :activity_references, dependent: :destroy
+  has_many :activity_references, as: :referenceable, dependent: :destroy
 
   validates :user, presence: true
   validates :project, presence: true
