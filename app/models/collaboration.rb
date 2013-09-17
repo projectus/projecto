@@ -9,9 +9,7 @@ class Collaboration < ActiveRecord::Base
 
   validates :role, inclusion: {in: ROLES}
 
-  has_many :activities, as: :loggable
-
-  after_create :add_creation_activity_to_activity_feed
+  after_create :add_creation_activity_to_activity_feed, :subscribe_user_to_project
   before_destroy :add_destruction_activity_to_activity_feed
 
   def self.create_peasant(user, project)
@@ -19,15 +17,24 @@ class Collaboration < ActiveRecord::Base
 	end
 	
 	private
-	  def add_creation_activity_to_activity_feed
-	    activity = activities.build(species:'new collaboration',headline:"#{user.username} joined #{project.name}!")
+	  def setup_activity(activity)
 	    activity.activity_feed = project.activity_feed
 	    activity.save!
+	    activity.activity_references.create(referenceable: user, title: 'user')	    
+	    activity.activity_references.create(referenceable: project, title: 'project')
+		end
+		
+	  def add_creation_activity_to_activity_feed
+	    activity = Activity.new(species:'new collaboration')
+      setup_activity(activity)
 		end
 		
 		def add_destruction_activity_to_activity_feed
-	    activity = activities.build(species:'collaboration ended',headline:"#{user.username} left #{project.name}!")
-	    activity.activity_feed = project.activity_feed
-	    activity.save!
+	    activity = Activity.new(species:'collaboration ended')
+      setup_activity(activity)
 	  end
+		
+	  def subscribe_user_to_project
+		  user.subscribe_to(project.activity_feed)
+		end
 end

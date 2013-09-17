@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  referenceable_id: 
+  referenceable_type: MyString
+  activity_id: 
+
+two:
+  referenceable_id: 
+  referenceable_type: MyString
+  activity_id: 

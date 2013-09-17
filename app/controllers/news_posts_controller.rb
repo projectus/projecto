@@ -36,7 +36,7 @@ class NewsPostsController < ApplicationController
         format.html { redirect_to @news_post.project.profile, notice: 'News post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @news_post }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'show' }
         format.json { render json: @news_post.errors, status: :unprocessable_entity }
       end
     end
