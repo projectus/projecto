@@ -71,8 +71,13 @@
       <file leaf-file-name="application.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="53" selection-start="2548" selection-end="2548" vertical-scroll-proportion="-4.16129">
-              <folding />
+            <state line="165" column="53" selection-start="2536" selection-end="2536" vertical-scroll-proportion="-4.16129">
+              <folding>
+                <marker date="1379444515668" expanded="true" signature="3886:4002" placeholder="{...}" />
+                <marker date="1379444515668" expanded="true" signature="4157:4198" placeholder="{...}" />
+                <marker date="1379444515668" expanded="true" signature="4237:4248" placeholder="{...}" />
+                <marker date="1379444515668" expanded="true" signature="4280:4332" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scaffolds.css.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="scaffolds.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="7" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
+            <state line="7" column="18" selection-start="144" selection-end="144" vertical-scroll-proportion="0.18683274">
               <folding />
             </state>
           </provider>
@@ -133,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_profiles.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="project_profiles.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/project_profiles.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="22" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.83985764">
+            <state line="57" column="86" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,7 +150,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="823" selection-end="1225" vertical-scroll-proportion="-12.5">
+            <state line="17" column="0" selection-start="823" selection-end="1225" vertical-scroll-proportion="-10.625">
               <folding />
             </state>
           </provider>
@@ -175,8 +180,8 @@
         <option value="$PROJECT_DIR$/app/views/news_posts/_new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/news_posts/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/project_profiles.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" />
       </list>
     </option>
   </component>
@@ -972,8 +977,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="53" selection-start="2548" selection-end="2548" vertical-scroll-proportion="-4.16129">
-          <folding />
+        <state line="165" column="53" selection-start="2536" selection-end="2536" vertical-scroll-proportion="-4.16129">
+          <folding>
+            <marker date="1379444515668" expanded="true" signature="3886:4002" placeholder="{...}" />
+            <marker date="1379444515668" expanded="true" signature="4157:4198" placeholder="{...}" />
+            <marker date="1379444515668" expanded="true" signature="4237:4248" placeholder="{...}" />
+            <marker date="1379444515668" expanded="true" signature="4280:4332" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1007,7 +1017,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="823" selection-end="1225" vertical-scroll-proportion="-12.5">
+        <state line="17" column="0" selection-start="823" selection-end="1225" vertical-scroll-proportion="-10.625">
           <folding />
         </state>
       </provider>
@@ -1028,16 +1038,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/project_profiles.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="7" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0">
+        <state line="57" column="86" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/project_profiles.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="22" selection-start="1083" selection-end="1083" vertical-scroll-proportion="0.83985764">
+        <state line="7" column="18" selection-start="144" selection-end="144" vertical-scroll-proportion="0.18683274">
           <folding />
         </state>
       </provider>

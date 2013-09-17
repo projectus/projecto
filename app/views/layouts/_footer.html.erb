@@ -1,16 +1,15 @@
 <div class="footer">
    <div class="footer-inner">
       <div class="about-div">
-         <h4 class="footer-about-heading">Activity</h4>
-         <% if user_signed_in? %>
-           <% current_user.subscriptions.each do |subscription| %>
-             <% subscription.activities.each do |activity| %>
-				       <%= render partial: 'layouts/activity', object: activity %>
-				     <% end %>
-				   <% end %>
-				<% end %>
       </div>
-
+      <h4>Activity</h4>
+      <% if user_signed_in? %>
+        <% current_user.subscriptions.includes(activity_feed: {activities: :activity_references}).each do |subscription| %>
+          <% subscription.activities.each do |activity| %>
+			      <%= render partial: 'layouts/activity', object: activity %>
+			    <% end %>
+			  <% end %>
+		  <% end %>
       <div id="info-div">
       </div>
    </div>
