@@ -1,14 +1,10 @@
 class TaskGroupsController < ApplicationController
   before_action :set_task_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:create, :new]
 
-  # Authenticate current user as project owner. Set project depending on the action.
+  # Authenticate current user as project owner.
   before_action(except: [:index, :show]) do
-	  if @task_group.nil?
-	    project = Project.find(params[:project_id]||=task_group_params[:project_id])
-	  else
-		  project = @task_group.project
-		end
-	  authenticate_current_user_as_project_owner(project, 
+	  authenticate_current_user_as_project_owner(associated_project, 
 	                       "You don't have the permissions to modify task groups.")
 	end
 	
@@ -81,7 +77,11 @@ class TaskGroupsController < ApplicationController
       @task_group = TaskGroup.find(params[:id])
     end
 	
-    # Never trust parameters from the scary internet, only allow the white list through.
+   def set_project
+	   @project = Project.find(params[:project_id]||=task_group_params[:project_id])
+	 end
+	 
+   # Never trust parameters from the scary internet, only allow the white list through.
     def task_group_params
       params.require(:task_group).permit(:name, :project_id)
     end
