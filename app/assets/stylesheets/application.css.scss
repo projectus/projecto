@@ -74,6 +74,7 @@
 .box {
   box-shadow: 4px 4px 5px #d4d4d4;
   background: white;
+  border: 1px solid #BBB;
 }
 
 input {
@@ -248,7 +249,7 @@ p {
 #search-bar{
   background-color: #E2E2E2;
   background-image: -moz-linear-gradient(center top , #E4E4E4, #E2E2E2);
-  border-radius: 6px 6px 6px 6px;
+  /*border-radius: 6px 6px 6px 6px;*/
   box-shadow: 0 0 0 1px rgba(195, 195, 195, 0.5) inset;
   padding: 8px;
 }
@@ -300,7 +301,7 @@ p {
 }
 
 #navbar-inner {
-  box-shadow: 0px 4px 5px #000000;
+  box-shadow: 0px 1px 3px #000000;
 }
 
 .navbar .nav {
@@ -339,3 +340,7 @@ p {
   margin: 8px 0px;
 }
 
+
+.add-on {
+  background: white !important;
+}

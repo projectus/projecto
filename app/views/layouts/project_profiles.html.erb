@@ -1,14 +1,47 @@
 <% content_for :content do %>
-    <div class="project-top-bar">
+
+    <div class="project-title-bar">
+
+       <div style="float: left">
+
+         <h1>
+           <img style="width: 75px" src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
+           <%= associated_project.name %></h1>
+         <h6>
+           By: Eric Webster
+         </h6>
+
+       </div>
+
+
+      <div style="float: right">
+        <div class="logo-bottom">
+          <% if user_signed_in? %>
+
+          <% end %>
+          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
+          <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
+              <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
+              <%= submit_tag 'Subscribe', class: 'btn orange' %>
+          <% end %>
+          <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!---
+    <div class="project-top-bar" style="clear: both">
       <div class="project-logo-div box">
 
-        <div class="logo-top">
-          <b><%= associated_project.name %></b>
-        </div>
         <div class="image-div">
 
           <img class="project-logo" src="http://adyaraj.com/images/project.jpg"/>
         </div>
+
+
 
         <div class="logo-bottom">
           <% if user_signed_in? %>
@@ -22,8 +55,12 @@
           <b><%= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
         </div>
 
+
+
       </div>
     </div>
+
+
 
      <div class="project-info-box box">
          <div class="info-row">
@@ -32,7 +69,7 @@
             </div>
 
             <div class="info-content">
-              Eric Brian Duan
+              Eric Webster
             </div>
 
          </div>
@@ -66,7 +103,7 @@
 
 
      </div>
-
+     //-->
 
     <!--
 
