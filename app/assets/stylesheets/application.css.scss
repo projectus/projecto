@@ -48,12 +48,21 @@
 }
 
 .btn {
+  border-radius: none !important;
+}
+
+/*
+
+
+.btn {
 	border-radius: 0 !important;
 	background-color: #FFF;
-  /* remove the gradient */
+   remove the gradient
   background-image: none;
   color: #000;
 }
+
+*/
 
 .hero-unit {
   background-color: #FFF;
@@ -252,8 +261,8 @@ p {
 }
 
 #search-bar{
-  background-color: #E2E2E2;
-  background-image: -moz-linear-gradient(center top , #E4E4E4, #E2E2E2);
+  background-color: #E4E4E4;
+  background-image: -moz-linear-gradient(center top , #E4E4E4, #E4E4E4);
   /*border-radius: 6px 6px 6px 6px;*/
   box-shadow: 0 0 0 1px rgba(195, 195, 195, 0.5) inset;
   padding: 8px;
@@ -368,6 +377,10 @@ p {
 }
 
 .project-div{
-  background: #E2E2E2;
+  background: #E4E4E4;
   padding: 20px;
+}
+
+.scroll-splitter {
+  border-bottom: 1px dotted #AAA !important;
 }

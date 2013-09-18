@@ -52,14 +52,12 @@
       float: left;
       width: 150px;
       height: 300px;
-      border: 1px solid #CCC;
-      background: #EEEEEE;
 }
 
 .news-post-div {
   background: #FFF;
-  padding: 10px;
-  border: 1px solid #CCCCCC
+  padding: 20px;
+
 }
 
 .post-left {
@@ -99,4 +97,9 @@
 .project-tab li a {
   color: #888 !important;
   font-size: 9pt;
+}
+
+.user-container {
+  min-height: 200px;
+  background: #E4E4E4;
 }

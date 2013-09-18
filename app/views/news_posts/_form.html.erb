@@ -2,13 +2,11 @@
   <%= render 'errors' %>
 
   <div class="post-left">
-    <span>Title:</span><br>
-    <%= f.text_field :title, class: 'input-title' %>
+    <%= f.text_field :title, class: 'input-title', :placeholder => "News Heading" %>
   </div>
 
     <div class="post-right">
-      <span style="vertical-align: top">Content:</span><br>
-      <%= f.text_area :content, class:'input-content' %>
+      <%= f.text_area :content, class:'input-content', :placeholder => "News Content"  %>
     </div>
 
 
