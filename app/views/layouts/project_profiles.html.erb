@@ -2,11 +2,17 @@
 
     <div class="project-title-bar">
 
-       <div style="float: left">
+       <div class="project-title-left">
 
-         <h1>
+         <div class="project-title-image-div">
            <img style="width: 75px" src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
-           <%= associated_project.name %></h1>
+
+         </div>
+
+         <span class="project-title">
+
+           <%= associated_project.name %>
+         </span>
          <h6>
            By: Eric Webster
          </h6>
@@ -19,10 +25,10 @@
           <% if user_signed_in? %>
 
           <% end %>
-          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
+          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn-gray' %>
           <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-              <%= submit_tag 'Subscribe', class: 'btn orange' %>
+              <%= submit_tag 'Subscribe', class: 'btn-gray' %>
           <% end %>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
         </div>
@@ -125,26 +131,32 @@
 
     //-->
 
-    <div class="project-tabs">
+    <div class="project-content">
 
-        <ul class="nav nav-pills project-tab">
-          <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
-          <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
-          <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-          <li><a>Ideas (private)</a></li>
-          <li><a>Discussion Board (private)</a></li>
+        <div class="project-users-bar">
+          collaborators
 
-        </ul>
+        </div>
 
-        <div class="projects-container">
-          <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+        <div class="project-tabs">
+
+            <ul class="nav nav-pills project-tab">
+              <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
+              <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
+              <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
+              <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+              <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+              <li><a>Discussion Board (private)</a></li>
+
+            </ul>
+
+            <div class="projects-container">
+              <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+            </div>
+
         </div>
 
     </div>
-
-
 <% end %>
 
 <%= render template: "layouts/application" %>
