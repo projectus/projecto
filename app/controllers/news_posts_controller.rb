@@ -4,9 +4,9 @@ class NewsPostsController < ApplicationController
   # GET /news_posts
   # GET /news_posts.json
   def index
-    @news_posts = NewsPost.all
     @news_post = NewsPost.new
     @news_post.project_id = params[:project_id]
+    @news_posts = associated_project.news
   end
 
   # GET /news_posts/1
