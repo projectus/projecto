@@ -49,6 +49,7 @@
     <file path="$PROJECT_DIR$/app/controllers/task_groups_controller.rb" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379455730959" ignored="false" />
     <file path="/comments.css.scss" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379457894590" ignored="false" />
     <file path="$PROJECT_DIR$/app/controllers/user_collaboration_info_controller.rb" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379478254270" ignored="false" />
+    <file path="$PROJECT_DIR$/app/controllers/news_posts_controller.rb" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379521101538" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,10 +74,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="projects.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.css.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="386" column="1" selection-start="5945" selection-end="5945" vertical-scroll-proportion="2.2971618">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/projects.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="14" selection-start="1949" selection-end="1949" vertical-scroll-proportion="0.92254734">
+            <state line="101" column="56" selection-start="1474" selection-end="1474" vertical-scroll-proportion="-20.67742">
               <folding />
             </state>
           </provider>
@@ -114,9 +124,9 @@
         <option value="$PROJECT_DIR$/app/views/news_posts/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/news_posts/_new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/project_profiles.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/project_profiles.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/projects.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
       </list>
     </option>
   </component>
@@ -959,13 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="32" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.43838027">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/project_profiles.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="36" selection-start="631" selection-end="631" vertical-scroll-proportion="-10.0">
@@ -975,7 +978,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/projects.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="14" selection-start="1949" selection-end="1949" vertical-scroll-proportion="0.92254734">
+        <state line="101" column="56" selection-start="1474" selection-end="1474" vertical-scroll-proportion="-20.67742">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="386" column="1" selection-start="5945" selection-end="5945" vertical-scroll-proportion="2.2971618">
           <folding />
         </state>
       </provider>
