@@ -1,5 +1,13 @@
 class NewsPostsController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
   before_action :set_news_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:create]
+
+	before_action(except: [:index, :show]) do
+		project = @project ||= associated_project 
+	  authenticate_current_user_as_project_owner(project, 
+	                       "You don't have the permissions to post news here.")
+	end
 
   # GET /news_posts
   # GET /news_posts.json
@@ -14,12 +22,6 @@ class NewsPostsController < ApplicationController
   def show
   end
 
-  # GET /news_posts/new
-  #def new
-  #  @news_post = NewsPost.new
-  #  @news_post.project_id = params[:project_id]
-  #end
-
   # GET /news_posts/1/edit
   def edit
   end
@@ -27,7 +29,6 @@ class NewsPostsController < ApplicationController
   # POST /news_posts
   # POST /news_posts.json
   def create
-    #@news_post = NewsPost.new(news_post_params)
     @news_post = current_user.news.build(news_post_params)
     @news_post.species = 'regular'
 
@@ -73,6 +74,10 @@ class NewsPostsController < ApplicationController
       @news_post = NewsPost.find(params[:id])
     end
 
+    def set_project
+	    @project = Project.find(news_post_params[:project_id])
+	  end
+	
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_post_params
       params.require(:news_post).permit(:content, :title, :project_id)

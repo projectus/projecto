@@ -1,22 +1,24 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:index]
-	before_action(except: [:index, :destroy, :show]) do 
-	  authenticate_current_user_as_project_owner(@project||=@collaboration.project, 
+  before_action :set_collaboration, only: [:edit, :update, :destroy]
+
+	before_action(only: :update) do 
+	  authenticate_current_user_as_project_owner(@collaboration.project, 
 	                       "You don't have the permissions to modify this collaboration.")
 	end
+	
   before_action :authenticate_current_user_as_collaborator_or_owner, only: [:destroy]
 
   # GET /collaborations
   # GET /collaborations.json
   def index
+	  @project = Project.find(params[:project_id])
     @collaborations = @project.collaborations
   end
 	
   # GET /collaborations/1
   # GET /collaborations/1.json
-  def show	
-  end
+  #def show	
+  #end
 
   # GET /collaborations/new
   #def new
@@ -73,10 +75,6 @@ class CollaborationsController < ApplicationController
     def set_collaboration
       @collaboration = Collaboration.find(params[:id])
     end
-
-    def set_project
-	    @project = Project.find(params[:project_id])
-	  end
 		
 	  # Authenticate the signed in user as the project owner or collaborator in question
     def authenticate_current_user_as_collaborator_or_owner

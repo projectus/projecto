@@ -156,19 +156,17 @@ textarea {
   margin: auto;
 }
 
-.navbar-about, .navbar-projects {
-	display: table;
-    line-height: 1.2em;
-    margin-top: 5px;
+.navbar-about {
 	width: 75px;
 }
-
 .navbar-projects {
 	width: 55px;
 }
 
 .navbar-about, .navbar-projects {
 	display: table;
+	line-height: 1.2em;
+  margin-top: 5px;
 	.multiline {
 		text-decoration: none !important;
 		vertical-align: middle;

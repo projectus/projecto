@@ -11,13 +11,15 @@ class TaskGroupsController < ApplicationController
   # GET /projects/1/task_groups
   # GET /projects/1/task_groups.json
   def index
-	  @project = Project.find(params[:project_id])
+	  @project = Project.includes(:task_groups).find(params[:project_id])
     @task_groups = @project.task_groups
   end
 
   # GET /task_groups/1
   # GET /task_groups/1.json
   def show
+	  @task = Task.new
+	  @task.task_group_id = params[:id]
   end
 
   # GET /projects/1/task_groups/new
