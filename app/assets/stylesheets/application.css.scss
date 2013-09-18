@@ -174,7 +174,10 @@ textarea {
 
 
 #intro-bar{
+
   background: #CD5219;
+  background: linear-gradient(to bottom, #E89837 0%, #DB6B26 100%) repeat scroll 0 0 transparent;
+  /*background: #999999; */
   height: 190px;
   box-shadow: 0px 2px 5px #000000;
 
@@ -213,6 +216,8 @@ textarea {
 .nav-links a.white{
   color: #FFF !important;
   font-family: 'Merienda One', cursive;
+  font-size: 9pt;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -348,4 +353,26 @@ p {
 
 .add-on {
   background: white !important;
+}
+
+/*
+.navbar-inverse .navbar-inner {
+  background: #467C3B !important;
+}
+
+*/
+
+.btn-gray {
+  background: none repeat scroll 0 0 #828282;
+  border-radius: 3px 3px 3px 3px;
+  color: #FFFFFF;
+  font-weight: 400;
+  padding: 5px 10px 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  font: 14px/21px "Helvetica Neue","Helvetica","Arial","Tahoma","Geneva",sans-serif;
+}
+
+.project-div{
+  background: #E2E2E2;
+  padding: 20px;
 }

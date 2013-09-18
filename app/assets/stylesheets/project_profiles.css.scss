@@ -44,8 +44,16 @@
   float: left;
 }
 
-.project-tabs {
+.project-content {
   clear: both;
+}
+
+.project-users-bar {
+      float: left;
+      width: 150px;
+      height: 300px;
+      border: 1px solid #CCC;
+      background: #EEEEEE;
 }
 
 .news-post-div {
@@ -60,6 +68,10 @@
 
 }
 
+.nav-pills > li > a {
+  margin-top: 0px !important;
+}
+
 
 .post-right {
   width: 60%;
@@ -68,7 +80,11 @@
 }
 
 .input-content{
-  width: 500px !important;
+  width: 350px !important;
+}
+
+.projects-container {
+  width: 750px;
 }
 
 .projects-container form {

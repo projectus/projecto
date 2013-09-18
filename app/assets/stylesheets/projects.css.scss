@@ -33,11 +33,20 @@
 .projects-container {
   background: #E2E2E2;
   padding: 20px;
+  /*
+
+  border-right: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+
+  */
 
 }
 
-.project-tab {
-  margin-top: 15px !important;
+.project-tabs {
+  width: 750px;
+  float: right;
+
 }
 
 .project-tab li a{
@@ -53,4 +62,20 @@
   float: right;
 
 
+}
+
+.project-title {
+  font-family: 'Happy Monkey', cursive;
+  text-transform: capitalize;
+  font-size: 20pt;
+  color: #333;
+  margin-top: 20px;
+}
+
+.project-title-left {
+  float: left;
+}
+
+.project-title-image-div{
+  float: left;
 }
