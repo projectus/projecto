@@ -7,9 +7,10 @@ Projecto::Application.routes.draw do
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
 
   get "users/:id/collaborations", to: 'user_collaboration_info#collaborations', as: :user_collaborations
-  get "users/:id/applications", to: 'user_collaboration_info#applications', as: :user_collaboration_applications
-  get "users/:id/invitations", to: 'user_collaboration_info#invitations', as: :user_collaboration_invitations
   get "users/:id/projects", to: 'user_collaboration_info#projects', as: :user_projects
+
+  get "users/:id/applications", to: 'user_request_info#applications', as: :user_applications
+  get "users/:id/invitations", to: 'user_request_info#invitations', as: :user_invitations
 
   resources :messages
 

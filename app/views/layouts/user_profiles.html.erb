@@ -10,14 +10,6 @@
       </h4>
     </div>
 
-    <div class="profile-links">
-      <div class="box sidebox">
-         <%= link_to 'Projects', user_projects_path(associated_user) %><br>
-         <%= link_to 'Resume', resume_path(associated_user.profile) %><br>
-         <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %>
-      </div>
-    </div>
-
     <div class="box" id="card">
       <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
     </div>
@@ -25,16 +17,17 @@
     <div class="action-bar">
       <button class="orange btn">Follow Me</button>  <br>
       <button class="orange btn">Message Me</button> <br>
-      <button class="orange btn">Invite Me</button>  <br>
+      <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user), :class=>"btn orange" %>  <br>
     </div>
   </div>
 
 	<div class="tabbable"> <!-- Only required for left/right tabs -->
 	  <ul class="nav nav-tabs">
-	    <li><a href="#tab1" data-toggle="tab">Feed</a></li>
-	    <li><a href="#tab2" data-toggle="tab">Endorsements</a></li>
-	    <li><a href="#tab2" data-toggle="tab">Projects</a></li>
-	    <li class="<%= tab_class('subscriptions') %>">
+	    <li class="<%= tab_class('show') %>"><a href="#tab1" data-toggle="tab">Feed</a></li>
+	    <li class="<%= tab_class('show_resume') %>"><%= link_to 'Resume', resume_path(associated_user) %></li>
+	    <li class="<%= tab_class('projects') %>"><%= link_to 'Projects', user_projects_path(associated_user) %></li>
+	    <li class="<%= tab_class('collaborations') %>"><%= link_to 'Collaborations', user_collaborations_path(associated_user) %></li>
+	    <li class="<%= tab_class('index') %>">
 	      <%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %>
 	    </li>
 	  </ul>
@@ -49,6 +42,8 @@
 	    </div>
 	  </div>
 	</div>
+	<div class="scroll-splitter"></div>
+	
 	<%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
   
 <% end %>

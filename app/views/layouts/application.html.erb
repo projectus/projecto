@@ -37,7 +37,6 @@
   <div class="navbar-inner white" id="navbar-inner">
     <div id="nav-center">
 	    <ul class="nav">
-
 		    <li><a class="brand" href="<%= root_path %>">Projectore</a></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
@@ -83,7 +82,12 @@
               <li>
                 <%= link_to "Profile", user_profile_path(current_user.profile) %>
               </li>
-
+              <li>
+                <%= link_to 'Invitations', user_invitations_path(current_user) %>
+              </li>
+              <li>
+                <%= link_to 'Applications', user_applications_path(current_user) %>
+              </li>
               <li>
                 <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
               </li>
