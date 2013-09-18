@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <div class="profile-row">
     <div class="avatar-div">
-      <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
+      <img src="http://0.gravatar.com/avatar/c9941e8b637a76ab683e9d235ccb135d?s=40&d=http%3A%2F%2Fgogreenplus.org%2Fwp-content%2Fthemes%2Ftwentyten%2Fimages%2Fnutsboltsimages%2Fdefaults%2Favatar_220sq.png&r=G" class="img-polaroid box" id="user_avatar">
       <h4>
         <%= associated_user.username %>
         <% if current_user == associated_user %>
@@ -15,9 +15,9 @@
     </div>
 
     <div class="action-bar">
-      <button class="orange btn">Follow Me</button>  <br>
-      <button class="orange btn">Message Me</button> <br>
-      <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user), :class=>"btn orange" %>  <br>
+      <button class="btn">Follow Me</button>  <br>
+      <button class="btn">Message Me</button> <br>
+      <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user), :class=>"btn" %>  <br>
     </div>
   </div>
 
