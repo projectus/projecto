@@ -3,8 +3,8 @@
 <% @task_groups.each_with_index do |task_group,index| %>
 <%= render partial: 'group', object: task_group %>
 <% if index % 4 == 3 %>
-  </div>
-  <div class="row-fluid">
+</div>
+<div class="row-fluid">
 <% end %>
 <% end %>
 </div>

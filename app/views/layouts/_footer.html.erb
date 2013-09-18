@@ -4,10 +4,8 @@
       </div>
       <h4>Activity</h4>
       <% if user_signed_in? %>
-        <% current_user.subscriptions.includes(activity_feed: {activities: :activity_references}).each do |subscription| %>
-          <% subscription.activities.each do |activity| %>
-			      <%= render partial: 'layouts/activity', object: activity %>
-			    <% end %>
+        <% current_user.activities.includes(:activity_references).each do |activity| %>
+			    <%= render partial: 'layouts/activity', object: activity %>
 			  <% end %>
 		  <% end %>
       <div id="info-div">
