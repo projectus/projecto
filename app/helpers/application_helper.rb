@@ -23,7 +23,12 @@ module ApplicationHelper
 	  return link_to name, project.profile unless name.nil?
 	  link_to project.name, project.profile
 	end
-	
+
+  # Helper to determine when tab is active based on controller action
+  def tab_class(tab)
+	  'active' if params[:action] == tab
+	end
+		
 	# Construct activity headline
 	def activity_headline(activity)
 	  species = activity.species

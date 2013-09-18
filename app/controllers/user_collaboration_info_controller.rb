@@ -4,12 +4,6 @@ class UserCollaborationInfoController < ApplicationController
   def collaborations
   end
 
-  def applications
-  end
-
-  def invitations
-  end
-
   # Owned projects
   def projects
 	  @owned_projects = @user.owned_projects

@@ -1,0 +1,2 @@
+module UserRequestInfoHelper
+end

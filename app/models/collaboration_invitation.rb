@@ -19,10 +19,11 @@ class CollaborationInvitation < ActiveRecord::Base
 
   validate :only_update_status_from_pending, on: :update
 
-  ######################################################
+  # After update #####################################
 
   after_update :cash_in
-				
+
+
   private
     def cash_in
 	    if self.status == 'accepted'
@@ -66,7 +67,7 @@ class CollaborationInvitation < ActiveRecord::Base
 	  def invited_user_is_not_invited_by_himself
 	    errors[:base] << 'You cannot invite yourself!' if invited_user == invited_by_user
 	  end
-			
+				
 		# Only allow pending invitations to be accepted or denied.
     def only_update_status_from_pending
 	    if changed.length > 1
