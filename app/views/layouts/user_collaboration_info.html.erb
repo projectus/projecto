@@ -1,7 +1,4 @@
-<% content_for :content do %>
-<p>
-  <%= link_to 'Back to profile', associated_user.profile, class: 'btn' %>
-</p>
+<% content_for :user_profiles_content do %>
 
   <ul class="nav nav-tabs">
 	  <li class="<%= tab_class('projects') %>">
@@ -19,4 +16,4 @@
   </ul>
   <%= content_for?(:user_collaboration_info_content) ? yield(:user_collaboration_info_content) : yield %>
 <% end %>
-<%= render template: "layouts/application" %>
+<%= render template: "layouts/user_profiles" %>
