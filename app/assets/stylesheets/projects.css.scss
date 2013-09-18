@@ -121,3 +121,23 @@
 .project-action-div{
   float: right;
 }
+
+.profile-entry-title, .profile-entry-content {
+  background: #FFF;
+}
+
+.profile-entry {
+  margin-bottom: 15px;
+}
+
+.profile-entry-title {
+  float: left;
+  padding: 5px;
+  color: #919191;
+  font-weight: bold;
+}
+
+.profile-entry-content {
+  padding: 5px;
+  clear: both;
+}

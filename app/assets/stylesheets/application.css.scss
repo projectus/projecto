@@ -182,10 +182,11 @@ textarea {
 }
 
 
+
 #intro-bar{
 
   background: #CD5219;
-  background: linear-gradient(to bottom, #E89837 0%, #DB6B26 100%) repeat scroll 0 0 transparent;
+  background: linear-gradient(to bottom, #6AA300 0%, #70A600 100%) repeat scroll 0 0 transparent;
   /*background: #999999; */
   height: 190px;
   box-shadow: 0px 2px 5px #000000;
@@ -388,5 +389,6 @@ p {
 
 .scroll-splitter {
   border-bottom: 1px dotted #AAA !important;
+  margin-top: 0.5em !important;
 }
 
