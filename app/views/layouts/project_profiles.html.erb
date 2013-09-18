@@ -21,6 +21,12 @@
                By: Eric Webster
              </span>
            </div>
+           <div class="project-description-div">
+             <span>
+           Projectore is a place where it pools like minded individuals from all over the world to embark on projects.
+           We give the tools to manage the projects as well as the exposure to the world wide web.
+             </span>
+           </div>
          </div>
 
       <div class="project-action-div">
@@ -28,10 +34,10 @@
           <% if user_signed_in? %>
 
           <% end %>
-          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
+          <%= button_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn btn-standard' %>
           <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-              <%= submit_tag 'Subscribe', class: 'btn' %>
+              <%= submit_tag 'Subscribe', class: 'btn btn-standard' %>
           <% end %>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
 
