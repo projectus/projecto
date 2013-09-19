@@ -4,16 +4,12 @@
 
 
 #card{
-  padding: 1em;
+
   float: left;
-  background: #EDEDED;
-  border: 10px solid white;
-  border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+
   font-family: 'Denk One',sans-serif;
   color: #666666 !important;
-  height: 160px;
-  width: 290px;
+  width: 180px;
 
 }
 
@@ -23,7 +19,7 @@
 }
 
 #user_avatar{
-  width: 160px !important;
+  width: 180px !important;
 }
 
 .sidebox {
@@ -50,15 +46,13 @@
 }
 
 .action-bar {
-  float: right;
   background: white;
-  padding: 12px;
-  border: 1px solid #DDD;
+  /* border: 1px solid #DDD;
   border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); */
   font-family: 'Denk One',sans-serif;
   color: #000 !important;
-  width: 110px;
+  width: 180px;
 
 }
 

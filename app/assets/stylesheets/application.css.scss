@@ -38,8 +38,8 @@
 }
 
 #content {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .hero-unit {
@@ -86,7 +86,7 @@
 }
 
 .box {
-  box-shadow: 4px 4px 5px #d4d4d4;
+  box-shadow: 2px 2px 2px #d4d4d4;
   background: white;
   border: 1px solid #BBB;
 }
@@ -316,6 +316,7 @@ p {
 .searchbar {
 
   border-radius: 0px 5px 5px 0px !important;
+  background-image: linear-gradient(to bottom, white, #EAEAEA);
 }
 
 #navbar-inner {
@@ -359,8 +360,8 @@ p {
 }
 
 
-.add-on {
-  background: white !important;
+.card {
+  background-image: linear-gradient(to bottom, white, #EAEAEA) !important;
 }
 
 /*
@@ -390,3 +391,6 @@ p {
   margin-top: 0.5em !important;
 }
 
+a.btn {
+  border-radius: none !important;
+}

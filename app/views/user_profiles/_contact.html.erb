@@ -1,4 +1,4 @@
-<h5>Contact Card</h5>
+
 <% contact.each do |type,entry| %>
   <%= render partial: 'user_profiles/contact_entry', locals: {entry: entry, type: type} %>
 <% end %>
