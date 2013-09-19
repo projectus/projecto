@@ -13,7 +13,7 @@ class ProjectProfile < ActiveRecord::Base
   def self.empty_details_entry
 		Proc.new{|entry| 
 			entry.title "e.g. What we're trying to do"; 
-			entry.content "e.g. something new"}
+			entry.content "e.g. Something new"}
 	end
 
   def self.empty_details_entry_hash(key)
@@ -56,7 +56,7 @@ class ProjectProfile < ActiveRecord::Base
 		  keys = details.keys
 		  keys.each do |key|
 			  unless key =~ /entry_(\d\d)/
-				  errors[:base] = "Incorrect entry key format. You may have too many entries."
+				  errors[:base] << "Incorrect entry key format. You may have too many entries."
 				  return 
 				end			
 			end

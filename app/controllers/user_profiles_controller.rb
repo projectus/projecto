@@ -15,16 +15,9 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1/edit
   def edit
 	  @contact = @user_profile.card
-	  if @contact[:name].nil?
-		  @name = ['','','']
-		else
-	    @name = @contact[:name].split(',')
-	  end
-	  if @contact[:birthday].nil?
-		  @birthday = [1900,1,1]
-		else
-	    @birthday = @contact[:birthday].split(',')
-    end
+		
+	  @name = @contact[:name].nil? ? ['','',''] : @contact[:name].split(',')	
+	  @birthday = @contact[:birthday].nil? ? [1900,1,1] : @contact[:birthday].split(',')
   end
 
   # PATCH/PUT /user_profiles/1
@@ -65,11 +58,6 @@ class UserProfilesController < ApplicationController
 		  permitted_fields[:birthday] = params[:contact][:birthday].values.join(',')
       @user_profile.update_contact_card(permitted_fields)	
 	  end
-			
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_profile_params
-      params.require(:user_profile).permit()
-    end
 
     # Only let current user modify his own profile
     def authenticate_current_user_as_profile_owner

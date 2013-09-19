@@ -1,12 +1,17 @@
 class ProjectProfilesController < ApplicationController
-  before_action :set_project_profile, only: [:new, :show, :details, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:details, :show]	
+  before_action :set_project_profile
+	before_action(except: [:details, :show]) do
+	  authenticate_current_user_as_project_owner(associated_project, 
+	                       "You don't have the permissions to modify this project.")
+	end	
   before_action :set_project_details, only: [:new, :details, :edit]
+
+  ## TODO: THIS HAS TO CHANGE. NEW CONTROLLER FOR DETAILS ##
 
   # GET /project_profiles/1
   # GET /project_profiles/1.json
   def show
-	  # Show the news feed for the project
-	  #redirect_to project_news_posts_url(associated_project)
 	  redirect_to project_details_url(associated_project)
   end
 	
@@ -65,11 +70,6 @@ class ProjectProfilesController < ApplicationController
 		  key = params[:key]
 		  @project_profile.update_details_entry(key,permitted_fields)
 	  end
-	
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_profile_params
-      params.require(:project_profile).permit()
-    end
 
     def associated_project
 	    @project_profile.project
