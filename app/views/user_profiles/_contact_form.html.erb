@@ -1,0 +1,49 @@
+
+<%= form_for(@user_profile) do |f| %>
+  <%= render 'errors' %>
+
+  <div class="edit-contact-card-div">
+    <div class="edit-contact-card">
+
+      <div class="field" id="name_field">
+        <%= label_tag :first_name %>
+        <%= text_field_tag "contact[name][0]", @name[0] %>
+        <%= label_tag :middle_name %>
+        <%= text_field_tag "contact[name][1]", @name[1] %>
+        <%= label_tag :last_name %>
+        <%= text_field_tag "contact[name][2]", @name[2] %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :secondary_email %>
+        <%= text_field_tag "contact[secondary_email]", @contact[:secondary_email] %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :birthday %>
+        <%= date_select "contact[birthday]", "", default: { year: @birthday[0], month: @birthday[1], day: @birthday[2] } %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :location %>
+        <%= text_field_tag "contact[location]", @contact[:location] %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="edit-resume-div">
+    <div class="edit-resume">
+      <div class="field">
+        <%#= f.label :resume_hash %><br>
+        <%#= f.text_area :resume_hash %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update Profile', class: 'btn' %>
+  </div>
+<% end %>

@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20130918020539) do
 
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"
-    t.text     "outline_hash"
+    t.text     "details_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

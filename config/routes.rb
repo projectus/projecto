@@ -29,9 +29,9 @@ Projecto::Application.routes.draw do
 
   # PROJECT PROFILES ########################
 
-  resources :project_profiles, except: [:index, :new, :create, :destroy]
-  get "project_profiles/:id/about", to: 'project_profiles#about', as: :project_about
-  #get "project/:id", to: 'project_profiles#about'
+  resources :project_profiles, except: [:index, :new, :create]
+  get "project_profiles/:id/details", to: 'project_profiles#details', as: :project_details
+  get "project_profiles/:id/new", to: 'project_profiles#new', as:  :new_project_details
 
   # TASKS and TASK GROUPS ###################################
 

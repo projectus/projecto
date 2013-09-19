@@ -35,9 +35,13 @@ class Project < ActiveRecord::Base
 
   before_validation do self.category.downcase! end
 
-	# After create ###################################
+	# Before create ###################################
 
-  after_create :create_empty_profile, :create_project_activity_feed, :subscribe_owner, :create_default_task_group
+  before_create :make_empty_profile, :make_project_activity_feed, :make_default_task_group
+
+	# After save ###################################
+
+  after_save :subscribe_owner
 		
   # Public methods #################################
 
@@ -81,10 +85,10 @@ class Project < ActiveRecord::Base
 
   private
     # Create empty project profile associated with self
-    def create_empty_profile
+    def make_empty_profile
       profile = build_profile
-      profile.generate_empty_outline
-      profile.save!
+      profile.generate_empty_details
+      #profile.save!
     end
 
     # Subscribe owner to his project
@@ -92,12 +96,12 @@ class Project < ActiveRecord::Base
 	    owner.subscribe_to(activity_feed)
 	  end
 	
-	  def create_project_activity_feed
-		  create_activity_feed
+	  def make_project_activity_feed
+		  build_activity_feed
 		end
 		
-		def create_default_task_group
+		def make_default_task_group
 		  task_group = task_groups.build(name: 'General')
-		  task_group.save!
+		  #task_group.save!
 		end	
 end

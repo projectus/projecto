@@ -15,8 +15,16 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1/edit
   def edit
 	  @contact = @user_profile.card
-	  @name = @contact[:name].split(',')
-	  @birthday = @contact[:birthday].split(',')
+	  if @contact[:name].nil?
+		  @name = ['','','']
+		else
+	    @name = @contact[:name].split(',')
+	  end
+	  if @contact[:birthday].nil?
+		  @birthday = [1900,1,1]
+		else
+	    @birthday = @contact[:birthday].split(',')
+    end
   end
 
   # PATCH/PUT /user_profiles/1
@@ -53,11 +61,9 @@ class UserProfilesController < ApplicationController
 
     def update_contact_card
 		  permitted_fields = params.require(:contact).permit(:secondary_email, :location)
-		  card = @user_profile.card
-	    card.update(permitted_fields.symbolize_keys)
-		  card[:name] = params[:contact][:name].values.join(',')
-		  card[:birthday] = params[:contact][:birthday].values.join(',')
-	    @user_profile.card_hash = card.inspect
+		  permitted_fields[:name] = params[:contact][:name].values.join(',')
+		  permitted_fields[:birthday] = params[:contact][:birthday].values.join(',')
+      @user_profile.update_contact_card(permitted_fields)	
 	  end
 			
     # Never trust parameters from the scary internet, only allow the white list through.

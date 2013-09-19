@@ -1,0 +1,8 @@
+  <% details_entry.each do |type,info| %>
+    <% unless type == :title %>
+      <%= info %>
+    <% else %>
+      <h4><u><%= info %></u></h4>
+    <% end %>
+  <% end %>
+

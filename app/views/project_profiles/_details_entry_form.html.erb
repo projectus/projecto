@@ -1,0 +1,27 @@
+<div class="well well-small box">
+
+<%= render 'errors' %>
+
+<%= form_for(@project_profile, :html => {:class => 'form-inline'}) do |f| %>
+      <div class="field">
+        <%= label_tag :title, 'Title', style: 'display: block' %>
+        <%= text_field_tag "entry[title]", entry[:title] %>
+      </div>
+
+      <div class="field">
+        <%= label_tag :content, 'Content', style: 'display: block' %>
+        <%= text_area_tag "entry[content]", entry[:content], class: 'input-xxlarge' %>
+      </div>
+
+		  <%= hidden_field_tag :key, key %>
+		
+    <%= f.submit 'Save', class: 'btn' %>
+<% end %>
+
+<%= form_for(@project_profile, method: :delete, data: { confirm: 'Are you sure?' }, :html => {:class => 'form-inline'}) do |f| %>
+  <%= hidden_field_tag :key, key %>		
+  <%= f.submit 'Delete Entry', class: 'btn btn-danger' %>
+<% end %>
+
+</div>
+
