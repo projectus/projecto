@@ -28,9 +28,13 @@ class SubscriptionsController < ApplicationController
 			redirect_to feed.subscribable, alert: 'You are already subscribed to this!'
 			return
 	  end
-	  current_user.subscribe_to(feed)
+	  @subscription = current_user.subscribe_to(feed)
 		respond_to do |format|
-	    format.html { redirect_to feed.subscribable, notice: "Subscribed to #{feed.name}!" }
+			if @subscription.save
+	      format.html { redirect_to feed.subscribable, notice: "Subscribed to #{feed.name}!" }
+	    else
+	      format.html { render partial: 'errors' }		  
+		  end
 	  end
   end
 

@@ -34,7 +34,7 @@ class NewsPostsController < ApplicationController
 
     respond_to do |format|
       if @news_post.save
-        format.html { redirect_to @news_post.project.profile, notice: 'News post was successfully created.' }
+        format.html { redirect_to project_news_posts_path(@news_post.project), notice: 'News post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @news_post }
       else
         format.html { render action: 'show' }

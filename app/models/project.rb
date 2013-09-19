@@ -39,9 +39,9 @@ class Project < ActiveRecord::Base
 
   before_create :make_empty_profile, :make_project_activity_feed, :make_default_task_group
 
-	# After save ###################################
+	# After create ###################################
 
-  after_save :subscribe_owner
+  after_create :subscribe_owner
 		
   # Public methods #################################
 
@@ -93,7 +93,8 @@ class Project < ActiveRecord::Base
 
     # Subscribe owner to his project
     def subscribe_owner
-	    owner.subscribe_to(activity_feed)
+	    subscription = owner.subscribe_to(activity_feed)
+	    subscription.save
 	  end
 	
 	  def make_project_activity_feed
@@ -101,7 +102,7 @@ class Project < ActiveRecord::Base
 		end
 		
 		def make_default_task_group
-		  task_group = task_groups.build(name: 'General')
+		  task_groups.build(name: 'General')
 		  #task_group.save!
 		end	
 end

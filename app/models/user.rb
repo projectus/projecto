@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   def subscribe_to(feed)
 	  subscription = subscriptions.build(activity_feed: feed)
-		subscription.save!
+		#subscription.save!
 	end
 	
 	def subscribed_to?(feed)
