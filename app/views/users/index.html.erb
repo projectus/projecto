@@ -5,16 +5,14 @@
     <tr>
       <th>Username</th>
       <th>Email</th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.username, user_path(user) %></td>
+        <td><%= link_to user.username, user.profile %></td>
         <td><%= user.email %></td>
-        <td><%= link_to "View Profile", user_profile_path(user) %></td>
       </tr>
     <% end %>
   </tbody>

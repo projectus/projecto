@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index]
+  before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :authenticate_comment_belongs_to_current_user, only: [:edit, :update, :destroy]
 
   # GET /comments
@@ -11,12 +11,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @comment.project = @project
   end
-
-  # GET projects/1/comments/new
-  #def new
-  #  @comment = Comment.new
-  #  @comment.project_id = params[:project_id]
-  #end
 
   # GET /comments/1/edit
   def edit

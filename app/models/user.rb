@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
 
 	validates :username, presence: true
   
-  # After create ###################################
+  # Before create ###################################
  
-	after_create :create_empty_profile
+	before_create :make_empty_profile
 	
 	# Associations #################################
 				
@@ -38,9 +38,8 @@ class User < ActiveRecord::Base
   # Public methods ###################################
 
   def subscribe_to(feed)
-	  subscription = subscriptions.build
-		subscription.activity_feed = feed
-		subscription.save!
+	  subscription = subscriptions.build(activity_feed: feed)
+		#subscription.save!
 	end
 	
 	def subscribed_to?(feed)
@@ -73,10 +72,10 @@ class User < ActiveRecord::Base
 
   private
     # Create empty user profile associated with self
-    def create_empty_profile
+    def make_empty_profile
       profile = build_profile
       profile.generate_empty_resume
-      profile.generate_empty_card
-      profile.save!
+      profile.generate_empty_card(email: email)
+      #profile.save!
     end
 end

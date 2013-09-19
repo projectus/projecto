@@ -9,13 +9,12 @@ class NewsPost < ActiveRecord::Base
   validates :user, presence: true
   validates :project, presence: true
 
-  after_create :add_creation_activity_to_activity_feed
+  before_create :add_creation_activity_to_activity_feed
 
   private
     def add_creation_activity_to_activity_feed
 	    activity = Activity.new(species:'news post')
 	    activity.activity_feed = project.activity_feed
-	    activity.save!	
-	    activity.activity_references.create(referenceable: self, title: 'post')
+	    activity_references.build(activity: activity, title: 'post')
 	  end
 end

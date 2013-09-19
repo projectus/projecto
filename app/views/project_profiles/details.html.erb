@@ -1,3 +1,7 @@
+<p>
+  <%= link_to 'Edit Outline', edit_project_profile_path(@project_profile), class: 'btn' %>
+</p>
+
 <legend>About</legend>
 
 <div class="profile-entry">
@@ -60,11 +64,8 @@
     We give the tools to manage the projects as well as the exposure to the world wide web.
   </div>
 
-
 </div>
 
-
-
-  <% outline_about.sort.map do |key,entry| %>
-    <%= render partial: 'about_entry', object: entry %>
-  <% end %>
+<% @details.sort.map do |key,entry| %>
+  <%= render partial: 'details_entry', object: entry %>
+<% end %>

@@ -1,7 +1,5 @@
 Projecto::Application.routes.draw do
 
-  get "project/:id", to: 'project_profiles#about'
-
   get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
   get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
@@ -16,14 +14,8 @@ Projecto::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
-
-  get "members", to: "users#index"
-
-  get "profile/:id", to: "user_profiles#show"
-
   get "about", to: 'main#about', as: :about
 
-  get "main/home"
   get 'tags/:tag', to: 'projects#index', as: :tag
   get 'category/:cat', to: 'projects#index', as: :cat
 	
@@ -31,21 +23,22 @@ Projecto::Application.routes.draw do
 
   # USER PROFILES ################
 
+  #get "profile/:id", to: "user_profiles#show"
   get "user_profiles/:id/resume", to: 'user_profiles#show_resume', as: :resume
   resources :user_profiles, except: [:index, :new, :create, :destroy]
 
   # PROJECT PROFILES ########################
 
-  resources :project_profiles, except: [:index, :new, :create, :destroy]
-  get "project_profiles/:id/about", to: 'project_profiles#about', as: :project_about
+  resources :project_profiles, except: [:index, :new, :create]
+  get "project_profiles/:id/details", to: 'project_profiles#details', as: :project_details
+  get "project_profiles/:id/new", to: 'project_profiles#new', as:  :new_project_details
 
-  # TASKS and TASK GROUPS ###################
+  # TASKS and TASK GROUPS ###################################
 
   resources :tasks, except: [:new, :index]
-	resources :task_groups, only: [:create] 	   
-  resources :task_groups, except: [:create, :new, :index] do
-	  resources :tasks, only: [:new, :index]
-	end
+  resources :task_groups, except: [:new, :index]
+
+  # APPLICATIONS AND INVITATIONS ###########################
 
   resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
   resources :collaboration_applications, except: [:index, :new, :destroy, :edit]
@@ -58,16 +51,16 @@ Projecto::Application.routes.draw do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
 		resources :news_posts, except: [:create, :new]
-		resources :collaborations, except: [:new, :create]
+		resources :collaborations, except: [:show, :new, :create]
 		resources :task_groups, only: [:new, :index] 
 	end
 
   # USERS AND ASSOCIATED ########################################
 
-  get "users/:id/show", to: 'users#show', as: :user
-  get "users/:id/collaboration_info", to: 'users#collaboration_info', as: :user_collaboration_info
+  #get "users/:id/show", to: 'users#show', as: :user
 
 	resources :subscriptions, only: [:create, :destroy]
+  #get "members", to: "users#index"
 	
   resources :users, only: [:index] do
 	  resources :collaboration_invitations, only: [:new]
