@@ -67,5 +67,7 @@
 </div>
 
 <% @details.sort.map do |key,entry| %>
-  <%= render partial: 'details_entry', object: entry %>
+<div class="well box">
+  <%= render partial: 'project_details_entry/entry', locals: {entry: entry} %>
+</div>
 <% end %>
