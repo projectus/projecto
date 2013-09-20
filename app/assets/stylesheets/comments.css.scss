@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.comment-div{
+  width: 100%;
+  margin: 0px 140px;
+}
+
 .comment-avatar{
-  float: right;
-  margin-right: 100px;
+
+
 }
 
 .comment-avatar img {
@@ -12,12 +17,12 @@
 }
 
 .comment-input {
+  margin-right: 30px;
   float: left;
-  margin-left: 100px;
 }
 
 .comment-input textarea {
-  width: 580px;
+  width: 300px;
   height: 93px;
 }
 
@@ -30,13 +35,32 @@
 }
 
 .single-comment-div{
-  background: #FFF;
-  border-radius: 15px;
-
-  min-height: 70px;
-  width: 500px;
-  margin-left: 100px;
+  border-top: 1px dotted #A0A0A0;
+  width: 400px;
+  margin-left: 140px;
   clear: both;
-  margin-bottom: 15px;
+  display: block;
 
+}
+
+.single-comment-div .avatar{
+  float: left;
+  width: 12%;
+}
+
+.comment-content{
+  width: 85%;
+  float: right;
+  font-size: 9pt;
+  line-height: 1.2em !important;
+
+}
+
+#final-comment-splitter{
+  clear: both;
+
+}
+
+.single-comment-inner {
+  margin-top: 10px;
 }
