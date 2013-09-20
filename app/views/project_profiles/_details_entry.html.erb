@@ -1,8 +1,20 @@
-  <% details_entry.each do |type,info| %>
+<% details_entry.each do |type,info| %>
+
     <% unless type == :title %>
-      <%= info %>
+        <div class="profile-entry-content">
+          <%= info %>
+        </div>
+
     <% else %>
-      <h4><u><%= info %></u></h4>
+        <div class="profile-entry-title">
+          <%= info %>
+        </div>
+
     <% end %>
   <% end %>
+
+
+
+
+
 
