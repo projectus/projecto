@@ -1,10 +1,14 @@
-<p>
-  <%= type.to_s.split('_').map(&:capitalize).join(' ') %>:
+
+
+
+
   <% if type == :birthday %>
-    <%= entry.split(',').join('-') %>
+      ddd
+      <%= entry.split(',').join('-') %>
   <% elsif type == :name %>
-    <%= entry.split(',').join(' ') %>
+      ddd
+      <%= entry.split(',').join(' ') %>
   <% else %>
-    <%= entry %>
+      <%= entry %>
   <% end %>
-</p>
+

@@ -1,5 +1,23 @@
+<div class="full-name">[<%= contact[:name].split(',').join(' ') %>]</div>
 
-<% contact.each do |type,entry| %>
-  <%= render partial: 'user_profiles/contact_entry', locals: {entry: entry, type: type} %>
-<% end %>
+<div class="scroll-splitter"></div>
+
+  <%#= contact[:birthday].split(',').join('-') %>
+
+  <div class="email-location">
+
+  <img src="http://png.findicons.com/files/icons/141/toolbar_icons_6_by_ruby_softwar/16/email.png" />
+<%= contact[:secondary_email]%>
+
+  <br>
+
+<img src="http://png.findicons.com/files/icons/183/gis_gps_map/16/bulbgrey.png" />
+
+  <%= contact[:location] %>
+
+  </div>
+
+<div class="scroll-splitter"></div>
+
+
 
