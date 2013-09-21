@@ -34,11 +34,13 @@
           <% if user_signed_in? %>
 
           <% end %>
-          <%= button_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn btn-standard' %>
-          <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
+          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
+          <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-              <%= submit_tag 'Subscribe', class: 'btn btn-standard' %>
+              <%= submit_tag 'Subscribe', class: 'btn' %>
           <% end %>
+
+         <%= link_to 'Settings', project_path(associated_project), class: 'btn'%>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
 
       </div>
@@ -67,6 +69,9 @@
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
               <%= submit_tag 'Subscribe', class: 'btn orange' %>
           <% end %>
+
+
+
           <b><%= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
         </div>
 
@@ -160,30 +165,25 @@
 
       </div>
 
-        <div class="project-users-bar">
+      <style type="text/css">
+      </style>
+      <div class="user-list">
+        <div id ="navbarUsers" class="project-users-bar">
           <ul class="nav nav-pills user-tab">
-
-            <li class="active"><a href="#">Users</a></li>
-            <li><a href="#">Watchers</a></li>
-
+            <li class="active"><a href="#Owner">Owner</a></li>
+            <li><a href="#Admin">Admit</a></li>
+            <li><a href="#Member">Member</a></li>
           </ul>
-
-          <div class="user-container">
-            <div class="user-single-div">
-                Eric Webster
-                Owner
-            </div>
-            <div class="user-single-div">
-               Dennis Duan
-              Admin
-            </div>
-            <div class="user-single-div">
-              Brian Zhang
-              Admin
-            </div>
+          <div data-spy="scroll" data-target="#navbarUsers" class="scrollspy-users">
+            <h6 id="Owner"><b>Owner:</b></h6>
+            Eric Webster<br>
+            <h6 id="Admin"><b>Admin:</b></h6>
+            Brian Zhang<br> Brian Zhang<br> Brian Zhang<br> Brian Zhang<br>
+            <h6 id="Member"><b>Member:</b></h6>
+            Dennis Duan<br> Dennis Duan<br> Dennis Duan<br> Dennis Duan<br> Dennis Duan<br> Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>
           </div>
-
         </div>
+      </div>
 
 
 

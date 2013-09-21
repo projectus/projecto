@@ -392,5 +392,24 @@ p {
 }
 
 a.btn {
-  border-radius: none !important;
+  border-radius: 0 !important;
+
 }
+
+.scroll-splitter {
+  clear: both;
+}
+
+.taskgroup-table{
+  font-size: 9pt;
+}
+
+.logo {
+  margin-top: 6px;
+  margin-right: -2px;
+}
+
+#logo-li {
+  margin-left: 2px !important;
+}
+
