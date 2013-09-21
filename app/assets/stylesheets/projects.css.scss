@@ -3,12 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .project-box{
-  height: 220px;
+  min-height: 220px;
   width: 170px;
   background-color: #FFF;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  border: 1px solid #666;
+  padding: 4px;
 }
 
 .project-box:hover {
@@ -18,6 +17,8 @@
 .project-image-box{
   margin: auto;
   width: 75%;
+
+
 }
 
 .project-description {
@@ -159,3 +160,25 @@
   font-size: 13pt;
   margin-bottom: 5px;
 }
+
+.project-box-inner {
+
+}
+
+.project-image-box-bottom {
+  height: 5px;
+  border-top: 1px solid #666;
+
+}
+
+.project-action-bar-splitter {
+   border-top: 1px dotted #666;
+}
+
+.project-box-members {
+
+
+}
+
+
+
