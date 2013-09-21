@@ -1,9 +1,49 @@
-<p>
-<%= link_to 'Edit Resume', edit_resume_path(@user_profile), :class=>"btn" %>
-</p>
+<div class="inner-heading-div">
+  <p>Education
+    <%= link_to 'Edit Resume', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
+  </p>
 
-<% @resume.each do |section,entries| %>
-<div class="well well-small box">
-  <%= render partial: "#{section}", locals: {entries: entries} %>
 </div>
-<% end %>
+
+<div class="scroll-splitter"></div>
+
+<div class="well well-small box">
+  <%= render partial: "education", locals: {entries: @resume[:education]} %>
+</div>
+
+
+
+    <div class="inner-heading-div">
+      <p>Skills
+      </p>
+
+    </div>
+
+    <div class="scroll-splitter"></div>
+
+    <div class="well well-small box">
+      <%= render partial: "skills", locals: {entries: @resume[:skills]} %>
+    </div>
+
+
+
+<div class="inner-heading-div">
+  <p>Experiences
+  </p>
+
+</div>
+
+<div class="scroll-splitter"></div>
+
+<div class="well well-small box">
+  <%= render partial: "experience", locals: {entries: @resume[:experience]} %>
+</div>
+
+
+
+
+
+
+
+
+

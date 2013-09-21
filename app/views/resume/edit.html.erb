@@ -1,24 +1,26 @@
+<div class="inner-heading-div">
+  <p>Editing Education
 
-<h4>Editing Resume
-<%= link_to 'Done Editing', resume_path(@user_profile), :class=>'btn' %></h4>
+    <%= link_to 'Editing Education', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
+    <%= link_to 'New Education', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
 
+  </p>
 
-<% @resume.each do |section,entries| %>
-<div class="well well-small box">
-	<% entries.sort.each do |key,entry| %>
-    <%= render partial: 'resume_entries/editable_entry', locals: {entry: entry, section: section, key: key} %>
-  <% end %>
-	<p>
-		<%= form_tag(new_resume_entry_path(@user_profile), method: :get) do %>
-		  <%= hidden_field_tag :section, section %>
-	    <%= submit_tag 'New Section', :class=>'btn' %>
-	  <% end %>
-	</p>
 </div>
-<% end %>
+
+<div class="scroll-splitter"></div>
+
+
+<%= render partial: 'resume_entries/section', locals: {section: :education} %>
+<%= render partial: 'resume_entries/section', locals: {section: :skills} %>
+<%= render partial: 'resume_entries/section', locals: {section: :experience} %>
+
 
 <p>
 <%= link_to 'Back', resume_path(@user_profile) %>
 </p>
 
 </div>
+
+
+<%= link_to 'Done Editing', resume_path(@user_profile), :class=>'btn' %>

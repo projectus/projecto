@@ -1,6 +1,13 @@
-<h4>Skills</h4>
+<ul class="resume-list space-less">
+
+
+
+
 <% entries.sort.map do |type,entry| %>
-<div class="well well-small box">
+<li>
   <%= render partial: 'resume_entries/skills_entry', locals: {entry: entry} %>
-</div>
+</li>
 <% end %>
+
+
+</ul>
