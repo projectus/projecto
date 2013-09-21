@@ -166,7 +166,7 @@ textarea {
 .navbar-about, .navbar-projects {
 	display: table;
 	line-height: 1.2em;
-  margin-top: 5px;
+  margin-top: 2px;
 	.multiline {
 		text-decoration: none !important;
 		vertical-align: middle;
@@ -411,5 +411,11 @@ a.btn {
 
 #logo-li {
   margin-left: 2px !important;
+}
+
+.li-hover-top {
+  height: 3px;
+  background: white;
+  visibility: hidden;
 }
 
