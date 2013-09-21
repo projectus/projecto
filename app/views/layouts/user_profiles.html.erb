@@ -40,20 +40,9 @@
             <%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %>
           </li>
         </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab1">
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>Howdy, I'm in Section 2.</p>
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>Howdy, I'm in Section 2.</p>
-          </div>
-        </div>
       </div>
 
       <div class="user-tab-content">
-
         <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
       </div>
 
