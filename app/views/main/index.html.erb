@@ -37,25 +37,32 @@
     <% @projects.each do |project| %>
         <div class="project-box">
           <div class="project-image-box">
-            <img src="http://www.ivoinc.com/docs/Projects/projects-hi-res.png" />
+            <%= link_to image_tag("http://www.ivoinc.com/docs/Projects/projects-hi-res.png"), project.profile %>
           </div>
 
           <div>
-            <%= project.name %>
-          </div>
-          <div class="project-description">
-            <%= project.category.capitalize %>
-            <%= project.description %>
+            <h4 style="margin: 5px"><%= project.name %></h4>
+            <div class="project-description">
+              <%#= project.category.capitalize %>
+              By: Brian Zhang<br>
+              <p style=" text-overflow: ellipsis">
+              <%= project.description %>
+              </p>
+
+            </div>
           </div>
 
+
+          <!--
           <div class="project-action-panel">
-            <i class="icon-eye-open"></i>         <%= link_to 'View Profile', project.profile %>
+            <i class="icon-eye-open"></i>         <%#= link_to 'View Profile', project.profile %>
 
-            <i class="icon-user"></i><%= link_to 'Edit', edit_project_path(project) %>
-            <i class="icon-pencil"></i>   <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <i class="icon-user"></i>             <%#= link_to 'Edit', edit_project_path(project) %>
+            <i class="icon-pencil"></i>           <%#= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
             <i class="icon-trash"></i>
 
           </div>
+          //-->
         </div>
     <% end %>
   </div>
