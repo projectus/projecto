@@ -1,0 +1,4 @@
+Skills
+  <% skills.sort.map do |type,entry| %>
+    <%= render partial: 'resume_entries/skills_entry', locals: {entry: entry} %>
+  <% end %>

@@ -1,0 +1,14 @@
+<div class="field">
+  <%= label_tag :title, 'Title', style: 'display: block' %>
+  <%= text_field_tag "entry[title]", entry[:title] %>
+</div>
+
+<div class="field">
+  <%= label_tag :location, 'Location', style: 'display: block' %>
+  <%= text_field_tag "entry[location]", entry[:location] %>
+</div>
+
+<div class="field">
+  <%= label_tag :description, 'Description', style: 'display: block' %>
+  <%= text_area_tag "entry[description]", entry[:description], class: 'input-xxlarge' %>
+</div>

@@ -1,16 +1,12 @@
 class UserProfilesController < ApplicationController
-  before_action :set_user_profile, only: [:show, :edit, :update, :show_resume]
-	before_action :authenticate_user!, except: [:show, :show_resume]
-  before_action :authenticate_current_user_as_profile_owner, except: [:show, :show_resume] 
+  before_action :set_user_profile, only: [:show, :edit, :update]
+	before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_current_user_as_profile_owner, except: [:show] 
 	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
   def show
   end
-
-  def show_resume
-	  @resume = @user_profile.resume
-	end
 	
   # GET /user_profiles/1/edit
   def edit
@@ -43,10 +39,6 @@ class UserProfilesController < ApplicationController
     def set_user_profile
       @user_profile = UserProfile.find(params[:id])
     end
-
-    def set_user_contact
-	    @contact = @user_profile.card
-	  end
 	
     def associated_user
 	    @user_profile.user

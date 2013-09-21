@@ -1,7 +1,0 @@
-<% @resume.each do |section,entries| %>
-<div class="well well-small box">
-  <%= render partial: 'resume_experience', object: entries if section==:experience %>
-  <%= render partial: 'resume_education', object: entries if section==:education %>
-  <%= render partial: 'resume_skills', object: entries if section==:skills %>
-</div>
-<% end %>
