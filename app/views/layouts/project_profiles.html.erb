@@ -4,14 +4,11 @@
 
          <div class="project-title-image-div">
            <img src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
-
          </div>
-
 
          <div class="project-headers-div">
            <div class="project-title-div">
              <span class="project-title">
-
                <%= associated_project.name %>
              </span>
            </div>
@@ -40,7 +37,7 @@
               <%= submit_tag 'Subscribe', class: 'btn orange' %>
           <% end %>
 
-         <%= link_to 'Settings', project_path(associated_project), class: 'btn orange'%>
+         <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn orange'%>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
 
       </div>

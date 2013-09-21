@@ -2,8 +2,14 @@
 <%= link_to 'Edit Resume', edit_resume_path(@user_profile), :class=>"btn" %>
 </p>
 
-<% @resume.each do |section,entries| %>
 <div class="well well-small box">
-  <%= render partial: "#{section}", locals: {entries: entries} %>
+  <%= render partial: 'section', locals: {section: :education} %>
 </div>
-<% end %>
+
+<div class="well well-small box">
+  <%= render partial: 'section', locals: {section: :skills} %>
+</div>
+
+<div class="well well-small box">
+  <%= render partial: 'section', locals: {section: :experience} %>
+</div>

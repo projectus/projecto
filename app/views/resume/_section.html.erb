@@ -1,0 +1,6 @@
+<h4><%= section.capitalize %></h4>
+<% @resume[section].sort.map do |key,entry| %>
+  <div class="well well-small box">
+    <%= render partial: "resume_entries/#{section}_entry", locals: {entry: entry} %>
+  </div>
+<% end %>

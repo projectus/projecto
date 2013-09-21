@@ -346,7 +346,11 @@ p {
 }
 
 .tabbable li.active a {
-  background: #EDEDED !important;
+  background: #99CC99 !important;
+}
+
+.tabbable li a:hover {
+  background: orange !important;
 }
 
 .heading {
@@ -422,7 +426,6 @@ a.btn {
 }
 
 .dropdown-menu > li > a:hover{
-
   background: -moz-linear-gradient(top, #3D551B 0%, #4E7023 100%) !important;
 }
 
