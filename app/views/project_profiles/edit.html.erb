@@ -8,15 +8,11 @@
   <div class="scroll-splitter"></div>
 	
 	<% @details.sort.map do |key,entry| %>
-    <%= render partial: 'details_entry_form', locals: {key: key, entry: entry} %>
+    <%= render partial: 'project_details_entry/editable_entry', locals: {key: key, entry: entry} %>
   <% end %>
-
-  <% unless @entry.nil? %>
-    <p><%= render partial: 'details_entry_form', locals: { key: @key, entry: @entry } %></p>
-	<% end %>
 	
   <p>
-  <%= link_to 'New Section', new_project_details_path(associated_project), class: 'btn' %>
+  <%= link_to 'New Section', new_project_details_entry_path(@project_profile), class: 'btn' %>
   </p>
 
 <p>

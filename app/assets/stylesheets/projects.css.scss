@@ -75,9 +75,13 @@
 .project-title {
   font-family: 'Happy Monkey', cursive;
   text-transform: capitalize;
-  font-size: 20pt;
+  font-size: 22pt;
   color: #333;
   margin-top: 20px;
+}
+
+.project-title-div {
+  margin: 8px 0px;
 }
 
 .project-headers-div{
@@ -93,7 +97,7 @@
 }
 
 .project-title-image-div {
-  width: 80px;
+  width: 100px;
   float: left;
   margin-right: 20px;
 }
@@ -149,4 +153,9 @@
 
 .project-title-image-div {
 
+}
+
+.project-owner-div {
+  font-size: 13pt;
+  margin-bottom: 5px;
 }

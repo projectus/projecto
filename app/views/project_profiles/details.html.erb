@@ -24,8 +24,10 @@
 
 
 <% @details.sort.map do |key,entry| %>
-    <div class="profile-entry">
-      <%= render partial: 'details_entry', object: entry %>
-    </div>
+
+<div>
+  <%= render partial: 'project_details_entry/entry', locals: {entry: entry} %>
+</div>
+
 <% end %>
 

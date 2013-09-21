@@ -1,8 +1,9 @@
 <div class="well well-small box">
 
-<%= render 'errors' %>
+<%= render 'project_details_entry/errors' %>
 
-<%= form_for(@project_profile, :html => {:class => 'form-inline'}) do |f| %>
+<%= form_tag(project_details_entry_path, method: :patch, :class => 'form-inline') do %>
+<%#= form_for(@project_profile, :html => {:class => 'form-inline'}) do |f| %>
       <div class="field">
         <%= label_tag :title, 'Title', style: 'display: block' %>
         <%= text_field_tag "entry[title]", entry[:title] %>
@@ -15,12 +16,12 @@
 
 		  <%= hidden_field_tag :key, key %>
 		
-    <%= f.submit 'Save', class: 'btn' %>
+    <%= submit_tag 'Save', class: 'btn' %>
 <% end %>
 
-<%= form_for(@project_profile, method: :delete, data: { confirm: 'Are you sure?' }, :html => {:class => 'form-inline'}) do |f| %>
+<%= form_tag(project_details_entry_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'form-inline') do |f| %>
   <%= hidden_field_tag :key, key %>		
-  <%= f.submit 'Delete Entry', class: 'btn btn-danger' %>
+  <%= submit_tag 'Delete Entry', class: 'btn btn-danger' %>
 <% end %>
 
 </div>
