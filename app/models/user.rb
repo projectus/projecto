@@ -15,9 +15,7 @@ class User < ActiveRecord::Base
 	after_create :create_empty_profile
 	
 	# Associations #################################
-	
-  has_many :activity_references, as: :referenceable, dependent: :destroy
-			
+				
   has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
   has_many :owned_projects, class_name: 'Project', foreign_key: :owner_id, dependent: :destroy
@@ -31,7 +29,11 @@ class User < ActiveRecord::Base
   has_many :posted_tasks, class_name: 'Task', foreign_key: :poster_id
 
   has_one :profile, class_name: 'UserProfile', dependent: :destroy
-  has_many :subscriptions
+
+  has_many :activity_references, as: :referenceable, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+  has_many :activity_feeds, through: :subscriptions
+  has_many :activities, through: :activity_feeds
 
   # Public methods ###################################
 

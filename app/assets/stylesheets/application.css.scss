@@ -14,6 +14,11 @@
 
 @import "bootstrap";
 
+/* Removes focus outline of unimportant things, like the user dropdown in the navbar */
+*:focus {
+    outline: none;
+}
+
 #alerts {
   margin: 0;
 }
@@ -33,8 +38,8 @@
 }
 
 #content {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .hero-unit {
@@ -48,12 +53,21 @@
 }
 
 .btn {
+  border-radius: none !important;
+}
+
+/*
+
+
+.btn {
 	border-radius: 0 !important;
 	background-color: #FFF;
-  /* remove the gradient */
+   remove the gradient
   background-image: none;
   color: #000;
 }
+
+*/
 
 .hero-unit {
   background-color: #FFF;
@@ -72,7 +86,7 @@
 }
 
 .box {
-  box-shadow: 4px 4px 5px #d4d4d4;
+  box-shadow: 2px 2px 2px #d4d4d4;
   background: white;
   border: 1px solid #BBB;
 }
@@ -168,8 +182,12 @@ textarea {
 }
 
 
+
 #intro-bar{
+
   background: #CD5219;
+  background: linear-gradient(to bottom, #6AA300 0%, #70A600 100%) repeat scroll 0 0 transparent;
+  /*background: #999999; */
   height: 190px;
   box-shadow: 0px 2px 5px #000000;
 
@@ -208,6 +226,8 @@ textarea {
 .nav-links a.white{
   color: #FFF !important;
   font-family: 'Merienda One', cursive;
+  font-size: 9pt;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -247,8 +267,8 @@ p {
 }
 
 #search-bar{
-  background-color: #E2E2E2;
-  background-image: -moz-linear-gradient(center top , #E4E4E4, #E2E2E2);
+  background-color: #E4E4E4;
+  background-image: -moz-linear-gradient(center top , #E4E4E4, #E4E4E4);
   /*border-radius: 6px 6px 6px 6px;*/
   box-shadow: 0 0 0 1px rgba(195, 195, 195, 0.5) inset;
   padding: 8px;
@@ -298,6 +318,7 @@ p {
 .searchbar {
 
   border-radius: 0px 5px 5px 0px !important;
+  background-image: linear-gradient(to bottom, white, #EAEAEA);
 }
 
 #navbar-inner {
@@ -341,6 +362,37 @@ p {
 }
 
 
-.add-on {
-  background: white !important;
+.card {
+  background-image: linear-gradient(to bottom, white, #EAEAEA) !important;
+}
+
+/*
+.navbar-inverse .navbar-inner {
+  background: #467C3B !important;
+}
+
+*/
+
+.btn-gray {
+  background: none repeat scroll 0 0 #828282;
+  border-radius: 3px 3px 3px 3px;
+  color: #FFFFFF;
+  font-weight: 400;
+  padding: 5px 10px 3px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  font: 14px/21px "Helvetica Neue","Helvetica","Arial","Tahoma","Geneva",sans-serif;
+}
+
+.project-div{
+  background: #E4E4E4;
+  padding: 20px;
+}
+
+.scroll-splitter {
+  border-bottom: 1px dotted #AAA !important;
+  margin-top: 0.5em !important;
+}
+
+a.btn {
+  border-radius: none !important;
 }

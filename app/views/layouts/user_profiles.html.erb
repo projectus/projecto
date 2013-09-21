@@ -1,55 +1,82 @@
 <% content_for :content do %>
   <div class="profile-row">
     <div class="avatar-div">
-      <img src="https://learn.extension.org/assets/avatar_placeholder-b97f38769ef28ebf68b99f36e8760b7f.png" class="img-polaroid box" id="user_avatar">
+      <img src="http://0.gravatar.com/avatar/c9941e8b637a76ab683e9d235ccb135d?s=40&d=http%3A%2F%2Fgogreenplus.org%2Fwp-content%2Fthemes%2Ftwentyten%2Fimages%2Fnutsboltsimages%2Fdefaults%2Favatar_220sq.png&r=G" class="img-polaroid box" id="user_avatar">
+
+      <div class="action-bar">
+
+
+
+        <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"btn btn-user" %>
+
+        <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"btn btn-user" %>
+
+        <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"btn btn-user" %>  <br>
+      </div>
+
       <h4>
         <%= associated_user.username %>
         <% if current_user == associated_user %>
           <span style="color: orange;">(you)</span>
         <% end %>
       </h4>
-    </div>
 
-    <div class="profile-links">
-      <div class="box sidebox">
-         <%= link_to 'Projects', user_projects_path(associated_user) %><br>
-         <%= link_to 'Resume', resume_path(associated_user.profile) %><br>
-         <%= link_to 'Invite me', new_user_collaboration_invitation_path(associated_user) %>
+      <div class="" id="card">
+
+
+        <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
       </div>
     </div>
 
-    <div class="box" id="card">
-      <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
+    <div class="user-tab-wrapper">
+
+      <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs user-tabs">
+          <li class="<%= tab_class('show') %>"><a href="#tab1" data-toggle="tab">Feed</a></li>
+          <li class="<%= tab_class('show_resume') %>"><%= link_to 'Resume', resume_path(associated_user) %></li>
+          <li class="<%= tab_class('projects') %>"><%= link_to 'Projects', user_projects_path(associated_user) %></li>
+          <li class="<%= tab_class('collaborations') %>"><%= link_to 'Collaborations', user_collaborations_path(associated_user) %></li>
+          <li class="<%= tab_class('index') %>">
+            <%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab1">
+          </div>
+          <div class="tab-pane" id="tab2">
+            <p>Howdy, I'm in Section 2.</p>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <p>Howdy, I'm in Section 2.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-tab-content">
+
+        <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
+      </div>
+
     </div>
 
+    <!--
+
+
+
+    //-->
+
+
+    <!---
     <div class="action-bar">
-      <button class="orange btn">Follow Me</button>  <br>
-      <button class="orange btn">Message Me</button> <br>
-      <button class="orange btn">Invite Me</button>  <br>
+      <button class="btn">Follow</button>  <br>
+      <button class="btn">Message</button> <br>
+      <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"btn" %>  <br>
     </div>
+
+    //-->
   </div>
 
-	<div class="tabbable"> <!-- Only required for left/right tabs -->
-	  <ul class="nav nav-tabs">
-	    <li><a href="#tab1" data-toggle="tab">Feed</a></li>
-	    <li><a href="#tab2" data-toggle="tab">Endorsements</a></li>
-	    <li><a href="#tab2" data-toggle="tab">Projects</a></li>
-	    <li class="<%= tab_class('subscriptions') %>">
-	      <%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %>
-	    </li>
-	  </ul>
-	  <div class="tab-content">
-	    <div class="tab-pane active" id="tab1">
-	    </div>
-	    <div class="tab-pane" id="tab2">
-	      <p>Howdy, I'm in Section 2.</p>
-	    </div>
-	    <div class="tab-pane" id="tab2">
-	      <p>Howdy, I'm in Section 2.</p>
-	    </div>
-	  </div>
-	</div>
-	<%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
+
   
 <% end %>
 <%= render template: "layouts/application" %>

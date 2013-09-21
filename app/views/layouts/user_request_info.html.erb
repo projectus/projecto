@@ -1,0 +1,12 @@
+<% content_for :content do %>
+  <ul class="nav nav-tabs">
+    <li class="<%= tab_class('invitations') %>">
+      <%= link_to 'Invitations', user_invitations_path(@user) %>
+    </li>
+    <li class="<%= tab_class('applications') %>">
+      <%= link_to 'Applications', user_applications_path(@user) %>
+    </li>
+  </ul>
+  <%= content_for?(:user_request_info_content) ? yield(:user_request_info_content) : yield %>
+<% end %>
+<%= render template: "layouts/application" %>

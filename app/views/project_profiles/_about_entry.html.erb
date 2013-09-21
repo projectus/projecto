@@ -1,4 +1,23 @@
-<div class="well">
+<% about_entry.each do |type,info| %>
+<div class="profile-entry">
+
+  <div class="profile-entry-title">
+
+        <%= type %>
+  </div>
+
+
+
+  <div class="profile-entry-content">
+    <%= info %>
+  </div>
+
+
+</div>
+
+<% end %>
+
+
   <% about_entry.each do |type,info| %>
     <% unless type == :title %>
       <b><%= type.to_s.gsub('_',' ').capitalize %></b>
@@ -7,4 +26,4 @@
       <h4><u><%= info %></u></h4>
     <% end %>
   <% end %>
-</div>
+

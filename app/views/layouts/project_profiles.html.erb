@@ -2,30 +2,45 @@
 
     <div class="project-title-bar">
 
-       <div style="float: left">
+         <div class="project-title-image-div">
+           <img src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
 
-         <h1>
-           <img style="width: 75px" src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
-           <%= associated_project.name %></h1>
-         <h6>
-           By: Eric Webster
-         </h6>
-
-       </div>
+         </div>
 
 
-      <div style="float: right">
-        <div class="logo-bottom">
+         <div class="project-headers-div">
+           <div class="project-title-div">
+             <span class="project-title">
+
+               <%= associated_project.name %>
+             </span>
+           </div>
+
+           <div class="project-owner-div">
+             <span>
+               By: Eric Webster
+             </span>
+           </div>
+           <div class="project-description-div">
+             <span>
+           Projectore is a place where it pools like minded individuals from all over the world to embark on projects.
+           We give the tools to manage the projects as well as the exposure to the world wide web.
+             </span>
+           </div>
+         </div>
+
+      <div class="project-action-div">
+
           <% if user_signed_in? %>
 
           <% end %>
-          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
+          <%= button_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn btn-standard' %>
           <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-              <%= submit_tag 'Subscribe', class: 'btn orange' %>
+              <%= submit_tag 'Subscribe', class: 'btn btn-standard' %>
           <% end %>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
-        </div>
+
       </div>
 
 
@@ -125,26 +140,52 @@
 
     //-->
 
-    <div class="project-tabs">
+    <div class="project-content">
 
-        <ul class="nav nav-pills project-tab">
-          <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
-          <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
-          <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-          <li><a>Ideas (private)</a></li>
-          <li><a>Discussion Board (private)</a></li>
+        <div class="project-users-bar">
+          <ul class="nav nav-pills user-tab">
 
-        </ul>
+            <li class="active"><a href="#">Users</a></li>
+            <li><a href="#">Watchers</a></li>
 
-        <div class="projects-container">
-          <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+          </ul>
+
+          <div class="user-container">
+            <div class="user-single-div">
+                Eric Webster
+                Owner
+            </div>
+            <div class="user-single-div">
+               Dennis Duan
+              Admin
+            </div>
+            <div class="user-single-div">
+              Brian Zhang
+              Admin
+            </div>
+          </div>
+
+        </div>
+
+        <div class="project-tabs">
+
+            <ul class="nav nav-pills project-tab">
+              <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
+              <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
+              <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
+              <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+              <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+              <li><a>Discussion Board (private)</a></li>
+
+            </ul>
+
+            <div class="projects-container">
+              <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+            </div>
+
         </div>
 
     </div>
-
-
 <% end %>
 
 <%= render template: "layouts/application" %>

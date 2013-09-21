@@ -44,20 +44,30 @@
   float: left;
 }
 
-.project-tabs {
+.project-content {
   clear: both;
+}
+
+.project-users-bar {
+      float: left;
+      width: 150px;
+      height: 300px;
 }
 
 .news-post-div {
   background: #FFF;
-  padding: 10px;
-  border: 1px solid #CCCCCC
+  padding: 20px;
+
 }
 
 .post-left {
   width: 40%;
   float: left;
 
+}
+
+.nav-pills > li > a {
+  margin-top: 0px !important;
 }
 
 
@@ -68,7 +78,11 @@
 }
 
 .input-content{
-  width: 500px !important;
+  width: 350px !important;
+}
+
+.projects-container {
+  width: 750px;
 }
 
 .projects-container form {
@@ -83,4 +97,16 @@
 .project-tab li a {
   color: #888 !important;
   font-size: 9pt;
+}
+
+.user-container {
+  min-height: 200px;
+  background: #E4E4E4;
+}
+
+.btn-standard{
+  width: 90px !important;
+  font-family: 'Francois One',sans-serif !important;
+  height: 30px !important;
+
 }

@@ -26,22 +26,18 @@
 
   <h4>Browse Project</h4>
 
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a href="#">All</a>
-    </li>
-
+  <ul class="nav nav-pills project-tab">
+    <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
     <% Project.categories.each do |cat| %>
-        <li><%= link_to cat, cat_path(cat), :remote=> true %></li>
+        <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat), :remote => true %></li>
     <% end %>
-
   </ul>
 
   <div class="project-div">
     <% @projects.each do |project| %>
         <div class="project-box">
           <div class="project-image-box">
-            <img src="http://png.findicons.com/files/icons/1035/human_o2/128/orange_folder.png" />
+            <img src="http://www.ivoinc.com/docs/Projects/projects-hi-res.png" />
           </div>
 
           <div>

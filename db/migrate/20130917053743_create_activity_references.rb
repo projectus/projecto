@@ -7,6 +7,6 @@ class CreateActivityReferences < ActiveRecord::Migration
       t.string :title
     end
 
-    add_index :activity_references, [:referenceable_id, :referenceable_type, :activity_id], unique: true, name: 'activity_references_index'
+    add_index :activity_references, [:referenceable_id, :referenceable_type, :activity_id, :title], unique: true, name: 'activity_references_index'
   end
 end
