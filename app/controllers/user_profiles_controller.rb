@@ -10,10 +10,8 @@ class UserProfilesController < ApplicationController
 	
   # GET /user_profiles/1/edit
   def edit
-	  @contact = @user_profile.card
-		
+	  @contact = @user_profile.card		
 	  @name = @contact[:name].nil? ? ['','',''] : @contact[:name].split(',')	
-	  @birthday = @contact[:birthday].nil? ? [1900,1,1] : @contact[:birthday].split(',')
   end
 
   # PATCH/PUT /user_profiles/1
@@ -24,7 +22,7 @@ class UserProfilesController < ApplicationController
 	  end
 	
     respond_to do |format|
-      if @user_profile.save#update(user_profile_params)
+      if @user_profile.save
         format.html { redirect_to @user_profile, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else

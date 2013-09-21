@@ -21,7 +21,7 @@
 
       <div class="field">
         <%= label_tag :birthday %>
-        <%= date_select "contact[birthday]", "", default: { year: @birthday[0], month: @birthday[1], day: @birthday[2] } %>
+        <%= date_select "contact[birthday]", '', default: DateTime.strptime(@contact[:birthday],'%Y,%m,%d') %>
       </div>
 
       <div class="field">

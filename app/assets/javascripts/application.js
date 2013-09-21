@@ -18,7 +18,7 @@ $(function() {
 
 $(document).ready(function(){
     $("a[data-remote]").bind("click"), function(e, data, status, xhr){
-        alert("ddd")
+        alert("ddd");
     }
 
 

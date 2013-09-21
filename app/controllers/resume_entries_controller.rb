@@ -8,7 +8,7 @@ class ResumeEntriesController < ApplicationController
 	  @resume = @user_profile.resume
 	  max_key = @resume[@section].keys.max
 	  @key = max_key.nil? ? 'entry_01' : max_key.succ
-	  @entry = UserProfile.empty_resume_entry_hash(@section,@key)
+	  @entry = UserProfile.empty_resume_entry(@section)
 	end
 	
   # GET /project_profiles/1/edit
@@ -24,10 +24,10 @@ class ResumeEntriesController < ApplicationController
   def update
 	  @key = params[:key].to_sym
 	  @section = params[:section].to_sym
-	
+	 
 	  unless params[:entry].nil?
-      update_resume      
-	  end
+		  @user_profile.update_resume_entry(@section,@key,permitted_fields)
+		end
 
 	  @resume = @user_profile.resume
 	  @entry = @resume[@section][@key]
@@ -58,19 +58,17 @@ class ResumeEntriesController < ApplicationController
     def set_user_profile
       @user_profile = UserProfile.find(params[:id])
     end
-		
-    def update_resume
-	    if @section == :experience
-		    permitted_fields = params.require(:entry).permit(:title, :location, :description, :start_date, :end_date)
-		  elsif @section == :education
-			  permitted_fields = params.require(:entry).permit(:school, :location, :field, :degree, 
-			  :description, :start_date, :end_date)
-		  elsif @section == :skills
-			  permitted_fields = params.require(:entry).permit(:title)
-		  end
-		  @user_profile.update_resume_entry(@section,@key,permitted_fields)
-	  end
 
+    def permitted_fields
+	    if @section == :experience
+		    params.require(:entry).permit(:title, :location, :description, :start_date, :end_date)
+		  elsif @section == :education
+			  params.require(:entry).permit(:school, :location, :field, :degree, :description, :start_date, :end_date)
+		  elsif @section == :skills
+			  params.require(:entry).permit(:title)
+		  end	  
+	  end
+	
     def associated_user
 	    @user_profile.user
 	  end
