@@ -1,4 +1,4 @@
-<h1>Listing tasks</h1>
+<h1>Tasks</h1>
 
 <table class="table table-striped table-bordered">
   <thead>
@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% tasks.each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td><%= task.details %></td>
@@ -29,9 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Task', new_task_group_task_path %> | 
-<%= link_to 'Back to task group', @task_group %>
-

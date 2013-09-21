@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @collaboration %> |
+<%= link_to 'End Collaboration', @collaboration, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+
 <%= link_to 'Back', project_collaborations_path(@collaboration.project) %>

@@ -1,26 +1,28 @@
-<%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
+<%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
-      <% @task.errors.full_messages.each do |msg| %>
+      <% task.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
+  <div style="display: inline-block;">
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :details %><br>
-    <%= f.text_field :details %>
+
+  <div style="display: inline-block;">
+    <%= f.label :details %>
+    <%= f.text_area :details %>
   </div>
-  <div class="field">
-    <%= f.label :priority %><br>
+
+  <div style="display: inline-block;">
+    <%= f.label :priority %>
     <%= f.number_field :priority %>
   </div>
 

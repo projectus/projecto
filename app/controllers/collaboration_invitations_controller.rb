@@ -50,7 +50,7 @@ class CollaborationInvitationsController < ApplicationController
 	    status_param = params.require(:collaboration_invitation).permit(:status)
 	
       if @invitation.update(status_param)	
-        format.html { redirect_to user_collaboration_invitations_path(@invitation.invited_user), notice: "Invitation was successfully #{@invitation.status}." }
+        format.html { redirect_to user_invitations_path(@invitation.invited_user), notice: "Invitation was successfully #{@invitation.status}." }
         format.json { head :no_content }
       else
         format.html { render action: 'show' }

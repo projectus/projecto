@@ -15,7 +15,7 @@
 
 <p>
   <strong>Owned by:</strong>
-  <%= link_to @project.owner.username, user_path(@project.owner) %>
+  <%= @project.owner.username %>
 </p>
 
 <%= link_to 'View Profile', @project.profile %>

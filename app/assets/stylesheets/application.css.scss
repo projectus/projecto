@@ -156,19 +156,17 @@ textarea {
   margin: auto;
 }
 
-.navbar-about, .navbar-projects {
-	display: table;
-    line-height: 1.2em;
-    margin-top: 5px;
+.navbar-about {
 	width: 75px;
 }
-
 .navbar-projects {
 	width: 55px;
 }
 
 .navbar-about, .navbar-projects {
 	display: table;
+	line-height: 1.2em;
+  margin-top: 5px;
 	.multiline {
 		text-decoration: none !important;
 		vertical-align: middle;
@@ -394,5 +392,19 @@ p {
 }
 
 a.btn {
-  border-radius: none !important;
+  border-radius: 0 !important;
+
 }
+
+.scroll-splitter {
+  clear: both;
+}
+
+.taskgroup-table{
+  font-size: 9pt;
+}
+
+.logo {
+  margin-top: 6px;
+}
+

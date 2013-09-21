@@ -49,8 +49,8 @@
 }
 
 .project-users-bar {
-      float: left;
-      width: 150px;
+      float: right;
+
       height: 300px;
 }
 
@@ -63,7 +63,6 @@
 .post-left {
   width: 40%;
   float: left;
-
 }
 
 .nav-pills > li > a {
@@ -74,7 +73,6 @@
 .post-right {
   width: 60%;
   float: right;
-
 }
 
 .input-content{
@@ -82,7 +80,7 @@
 }
 
 .projects-container {
-  width: 750px;
+  width: 700px;
 }
 
 .projects-container form {
@@ -102,6 +100,7 @@
 .user-container {
   min-height: 200px;
   background: #E4E4E4;
+  padding-left: 11px;
 }
 
 .btn-standard{

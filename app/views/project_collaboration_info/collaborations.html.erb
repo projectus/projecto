@@ -12,7 +12,7 @@
       <tr>
         <td><%= collaboration.role %></td>
         <td><%= link_to collaboration.user.username, collaboration.user.profile %></td>
-        <td><%= link_to 'Details', collaboration %></td>
+        <td><%= link_to 'Edit', edit_collaboration_path(collaboration) %></td>
       </tr>
     <% end %>
   </tbody>

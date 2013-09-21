@@ -1,0 +1,11 @@
+<% if @project_profile.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@project_profile.errors.count, "error") %> prohibited this project_profile from being saved:</h2>
+
+    <ul>
+    <% @project_profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

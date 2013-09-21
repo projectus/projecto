@@ -34,11 +34,13 @@
           <% if user_signed_in? %>
 
           <% end %>
-          <%= button_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn btn-standard' %>
-          <%= form_tag({controller: 'subscriptions', action: 'create'}, method: 'post', style:'display:inline;') do %>
+          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
+          <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-              <%= submit_tag 'Subscribe', class: 'btn btn-standard' %>
+              <%= submit_tag 'Subscribe', class: 'btn' %>
           <% end %>
+
+         <%= link_to 'Settings', project_path(associated_project), class: 'btn'%>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
 
       </div>
@@ -67,6 +69,9 @@
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
               <%= submit_tag 'Subscribe', class: 'btn orange' %>
           <% end %>
+
+
+
           <b><%= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
         </div>
 
@@ -142,6 +147,25 @@
 
     <div class="project-content">
 
+      <div class="project-tabs">
+
+        <ul class="nav nav-pills project-tab">
+          <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'Details', project_details_path(associated_project.profile) %></li>
+          <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', project_news_posts_path(associated_project) %></li>
+          <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
+          <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+          <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+          <li><a>Discussion Board (private)</a></li>
+
+        </ul>
+
+        <div class="projects-container">
+          <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+        </div>
+
+      </div>
+
+        <!--
         <div class="project-users-bar">
           <ul class="nav nav-pills user-tab">
 
@@ -152,40 +176,63 @@
 
           <div class="user-container">
             <div class="user-single-div">
-                Eric Webster
-                Owner
+              Owner:<br>
+              Eric Webster
+
             </div>
             <div class="user-single-div">
-               Dennis Duan
-              Admin
+              Admin:<br>
+              Dennis Duan
+
             </div>
             <div class="user-single-div">
+              Admin:<br>
               Brian Zhang
-              Admin
+
             </div>
           </div>
 
         </div>
-
-        <div class="project-tabs">
-
-            <ul class="nav nav-pills project-tab">
-              <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'About', project_about_path(associated_project.profile) %></li>
-              <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', associated_project.profile %></li>
-              <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-              <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
-              <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-              <li><a>Discussion Board (private)</a></li>
-
-            </ul>
-
-            <div class="projects-container">
-              <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
-            </div>
-
-        </div>
-
+        //-->
     </div>
+    <style type="text/css">
+        .scrollspy-users {
+            height: 200px;
+            width: 180px;
+            overflow: auto;
+            position: relative;
+        }
+
+
+
+    </style>
+    <div class="user-list">
+
+      <div id ="navbarUsers" class="project-users-bar">
+        <ul class="nav nav-pills user-tab">
+          <li class="active"><a href="#Owner">Owner</a></li>
+          <li><a href="#Admin">Admit</a></li>
+          <li><a href="#Member">Member</a></li>
+
+        </ul>
+          <div data-spy="scroll" data-target="#navbarUsers" class="scrollspy-users">
+            <h6 id="Owner"><b>Owner:</b></h6>
+            Eric Webster<br>
+            <h6 id="Admin"><b>Admin:</b></h6>
+            Brian Zhang<br>
+            Brian Zhang<br>
+            Brian Zhang<br>
+            Brian Zhang<br>
+            <h6 id="Member"><b>Member:</b></h6>
+            Dennis Duan<br>
+            Dennis Duan<br>
+            Dennis Duan<br>
+            Dennis Duan<br>
+            Dennis Duan<br>
+            Dennis Duan<br>
+          </div>
+       </div>
+      </div>
 <% end %>
 
 <%= render template: "layouts/application" %>

@@ -22,6 +22,10 @@ $(document).ready(function(){
     }
 
 
+    $(".down-arrow").bind("click", function(){
+        $(".task-details-collapse").show();
+    })
+
 
 
 })

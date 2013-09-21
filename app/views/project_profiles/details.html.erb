@@ -1,0 +1,33 @@
+<p>
+  <%= link_to 'Edit Outline', edit_project_profile_path(@project_profile), class: 'btn pull-right' %>
+</p>
+
+<div class="scroll-splitter"></div>
+
+
+<!--
+
+<div class="profile-entry">
+  <div class="profile-entry-title">
+    Purpose:
+  </div>
+
+  <div class="profile-entry-content">
+    Projectore is a place where it pools like minded individuals from all over the world to embark on projects.
+    We give the tools to manage the projects as well as the exposure to the world wide web.
+  </div>
+
+</div>
+
+//-->
+
+
+
+<% @details.sort.map do |key,entry| %>
+
+<div>
+  <%= render partial: 'project_details_entry/entry', locals: {entry: entry} %>
+</div>
+
+<% end %>
+
