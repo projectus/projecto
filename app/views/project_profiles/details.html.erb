@@ -1,27 +1,68 @@
-<p>
-  <%= link_to 'Edit Outline', edit_project_profile_path(@project_profile), class: 'btn pull-right' %>
-</p>
+<div class="inner-heading-div">
+    <p>General Project Settings
+      <%= link_to 'Edit Project Settings', edit_project_path(@project_profile.project), class: 'btn pull-right btn-inner-small' %>
+    </p>
+
+</div>
 
 <div class="scroll-splitter"></div>
 
 
-<!--
+
+
 
 <div class="profile-entry">
   <div class="profile-entry-title">
-    Purpose:
+    Project Name
   </div>
 
   <div class="profile-entry-content">
-    Projectore is a place where it pools like minded individuals from all over the world to embark on projects.
-    We give the tools to manage the projects as well as the exposure to the world wide web.
+    <%= @project_profile.project.name %>
   </div>
 
 </div>
 
-//-->
+<div class="profile-entry">
+  <div class="profile-entry-title">
+    Project Owner
+  </div>
 
+  <div class="profile-entry-content">
+    <%= @project_profile.project.owner.username %>
+  </div>
 
+</div>
+
+<div class="profile-entry">
+  <div class="profile-entry-title">
+    Project Category
+  </div>
+
+  <div class="profile-entry-content">
+    <%= @project_profile.project.category.capitalize %>
+  </div>
+
+</div>
+
+<div class="profile-entry">
+  <div class="profile-entry-title">
+    Project Description
+  </div>
+
+  <div class="profile-entry-content">
+    <%= @project_profile.project.description %>
+  </div>
+
+</div>
+
+<div class="inner-heading-div">
+  <p>Custom Project Information
+    <%= link_to 'Edit Details', edit_project_profile_path(@project_profile), class: 'btn pull-right btn-inner-small' %>
+  </p>
+
+</div>
+
+<div class="scroll-splitter"></div>
 
 <% @details.sort.map do |key,entry| %>
 
