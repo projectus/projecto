@@ -4,8 +4,6 @@
 
 <% @resume.each do |section,entries| %>
 <div class="well well-small box">
-  <%= render partial: 'experience', locals: {experience: entries} if section==:experience %>
-  <%= render partial: 'education', locals: {education: entries} if section==:education %>
-  <%= render partial: 'skills', locals: {skills: entries} if section==:skills %>
+  <%= render partial: "#{section}", locals: {entries: entries} %>
 </div>
 <% end %>

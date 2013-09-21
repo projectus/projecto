@@ -1,7 +1,7 @@
 <div class="well box">
 <%= render partial: 'project_details_entry/entry', locals: {entry: entry, key: key} %>
 
-<%= form_tag(edit_project_details_entry_path, method: :get, :class=>'form-inline') do %>
+<%= form_tag(edit_project_details_entry_path, method: :get) do %>
   <%= hidden_field_tag :key, key %>
   <%= submit_tag 'Edit', :class=>'btn orange pull-right' %>
 <% end %>

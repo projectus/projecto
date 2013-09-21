@@ -1,5 +1,5 @@
 <h4>Education</h4>
-<% education.sort.map do |key,entry| %>
+<% entries.sort.map do |key,entry| %>
 <div class="well well-small box">
   <%= render partial: 'resume_entries/education_entry', locals: {entry: entry} %>
 </div>
