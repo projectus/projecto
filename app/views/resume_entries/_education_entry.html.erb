@@ -1,6 +1,4 @@
-<div class="well">
-  <% education_entry.each do |type,info| %>
+  <% entry.each do |type,info| %>
       <b><%= type.to_s.gsub('_',' ').capitalize %></b>
       <%= info %><br>    
   <% end %>
-</div>

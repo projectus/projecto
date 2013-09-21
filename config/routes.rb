@@ -24,8 +24,12 @@ Projecto::Application.routes.draw do
   # USER PROFILES ################
 
   #get "profile/:id", to: "user_profiles#show"
-  get "user_profiles/:id/resume", to: 'user_profiles#show_resume', as: :resume
+  get "user_profiles/:id/resume", to: 'resume#show', as: :resume
+  get "user_profiles/:id/resume/edit", to: 'resume#edit', as: :edit_resume
+
   resources :user_profiles, except: [:index, :new, :create, :destroy]
+  resources :resume_entries, only: [:edit,:update,:destroy]
+  get "user_profiles/:id/resume_entry/new", to: 'resume_entries#new', as: :new_resume_entry
 
   # PROJECT PROFILES ########################
 

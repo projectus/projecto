@@ -1,0 +1,4 @@
+Experience
+<% experience.sort.map do |key,entry| %>
+  <%= render partial: 'resume_entries/experience_entry', locals: {entry: entry} %>
+<% end %>

@@ -1,4 +1,4 @@
-<table class="table table-striped table-bordered taskgroup-table">
+<table class="table table-bordered taskgroup-table">
 
 
   <tbody>
@@ -23,15 +23,15 @@
 
       <% task_group.tasks.each do |task| %>
           <tr>
-            <td style="text-align: center"><img src="https://cdn1.iconfinder.com/data/icons/pc_de_hamburg_icon_pack/16x16/cv.png">
+            <td  class="hover-td" style="text-align: center"><img src="https://cdn1.iconfinder.com/data/icons/pc_de_hamburg_icon_pack/16x16/cv.png">
             </td>
-            <td><%= link_to task.title, task %></td>
-            <td><img class="down-arrow" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/download-16.png"></td>
-            <td><%= task.priority %></td>
-            <td><%= task.status %></td>
-            <td><%= task.poster.username %></td>
-            <td><%= link_to '<img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/pen-16.png">'.html_safe, edit_task_path(task) %></td>
-            <td><%= link_to '<img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/trash-16.png">'.html_safe, task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="hover-td"><%= link_to task.title, task %></td>
+            <td class="hover-td"><img class="down-arrow" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/download-16.png"></td>
+            <td class="hover-td"><%= task.priority %></td>
+            <td class="hover-td"><%= task.status %></td>
+            <td class="hover-td"><%= task.poster.username %></td>
+            <td class="hover-td"><%= link_to '<img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/pen-16.png">'.html_safe, edit_task_path(task) %></td>
+            <td class="hover-td"><%= link_to '<img src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/trash-16.png">'.html_safe, task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
 
           <tr class="task-details-collapse">

@@ -51,7 +51,6 @@
 .project-users-bar {
       float: right;
 
-      height: 300px;
 }
 
 .news-post-div {
@@ -108,4 +107,11 @@
   font-family: 'Francois One',sans-serif !important;
   height: 30px !important;
 
+}
+
+.scrollspy-users {
+  height: 400px;
+  width: 180px;
+  overflow: auto;
+  position: relative;
 }

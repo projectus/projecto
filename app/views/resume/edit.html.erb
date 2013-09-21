@@ -1,0 +1,24 @@
+
+<h4>Editing Resume
+<%= link_to 'Done Editing', resume_path(@user_profile), :class=>'btn' %></h4>
+
+
+<% @resume.each do |section,entries| %>
+<div class="well well-small box">
+	<% entries.sort.each do |key,entry| %>
+  <%= render partial: 'resume_entries/editable_resume_entry', locals: {entry: entry, section: section, key: key} %>
+  <% end %>
+	<p>
+		<%= form_tag(new_resume_entry_path(@user_profile), method: :get) do %>
+		<%= hidden_field_tag :section, section %>
+	  <%= submit_tag 'New Section', :class=>'btn' %>
+	  <% end %>
+	</p>
+</div>
+<% end %>
+
+<p>
+<%= link_to 'Back', resume_path(@user_profile) %>
+</p>
+
+</div>

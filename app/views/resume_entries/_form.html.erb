@@ -1,0 +1,29 @@
+<div class="well well-small box">
+
+<%= render 'resume_entries/errors' %>
+
+<%= form_tag(resume_entry_path, method: :patch, :class => 'form-inline') do %>
+
+  <% if section == :experience %>
+    <%= render partial: 'resume_entries/experience_fields', locals: {entry: entry, key: key} %>
+  <% elsif section == :education %>
+    <%= render partial: 'resume_entries/education_fields', locals: {entry: entry, key: key} %>
+  <% elsif section == :skills %>
+    <%= render partial: 'resume_entries/skills_fields', locals: {entry: entry, key: key} %>
+  <% end %>
+
+  <%= hidden_field_tag :section, section %>
+  <%= hidden_field_tag :key, key %>
+		
+  <%= submit_tag 'Save', class: 'btn' %>
+<% end %>
+
+<%= form_tag(resume_entry_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'form-inline') do |f| %>
+  <%= hidden_field_tag :key, key %>
+  <%= hidden_field_tag :section, section %>			
+  <%= submit_tag 'Delete Entry', class: 'btn btn-danger' %>
+<% end %>
+
+</div>
+<%= link_to 'Cancel', edit_resume_path(@user_profile) %>
+

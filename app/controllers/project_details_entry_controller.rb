@@ -1,7 +1,7 @@
 class ProjectDetailsEntryController < ApplicationController
-	before_action :authenticate_user!	
+	before_action :authenticate_user!,	only: [:update, :destroy]
   before_action :set_project_profile
-	before_action do
+	before_action(only: [:update, :destroy]) do
 	  authenticate_current_user_as_project_owner(associated_project, 
 	                       "You don't have the permissions to modify this project.")
 	end
