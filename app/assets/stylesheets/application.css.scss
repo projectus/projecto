@@ -183,9 +183,11 @@ textarea {
 
 #intro-bar{
 
+  /*
   background: #CD5219;
-  background: linear-gradient(to bottom, #6AA300 0%, #70A600 100%) repeat scroll 0 0 transparent;
+  background: linear-gradient(to bottom, #6AA300 0%, #70A600 100%) repeat scroll 0 0 transparent;   */
   /*background: #999999; */
+  background: linear-gradient(to bottom, #748600 0%, #9AC201 100%) repeat scroll 0 0 transparent;
   height: 190px;
   box-shadow: 0px 2px 5px #000000;
 
@@ -419,3 +421,7 @@ a.btn {
   visibility: hidden;
 }
 
+.dropdown-menu > li > a:hover{
+
+  background: -moz-linear-gradient(top, #3D551B 0%, #4E7023 100%) !important;
+}
