@@ -10,7 +10,7 @@ class ProjectDetailsEntryController < ApplicationController
   def new
 	  max_key = @details.keys.max
 	  @key = max_key.nil? ? 'entry_01' : max_key.succ
-	  @entry = ProjectProfile.empty_details_entry_hash(@key)
+	  @entry = ProjectProfile.empty_details_entry
 	end
 	
   # GET /project_profiles/1/edit

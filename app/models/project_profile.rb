@@ -11,27 +11,14 @@ class ProjectProfile < ActiveRecord::Base
 	end
 		
   def self.empty_details_entry
-		Proc.new{|entry| 
-			entry.title "e.g. What we're trying to do"; 
-			entry.content "e.g. Something new"}
-	end
-
-  def self.empty_details_entry_hash(key)
-		details = Jbuilder.encode do |detail|
-		  detail.set! key.to_sym do |entry| 
-			  ProjectProfile.empty_details_entry.call(entry) 
-			end
-		end
-		eval MultiJson.load(details, symbolize_keys: true).inspect
+		{ :title => "e.g. What we're trying to do", 
+			:content => "e.g. Something new" }
 	end
 		
   def generate_empty_details
-		details = Jbuilder.encode do |detail|
-		  detail.entry_01 do |entry| 
-			  ProjectProfile.empty_details_entry.call(entry) 
-			end
-		end
-		self.details_hash = MultiJson.load(details, symbolize_keys: true).inspect
+		details = {} 
+	  details[:entry_01] = ProjectProfile.empty_details_entry 
+		self.details_hash = details.inspect
 	end
 		
 	def destroy
@@ -40,7 +27,11 @@ class ProjectProfile < ActiveRecord::Base
 
   def update_details_entry(key,fields)
 	  details = self.details
-		details[key.to_sym] = fields.symbolize_keys
+	  symkey = key.to_sym
+	  if details[symkey].nil?
+		  details[symkey] = ProjectProfile.empty_details_entry
+		end
+		details[symkey].update(fields.symbolize_keys)
     self.details_hash = details.inspect
 	end
 	

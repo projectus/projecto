@@ -8,7 +8,7 @@ class ResumeEntriesController < ApplicationController
 	  @resume = @user_profile.resume
 	  max_key = @resume[@section].keys.max
 	  @key = max_key.nil? ? 'entry_01' : max_key.succ
-	  @entry = UserProfile.empty_resume_entry_hash(@section,@key)
+	  @entry = UserProfile.empty_resume_entry(@section)
 	end
 	
   # GET /project_profiles/1/edit
