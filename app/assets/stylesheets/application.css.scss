@@ -432,10 +432,37 @@ a.btn {
 .btn-inner-small{
   font-size: 9pt;
   padding: 1px 8px !important;
+  font-family: 'Francois One',sans-serif !important;
 
 
 }
 
 .box-details{
   padding: 0px !important;
+}
+
+.inner-heading-div{
+  text-shadow: 1px 1px 0px #FFFFFF;
+
+}
+
+p.pcontent {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+.title-font{
+  font-family: 'Francois One',sans-serif !important;
+}
+
+.space-less {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.resume-list {
+  margin-left: 20px !important;
+}
+
+.user-tabs li.active a {
+  background: #E4E4E4 !important;
 }
