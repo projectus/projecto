@@ -60,13 +60,18 @@ class ResumeEntriesController < ApplicationController
     end
 
     def permitted_fields
+	    pf = params.require(:entry)
+	    if @section == :experience || @section == :education
+		    pf[:start_date] = pf[:start_date].values.join(',')
+		    pf[:end_date] = pf[:end_date].values.join(',')
+		  end
 	    if @section == :experience
-		    params.require(:entry).permit(:title, :location, :description, :start_date, :end_date)
+		    pf.permit(:title, :location, :description, :start_date, :end_date)
 		  elsif @section == :education
-			  params.require(:entry).permit(:school, :location, :field, :degree, :description, :start_date, :end_date)
+			  pf.permit(:school, :location, :field, :degree, :description, :start_date, :end_date)
 		  elsif @section == :skills
-			  params.require(:entry).permit(:title)
-		  end	  
+			  pf.permit(:title)
+		  end
 	  end
 	
     def associated_user

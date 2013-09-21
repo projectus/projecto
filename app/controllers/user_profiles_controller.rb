@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
-  before_action :set_user_profile, only: [:show, :edit, :update]
-	before_action :authenticate_user!, except: [:show]
-  before_action :authenticate_current_user_as_profile_owner, except: [:show] 
+  before_action :set_user_profile
+	before_action :authenticate_user!, only: [:update]
+  before_action :authenticate_current_user_as_profile_owner, only: [:update] 
 	
   # GET /user_profiles/1
   # GET /user_profiles/1.json
@@ -18,7 +18,7 @@ class UserProfilesController < ApplicationController
   # PATCH/PUT /user_profiles/1.json
   def update
 	  unless params[:contact].nil?
-      update_contact_card      
+      @user_profile.update_contact_card(permitted_fields)	
 	  end
 	
     respond_to do |format|
@@ -42,11 +42,11 @@ class UserProfilesController < ApplicationController
 	    @user_profile.user
 	  end
 
-    def update_contact_card
-		  permitted_fields = params.require(:contact).permit(:secondary_email, :location)
-		  permitted_fields[:name] = params[:contact][:name].values.join(',')
-		  permitted_fields[:birthday] = params[:contact][:birthday].values.join(',')
-      @user_profile.update_contact_card(permitted_fields)	
+    def permitted_fields
+		  pf = params.require(:contact)
+		  pf[:name] = pf[:name].values.join(',')
+		  pf[:birthday] = pf[:birthday].values.join(',')
+		  pf.permit(:secondary_email, :location, :birthday, :name)
 	  end
 
     # Only let current user modify his own profile

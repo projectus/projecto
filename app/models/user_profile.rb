@@ -19,16 +19,16 @@ class UserProfile < ActiveRecord::Base
 			{ :title => "e.g. Worked at McDonald's",
 	      :location => "e.g. Fredericton, NB",
 	      :description => "e.g. flipped burgs",
-	      :start_date => "1989,7,16",
-	      :end_date => "1989,7,16" }
+	      :start_date => "1989,7",
+	      :end_date => "1989,7" }
 	  elsif section == :education
 			{ :school => "e.g. University of Waterloo",
 	      :location => "e.g. Waterloo, ON",
 	      :field => "e.g. Physics",
 	      :degree => "e.g. BSc",
 	      :description => "e.g. I like school.",
-	      :start_date => "1989,7,16",
-	      :end_date => "1989,7,16" }
+	      :start_date => "1989,7",
+	      :end_date => "1989,7" }
 		elsif section == :skills
 			{ :title => "e.g. Ruby on Rails" }
 	  end
@@ -36,9 +36,9 @@ class UserProfile < ActiveRecord::Base
 		
   def generate_empty_resume(defaults={})
 		resume = {}
-		resume[:experience][:entry_01] = UserProfile.empty_resume_entry(:experience)
-		resume[:education][:entry_01] = UserProfile.empty_resume_entry(:education)
-		resume[:skills][:entry_01] = UserProfile.empty_resume_entry(:skills)		
+		resume[:experience] = {:entry_01 => UserProfile.empty_resume_entry(:experience)}
+		resume[:education] = {:entry_01 => UserProfile.empty_resume_entry(:education)}
+		resume[:skills] = {:entry_01 => UserProfile.empty_resume_entry(:skills)}	
 		self.resume_hash = resume.inspect
 	end
 	
@@ -58,6 +58,7 @@ class UserProfile < ActiveRecord::Base
 	end
 
   def update_contact_card(fields)
+	  card = self.card
     card.update(fields.symbolize_keys)
     self.card_hash = card.inspect
 	end
