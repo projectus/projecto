@@ -1,4 +1,6 @@
-Skills
-  <% skills.sort.map do |type,entry| %>
-    <%= render partial: 'resume_entries/skills_entry', locals: {entry: entry} %>
-  <% end %>
+<h4>Skills</h4>
+<% skills.sort.map do |type,entry| %>
+<div class="well well-small box">
+  <%= render partial: 'resume_entries/skills_entry', locals: {entry: entry} %>
+</div>
+<% end %>
