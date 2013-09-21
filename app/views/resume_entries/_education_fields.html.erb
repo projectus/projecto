@@ -22,3 +22,14 @@
   <%= label_tag :degree, 'Degree', style: 'display: block' %>
   <%= text_field_tag "entry[degree]", entry[:degree] %>
 </div>
+
+<div class="field">
+  <%= label_tag :start_date %>
+  <%= date_select "entry[start_date]", '', default: DateTime.strptime(@entry[:start_date],'%Y,%m,%d') %>
+</div>
+
+<div class="field">
+  <%= label_tag :end_date %>
+  <%= date_select "entry[end_date]", '', default: DateTime.strptime(@entry[:end_date],'%Y,%m,%d') %>
+</div>
+

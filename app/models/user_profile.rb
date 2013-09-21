@@ -19,16 +19,16 @@ class UserProfile < ActiveRecord::Base
 			{ :title => "e.g. Worked at McDonald's",
 	      :location => "e.g. Fredericton, NB",
 	      :description => "e.g. flipped burgs",
-	      :start_date => "e.g. July 16, 2008",
-	      :end_date => "e.g. July 17, 2008" }
+	      :start_date => "1989,7,16",
+	      :end_date => "1989,7,16" }
 	  elsif section == :education
 			{ :school => "e.g. University of Waterloo",
 	      :location => "e.g. Waterloo, ON",
 	      :field => "e.g. Physics",
 	      :degree => "e.g. BSc",
 	      :description => "e.g. I like school.",
-	      :start_date => "e.g. September 1st, 2011",
-	      :end_date => "e.g. September 1st, 2013" }
+	      :start_date => "1989,7,16",
+	      :end_date => "1989,7,16" }
 		elsif section == :skills
 			{ :title => "e.g. Ruby on Rails" }
 	  end
