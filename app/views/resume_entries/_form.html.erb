@@ -4,13 +4,7 @@
 
 <%= form_tag(resume_entry_path, method: :patch, :class => 'form-inline') do %>
 
-  <% if section == :experience %>
-    <%= render partial: 'resume_entries/experience_fields', locals: {entry: entry, key: key} %>
-  <% elsif section == :education %>
-    <%= render partial: 'resume_entries/education_fields', locals: {entry: entry, key: key} %>
-  <% elsif section == :skills %>
-    <%= render partial: 'resume_entries/skills_fields', locals: {entry: entry, key: key} %>
-  <% end %>
+  <%= render partial: "resume_entries/#{section}_fields", locals: {entry: entry, key: key} %>
 
   <%= hidden_field_tag :section, section %>
   <%= hidden_field_tag :key, key %>

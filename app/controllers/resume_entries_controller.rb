@@ -30,13 +30,13 @@ class ResumeEntriesController < ApplicationController
 		end
 
 	  @resume = @user_profile.resume
-	  @entry = @resume[@section][@key]
 		
     respond_to do |format|
       if @user_profile.save
         format.html { redirect_to edit_resume_url(@user_profile), notice: 'User profile was successfully updated.' }
         format.json { head :no_content }
       else
+			  @entry = @resume[@section][@key]
         format.html { render action: 'edit' }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
       end

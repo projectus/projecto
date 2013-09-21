@@ -15,13 +15,14 @@ class UserProfile < ActiveRecord::Base
 	end
 
   def self.empty_resume_entry(section)
-    if section == :experience
+	  symsec = section.to_sym
+    if symsec == :experience
 			{ :title => "e.g. Worked at McDonald's",
 	      :location => "e.g. Fredericton, NB",
 	      :description => "e.g. flipped burgs",
 	      :start_date => "1989,7",
 	      :end_date => "1989,7" }
-	  elsif section == :education
+	  elsif symsec == :education
 			{ :school => "e.g. University of Waterloo",
 	      :location => "e.g. Waterloo, ON",
 	      :field => "e.g. Physics",
@@ -29,7 +30,7 @@ class UserProfile < ActiveRecord::Base
 	      :description => "e.g. I like school.",
 	      :start_date => "1989,7",
 	      :end_date => "1989,7" }
-		elsif section == :skills
+		elsif symsec == :skills
 			{ :title => "e.g. Ruby on Rails" }
 	  end
 	end
