@@ -8,27 +8,24 @@
         <%= associated_user.username %>
       </div>
 
-
-
-
       <div class="" id="card">
-
-
         <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
       </div>
 
-
-
-
       <div class="action-bar">
 
-              <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"" %>
+
+
 
               <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
 
               <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
 
+        <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+
+
       </div>
+
     </div>
 
     <div class="user-tab-wrapper">
@@ -43,20 +40,9 @@
             <%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %>
           </li>
         </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab1">
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>Howdy, I'm in Section 2.</p>
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>Howdy, I'm in Section 2.</p>
-          </div>
-        </div>
       </div>
 
       <div class="user-tab-content">
-
         <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
       </div>
 

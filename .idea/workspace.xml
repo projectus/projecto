@@ -98,7 +98,7 @@
       <file leaf-file-name="user_profiles.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="33" selection-start="876" selection-end="876" vertical-scroll-proportion="0.43636364">
+            <state line="28" column="37" selection-start="987" selection-end="987" vertical-scroll-proportion="0.76363635">
               <folding />
             </state>
           </provider>
@@ -1104,7 +1104,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="33" selection-start="876" selection-end="876" vertical-scroll-proportion="0.43636364">
+        <state line="28" column="37" selection-start="987" selection-end="987" vertical-scroll-proportion="0.76363635">
           <folding />
         </state>
       </provider>
