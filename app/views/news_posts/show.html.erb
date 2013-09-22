@@ -25,4 +25,4 @@
 </p>
 
 <%= link_to 'Edit', edit_news_post_path(@news_post) %> |
-<%= link_to_project_profile(@news_post.project,'Back to Project News') %>
+<%= link_to 'Back to Project News', project_news_posts_path(@news_post.project) %>
