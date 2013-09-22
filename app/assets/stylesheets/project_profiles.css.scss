@@ -2,6 +2,72 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Project Title Bar ------------------------------------------------
+
+.project-title-bar{
+  height: 100px;
+  margin-bottom: 20px;
+
+  .project-title-image-div {
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .project-headers-div{
+    float: left;
+    width: 640px;
+
+    .project-title-div {
+      margin: 8px 0px;
+
+      .project-title {
+        font-family: 'Happy Monkey', cursive;
+        text-transform: capitalize;
+        font-size: 22pt;
+        color: #333;
+        margin-top: 20px;
+      }
+    }
+
+    .project-owner-div {
+      font-size: 13pt;
+      margin-bottom: 5px;
+    }
+
+  }
+
+  .project-action-div{
+    float: right;
+    width: 80px;
+  }
+}
+
+// End Project Title Bar --------------------------------------------
+
+// Project-profile content tabs
+
+.project-content {
+  .project-tabs {
+    float: left;
+    width: 700px;
+  }
+
+  .project-tab li.active a {
+    text-shadow: #fff 0 1px 0;
+  }
+}
+
+
+
+
+
+
+
+// End Project-profile content tabs -------------------------------------------
+
+
+
 .nav-pills > li > a {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -50,6 +116,7 @@
 
 .project-users-bar {
       float: right;
+  width: 200px;
 
 }
 
