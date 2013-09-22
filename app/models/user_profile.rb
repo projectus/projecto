@@ -15,66 +15,42 @@ class UserProfile < ActiveRecord::Base
 	end
 
   def self.empty_resume_entry(section)
-    if section == :experience
-			Proc.new{|entry| 
-	      entry.title "e.g. Worked at McDonald's";
-	      entry.location "e.g. Fredericton, NB";
-	      entry.description "e.g. flipped burgs";
-	      entry.start_date "e.g. July 16, 2008";
-	      entry.end_date "e.g. July 17, 2008"}
-	  elsif section == :education
-			Proc.new{|entry| 
-	      entry.school "e.g. University of Waterloo";
-	      entry.location "e.g. Waterloo, ON";
-	      entry.field "e.g. Physics";
-	      entry.degree "e.g. BSc";
-	      entry.description "e.g. I like school.";
-	      entry.start_date "e.g. September 1st, 2011";
-	      entry.end_date "e.g. September 1st, 2013"}
-		elsif section == :skills
-			Proc.new{|entry| 
-	      entry.title "e.g. Ruby on Rails"}
+	  symsec = section.to_sym
+    if symsec == :experience
+			{ :title => "e.g. Worked at McDonald's",
+	      :location => "e.g. Fredericton, NB",
+	      :description => "e.g. flipped burgs",
+	      :start_date => "1989,7",
+	      :end_date => "1989,7" }
+	  elsif symsec == :education
+			{ :school => "e.g. University of Waterloo",
+	      :location => "e.g. Waterloo, ON",
+	      :field => "e.g. Physics",
+	      :degree => "e.g. BSc",
+	      :description => "e.g. I like school.",
+	      :start_date => "1989,7",
+	      :end_date => "1989,7" }
+		elsif symsec == :skills
+			{ :title => "e.g. Ruby on Rails" }
 	  end
-	end
-	
-  def self.empty_resume_entry_hash(section,key)
-		resume = Jbuilder.encode do |resume|
-		  resume.set! key.to_sym do |entry| 
-			  empty_resume_entry(section.to_sym).call(entry) 
-			end
-		end
-		eval MultiJson.load(resume, symbolize_keys: true).inspect
 	end
 		
   def generate_empty_resume(defaults={})
-		resume = Jbuilder.encode do |resume|
-		  resume.experience do |experience|
-			  experience.entry_01 do |entry|
-		      UserProfile.empty_resume_entry(:experience).call(entry)
-		    end
-		  end
-		  resume.education do |education|
-			  education.entry_01 do |entry|
-		      UserProfile.empty_resume_entry(:education).call(entry)
-		    end
-		  end
-		  resume.skills do |skills|
-			  skills.entry_01 do |entry|
-		      UserProfile.empty_resume_entry(:skills).call(entry)	      
-		    end
-		  end
-		end
-		self.resume_hash = MultiJson.load(resume, symbolize_keys: true).inspect
+		resume = {}
+		resume[:experience] = {:entry_01 => UserProfile.empty_resume_entry(:experience)}
+		resume[:education] = {:entry_01 => UserProfile.empty_resume_entry(:education)}
+		resume[:skills] = {:entry_01 => UserProfile.empty_resume_entry(:skills)}	
+		self.resume_hash = resume.inspect
 	end
 	
   def generate_empty_card(defaults={})
-    contact = Jbuilder.encode do |contact|
-      contact.secondary_email defaults[:email]
-      contact.name            'Brian,Gay,Zhang'
-      contact.birthday        '1989,7,16'
-      contact.location        'Waterloo, ON'
-    end
-    self.card_hash = MultiJson.load(contact, symbolize_keys: true).inspect
+    contact = {
+      :secondary_email => defaults[:email],
+      :name =>           'Brian,Gay,Zhang',
+      :birthday =>       '1989,7,16',
+      :location =>       'Waterloo, ON'
+    }
+    self.card_hash = contact.inspect
 	end
 				
 	def destroy
@@ -83,8 +59,8 @@ class UserProfile < ActiveRecord::Base
 	end
 
   def update_contact_card(fields)
-	  #card = self.card
-    card = fields.symbolize_keys
+	  card = self.card
+    card.update(fields.symbolize_keys)
     self.card_hash = card.inspect
 	end
 	
@@ -93,7 +69,7 @@ class UserProfile < ActiveRecord::Base
 	  symkey = key.to_sym
 	  symsec = section.to_sym
 	  if resume[symsec][symkey].nil?
-		  resume[symsec][symkey] = UserProfile.empty_resume_entry_hash(symsec,symkey)[symkey]
+		  resume[symsec][symkey] = UserProfile.empty_resume_entry(symsec)
 		end
 		resume[symsec][symkey].update(fields.symbolize_keys)
     self.resume_hash = resume.inspect

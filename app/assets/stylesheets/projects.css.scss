@@ -1,14 +1,17 @@
 // Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$TotalHeight: 350px;
+$TotalWidth: 200px;
+
 .project-box{
-  height: 300px;
-  width: 200px;
+  height: $TotalHeight;
+  width: $TotalWidth;
   background-color: #FFF;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #c3c3c3;
+  padding: 4px;
 }
 
 .project-box:hover {
@@ -16,35 +19,48 @@
 }
 
 .project-image-box{
-  margin: auto;
-  width: 95%;
+  margin: 2px;
+  height: $TotalHeight*0.44;
 }
 
 .project-description {
-  font-size: 9pt;
-  line-height: 1.2em;
+  height: $TotalHeight*0.25;
+  margin-top: 3px;
+  font-size: 8pt;
+  line-height:15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .project-action-panel{
   font-size: 9pt;
+  height: $TotalHeight*0.12;
+}
+.project-detail-bar{
+  height: $TotalHeight*0.44;
+}
+.title-font{
+  margin-bottom: 3px;
+}
+.project-image-avatar{
+  height: $TotalHeight*0.43;
+  width: $TotalWidth*0.98;
+
+}
+.project-owner-avatar{
+  height:28px;
+  width: 28px;
 }
 
 .projects-container {
   background: #E4E4E4;
   padding: 20px;
-  /*
-
-  border-right: 1px solid #CCC;
-  border-left: 1px solid #CCC;
-  border-right: 1px solid #CCC;
-
-  */
-
 }
+
 
 .project-tabs {
   float: left;
-
+  width: 700px;
 
 }
 
@@ -91,8 +107,7 @@
 }
 
 .project-title-bar{
-  margin-bottom: 10px;
-  height: 80px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -128,6 +143,7 @@
 
 .project-action-div{
   float: right;
+  width: 80px;
 }
 
 .profile-entry-title, .profile-entry-content {
@@ -159,3 +175,21 @@
   font-size: 13pt;
   margin-bottom: 5px;
 }
+
+.project-box-inner {
+
+}
+
+.project-image-box-bottom {
+  height: 5px;
+  border-top: 1px solid #666;
+
+}
+
+.project-action-bar-splitter {
+   border-top: 1px dotted #666;
+}
+
+
+
+

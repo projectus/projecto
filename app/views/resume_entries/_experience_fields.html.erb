@@ -12,3 +12,13 @@
   <%= label_tag :description, 'Description', style: 'display: block' %>
   <%= text_area_tag "entry[description]", entry[:description], class: 'input-xxlarge' %>
 </div>
+
+<div class="field">
+  <%= label_tag :start_date %>
+  <%= date_select "entry[start_date]", '', discard_day: true, default: DateTime.strptime(@entry[:start_date],'%Y,%m') %>
+</div>
+
+<div class="field">
+  <%= label_tag :end_date %>
+  <%= date_select "entry[end_date]", '', discard_day: true, default: DateTime.strptime(@entry[:end_date],'%Y,%m') %>
+</div>

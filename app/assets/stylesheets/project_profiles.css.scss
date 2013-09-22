@@ -56,26 +56,28 @@
 .news-post-div {
   background: #FFF;
   padding: 20px;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 2px #D4D4D4;
+  margin: 0px 20px;
+  margin-bottom: 20px;
 
 }
 
-.post-left {
-  width: 40%;
-  float: left;
-}
+
 
 .nav-pills > li > a {
   margin-top: 0px !important;
 }
 
-
-.post-right {
-  width: 60%;
-  float: right;
-}
+ #news_post_title {
+   width: 300px !important;
+   border: 1px solid #999;
+ }
 
 .input-content{
-  width: 350px !important;
+  width: 500px !important;
+  height: 80px !important;
+  border: 1px solid #999;
 }
 
 .projects-container {
@@ -88,7 +90,8 @@
 
 .news-post {
    background: #FFF;
-   border: 1px solid #BBBBBB;
+   border: 1px solid #999;
+   margin: 0px 20px;
 }
 
 .project-tab li a {
@@ -114,6 +117,14 @@
   width: 180px;
   overflow: auto;
   position: relative;
+}
+
+.project-action-div a{
+  width: 70px !important;
+}
+
+.project-action-div input.btn[type="submit"] {
+  width: 96px !important;
 }
 
 

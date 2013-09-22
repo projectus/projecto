@@ -8,7 +8,7 @@ class ResumeEntriesController < ApplicationController
 	  @resume = @user_profile.resume
 	  max_key = @resume[@section].keys.max
 	  @key = max_key.nil? ? 'entry_01' : max_key.succ
-	  @entry = UserProfile.empty_resume_entry_hash(@section,@key)
+	  @entry = UserProfile.empty_resume_entry(@section)
 	end
 	
   # GET /project_profiles/1/edit
@@ -24,19 +24,19 @@ class ResumeEntriesController < ApplicationController
   def update
 	  @key = params[:key].to_sym
 	  @section = params[:section].to_sym
-	
+	 
 	  unless params[:entry].nil?
-      update_resume      
-	  end
+		  @user_profile.update_resume_entry(@section,@key,permitted_fields)
+		end
 
 	  @resume = @user_profile.resume
-	  @entry = @resume[@section][@key]
 		
     respond_to do |format|
       if @user_profile.save
         format.html { redirect_to edit_resume_url(@user_profile), notice: 'User profile was successfully updated.' }
         format.json { head :no_content }
       else
+			  @entry = @resume[@section][@key]
         format.html { render action: 'edit' }
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
       end
@@ -58,19 +58,22 @@ class ResumeEntriesController < ApplicationController
     def set_user_profile
       @user_profile = UserProfile.find(params[:id])
     end
-		
-    def update_resume
-	    if @section == :experience
-		    permitted_fields = params.require(:entry).permit(:title, :location, :description, :start_date, :end_date)
-		  elsif @section == :education
-			  permitted_fields = params.require(:entry).permit(:school, :location, :field, :degree, 
-			  :description, :start_date, :end_date)
-		  elsif @section == :skills
-			  permitted_fields = params.require(:entry).permit(:title)
-		  end
-		  @user_profile.update_resume_entry(@section,@key,permitted_fields)
-	  end
 
+    def permitted_fields
+	    pf = params.require(:entry)
+	    if @section == :experience || @section == :education
+		    pf[:start_date] = pf[:start_date].values.join(',')
+		    pf[:end_date] = pf[:end_date].values.join(',')
+		  end
+	    if @section == :experience
+		    pf.permit(:title, :location, :description, :start_date, :end_date)
+		  elsif @section == :education
+			  pf.permit(:school, :location, :field, :degree, :description, :start_date, :end_date)
+		  elsif @section == :skills
+			  pf.permit(:title)
+		  end
+	  end
+	
     def associated_user
 	    @user_profile.user
 	  end

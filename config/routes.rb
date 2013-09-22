@@ -23,7 +23,6 @@ Projecto::Application.routes.draw do
 
   # USER PROFILES ################
 
-  #get "profile/:id", to: "user_profiles#show"
   get "user_profiles/:id/resume", to: 'resume#show', as: :resume
   get "user_profiles/:id/resume/edit", to: 'resume#edit', as: :edit_resume
 
@@ -53,7 +52,7 @@ Projecto::Application.routes.draw do
 
   # PROJECTS AND ASSOCIATED ####################################
 
-  resources :projects, shallow: true do
+  resources :projects, shallow: true, except: [:show] do
 		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
 		resources :news_posts, except: [:create, :new]

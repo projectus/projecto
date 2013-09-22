@@ -1,0 +1,10 @@
+
+
+	<%= render partial: "resume_entries/#{section}_entry", locals: {entry: entry, key: key} %>
+
+	<%= form_tag(edit_resume_entry_path, method: :get) do %>
+	  <%= hidden_field_tag :key, key %>
+	  <%= hidden_field_tag :section, section %>
+	  <%= submit_tag 'Edit', :class=>'btn orange pull-right' %>
+	<% end %>
+

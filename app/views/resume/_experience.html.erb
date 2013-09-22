@@ -1,6 +1,6 @@
-<h4>Experience</h4>
-<% experience.sort.map do |key,entry| %>
-<div class="well well-small box">
+
+<% entries.sort.map do |key,entry| %>
+
   <%= render partial: 'resume_entries/experience_entry', locals: {entry: entry} %>
-</div>
+
 <% end %>

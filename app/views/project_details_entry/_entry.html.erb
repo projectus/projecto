@@ -1,17 +1,11 @@
-<% entry.each do |type,info| %>
+<div class="profile-entry-title">
+  <%= entry[:title] %>
+</div>
 
-    <% unless type == :title %>
-        <div class="profile-entry-content">
-          <%= info %>
-        </div>
+<div class="profile-entry-content">
+  <%= entry[:content] %>
+</div>
 
-    <% else %>
-        <div class="profile-entry-title">
-          <%= info %>
-        </div>
-
-    <% end %>
-  <% end %>
 
 
 

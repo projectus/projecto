@@ -4,14 +4,11 @@
 
          <div class="project-title-image-div">
            <img src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
-
          </div>
-
 
          <div class="project-headers-div">
            <div class="project-title-div">
              <span class="project-title">
-
                <%= associated_project.name %>
              </span>
            </div>
@@ -34,13 +31,13 @@
           <% if user_signed_in? %>
 
           <% end %>
-          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn' %>
+          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
           <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-              <%= submit_tag 'Subscribe', class: 'btn' %>
+              <%= submit_tag 'Subscribe', class: 'btn orange' %>
           <% end %>
 
-         <%= link_to 'Settings', project_path(associated_project), class: 'btn'%>
+         <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn orange'%>
           <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
 
       </div>
@@ -175,17 +172,17 @@
         <div id ="navbarUsers" class="project-users-bar">
           <ul class="nav nav-pills user-tab">
             <li class="active"><a href="#Owner">Owner</a></li>
-            <li><a href="#Admin">Admit</a></li>
-            <li><a href="#Member">Member</a></li>
+            <li><a href="#">Admit</a></li>
+            <li><a href="#">Member</a></li>
           </ul>
-          <div data-spy="scroll" data-target="#navbarUsers" class="scrollspy-users">
-            <h6 id="Owner"><b>Owner:</b></h6>
+
+
             Eric Webster<br>
-            <h6 id="Admin"><b>Admin:</b></h6>
+
             Brian Zhang<br> Brian Zhang<br> Brian Zhang<br> Brian Zhang<br>
-            <h6 id="Member"><b>Member:</b></h6>
+
             Dennis Duan<br> Dennis Duan<br> Dennis Duan<br> Dennis Duan<br> Dennis Duan<br> Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>Dennis Duan<br>
-          </div>
+
         </div>
 
         //-->

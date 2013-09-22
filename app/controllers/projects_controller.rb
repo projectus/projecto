@@ -17,9 +17,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-
-
-
   def index
 	  if params[:cat]
 	    @projects = Project.find_all_by_category(params[:cat].downcase)
@@ -71,7 +68,7 @@ class ProjectsController < ApplicationController
   def update	
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project.profile, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

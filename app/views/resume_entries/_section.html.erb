@@ -1,0 +1,25 @@
+<div class="inner-heading-div">
+  <p>Editing Education
+
+    <%= link_to 'Editing Education', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
+    <%= link_to 'New Education', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
+
+  </p>
+
+</div>
+
+<div class="scroll-splitter"></div>
+
+
+<h4><%= section.capitalize %></h4>
+<div class="well well-small box">
+  <% @resume[section].sort.each do |key,entry| %>
+      <%= render partial: 'resume_entries/editable_entry', locals: {entry: entry, section: section, key: key} %>
+  <% end %>
+  <p>
+    <%= form_tag(new_resume_entry_path(@user_profile), method: :get) do %>
+        <%= hidden_field_tag :section, section %>
+        <%= submit_tag 'New Section', :class=>'btn' %>
+    <% end %>
+  </p>
+</div>

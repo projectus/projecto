@@ -10,7 +10,7 @@ class ProjectDetailsEntryController < ApplicationController
   def new
 	  max_key = @details.keys.max
 	  @key = max_key.nil? ? 'entry_01' : max_key.succ
-	  @entry = ProjectProfile.empty_details_entry_hash(@key)
+	  @entry = ProjectProfile.empty_details_entry
 	end
 	
   # GET /project_profiles/1/edit
@@ -23,7 +23,9 @@ class ProjectDetailsEntryController < ApplicationController
   # PATCH/PUT /project_profiles/1.json
   def update
 	  unless params[:entry].nil?
-      update_details      
+		  permitted_fields = params.require(:entry).permit(:title, :content)
+		  key = params[:key]
+		  @project_profile.update_details_entry(key,permitted_fields)
 	  end
 	
     respond_to do |format|
@@ -54,12 +56,6 @@ class ProjectDetailsEntryController < ApplicationController
 
     def set_project_details
 	    @details = @project_profile.details
-	  end
-		
-    def update_details
-		  permitted_fields = params.require(:entry).permit(:title, :content)
-		  key = params[:key]
-		  @project_profile.update_details_entry(key,permitted_fields)
 	  end
 
     def associated_project
