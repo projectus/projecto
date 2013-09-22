@@ -3,29 +3,29 @@
     <div class="avatar-div">
       <img src="http://0.gravatar.com/avatar/c9941e8b637a76ab683e9d235ccb135d?s=40&d=http%3A%2F%2Fgogreenplus.org%2Fwp-content%2Fthemes%2Ftwentyten%2Fimages%2Fnutsboltsimages%2Fdefaults%2Favatar_220sq.png&r=G" class="img-polaroid box" id="user_avatar">
 
+
+      <div class="user-name">
+        <%= associated_user.username %>
+      </div>
+
+      <div class="" id="card">
+        <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
+      </div>
+
       <div class="action-bar">
 
 
 
-        <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"btn btn-user" %>
 
-        <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"btn btn-user" %>
+              <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
 
-        <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"btn btn-user" %>  <br>
+              <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+
+        <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+
+
       </div>
 
-      <h4>
-        <%= associated_user.username %>
-        <% if current_user == associated_user %>
-          <span style="color: orange;">(you)</span>
-        <% end %>
-      </h4>
-
-      <div class="" id="card">
-
-
-        <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
-      </div>
     </div>
 
     <div class="user-tab-wrapper">
@@ -40,32 +40,16 @@
             <%= link_to 'Subscriptions', user_subscriptions_path(associated_user) %>
           </li>
         </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="tab1">
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>Howdy, I'm in Section 2.</p>
-          </div>
-          <div class="tab-pane" id="tab2">
-            <p>Howdy, I'm in Section 2.</p>
-          </div>
-        </div>
       </div>
 
       <div class="user-tab-content">
-
         <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
       </div>
 
     </div>
 
     <!--
-
-
-
     //-->
-
-
     <!---
     <div class="action-bar">
       <button class="btn">Follow</button>  <br>
@@ -76,7 +60,5 @@
     //-->
   </div>
 
-
-  
 <% end %>
 <%= render template: "layouts/application" %>

@@ -65,6 +65,7 @@
 
 .user-tab-content {
   background: #E4E4E4;
+  //background: #CFE4BD;
   padding: 20px;
 }
 
@@ -78,4 +79,25 @@
   width: 50px !important;
   font-size: 9pt;
   padding: 3px !important;
+}
+
+.user-tab-content .box{
+  //background:#FBF0E2 !important;
+}
+
+.user-name {
+  font-family: 'Francois One',sans-serif !important;
+  font-size: 14pt;
+  text-align: center;
+}
+
+#user_avatar {
+  margin-bottom: 8px;
+}
+
+.full-name {
+  font-family: 'Happy Monkey',cursive;
+  margin: auto;
+  text-align: center;
+
 }
