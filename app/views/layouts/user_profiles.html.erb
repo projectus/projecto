@@ -22,23 +22,14 @@
 
       <div class="action-bar">
 
+              <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"" %>
 
+              <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
 
-        <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+              <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
 
-        <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
-
-        <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>  <br>
       </div>
-
-
-
-
-
-
-
     </div>
-
 
     <div class="user-tab-wrapper">
 
@@ -72,12 +63,7 @@
     </div>
 
     <!--
-
-
-
     //-->
-
-
     <!---
     <div class="action-bar">
       <button class="btn">Follow</button>  <br>
@@ -88,7 +74,5 @@
     //-->
   </div>
 
-
-  
 <% end %>
 <%= render template: "layouts/application" %>
