@@ -1,10 +1,11 @@
-
+<div class="well well-small box">
 
 	<%= render partial: "resume_entries/#{section}_entry", locals: {entry: entry, key: key} %>
 
 	<%= form_tag(edit_resume_entry_path, method: :get) do %>
 	  <%= hidden_field_tag :key, key %>
 	  <%= hidden_field_tag :section, section %>
-	  <%= submit_tag 'Edit', :class=>'btn orange pull-right' %>
+	  <%= image_submit_tag 'http://png.findicons.com/files/icons/1581/silk/16/pencil.png', :class=>'pull-right edit-pencil' %>
 	<% end %>
 
+</div>

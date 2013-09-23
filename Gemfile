@@ -7,6 +7,8 @@ gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+gem "paperclip", "~> 3.0"
+
 # Use Postgresql as the database for Active Record
 gem 'pg'
 

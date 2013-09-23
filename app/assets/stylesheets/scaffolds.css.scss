@@ -125,6 +125,7 @@ textarea {
   clear: both;
   border-bottom: 1px dotted #AAA !important;
   margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -158,6 +159,13 @@ p {
   font-size: 9pt;
   padding: 1px 8px !important;
   font-family: 'Francois One',sans-serif !important;
+}
+
+.btn-standard{
+  width: 90px !important;
+  font-family: 'Francois One',sans-serif !important;
+  height: 30px !important;
+
 }
 
 //--------------------------------------------------------------------------------------

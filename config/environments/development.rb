@@ -41,4 +41,7 @@ Projecto::Application.configure do
       password: "projecto",
       enable_starttls_auto: true
   }
+
+  # imagemagick location for paperclip
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end
