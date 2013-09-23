@@ -1,11 +1,17 @@
 // Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 .projects-container {
   background: #E4E4E4;
   padding: 20px;
+}
+
+
+.project-tabs {
+  float: left;
+  width: 700px;
+
 }
 
 
@@ -79,10 +85,6 @@
    border-top: 1px dotted #666;
 }
 
-.project-box-members {
-
-
-}
 
 
 

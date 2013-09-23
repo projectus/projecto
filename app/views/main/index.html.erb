@@ -1,8 +1,3 @@
-
-<%= render 'layouts/searchbar' %>
-
-
-
 <div id="project-by-category">
   <h4>Browse Project</h4>
 
@@ -14,35 +9,10 @@
     <% end %>
   </ul>
 
-
   <div class="project-div">
-
     <ul>
-
-
     <% @projects.each do |project| %>
-        <li style="list-style-type: none;">
-
-        <div class="project-box">
-          <div class="project-box-inner">
-            <div class="project-image-box"> <%= link_to image_tag("http://postnoon.com/wp-content/uploads/2013/06/Anna-Kendrick-to-star-in-Last-5-Years-musical.jpg", :class=>"project-image-avatar"), project.profile %> </div>
-            <div class="project-detail-bar">
-              <div class="title-font"> <%= link_to project.name, project.profile%> </div>
-              <div class="project-box-owner"> <img class ="project-owner-avatar" src="http://img1.ask.fm/assets/192/120/404/thumb_nano/anna_kendrick_anna_kendrick_10124234_683_983.jpg"> <b><%= project.owner.username %></b> </div>
-              <div class="project-description"> <%= project.description%> </div>
-            </div>
-            <div class="project-action-bar-splitter"></div>
-            <div class="project-action-panel">
-              <ul class="inline">
-                <li class="project-members"> <strong>5</strong> <br><small class="muted">Members</small> </li>
-                <li class="project-subscribers"> <strong>50</strong> <br><small class="muted">Subscribers</small> </li>
-                <li class="project-Subscribe"> <i class="icon-tag"></i> <br><small class="muted">Subscribe</small> </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        </li>
+      <%= render partial: 'projects/display', locals: {project: project} %>
     <% end %>
 
     </ul>

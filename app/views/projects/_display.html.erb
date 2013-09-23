@@ -1,26 +1,20 @@
-<% @projects.each do |project| %>
-    <div class="project-box">
-      <div class="project-image-box">
+<li style="list-style-type: none;">
 
-        <img src="http://findicons.com/files/icons/329/simple/128/closed_folder.png" class="img-polaroid"/>
-      </div>
-
-      <div>
-        <%= project.name %>
-
-      </div>
-      <div class="project-description">
-        <%= project.category.capitalize %>
-        <%= project.description %>
-      </div>
-
-      <div class="project-action-panel">
-        <i class="icon-eye-open"></i>         <%= link_to 'View Profile', project.profile %>
-
-        <i class="icon-user"></i><%= link_to 'Edit', edit_project_path(project) %>
-        <i class="icon-pencil"></i>   <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <i class="icon-trash"></i>
-
-      </div>
+<div class="project-box">
+    <div class="project-image-box"> <%= link_to image_tag("http://postnoon.com/wp-content/uploads/2013/06/Anna-Kendrick-to-star-in-Last-5-Years-musical.jpg", :class=>"project-image-avatar"), project.profile %> </div>
+    <div class="project-detail-bar">
+      <div class="title"> <%= link_to_project_profile(project) %> </div>
+      <img class ="project-owner-avatar" src="http://img1.ask.fm/assets/192/120/404/thumb_nano/anna_kendrick_anna_kendrick_10124234_683_983.jpg"> <b><%= project.owner.username %></b>
+      <div class="project-description"> <%= project.description%> </div>
     </div>
-<% end %>
+    <div class="project-action-bar-splitter"></div>
+    <div class="project-action-panel">
+      <ul class="inline">
+        <li class="project-members"> <strong>5</strong> <br><small class="muted">Members</small> </li>
+        <li class="project-subscribers"> <strong>50</strong> <br><small class="muted">Subscribers</small> </li>
+        <li class="project-Subscribe"> <i class="icon-tag"></i> <br><small class="muted">Subscribe</small> </li>
+      </ul>
+    </div>
+</div>
+
+</li>

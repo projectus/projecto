@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.avatar-div{
+  float: left;
+  margin-right: 40px;
+}
 
 #card{
   float: left;
@@ -9,14 +13,13 @@
   color: #666666 !important;
   font-size: 11pt;
   width: 185px;
-
 }
-
+/*
 #avatar{
   float: left;
   background: #F6F6F6;
 }
-
+*/
 #user_avatar{
   width: 180px !important;
 }
@@ -29,14 +32,9 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
   font-family: 'Denk One',sans-serif;
   color: #666666 !important;
-
-
 }
 
-.avatar-div{
-  float: left;
-  margin-right: 40px;
-}
+
 
 .profile-links{
   float: left;
@@ -46,10 +44,6 @@
 
 .action-bar {
   background: white;
-  /* border: 1px solid #DDD;
-  border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); */
-  //font-family: 'Denk One',sans-serif;
   color: #000 !important;
   width: 180px;
 
