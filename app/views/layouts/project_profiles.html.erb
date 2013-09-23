@@ -44,33 +44,24 @@
 
     </div>
 
-    <div class="project-content">
+    <div class="project-tabs">
+      <ul class="nav nav-pills project-tab">
+        <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'Details', project_details_path(associated_project.profile) %></li>
+        <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', project_news_posts_path(associated_project) %></li>
+        <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
+        <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+        <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
+        <li><a>Discussion Board (private)</a></li>
+      </ul>
 
-      <div class="project-tabs">
-
-        <ul class="nav nav-pills project-tab">
-          <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'Details', project_details_path(associated_project.profile) %></li>
-          <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', project_news_posts_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
-          <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-          <li><a>Discussion Board (private)</a></li>
-
-        </ul>
-
-        <div class="projects-container">
-          <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
-        </div>
-
+      <div class="projects-content">
+        <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
       </div>
-
 
       <div class="project-users-bar">
         <ul class="nav nav-pills user-tab">
-
           <li class="active"><a href="#">Users</a></li>
           <li><a href="#">Watchers</a></li>
-
         </ul>
 
         <div class="user-container">
@@ -87,10 +78,7 @@
             Admin
           </div>
         </div>
-
-    </div>
-
-
+      </div>
     </div>
 
 <% end %>

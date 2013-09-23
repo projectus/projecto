@@ -2,45 +2,6 @@
 // They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.projects-container {
-  background: #E4E4E4;
-  padding: 20px;
-}
-
-.project-action-div { 
-	float: right; 
-	width: 80px; 
-}
-
-.project-div {
-  background: #E4E4E4;
-  padding: 20px;
-}
-
-.project-tabs {
-  float: left;
-  width: 700px;
-
-}
-
-.project-tab li a{
-  margin-bottom: 0px;
-}
-
-.project-tab li.active a{
-  background: #E4E4E4 !important;
-  color: #000 !important;
-}
-
-.project-users-bar li a{
-  margin-bottom: 0px;
-}
-
-.project-users-bar li.active a{
-  background: #E4E4E4 !important;
-  color: #000 !important;
-}
-
 .heading-buttons {
   float: right;
 }
@@ -58,33 +19,10 @@
   text-decoration: none;
   font: 14px/1.286 "Lucida Grande","Lucida Sans Unicode","DejaVu Sans",Lucida,Arial,Helvetica,sans-serif;
   font-size: 8pt;
-}
 
-.button-gray a:hover {
-  text-decoration: none;
-}
-
-
-
-.profile-entry-title, .profile-entry-content {
-  background: #FFF;
-}
-
-.profile-entry {
-  margin-bottom: 15px;
-}
-
-.profile-entry-title {
-  float: left;
-  padding: 5px;
-  color: #919191;
-  font-weight: bold;
-  border-bottom: 1px dotted #A0A0A0;
-}
-
-.profile-entry-content {
-  padding: 5px;
-  clear: both;
+	 a:hover {
+	  text-decoration: none;
+	}
 }
 
 $TotalHeight: 350px; $TotalWidth: 200px;
