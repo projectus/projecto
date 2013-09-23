@@ -5,24 +5,43 @@
 .avatar-div{
   float: left;
   margin-right: 40px;
+
+  #user_avatar{
+    width: 180px !important;
+    margin-bottom: 8px;
+  }
+
+  .user-name {
+    font-family: 'Francois One',sans-serif !important;
+    font-size: 14pt;
+    text-align: center;
+  }
+
+  #card{
+    float: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    color: #666666 !important;
+    font-size: 11pt;
+    width: 185px;
+  }
+  .action-bar {
+    background: white;
+    color: #000 !important;
+    width: 180px;
+  }
 }
 
-#card{
-  float: left;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
-  color: #666666 !important;
-  font-size: 11pt;
-  width: 185px;
+.user-tab-wrapper {
+  float: right;
+  width: 710px;
+
+  .tabbable {
+    clear: both
+  }
 }
-/*
-#avatar{
-  float: left;
-  background: #F6F6F6;
-}
-*/
-#user_avatar{
-  width: 180px !important;
-}
+
+
+
 
 .sidebox {
   background: white;
@@ -42,12 +61,7 @@
   width: 180px;
 }
 
-.action-bar {
-  background: white;
-  color: #000 !important;
-  width: 180px;
 
-}
 
 .action-bar button{
   margin-bottom: 10px;
@@ -56,6 +70,4 @@
 
 
 
-.tabbable {
-  clear: both
-}
+
