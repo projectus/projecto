@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3858718f-9d9a-4827-ba34-bf5ff8725eda" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projecto.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379903679371" ignored="false" />
-    <file path="/user_profiles.html.erb" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379900218282" ignored="false" />
+    <file path="/user_profiles.html.erb" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904918438" ignored="false" />
     <file path="/user_profiles.css.scss" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379900919386" ignored="false" />
     <file path="/a.dummy" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379901424902" ignored="false" />
-    <file path="/*.regexp" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904099562" ignored="false" />
+    <file path="/*.regexp" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904997313" ignored="false" />
     <file path="/comments.css.scss" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379903273972" ignored="false" />
-    <file path="$PROJECT_DIR$/log/development.log" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904389884" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +36,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user_profiles.css.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user_profiles.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
+            <state line="42" column="38" selection-start="780" selection-end="780" vertical-scroll-proportion="0.47580644">
               <folding />
             </state>
           </provider>
@@ -44,7 +48,7 @@
       <file leaf-file-name="user.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="62" column="0" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -53,16 +57,16 @@
       <file leaf-file-name="user_profiles.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="26" selection-start="56" selection-end="56" vertical-scroll-proportion="-0.625">
+            <state line="25" column="101" selection-start="1754" selection-end="1754" vertical-scroll-proportion="-15.625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resume_entries.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb">
+      <file leaf-file-name="application.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
+            <state line="193" column="21" selection-start="3647" selection-end="3647" vertical-scroll-proportion="-9.258064">
               <folding />
             </state>
           </provider>
@@ -91,9 +95,11 @@
         <option value="$PROJECT_DIR$/app/views/comments/_errors.html.erb" />
         <option value="$PROJECT_DIR$/app/views/comments/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/comments.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/user.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
       </list>
     </option>
   </component>
@@ -392,42 +398,58 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="1" selection-start="839" selection-end="839" vertical-scroll-proportion="0.14928426" />
+        <state line="58" column="1" selection-start="839" selection-end="839" vertical-scroll-proportion="0.14928426">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/messages.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/_errors.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="103" selection-start="164" selection-end="164" vertical-scroll-proportion="0.06451613" />
+        <state line="2" column="103" selection-start="164" selection-end="164" vertical-scroll-proportion="0.06451613">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="195" selection-end="195" vertical-scroll-proportion="-4.375" />
+        <state line="7" column="31" selection-start="195" selection-end="195" vertical-scroll-proportion="-4.375">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/_new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="20" selection-start="46" selection-end="46" vertical-scroll-proportion="0.06451613" />
+        <state line="2" column="20" selection-start="46" selection-end="46" vertical-scroll-proportion="0.06451613">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/comments.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="36" selection-start="872" selection-end="872" vertical-scroll-proportion="0.50873363" />
+        <state line="46" column="36" selection-start="872" selection-end="872" vertical-scroll-proportion="0.50873363">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="36" selection-start="116" selection-end="116" vertical-scroll-proportion="0.09677419" />
+        <state line="3" column="36" selection-start="116" selection-end="116" vertical-scroll-proportion="0.09677419">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_request_info.css.scss">
@@ -444,27 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="5" selection-start="4639" selection-end="4643" vertical-scroll-proportion="-0.28834355">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/resume.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -472,16 +473,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="26" selection-start="56" selection-end="56" vertical-scroll-proportion="-0.625">
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.0">
+        <state line="62" column="0" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="101" selection-start="1754" selection-end="1754" vertical-scroll-proportion="-15.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="193" column="21" selection-start="3647" selection-end="3647" vertical-scroll-proportion="-9.258064">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="38" selection-start="780" selection-end="780" vertical-scroll-proportion="0.47580644">
           <folding />
         </state>
       </provider>
