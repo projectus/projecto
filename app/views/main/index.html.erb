@@ -5,7 +5,7 @@
   <ul class="nav nav-pills project-tab">
     <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
     <% Project.categories.each do |cat| %>
-    <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat), :remote => true %></li>
+    <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat) %></li>
     <% end %>
   </ul>
 

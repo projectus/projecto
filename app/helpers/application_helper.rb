@@ -49,4 +49,12 @@ module ApplicationHelper
 			x + ' is no longer with ' + y + '!'
 		end
 	end
+	
+	def user_avatar_url(user,type=:default)
+		if user.profile.avatar.nil?
+      'site/avatar.png'
+    else	    
+      user.profile.avatar.image.url(type)
+    end
+	end
 end

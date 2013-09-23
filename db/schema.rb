@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922184708) do
+ActiveRecord::Schema.define(version: 20130923162951) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
     t.string   "species"
@@ -21,16 +24,6 @@ ActiveRecord::Schema.define(version: 20130922184708) do
   end
 
   add_index "activities", ["activity_feed_id"], name: "index_activities_on_activity_feed_id", using: :btree
-
-  create_table "activity_entries", force: true do |t|
-    t.string   "headline"
-    t.string   "species"
-    t.integer  "activity_feed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "activity_entries", ["activity_feed_id"], name: "index_activity_entries_on_activity_feed_id", using: :btree
 
   create_table "activity_feeds", force: true do |t|
     t.integer  "subscribable_id"
@@ -221,6 +214,16 @@ ActiveRecord::Schema.define(version: 20130922184708) do
 
   add_index "tasks", ["poster_id"], name: "index_tasks_on_poster_id", using: :btree
   add_index "tasks", ["task_group_id"], name: "index_tasks_on_task_group_id", using: :btree
+
+  create_table "user_avatars", force: true do |t|
+    t.integer  "gallery_image_id"
+    t.integer  "user_profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_avatars", ["gallery_image_id"], name: "index_user_avatars_on_gallery_image_id", using: :btree
+  add_index "user_avatars", ["user_profile_id"], name: "index_user_avatars_on_user_profile_id", using: :btree
 
   create_table "user_profiles", force: true do |t|
     t.text     "card_hash"

@@ -76,5 +76,6 @@ class User < ActiveRecord::Base
       profile = build_profile
       profile.generate_empty_resume
       profile.generate_empty_card(email: email)
+      profile.generate_empty_avatar
     end
 end

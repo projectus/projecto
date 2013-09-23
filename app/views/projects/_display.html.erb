@@ -1,11 +1,11 @@
 <li style="list-style-type: none;">
 
 <div class="project-box">
-    <div class="project-image-box"><%= link_to image_tag("http://postnoon.com/wp-content/uploads/2013/06/Anna-Kendrick-to-star-in-Last-5-Years-musical.jpg", :class=>"project-image-avatar"), project.profile %> </div>
+    <div class="project-image-box"><%= link_to_project_profile project, image_tag('site/anna.jpg', class: 'project-image-avatar') %> </div>
     <div class="project-detail-bar">
       <div class="title"> <%= link_to_project_profile(project) %></div>
-      <img class="project-owner-avatar" src="http://img1.ask.fm/assets/192/120/404/thumb_nano/anna_kendrick_anna_kendrick_10124234_683_983.jpg">
-      <b><%= project.owner.username %></b>
+      <%= link_to_user_profile project.owner, image_tag(user_avatar_url(project.owner,:thumb), class: 'project-owner-avatar') %>
+      <b><%= link_to_user_profile(project.owner) %></b>
       <div class="project-description"> <%= project.description%></div>
     </div>
     <div class="project-action-bar-splitter"></div>

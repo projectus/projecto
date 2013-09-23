@@ -1,11 +1,17 @@
 class UserProfile < ActiveRecord::Base
   belongs_to :user
 
+  has_one :user_avatar
+
   # Make sure every user profile has a user
   validates :user, presence: true
 
   validate :resume_keys_are_formatted_correctly
 
+  def avatar
+	  user_avatar.gallery_image
+	end
+	
   def resume
 	  eval self.resume_hash
 	end
@@ -34,7 +40,11 @@ class UserProfile < ActiveRecord::Base
 			{ :title => "e.g. Ruby on Rails" }
 	  end
 	end
-		
+
+  def generate_empty_avatar(defaults={})
+		build_user_avatar	
+	end
+			
   def generate_empty_resume(defaults={})
 		resume = {}
 		resume[:experience] = {:entry_01 => UserProfile.empty_resume_entry(:experience)}
