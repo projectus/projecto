@@ -39,6 +39,11 @@ div {
 	padding:    0.5em;
 }
 
+.alert, .alert-success {
+  margin-top: 30px !important;
+  margin: auto !important;
+}
+
 #notice {
 	background: lightblue;
 	color:      green;
@@ -73,3 +78,94 @@ div {
     list-style: square;
   }
 }
+
+/* Removes focus outline of unimportant things, like the user dropdown in the navbar */
+
+*:focus {
+  outline: none;
+}
+
+#alerts {
+  margin: 0;
+}
+
+.table {
+  background: white !important;
+}
+
+// The content area of the page
+
+#content {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.box {
+  box-shadow: 2px 2px 2px #d4d4d4;
+  background: white;
+  border: 1px solid #BBB;
+  background-color: #FFF;
+  border-radius: 0;
+}
+
+input {
+  border-radius: 0 !important;
+}
+
+textarea {
+  border-radius: 0 !important;
+}
+
+#scroll {
+  padding-top: 41px;
+  margin: auto;
+}
+
+.scroll-splitter {
+  clear: both;
+  border-bottom: 1px dotted #AAA !important;
+  margin-top: 0.5em !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Denk One', sans-serif !important;
+}
+
+p {
+  font-family: 'Francois One', sans-serif !important;
+}
+
+.space-less {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+// Linked button styles -------------------------------------------------------
+
+.btn a.btn {
+  border-radius: none !important;
+}
+
+.btn-group a:first-child {
+  border-radius: 5px 0px 0px 5px !important;
+}
+
+.btn-group a:nth-child(2) {
+  border-radius: 0px 5px 5px 0px !important;
+}
+
+.btn-inner-small{
+  font-size: 9pt;
+  padding: 1px 8px !important;
+  font-family: 'Francois One',sans-serif !important;
+}
+
+//--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

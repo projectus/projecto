@@ -1,8 +1,12 @@
+
+
+
+
 <%= form_for(@invitation) do |f| %>
   <%= render partial: 'errors' %>
 
   <div class="row-fluid">
-    <h4>Invite me to work on</h4>
+
 		<%= f.select(:project_id, current_user.owned_projects.collect {|p| [ p.name, p.id ] }) %>
   </div>
  
@@ -14,6 +18,8 @@
   <%= f.hidden_field :invited_user_id %>
   
   <div class="actions">
-    <%= f.submit 'Invite', class: 'btn' %>
+    <%= f.submit 'Invite', class: 'btn btn-inner-small' %>
+
+    <%= link_to 'Cancel', associated_user.profile, :class => "btn btn-inner-small" %>
   </div>
 <% end %>
