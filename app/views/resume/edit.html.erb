@@ -1,15 +1,6 @@
-
+<%= link_to 'Back', resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
 
 <%= render partial: 'resume_entries/section', locals: {section: :education} %>
 <%= render partial: 'resume_entries/section', locals: {section: :skills} %>
 <%= render partial: 'resume_entries/section', locals: {section: :experience} %>
 
-
-<p>
-<%= link_to 'Back', resume_path(@user_profile) %>
-</p>
-
-</div>
-
-
-<%= link_to 'Done Editing', resume_path(@user_profile), :class=>'btn' %>
