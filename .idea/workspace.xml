@@ -63,6 +63,7 @@
     <file path="/resume.css.scss" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379876772576" ignored="false" />
     <file path="/resume_entries.html.erb" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379877572444" ignored="false" />
     <file path="/resume.html.erb" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379877742554" ignored="false" />
+    <file path="/_searchbar.html.erb" changelist="2b348b0e-927f-410e-87cf-916e301cdcf5" time="1379899031091" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,10 +97,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_profiles.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user_profiles.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="42" selection-start="367" selection-end="367" vertical-scroll-proportion="-0.004901961">
+            <state line="38" column="13" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scaffolds.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="192" column="1" selection-start="3763" selection-end="3763" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/main/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="2" selection-start="96" selection-end="96" vertical-scroll-proportion="-5.0">
+              <folding>
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_searchbar.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_searchbar.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="3" selection-start="632" selection-end="632" vertical-scroll-proportion="0.86734694">
               <folding />
             </state>
           </provider>
@@ -115,14 +145,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/main/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/project_profiles.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/projects.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/project_profiles.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" />
         <option value="$PROJECT_DIR$/app/views/resume/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/resume_entries/_editable_entry.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/resume.css.scss" />
@@ -131,6 +157,10 @@
         <option value="$PROJECT_DIR$/app/views/layouts/resume.html.erb" />
         <option value="$PROJECT_DIR$/app/views/resume_entries/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/resume_entries/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/main/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_searchbar.html.erb" />
       </list>
     </option>
   </component>
@@ -1007,27 +1037,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/resume_entries/_education_fields.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/resume.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="2" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="40" selection-start="0" selection-end="2316" vertical-scroll-proportion="-7.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/resume_entries/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1112,9 +1121,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="1" selection-start="3763" selection-end="3763" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="42" selection-start="367" selection-end="367" vertical-scroll-proportion="-0.004901961">
+        <state line="38" column="13" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="2" selection-start="96" selection-end="96" vertical-scroll-proportion="-5.0">
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_searchbar.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="3" selection-start="632" selection-end="632" vertical-scroll-proportion="0.86734694">
           <folding />
         </state>
       </provider>
