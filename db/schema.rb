@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130918020539) do
+ActiveRecord::Schema.define(version: 20130922184708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,37 @@ ActiveRecord::Schema.define(version: 20130918020539) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "galleries", force: true do |t|
+    t.integer  "showcasable_id"
+    t.string   "showcasable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "galleries", ["showcasable_id", "showcasable_type"], name: "index_galleries_on_showcasable_id_and_showcasable_type", unique: true, using: :btree
+
+  create_table "gallery_folders", force: true do |t|
+    t.integer  "gallery_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "gallery_folders", ["gallery_id"], name: "index_gallery_folders_on_gallery_id", using: :btree
+
+  create_table "gallery_images", force: true do |t|
+    t.integer  "gallery_folder_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "gallery_images", ["gallery_folder_id"], name: "index_gallery_images_on_gallery_folder_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.string   "title"
@@ -213,4 +244,5 @@ ActiveRecord::Schema.define(version: 20130918020539) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
 end
