@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3858718f-9d9a-4827-ba34-bf5ff8725eda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="3858718f-9d9a-4827-ba34-bf5ff8725eda" name="Default" comment="" />
     <ignored path="projecto.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379903679371" ignored="false" />
@@ -39,7 +32,7 @@
       <file leaf-file-name="user_profiles.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="38" selection-start="780" selection-end="780" vertical-scroll-proportion="0.47580644">
+            <state line="39" column="43" selection-start="776" selection-end="776" vertical-scroll-proportion="0.19354838">
               <folding />
             </state>
           </provider>
@@ -503,7 +496,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="38" selection-start="780" selection-end="780" vertical-scroll-proportion="0.47580644">
+        <state line="39" column="43" selection-start="776" selection-end="776" vertical-scroll-proportion="0.19354838">
           <folding />
         </state>
       </provider>
