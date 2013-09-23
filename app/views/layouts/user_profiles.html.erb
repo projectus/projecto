@@ -7,11 +7,11 @@
       <div id="card">
         <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
       </div>
-        <div class="action-bar">
-            <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
-            <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
-            <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
-        </div>
+      <div class="action-bar">
+        <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+        <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+        <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
+      </div>
     </div>
     <div class="user-tab-wrapper">
       <div class="tabbable"> <!-- Only required for left/right tabs -->

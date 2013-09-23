@@ -234,7 +234,6 @@
   text-shadow: 1px 1px 0px #FFFFFF;
 }
 
-
 .title-font{
   font-family: 'Francois One',sans-serif !important;
 }
@@ -245,68 +244,10 @@
 
 .user-tabs li.active a {
   background: #E4E4E4 !important;
-  //background: #CFE4BD !important;
 }
 
 // -----------------------------------------------
 
-$TotalHeight: 350px; $TotalWidth: 200px;
-
-.project-box { 
-	height: $TotalHeight; 
-	width: $TotalWidth; 
-	background-color: #FFF; 
-	border-radius: 5px; 
-	box-shadow: 1px 1px 1px #c3c3c3; 
-	padding: 4px;
-	
-	.project-image-box{ 
-		margin: 2px; 
-		height: $TotalHeight*0.44; 
-	}
-	
-	.project-detail-bar { 
-		height: $TotalHeight*0.44;
-		
-		.title { 
-			margin-bottom: 3px; 
-		}
-	}
-}
-
-.project-description { 
-	height: $TotalHeight*0.25; 
-	margin-top: 3px; 
-	font-size: 8pt;
-  line-height:15px;
-  text-overflow: ellipsis; 
-  overflow: hidden;
-}
-
-.project-action-panel { 
-	font-size: 9pt; 
-	height: $TotalHeight*0.12; 
-}
-
-.project-image-avatar { 
-	height: $TotalHeight*0.43; 
-	width: $TotalWidth*0.98; 
-}
-
-.project-action-div { 
-	float: right; 
-	width: 80px; 
-}
-
-.project-owner-div { 
-	font-size: 13pt; 
-	margin-bottom: 5px; 
-}
-
-.project-div {
-  background: #E4E4E4;
-  padding: 20px;
-}
 
 @import "bootstrap";
 
