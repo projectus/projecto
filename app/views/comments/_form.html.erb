@@ -5,18 +5,13 @@
     <div class="comment-input">
       <%= f.text_area :content %>
     </div>
-
     <div class="comment-avatar">
       <img src="http://www.thegoodblog.com.au/assets/avatar-placeholder-64x59.png" /><br>
       <%= f.submit 'Comment', class: 'btn' %>
     </div>
-
   </div>
-
-
-  <div class="field">
+  <div>
     <%= f.hidden_field :project_id %>
   </div>
-
 <% end %>
 

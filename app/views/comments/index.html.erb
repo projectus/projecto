@@ -2,32 +2,21 @@
 
 <% @comments.includes(user: :profile).each do |comment| %>
     <div class="single-comment-div">
-
       <div class="single-comment-inner">
-        <div class="avatar">
+        <div>
           <img src="http://cias.rit.edu/media/images/default-avatar.jpg" />
         </div>
         <div class="comment-content">
-
           <%= comment.content %>
-
           <br>
           by: <%= link_to comment.user.username, comment.user.profile %>
           <%= link_to 'Edit', edit_comment_path(comment) %>
           <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
-
       </div>
-
-
     </div>
-
     <div style="clear: both; height: 10px;"></div>
 <% end %>
-
-
 <div class="scroll-splitter" id="final-comment-splitter"></div>
-
-
 <br>
 
