@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  showcasable_id: 1
+  showcasable_type: MyString
+
+two:
+  showcasable_id: 1
+  showcasable_type: MyString

@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, class_name: 'UserProfile', dependent: :destroy
 
-  has_many :activity_references, as: :referenceable, dependent: :destroy
+  #has_many :activity_references, as: :referenceable, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :activity_feeds, through: :subscriptions
   has_many :activities, through: :activity_feeds
@@ -76,6 +76,5 @@ class User < ActiveRecord::Base
       profile = build_profile
       profile.generate_empty_resume
       profile.generate_empty_card(email: email)
-      #profile.save!
     end
 end

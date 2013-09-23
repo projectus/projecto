@@ -4,9 +4,11 @@ class Project < ActiveRecord::Base
 	
   # Associations ################################
 
+  has_one  :gallery, as: :showcasable, dependent: :destroy
+
   has_one  :activity_feed, as: :subscribable, dependent: :destroy
   has_many :subscriptions, through: :activity_feed
-  has_many :activity_references, as: :referenceable, dependent: :destroy
+  #has_many :activity_references, as: :referenceable, dependent: :destroy
 
 	has_many :collaborations, dependent: :destroy
 	has_many :users, through: :collaborations
@@ -88,7 +90,6 @@ class Project < ActiveRecord::Base
     def make_empty_profile
       profile = build_profile
       profile.generate_empty_details
-      #profile.save!
     end
 
     # Subscribe owner to his project
@@ -103,6 +104,5 @@ class Project < ActiveRecord::Base
 		
 		def make_default_task_group
 		  task_groups.build(name: 'General')
-		  #task_group.save!
 		end	
 end
