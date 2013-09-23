@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130922184708) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "activities", force: true do |t|
     t.string   "species"
     t.integer  "activity_feed_id"
@@ -24,6 +21,16 @@ ActiveRecord::Schema.define(version: 20130922184708) do
   end
 
   add_index "activities", ["activity_feed_id"], name: "index_activities_on_activity_feed_id", using: :btree
+
+  create_table "activity_entries", force: true do |t|
+    t.string   "headline"
+    t.string   "species"
+    t.integer  "activity_feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activity_entries", ["activity_feed_id"], name: "index_activity_entries_on_activity_feed_id", using: :btree
 
   create_table "activity_feeds", force: true do |t|
     t.integer  "subscribable_id"
