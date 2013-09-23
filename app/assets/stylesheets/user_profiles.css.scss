@@ -17,6 +17,12 @@
     text-align: center;
   }
 
+  .full-name {
+    font-family: 'Happy Monkey',cursive;
+    margin: auto;
+    text-align: center;
+  }
+
   #card{
     float: left;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
@@ -35,38 +41,37 @@
   float: right;
   width: 710px;
 
-  .tabbable {
-    clear: both
+  .user-tabs li.active a {
+    background: #E4E4E4 !important;
+  }
+
+  .user-tab-content {
+    background: #E4E4E4;
+    padding: 20px;
   }
 }
 
+.edit-contact-card-div {
+  width: 100%;
 
+  .edit-contact-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #DDD;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    font-family: 'Denk One',sans-serif;
+    color: #666666 !important;
+    float: left;
+    margin-right: 30px;
+  }
+}
 
-
-.sidebox {
-  background: white;
-  padding: 12px;
-  border: 1px solid #DDD;
-  border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-  font-family: 'Denk One',sans-serif;
-  color: #666666 !important;
+.edit-resume-div {
+  clear: both;
 }
 
 
-
-.profile-links{
-  float: left;
-  margin-right: 40px;
-  width: 180px;
-}
-
-
-
-.action-bar button{
-  margin-bottom: 10px;
-
-}
 
 
 

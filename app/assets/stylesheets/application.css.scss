@@ -183,18 +183,21 @@
 // -------------------------------------------------------------------------
 
 .tabbable {
+	clear: both;
+  
 	li {
 		a:hover {
 		  background: orange !important;
 		}
   }
+
 	.tab-content {
 	  background: #EDEDED;
 	}
+	
 	ul.nav-tabs {
 	  margin-bottom: 0 !important;
 	}
-
 }
 
 .heading-div {
@@ -240,9 +243,7 @@
   margin-left: 20px !important;
 }
 
-.user-tabs li.active a {
-  background: #E4E4E4 !important;
-}
+
 
 // -----------------------------------------------
 
