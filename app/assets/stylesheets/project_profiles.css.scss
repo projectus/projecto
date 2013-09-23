@@ -71,22 +71,22 @@
 	  background: #E4E4E4;
 	  padding: 20px;
 	}
+}
 
-	.project-users-bar {	
-		float: right;
-	  width: 200px;
+.project-users-bar {
+  float: right;
+  width: 200px;
 
-		li {
-			a {
-	      margin-bottom: 0;
-	    }
-	  }
+  li {
+    a {
+      margin-bottom: 0;
+    }
+  }
 
-		li.active a{
-		  background: #E4E4E4 !important;
-		  color: #000 !important;
-		}
-	}	
+  li.active a{
+    background: #E4E4E4 !important;
+    color: #000 !important;
+  }
 }
 
 // End Project-profile content tabs -------------------------------------------
