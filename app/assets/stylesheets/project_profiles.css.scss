@@ -2,55 +2,94 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Project Title Bar ------------------------------------------------
+
+.project-title-bar{
+  height: 100px;
+  margin-bottom: 20px;
+
+  .project-title-image-div {
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  .project-headers-div{
+    float: left;
+    width: 640px;
+
+    .project-title-div {
+      margin: 8px 0px;
+
+      .project-title {
+        font-family: 'Happy Monkey', cursive;
+        text-transform: capitalize;
+        font-size: 22pt;
+        color: #333;
+        margin-top: 20px;
+      }
+    }
+
+    .project-owner-div {
+      font-size: 13pt;
+      margin-bottom: 5px;
+    }
+
+  }
+
+  .project-action-div{
+    float: right;
+    width: 80px;
+
+    a{
+      width: 70px !important;
+      margin-bottom: 5px;
+    }
+  }
+
+
+}
+
+// End Project Title Bar --------------------------------------------
+
+// Project-profile content tabs
+
+.project-content {
+
+  clear: both;
+
+  .project-tabs {
+    float: left;
+    width: 700px;
+
+    .project-tab li.active a {
+      text-shadow: #fff 0 1px 0;
+    }
+  }
+}
+
+.project-tab li a {
+  color: #888 !important;
+  font-size: 9pt;
+}
+
+// End Project-profile content tabs -------------------------------------------
+
+// Project-profile user bar tabs
+
+.project-users-bar {
+  float: right;
+  width: 200px;
+
+}
+
+// End Project-profile user bar tabs
+
+
 .nav-pills > li > a {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-}
-
-.project-logo {
-  width: 300px;
-}
-
-.project-logo-div {
-  float: left;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.logo-top {
-  background: #E2E2E2;
-  padding: 5px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-.project-info-box {
-  float: right;
-  width: 570px;
-  height: 190px;
-  border-radius: 8px;
-  padding: 15px;
-
-}
-
-.info-row {
-  background: #FFF6EF;
-  padding: 4px;
-  margin-bottom: 10px;
-}
-
-.info-row .info-heading {
-  float: left;
-}
-
-.project-content {
-  clear: both;
-}
-
-.project-users-bar {
-      float: right;
-
 }
 
 .news-post-div {
@@ -62,7 +101,6 @@
   margin-bottom: 20px;
 
 }
-
 
 
 .nav-pills > li > a {
@@ -80,9 +118,6 @@
   border: 1px solid #999;
 }
 
-.projects-container {
-
-}
 
 .projects-container form {
   margin: 0px !important;
@@ -94,23 +129,13 @@
    margin: 0px 20px;
 }
 
-.project-tab li a {
-  color: #888 !important;
-  font-size: 9pt;
-}
-
 .user-container {
   min-height: 200px;
   background: #E4E4E4;
   padding-left: 11px;
 }
 
-.btn-standard{
-  width: 90px !important;
-  font-family: 'Francois One',sans-serif !important;
-  height: 30px !important;
 
-}
 
 .scrollspy-users {
   height: 400px;
@@ -119,9 +144,9 @@
   position: relative;
 }
 
-.project-action-div a{
-  width: 70px !important;
-}
+
+
+
 
 .project-action-div input.btn[type="submit"] {
   width: 96px !important;

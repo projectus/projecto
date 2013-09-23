@@ -12,34 +12,136 @@
  *= require_tree .
  */
 
-@import "bootstrap";
+// NAVBAR Element ------------------------------------------------------------------
 
-/* Removes focus outline of unimportant things, like the user dropdown in the navbar */
-*:focus {
-    outline: none;
+#navbar-inner {
+  box-shadow: 0px 1px 3px #000000;
+
+  #nav-center{
+    width: 1000px;
+    margin: auto;
+
+    .logo {
+      margin-top: 6px;
+      margin-right: -2px;
+    }
+
+    #logo-li {
+      margin-left: 2px !important;
+    }
+  }
+
+  ul.nav {
+    height: 40px;
+    li {
+      margin-left: 8px;
+      margin-right: 8px;
+      padding-top: 1px !important;
+
+      .navbar-about {
+        width: 75px;
+      }
+      .navbar-projects {
+        width: 55px;
+      }
+      .navbar-about, .navbar-projects {
+        display: table;
+        line-height: 1.2em;
+        margin-top: 2px;
+        .multiline {
+          text-decoration: none !important;
+          vertical-align: middle;
+          display: table-cell;
+        }
+      }
+      a.white{
+        color: #FFF !important;
+        font-family: 'Merienda One', cursive;
+        font-size: 9pt;
+
+      }
+
+    }
+    .divider-vertical {
+      height: 40px !important;
+    }
+  }
 }
 
-#alerts {
-  margin: 0;
+//---------------------------------------------------------------
+
+// INTRO bar CSS styles
+
+
+#intro-bar{
+
+  background: linear-gradient(to bottom, #748600 0%, #9AC201 100%) repeat scroll 0 0 transparent;
+  height: 190px;
+  box-shadow: 0px 2px 5px #000000;
+
+  .introbar-center{
+    width: 940px;
+    margin: auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    .intro-bar-left {
+      width: 360px;
+      float: left;
+      color: white;
+      .introbar-heading{
+        font-size: 15pt;
+        font-weight: bold;
+        font-family: 'Denk One', sans-serif;
+      }
+
+      .introbar-buttondiv {
+        margin-top: 40px;
+        .button-left {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .intro-bar-right{
+      float: right;
+    }
+  }
 }
 
-.nav-tabs > li > a {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+
+// End Introbar-----------------------------------------------------------------------
+
+// Footer area -----------------------------------
+.footer{
+  background: #000 !important;
+  height: 200px;
+
+  .footer-inner {
+    width: 76em;
+    margin: auto;
+
+    .about-div{
+      float: left;
+      color: #FFF;
+      margin-right: 50px;
+    }
+  }
 }
+
+
+// End Footer area--------------------------------------------------------------------------
+
+
+// About page CSS
+#about-content {
+  margin-left: 2em;
+}
+
+// ENd About page CSS
 
 .square {
   border-radius: 0 !important;
-}
-
-.table {
-  background: white !important;
-}
-
-#content {
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 .hero-unit {
@@ -47,75 +149,16 @@
   border: 1px solid #BBB;
 }
 
-.well {
-	background-color: #FFF;
-	border-radius: 0;
-}
-
-.btn {
-  border-radius: none !important;
-}
-
-/*
-
-
-.btn {
-	border-radius: 0 !important;
-	background-color: #FFF;
-   remove the gradient
-  background-image: none;
-  color: #000;
-}
-
-*/
-
 .hero-unit {
   background-color: #FFF;
 	border-radius: 0;
-}
-
-.orange {
-	background-color: #FF9640;
-	background-image: none;
-}
-
-.footer{
-  background: #000 !important;
-  height: 200px;
-  overflow: scroll;
-}
-
-.box {
-  box-shadow: 2px 2px 2px #d4d4d4;
-  background: white;
-  border: 1px solid #BBB;
-}
-
-input {
-	border-radius: 0 !important;
-}
-
-textarea {
-	border-radius: 0 !important;
-}
-
-#scroll {
-  padding-top: 41px;
-  margin: auto;
-}
-
-.scroll-splitter {
-  border-bottom: 1px solid #BBB;	
-  margin: 1em -1em 1em -1em;
 }
 
 .nav.nav-pills {
 	margin: 0;
 }
 
-.search{
-  margin-left: 0.5em;
-}
+
 
 .divider-vertical {
 	height: 45px !important;
@@ -128,50 +171,9 @@ textarea {
 	border-left: none !important;
 }
 
-.navbar-inner {
-	padding-top: 0;
-	li {
-		padding-top: 4px;
-		margin-left: 8px;
-		margin-right: 8px;
-	}
-}
-
-.navbar-fixed-top {
-  margin: auto;	
-}
-
-
 .sub-nav {
   float: left;
   width: 180px;
-}
-
-#about-content {
-  margin-left: 2em;
-}
-
-#nav-center{
-  width: 76em;
-  margin: auto;
-}
-
-.navbar-about {
-	width: 75px;
-}
-.navbar-projects {
-	width: 55px;
-}
-
-.navbar-about, .navbar-projects {
-	display: table;
-	line-height: 1.2em;
-  margin-top: 2px;
-	.multiline {
-		text-decoration: none !important;
-		vertical-align: middle;
-		display: table-cell;
-	}
 }
 
 .brand{
@@ -179,76 +181,9 @@ textarea {
   font-family: 'Lily Script One', cursive;
 }
 
-
-
-#intro-bar{
-
-  /*
-  background: #CD5219;
-  background: linear-gradient(to bottom, #6AA300 0%, #70A600 100%) repeat scroll 0 0 transparent;   */
-  /*background: #999999; */
-  background: linear-gradient(to bottom, #748600 0%, #9AC201 100%) repeat scroll 0 0 transparent;
-  height: 190px;
-  box-shadow: 0px 2px 5px #000000;
-
-}
-
-.introbar-center{
-  width: 940px;
-  margin: auto;
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
-.intro-bar-left {
-  width: 360px;
-  float: left;
-  color: white;
-}
-
-.introbar-heading{
-  font-size: 15pt;
-  font-weight: bold;
-  font-family: 'Denk One', sans-serif;
-}
-
-.intro-bar-right{
-  float: right;
-}
-
-.divider-nav{
-  background: url("http://cdn.wpbeginner.com/wp-content/themes/wpbv4/images/navborder.png") no-repeat scroll 0 0 transparent;
-  height: 33px;
-  position: relative;
-  width: 5px;
-}
-
-.nav-links a.white{
-  color: #FFF !important;
-  font-family: 'Merienda One', cursive;
-  font-size: 9pt;
-
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Denk One', sans-serif !important;
-}
-
-p {
-  font-family: 'Francois One', sans-serif !important;
-}
-
 .white-toggle {
   color: white !important;
 
-}
-
-.introbar-buttondiv {
-  margin-top: 40px;
-}
-
-.introbar-buttondiv .button-left {
-  margin-right: 10px;
 }
 
 .radio-nav li {
@@ -260,7 +195,11 @@ p {
   list-style-type: none;
 }
 
+// Search bar CSS
 
+.search{
+  margin-left: 0.5em;
+}
 
 #search-div{
   background: #000;
@@ -281,61 +220,16 @@ p {
   font-size: 9pt;
 }
 
-.navbar {
-  box-shadow: 0 1px 0 #4D4D4D outset, 0 2px 3px rgba(0, 0, 0, 0.25) !important;
-}
-
-.about-div{
-  float: left;
-  color: #FFF;
-  margin-right: 50px;
-}
-
-.footer-inner {
-  width: 76em;
-  margin: auto;
-}
-
-.alert, .alert-success {
-  margin-top: 30px !important;
-  margin: auto !important;
-}
-
-.btn-group {
-  background: black !important;
-}
-
-.btn-group a:first-child {
-
-  border-radius: 5px 0px 0px 5px !important;
-}
-
-.btn-group a:nth-child(2) {
-
-  border-radius: 0px 5px 5px 0px !important;
-}
-
 .searchbar {
 
   border-radius: 0px 5px 5px 0px !important;
   background-image: linear-gradient(to bottom, white, #EAEAEA);
 }
 
-#navbar-inner {
-  box-shadow: 0px 1px 3px #000000;
-}
+// -------------------------------------------------------------------------
 
-.navbar .nav {
-  height: 40px !important;
-}
 
-.nav li {
-  padding-top: 1px !important;
-}
 
-.divider-vertical {
-  height: 40px !important;
-}
 
 .tabbable ul.nav-tabs {
   margin-bottom: 0 !important;
@@ -370,13 +264,6 @@ p {
   background-image: linear-gradient(to bottom, white, #EAEAEA) !important;
 }
 
-/*
-.navbar-inverse .navbar-inner {
-  background: #467C3B !important;
-}
-
-*/
-
 .btn-gray {
   background: none repeat scroll 0 0 #828282;
   border-radius: 3px 3px 3px 3px;
@@ -392,31 +279,8 @@ p {
   padding: 20px;
 }
 
-.scroll-splitter {
-  border-bottom: 1px dotted #AAA !important;
-  margin-top: 0.5em !important;
-}
-
-a.btn {
-  border-radius: 0 !important;
-
-}
-
-.scroll-splitter {
-  clear: both;
-}
-
 .taskgroup-table{
   font-size: 9pt;
-}
-
-.logo {
-  margin-top: 6px;
-  margin-right: -2px;
-}
-
-#logo-li {
-  margin-left: 2px !important;
 }
 
 .li-hover-top {
@@ -427,14 +291,6 @@ a.btn {
 
 .dropdown-menu > li > a:hover{
   background: -moz-linear-gradient(top, #3D551B 0%, #4E7023 100%) !important;
-}
-
-.btn-inner-small{
-  font-size: 9pt;
-  padding: 1px 8px !important;
-  font-family: 'Francois One',sans-serif !important;
-
-
 }
 
 .box-details{
@@ -454,10 +310,7 @@ p.pcontent {
   font-family: 'Francois One',sans-serif !important;
 }
 
-.space-less {
-  padding: 0px !important;
-  margin: 0px !important;
-}
+
 
 .resume-list {
   margin-left: 20px !important;
@@ -467,3 +320,40 @@ p.pcontent {
   background: #E4E4E4 !important;
   //background: #CFE4BD !important;
 }
+
+// -----------------------------------------------
+
+$TotalHeight: 350px; $TotalWidth: 200px;
+
+.project-box{ height: $TotalHeight; width: $TotalWidth; background-color: #FFF; border-radius: 5px; box-shadow: 1px 1px 1px #c3c3c3; padding: 4px; }
+
+.project-box:hover { background-color: #FFF; }
+
+.project-image-box{ margin: 2px; height: $TotalHeight*0.44; }
+
+.project-description { height: $TotalHeight*0.25; margin-top: 3px; font-size: 8pt; line-height:15px; text-overflow: ellipsis; overflow: hidden; }
+
+.project-action-panel{ font-size: 9pt; height: $TotalHeight*0.12; } .project-detail-bar{ height: $TotalHeight*0.44; } .title-font{ margin-bottom: 3px; } .project-image-avatar{ height: $TotalHeight*0.43; width: $TotalWidth*0.98; }
+
+
+.project-action-div{ float: right; width: 80px; }
+
+
+.project-title-image-div {
+
+}
+
+.project-owner-div { font-size: 13pt; margin-bottom: 5px; }
+
+
+
+input.btn-inner-small {
+  padding: 1px 8px !important;
+}
+
+@import "bootstrap";
+
+
+
+
+

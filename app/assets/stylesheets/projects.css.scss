@@ -2,52 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.project-box{
-  min-height: 220px;
-  width: 170px;
-  background-color: #FFF;
-  border: 1px solid #666;
-  padding: 4px;
-}
-
-.project-box:hover {
-  background-color: #FFF;
-}
-
-.project-image-box{
-  margin: auto;
-  width: 75%;
-
-
-}
-
-.project-description {
-  font-size: 9pt;
-  line-height: 1.2em;
-}
-
-.project-action-panel{
-  font-size: 9pt;
-}
 
 .projects-container {
   background: #E4E4E4;
   padding: 20px;
-  /*
-
-  border-right: 1px solid #CCC;
-  border-left: 1px solid #CCC;
-  border-right: 1px solid #CCC;
-
-  */
-
 }
 
-.project-tabs {
-  float: left;
-  width: 700px;
-
-}
 
 .project-tab li a{
   margin-bottom: 0px;
@@ -69,42 +29,6 @@
 
 .heading-buttons {
   float: right;
-
-
-}
-
-.project-title {
-  font-family: 'Happy Monkey', cursive;
-  text-transform: capitalize;
-  font-size: 22pt;
-  color: #333;
-  margin-top: 20px;
-}
-
-.project-title-div {
-  margin: 8px 0px;
-}
-
-.project-headers-div{
-  height: 80px;
-  float: left;
-  width: 640px;
-}
-
-.project-title-bar{
-  height: 100px;
-  margin-bottom: 20px;
-}
-
-.project-title-image-div {
-  width: 100px;
-  float: left;
-  margin-right: 20px;
-}
-
-
-.project-tab li.active a {
-  text-shadow: #fff 0 1px 0;
 }
 
 .button-gray {
@@ -126,10 +50,7 @@
   text-decoration: none;
 }
 
-.project-action-div{
-  float: right;
-  width: 80px;
-}
+
 
 .profile-entry-title, .profile-entry-content {
   background: #FFF;
@@ -152,24 +73,7 @@
   clear: both;
 }
 
-.project-title-image-div {
 
-}
-
-.project-owner-div {
-  font-size: 13pt;
-  margin-bottom: 5px;
-}
-
-.project-box-inner {
-
-}
-
-.project-image-box-bottom {
-  height: 5px;
-  border-top: 1px solid #666;
-
-}
 
 .project-action-bar-splitter {
    border-top: 1px dotted #666;
