@@ -45,7 +45,7 @@
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-search"></i></span>
-                <%= text_field_tag :tag, nil, class: 'input-xlarge searchbar', placeholder: 'Search' %>
+                <%= text_field_tag :tag, nil, class: 'input-xlarge', id: 'searchbar', placeholder: 'Search' %>
               </div>
           <% end %>
         </li>
@@ -59,24 +59,7 @@
         <li class="divider-vertical"></li>
         <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-projects"><%= link_to "Start Project", projects_path, :class => "multiline white" %></div></li>
 
-        <!--
-        <li class="dropdown">
-
-          <b class='caret dropdown-toggle white-toggle' data-toggle="dropdown">dd</b>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="nav-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-
-        //-->
         <li class="divider-vertical"></li>
-
 
         <% if user_signed_in? %>
         <li>

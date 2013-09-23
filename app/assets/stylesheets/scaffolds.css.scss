@@ -4,7 +4,6 @@ body {
   line-height: 18px;
 
   background: #FFF;
-  //background-image: image-url("site/hoffman.png") !important;
   margin: 0;
 
   padding-top: 40px;
@@ -98,6 +97,9 @@ div {
 #content {
   margin-top: 2em;
   margin-bottom: 2em;
+  p {
+	  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	}
 }
 
 .box {
