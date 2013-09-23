@@ -46,45 +46,50 @@
       margin-bottom: 5px;
     }
   }
-
-
 }
 
 // End Project Title Bar --------------------------------------------
 
 // Project-profile content tabs
 
-.project-content {
+.project-tabs {
+  float: left;
+  width: 700px;
 
-  clear: both;
-
-  .project-tabs {
-    float: left;
-    width: 700px;
-
-    .project-tab li.active a {
+  .project-tab {
+	  li.active a {
       text-shadow: #fff 0 1px 0;
+	    background: #E4E4E4 !important;
+	    color: #000 !important;
     }
+		li a{
+		  margin-bottom: 0px;
+		}
   }
+
+	.projects-content {
+	  background: #E4E4E4;
+	  padding: 20px;
+	}
 }
-
-.project-tab li a {
-  color: #888 !important;
-  font-size: 9pt;
-}
-
-// End Project-profile content tabs -------------------------------------------
-
-// Project-profile user bar tabs
 
 .project-users-bar {
   float: right;
   width: 200px;
 
+  li {
+    a {
+      margin-bottom: 0;
+    }
+  }
+
+  li.active a{
+    background: #E4E4E4 !important;
+    color: #000 !important;
+  }
 }
 
-// End Project-profile user bar tabs
-
+// End Project-profile content tabs -------------------------------------------
 
 .nav-pills > li > a {
   -webkit-border-radius: 0;
@@ -135,8 +140,6 @@
   padding-left: 11px;
 }
 
-
-
 .scrollspy-users {
   height: 400px;
   width: 180px;
@@ -144,12 +147,33 @@
   position: relative;
 }
 
-
-
-
+.project-action-div { 
+	float: right; 
+	width: 80px; 
+}
 
 .project-action-div input.btn[type="submit"] {
   width: 96px !important;
+}
+
+.details-entry {
+  margin-bottom: 15px;
+
+	.details-entry-title, .details-entry-content {
+	  background: #FFF;
+	  padding: 5px;
+	}
+	
+	.details-entry-title {
+	  float: left;
+	  color: #919191;
+	  font-weight: bold;
+	  border-bottom: 1px dotted #A0A0A0;
+	}
+
+	.details-entry-content {
+	  clear: both;
+	}
 }
 
 

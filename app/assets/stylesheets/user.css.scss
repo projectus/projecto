@@ -12,82 +12,34 @@
   font-family: 'Denk One',sans-serif;
   color: #666666 !important;
   margin-right: 40px;
+
+  input.itext{
+    background: #FEF1E8 !important;
+    border-radius: 7px 7px 7px 7px !important;
+  }
+
+  .btn-orange {
+    background-color: #FF8719 !important;
+    background-image: linear-gradient(to bottom, #FF9D29, #FF6600) !important;
+    min-width: 100px;
+    height: 30px;
+    color: white !important;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-radius: 5px 5px 5px 5px !important;
+    text-shadow: 1px 0 1px rgba(0, 0, 0, 0.75);
+  }
 }
 
 
-.edit-contact-card-div {
-   width: 100%;
-}
 
-.edit-resume-div {
-  clear: both;
-}
 
-.edit-contact-card {
-  background: white;
-  padding: 20px;
-  border: 1px solid #DDD;
-  border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-  font-family: 'Denk One',sans-serif;
-  color: #666666 !important;
-  float: left;
-  margin-right: 30px;
-}
 
-.signup-form-div input.itext{
-  background: #FEF1E8 !important;
-  border-radius: 7px 7px 7px 7px !important;
-}
 
-.btn-orange {
-  background-color: #FF8719 !important;
-  background-image: linear-gradient(to bottom, #FF9D29, #FF6600) !important;
-  min-width: 100px;
-  height: 30px;
-  color: white !important;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  border-radius: 5px 5px 5px 5px !important;
-  text-shadow: 1px 0 1px rgba(0, 0, 0, 0.75);
-}
 
-.user-tab-content {
-  background: #E4E4E4;
-  //background: #CFE4BD;
-  padding: 20px;
-}
 
-.user-tab-wrapper {
-  float: right;
-  width: 710px;
-}
 
-.btn-user{
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  width: 50px !important;
-  font-size: 9pt;
-  padding: 3px !important;
-}
 
-.user-tab-content .box{
-  //background:#FBF0E2 !important;
-}
 
-.user-name {
-  font-family: 'Francois One',sans-serif !important;
-  font-size: 14pt;
-  text-align: center;
-}
-
-#user_avatar {
-  margin-bottom: 8px;
-}
-
-.full-name {
-  font-family: 'Happy Monkey',cursive;
-  margin: auto;
-  text-align: center;
-}

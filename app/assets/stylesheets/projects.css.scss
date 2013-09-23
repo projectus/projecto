@@ -2,39 +2,12 @@
 // They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.projects-container {
-  background: #E4E4E4;
-  padding: 20px;
-}
-
-
-.project-tabs {
-  float: left;
-  width: 700px;
-
-}
-
-
-.project-tab li a{
-  margin-bottom: 0px;
-}
-
-.project-tab li.active a{
-  background: #E4E4E4 !important;
-  color: #000 !important;
-}
-
-.project-users-bar li a{
-  margin-bottom: 0px;
-}
-
-.project-users-bar li.active a{
-  background: #E4E4E4 !important;
-  color: #000 !important;
-}
-
 .heading-buttons {
   float: right;
+}
+
+.project-div {
+  background: #E4E4E4;
 }
 
 .button-gray {
@@ -50,39 +23,62 @@
   text-decoration: none;
   font: 14px/1.286 "Lucida Grande","Lucida Sans Unicode","DejaVu Sans",Lucida,Arial,Helvetica,sans-serif;
   font-size: 8pt;
+
+	 a:hover {
+	  text-decoration: none;
+	}
 }
 
-.button-gray a:hover {
-  text-decoration: none;
-}
+$TotalHeight: 350px; $TotalWidth: 200px;
 
-
-
-.profile-entry-title, .profile-entry-content {
-  background: #FFF;
-}
-
-.profile-entry {
-  margin-bottom: 15px;
-}
-
-.profile-entry-title {
-  float: left;
-  padding: 5px;
-  color: #919191;
-  font-weight: bold;
-  border-bottom: 1px dotted #A0A0A0;
-}
-
-.profile-entry-content {
-  padding: 5px;
-  clear: both;
-}
-
-
-
-.project-action-bar-splitter {
-   border-top: 1px dotted #666;
+.project-box { 
+	height: $TotalHeight; 
+	width: $TotalWidth; 
+	background-color: #FFF; 
+	border-radius: 5px; 
+	box-shadow: 1px 1px 1px #c3c3c3; 
+	padding: 4px;
+	
+	.project-image-box{ 
+		margin: 2px; 
+		height: $TotalHeight*0.44;
+		
+		.project-image-avatar { 
+			height: $TotalHeight*0.43; 
+			width: $TotalWidth*0.98; 
+		}
+	}
+	
+	.project-detail-bar { 
+		height: $TotalHeight*0.44;
+		
+		.title { 
+			margin-bottom: 3px; 
+		}
+		
+		.project-owner-avatar {
+			width: 30px;
+			height: 30px;
+		}
+		
+		.project-description { 
+			height: $TotalHeight*0.25; 
+			margin-top: 3px; 
+			font-size: 8pt;
+		  line-height:15px;
+		  text-overflow: ellipsis; 
+		  overflow: hidden;
+		}
+	}
+	
+	.project-action-bar-splitter {
+	   border-top: 1px dotted #666;
+	}
+	
+	.project-action-panel { 
+		font-size: 9pt; 
+		height: $TotalHeight*0.12; 
+	}
 }
 
 

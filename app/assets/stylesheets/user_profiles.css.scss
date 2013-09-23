@@ -5,57 +5,74 @@
 .avatar-div{
   float: left;
   margin-right: 40px;
+
+  #user_avatar{
+    width: 180px !important;
+    margin-bottom: 8px;
+  }
+
+  .user-name {
+    font-family: 'Francois One',sans-serif !important;
+    font-size: 14pt;
+    text-align: center;
+  }
+
+  .full-name {
+    font-family: 'Happy Monkey',cursive;
+    margin: auto;
+    text-align: center;
+  }
+
+  #card{
+    float: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    color: #666666 !important;
+    font-size: 11pt;
+    width: 185px;
+  }
+  .action-bar {
+    background: white;
+    color: #000 !important;
+    width: 180px;
+  }
 }
 
-#card{
-  float: left;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
-  color: #666666 !important;
-  font-size: 11pt;
-  width: 185px;
-}
-/*
-#avatar{
-  float: left;
-  background: #F6F6F6;
-}
-*/
-#user_avatar{
-  width: 180px !important;
+.user-tab-wrapper {
+  float: right;
+  width: 710px;
+
+  .user-tabs li.active a {
+    background: #E4E4E4 !important;
+  }
+
+  .user-tab-content {
+    background: #E4E4E4;
+    padding: 20px;
+  }
 }
 
-.sidebox {
-  background: white;
-  padding: 12px;
-  border: 1px solid #DDD;
-  border-radius: 7px 7px 7px 7px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-  font-family: 'Denk One',sans-serif;
-  color: #666666 !important;
+.edit-contact-card-div {
+  width: 100%;
+
+  .edit-contact-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #DDD;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    font-family: 'Denk One',sans-serif;
+    color: #666666 !important;
+    float: left;
+    margin-right: 30px;
+  }
 }
 
-
-
-.profile-links{
-  float: left;
-  margin-right: 40px;
-  width: 180px;
-}
-
-.action-bar {
-  background: white;
-  color: #000 !important;
-  width: 180px;
-
-}
-
-.action-bar button{
-  margin-bottom: 10px;
-
+.edit-resume-div {
+  clear: both;
 }
 
 
 
-.tabbable {
-  clear: both
-}
+
+
+
