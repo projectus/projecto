@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3858718f-9d9a-4827-ba34-bf5ff8725eda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/projecto.iml" afterPath="$PROJECT_DIR$/.idea/projecto.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="projecto.iws" />
@@ -14,7 +12,7 @@
     <file path="/a.dummy" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379901424902" ignored="false" />
     <file path="/*.regexp" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904099562" ignored="false" />
     <file path="/comments.css.scss" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379903273972" ignored="false" />
-    <file path="$PROJECT_DIR$/log/development.log" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904148961" ignored="false" />
+    <file path="$PROJECT_DIR$/log/development.log" changelist="3858718f-9d9a-4827-ba34-bf5ff8725eda" time="1379904389884" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <file leaf-file-name="resume_entries.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="16" selection-start="46" selection-end="46" vertical-scroll-proportion="-0.29420084">
+            <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -95,6 +93,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/comments.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/user_profiles.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb" />
       </list>
     </option>
   </component>
@@ -482,7 +481,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/resume_entries.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="46" selection-end="46" vertical-scroll-proportion="-0.29420084">
+        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
