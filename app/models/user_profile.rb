@@ -1,17 +1,13 @@
 class UserProfile < ActiveRecord::Base
   belongs_to :user
 
-  has_one :user_avatar
+  has_one :avatar, as: :avatarable, dependent: :destroy
 
-  # Make sure every user profile has a user
-  validates :user, presence: true
+  # Make sure every user has only one profile
+  validates :user, presence: true, uniqueness: true
 
-  validate :resume_keys_are_formatted_correctly
-
-  def avatar
-	  user_avatar.gallery_image
-	end
-	
+  validate :resume_entry_keys_are_formatted_correctly
+	  	
   def resume
 	  eval self.resume_hash
 	end
@@ -42,7 +38,7 @@ class UserProfile < ActiveRecord::Base
 	end
 
   def generate_empty_avatar(defaults={})
-		build_user_avatar	
+		build_avatar	
 	end
 			
   def generate_empty_resume(defaults={})
@@ -62,12 +58,7 @@ class UserProfile < ActiveRecord::Base
     }
     self.card_hash = contact.inspect
 	end
-				
-	def destroy
-	  generate_empty_resume
-	  generate_empty_card
-	end
-
+	
   def update_contact_card(fields)
 	  card = self.card
     card.update(fields.symbolize_keys)
@@ -91,9 +82,15 @@ class UserProfile < ActiveRecord::Base
 	  self.resume_hash = resume.inspect
 	  save!
 	end
-		
+
+	def destroy
+		generate_empty_resume
+		generate_empty_card
+		generate_empty_avatar
+	end
+						
 	private
-	  def resume_keys_are_formatted_correctly
+	  def resume_entry_keys_are_formatted_correctly
 		  keys = resume.values.map(&:keys).flatten
 		  keys.each do |key|
 			  unless key =~ /entry_(\d\d)/

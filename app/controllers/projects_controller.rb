@@ -65,7 +65,12 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
-  def update	
+  def update
+	  unless params[:project][:image].nil?
+	    gi = @project.gallery.root.images.create!(params.require(:project).permit(:image))
+	    @project.profile.avatar.update_image(gi)
+    end
+	
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project.profile, notice: 'Project was successfully updated.' }

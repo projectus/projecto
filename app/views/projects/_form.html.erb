@@ -33,6 +33,11 @@
     <%= f.text_field :tag_list, autocomplete: :off %>
   </div>
 
+  <div class="field">
+	  <%= label_tag :avatar %>
+	  <%= f.file_field :image %>
+	</div>
+	
   <div class="actions">
     <%= f.submit %>
   </div>

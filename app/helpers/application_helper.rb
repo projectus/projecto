@@ -51,10 +51,18 @@ module ApplicationHelper
 	end
 	
 	def user_avatar_url(user,type=:default)
-		if user.profile.avatar.nil?
+		if user.profile.avatar.image.nil?
       'site/avatar.png'
     else	    
       user.profile.avatar.image.url(type)
+    end
+	end
+	
+	def project_avatar_url(project,type=:default)
+		if project.profile.avatar.image.nil?
+      'site/spotify-logo.png'
+    else	    
+      project.profile.avatar.image.url(type)
     end
 	end
 end

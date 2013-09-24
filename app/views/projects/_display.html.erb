@@ -1,9 +1,9 @@
 <li style="list-style-type: none;">
 
 <div class="project-box">
-    <div class="project-image-box"><%= link_to_project_profile project, image_tag('site/anna.jpg', class: 'project-image-avatar') %> </div>
+    <div class="project-image-box"><%= link_to_project_profile project, image_tag(project_avatar_url(project), class: 'project-image-avatar') %> </div>
     <div class="project-detail-bar">
-      <div class="title"> <%= link_to_project_profile(project) %></div>
+      <div class="title"><%= link_to_project_profile(project) %></div>
       <%= link_to_user_profile project.owner, image_tag(user_avatar_url(project.owner,:thumb), class: 'project-owner-avatar') %>
       <b><%= link_to_user_profile(project.owner) %></b>
       <div class="project-description"> <%= project.description%></div>

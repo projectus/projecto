@@ -1,6 +1,8 @@
 class ProjectProfile < ActiveRecord::Base
   belongs_to :project
 
+  has_one :avatar, as: :avatarable
+
   # Make sure every project profile has a project
   validates :project, presence: true
 
@@ -14,7 +16,11 @@ class ProjectProfile < ActiveRecord::Base
 		{ :title => "e.g. What we're trying to do", 
 			:content => "e.g. Something new" }
 	end
-		
+
+  def generate_empty_avatar
+		build_avatar	
+	end
+			
   def generate_empty_details
 		details = {} 
 	  details[:entry_01] = ProjectProfile.empty_details_entry 

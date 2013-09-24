@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  avatarable_id: 1
+  avatarable_type: MyString
   gallery_image_id: 
-  user_id: 
 
 two:
+  avatarable_id: 1
+  avatarable_type: MyString
   gallery_image_id: 
-  user_id: 

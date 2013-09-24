@@ -21,12 +21,11 @@ class UserProfilesController < ApplicationController
       @user_profile.update_contact_card(permitted_fields)	
 	  end
 	
-	  gi = GalleryImage.new(params[:user_profile].permit(:image))
-	  @user_profile.build_user_avatar(gallery_image: gi)
+	  gi = associated_user.gallery.root.images.create!(params[:user_profile].permit(:image))
+	  @user_profile.avatar.update_image(gi)
 	
     respond_to do |format|
       if @user_profile.save
-	      gi.image.reprocess!(:thumb)
         format.html { redirect_to @user_profile, notice: 'Profile was successfully updated.' }
         format.json { head :no_content }
       else

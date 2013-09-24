@@ -6,7 +6,7 @@ class CreateActivityFeeds < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :activity_feeds, :subscribable_id
 
+    add_index :activity_feeds, [:subscribable_id,:subscribable_type], unique: true
   end
 end

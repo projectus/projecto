@@ -12,9 +12,12 @@ class User < ActiveRecord::Base
   
   # Before create ###################################
  
-	before_create :make_empty_profile
+	before_create :make_empty_profile, :make_gallery
 	
 	# Associations #################################
+
+  has_one  :gallery, as: :showcasable, dependent: :destroy
+  has_one  :activity_feed, dependent: :destroy
 				
   has_many :collaborations, dependent: :destroy
   has_many :projects, through: :collaborations
@@ -30,13 +33,12 @@ class User < ActiveRecord::Base
 
   has_one :profile, class_name: 'UserProfile', dependent: :destroy
 
-  #has_many :activity_references, as: :referenceable, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
-  has_many :activity_feeds, through: :subscriptions
-  has_many :activities, through: :activity_feeds
+  has_many :subscribed_feeds, through: :subscriptions, source: :activity_feed
+  has_many :subscribed_activities, through: :subscribed_feeds, source: :activities
 
   # Public methods ###################################
-
+	
   def subscribe_to(feed)
 	  subscription = subscriptions.build(activity_feed: feed)
 		#subscription.save!
@@ -45,7 +47,7 @@ class User < ActiveRecord::Base
 	def subscribed_to?(feed)
 	  subscriptions.exists?(activity_feed: feed)
 	end
-		
+	
 	def is_owner_of_project?(project)
 	  self == project.owner
 	end
@@ -77,5 +79,9 @@ class User < ActiveRecord::Base
       profile.generate_empty_resume
       profile.generate_empty_card(email: email)
       profile.generate_empty_avatar
+    end
+
+    def make_gallery
+      build_gallery
     end
 end

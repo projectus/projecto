@@ -1,26 +1,3 @@
-<!--
-
-<div id="project-by-category">
-  <h4>Browse Project</h4>
-
-
-  <ul class="nav nav-pills project-tab">
-    <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
-    <% Project.categories.each do |cat| %>
-    <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat) %></li>
-    <% end %>
-  </ul>
-
-  <div class="project-div">
-    <ul>
-      <% @projects.each do |project| %>
-        <%= render partial: 'projects/display', locals: {project: project} %>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-//-->
 
 <div class="project-section">
    <div class="section-title">
@@ -31,42 +8,31 @@
 
   <div class="section-menu">
     <ul class="nav nav-pills">
-      <li class="active">
-        <a href="#">Most Viewed</a>
-      </li>
+      <li class="active"><a href="#">Most Viewed</a></li>
       <li><a href="#">Most Subscribed</a></li>
       <li><a href="#">Most Collaborators</a></li>
     </ul>
   </div>
 
   <div class="section-body">
-
-
-
     <ul>
       <% @projects.each do |project| %>
           <%= render partial: 'projects/display', locals: {project: project} %>
       <% end %>
     </ul>
-
-
-
-  <div class="section-bottom">
-    <div class="pagination">
-      <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">Next</a></li>
-      </ul>
+    <div class="section-bottom">
+      <div class="pagination">
+        <ul>
+          <li><a href="#">Prev</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">Next</a></li>
+        </ul>
+      </div>
     </div>
-
   </div>
-
-  </div>
-
 </div>
 

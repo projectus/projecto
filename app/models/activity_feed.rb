@@ -8,7 +8,9 @@ class ActivityFeed < ActiveRecord::Base
   has_many :activities, dependent: :destroy
 
   # A feed must have a subscribable model associated with it (i.e. project, user...)
-  validates_presence_of :subscribable
+  validates :subscribable, presence: true
+  validates_uniqueness_of :subscribable_id, :scope => [:subscribable_type]
+
 
   # Gives a name to the activity feed based on what model it is associated with
   def name
