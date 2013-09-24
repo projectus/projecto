@@ -14,8 +14,15 @@
 
 // NAVBAR Element ------------------------------------------------------------------
 
-#navbar-inner {
-  box-shadow: 0px 1px 3px #000000;
+.navbar-inner {
+  //box-shadow: 0px 1px 3px #000000;
+  background-color: #1b1b24 !important;
+  background-image: none !important;
+  //background: none !important; 
+  border: 0 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  padding: 10px 0 10px 0;
 
   #nav-center{
     width: 1000px;
@@ -24,6 +31,7 @@
     .logo {
       margin-top: 6px;
       margin-right: -2px;
+      width: 30px;
     }
 
     #logo-li {
@@ -41,6 +49,7 @@
       .navbar-about {
         width: 75px;
       }
+
       .navbar-projects {
         width: 55px;
       }

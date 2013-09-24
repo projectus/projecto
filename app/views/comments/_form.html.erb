@@ -1,12 +1,12 @@
+
 <%= form_for(@comment) do |f| %>
   <%= render 'errors' %>
-
-  <div class="comment-div">
-    <div class="comment-input">
+	<div class="row-fluid">
+	  <div class="span10 comment-input">
       <%= f.text_area :content %>
     </div>
-    <div class="comment-avatar">
-      <img src="http://www.thegoodblog.com.au/assets/avatar-placeholder-64x59.png" /><br>
+    <div class="span2">
+      <%= user_avatar_tag(current_user,:thumb) %><br>
       <%= f.submit 'Comment', class: 'btn' %>
     </div>
   </div>

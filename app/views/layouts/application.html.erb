@@ -35,12 +35,11 @@
 <body>
 
 	
-<div class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner white" id="navbar-inner">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
     <div id="nav-center">
 	    <ul class="nav nav-left">
-            <li><img class="logo" style="width: 30px;" src="http://icons.iconarchive.com/icons/icojam/onebit/48/puzzle-icon.png"></li>
-
+        <li><%= image_tag 'site/puzzle-icon.png', class: 'logo' %></li>
 		    <li id="logo-li"><a class="brand" href="<%= root_path %>">Projectore</a></li>
         <li>
           <%= form_tag projects_path, method: :get, class: "navbar-form" do %>
@@ -52,15 +51,9 @@
         </li>
       </ul>
       <ul class="nav pull-right nav-links">
-        <li class="divider-vertical"></li>
         <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-about"><%= link_to "What is Projectore?", about_path, :class => "multiline white" %></div></li>
-
-        <li class="divider-vertical"></li>
         <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-projects"><%= link_to "Browse Projects", projects_path, :class => "multiline white" %></div></li>
-        <li class="divider-vertical"></li>
         <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-projects"><%= link_to "Start Project", new_project_path, :class => "multiline white" %></div></li>
-
-        <li class="divider-vertical"></li>
 
         <% if user_signed_in? %>
         <li>
@@ -84,16 +77,12 @@
             </ul>
           </div>
         </li>
-        <li class="divider-vertical"></li>
 
         <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign Out", destroy_user_session_path, :class => "white", method: :delete %></li>
         <% else %>
 	      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign Up", new_user_registration_path, :class => "white" %></li>
-            <li class="divider-vertical"></li>
 	      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign In", new_user_session_path, :class => "white" %></li>
         <% end %>
-
-        <li class="divider-vertical"></li>
 
       </ul>
     </div>

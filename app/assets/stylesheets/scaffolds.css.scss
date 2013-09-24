@@ -3,10 +3,11 @@ body {
   font-size: 13px;
   line-height: 18px;
 
-  background: #FFF;
+  background: #1b1b24;
+  color: #7a7a8a;
   margin: 0;
 
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -108,14 +109,6 @@ div {
   border: 1px solid #BBB;
   background-color: #FFF;
   border-radius: 0;
-}
-
-input {
-  border-radius: 0 !important;
-}
-
-textarea {
-  border-radius: 0 !important;
 }
 
 #scroll {

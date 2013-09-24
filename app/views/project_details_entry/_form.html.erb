@@ -1,22 +1,21 @@
-<div class="well well-small box">
+<div>
 
 <%= render 'project_details_entry/errors' %>
 
 <%= form_tag(project_details_entry_path, method: :patch, :class => 'form-inline') do %>
-<%#= form_for(@project_profile, :html => {:class => 'form-inline'}) do |f| %>
-      <div class="field">
-        <%= label_tag :title, 'Title', style: 'display: block' %>
-        <%= text_field_tag "entry[title]", entry[:title] %>
-      </div>
+  <div class="field">
+    <%= label_tag :title, 'Title', style: 'display: block' %>
+    <%= text_field_tag "entry[title]", entry[:title] %>
+  </div>
 
-      <div class="field">
-        <%= label_tag :content, 'Content', style: 'display: block' %>
-        <%= text_area_tag "entry[content]", entry[:content], class: 'input-xxlarge' %>
-      </div>
+  <div class="field">
+    <%= label_tag :content, 'Content', style: 'display: block' %>
+    <%= text_area_tag "entry[content]", entry[:content], class: 'input-xxlarge' %>
+  </div>
 
-		  <%= hidden_field_tag :key, key %>
+	<%= hidden_field_tag :key, key %>
 		
-    <%= submit_tag 'Save', class: 'btn' %>
+  <%= submit_tag 'Save', class: 'btn' %>
 <% end %>
 
 <%= form_tag(project_details_entry_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'form-inline') do |f| %>

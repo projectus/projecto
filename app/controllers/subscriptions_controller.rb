@@ -25,13 +25,13 @@ class SubscriptionsController < ApplicationController
   def create
 	  feed = ActivityFeed.find(params[:feed_id])
 		if current_user.subscribed_to?(feed)
-			redirect_to feed.subscribable, alert: 'You are already subscribed to this!'
+			redirect_to feed.subscribable.profile, alert: 'You are already subscribed to this!'
 			return
 	  end
 	  @subscription = current_user.subscribe_to(feed)
 		respond_to do |format|
 			if @subscription.save
-	      format.html { redirect_to feed.subscribable, notice: "Subscribed to #{feed.name}!" }
+	      format.html { redirect_to feed.subscribable.profile, notice: "Subscribed to #{feed.name}!" }
 	    else
 	      format.html { render partial: 'errors' }		  
 		  end

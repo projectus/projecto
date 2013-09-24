@@ -1,0 +1,13 @@
+<% content_for :project_profiles_header_content do %>
+  <div class="row-fluid">
+    <div class="span3">
+      <h4>Project owner</h4><%= associated_project.owner.username %>
+      <h4>Category</h4><%= associated_project.category.capitalize %>
+    </div>
+    <div class="span9">
+      <h4>Description</h4><%= associated_project.description %>
+    </div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/project_profiles" %>

@@ -7,6 +7,8 @@ class ProjectProfilesController < ApplicationController
 	#end	
   before_action :set_project_details, only: [:details, :edit]
 
+  layout Proc.new{ 'project_details' if ['details','edit'].include?(action_name)  }
+
   # GET /project_profiles/1
   # GET /project_profiles/1.json
   def show

@@ -1,138 +1,99 @@
 <% content_for :content do %>
 
+<div class="row">
+  <div class="project-dashboard span10">
+    <div class="row-fluid">	        
+	    <div class="span3">
+		    <%= image_tag project_avatar_url(associated_project) %>
+		  </div>		
+      <div class="span9">
+	      <h1><%= associated_project.name %></h1>
+  		  <ul class="nav nav-pills">
+					<li><%= link_to image_tag('tiles/Outlook.png'), associated_project.profile %></li>
+					<li><%= link_to image_tag('tiles/OneNote.png'), project_news_posts_path(associated_project) %></li>
+					<li><%= link_to image_tag('tiles/PowerPoint.png'), project_comments_path(associated_project) %></li>
+					<li><%= link_to image_tag('tiles/Lync.png'), nil %></li>
+			  </ul>
+		  </div>
+    </div>
 
-    <!--
-
-    <div class="project-title-bar">
-
-         <div class="project-title-image-div">
-           <%= image_tag project_avatar_url(associated_project) %>
-         </div>
-
-         <div class="project-headers-div">
-           <div class="project-title-div">
-             <span class="project-title">
-               <%= associated_project.name %>
-             </span>
-           </div>
-
-           <div class="project-owner-div">
-             <span>
-               By: Eric Webster
-             </span>
-           </div>
-           <div class="project-description-div">
-             <span>
-           Projectore is a place where it pools like minded individuals from all over the world to embark on projects.
-           We give the tools to manage the projects as well as the exposure to the world wide web.
-             </span>
-           </div>
-         </div>
-
-      <div class="project-action-div">
-
-          <% if user_signed_in? %>
-
-          <% end %>
-          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
-          <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
+    <div class="row-fluid">
+	    <div class="row-fluid span3">
+	      <div class="span7">
+		      <div class="row-fluid">
+	          <%= pluralize(associated_project.subscriptions.size, 'Subscriber') %>
+	        </div>
+		      <div class="row-fluid">
+	          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
+          </div>
+		      <div class="row-fluid">
+            <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
               <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
               <%= submit_tag 'Subscribe', class: 'btn orange' %>
-          <% end %>
-
-         <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn orange'%>
-          <b><%#= pluralize(associated_project.subscriptions.size, 'Subscriber') %></b>
-
+            <% end %>
+          </div>
+		      <div class="row-fluid">
+            <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn orange'%>
+          </div>
+	      </div>
+	      <div class="span5">
+				  <ul class="nav nav-pills">
+					  <li><%= link_to image_tag('tiles/Access.png'), project_task_groups_path(associated_project) %></li>
+					  <li><%= link_to image_tag('tiles/Excel.png'), nil %></li>
+			    </ul>
+		    </div>
+		  </div>
+		  <div class="span9">
+        <div class="project-dashboard-content">
+          <%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
+        </div>
       </div>
-
     </div>
 
-    -->
+		<div class="row project-profile-content">
+		  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+		</div>
+  </div>
+
+  <div class="span2">
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <h6>Eric Webster Eric Webster</h6>
+	  <% associated_project.collaborators.each do |c| %>
+	    <h6><%= c.name %></h6>
+	  <% end %>
+	</div>
+</div>
 
 
-    <div class="project-dashboard">
-
-      <div class="project-dashboard-top">
-
-        <div class="project-dashboard-top-logo">
-          <img src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
-
-        </div>
-
-        <div class="project-dashboard-top-title">
-          The Flying Monkey Manager of Cards
-        </div>
-
-        <div class="project-dashboard-top-links">
-
-
-
-          <div class="project-top-link">
-            <%= image_tag "site/details.png" %><br>
-
-            <%= image_tag "site/puzzlepiece2.png" %>
-
-          </div>
-
-          <div class="project-top-link">
-            <%= image_tag "site/news.png" %><br>
-
-            <%= image_tag "site/puzzlepiece2.png" %>
-
-          </div>
-
-          <div class="project-top-link">
-            <%= image_tag "site/people.png" %><br>
-
-            <%= image_tag "site/puzzlepiece2.png" %>
-
-          </div>
-
-          <div class="project-top-link">
-            <%= image_tag "site/comment.png" %><br>
-
-            <%= image_tag "site/puzzlepiece2.png" %>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-        <div class="project-dashboard-bottom">
-
-          <!--
-
-          <div class="project-dashboard-left-links">
-            <div class="project-left-link">
-              <%= image_tag "site/task.png" %>
-
-            </div>
-
-            <div class="project-left-link">
-              <%= image_tag "site/board2.png" %>
-
-            </div>
-          </div>
-
-          -->
-
-
-          <div class="project-dashboard-content">
-            <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
-          </div>
-
-        </div>
-
-
-
-    </div>
-
-
-
-    <!---
+    <!--
 
     <div class="project-tabs">
       <ul class="nav nav-pills project-tab">
@@ -142,38 +103,7 @@
         <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
         <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
         <li><a>Discussion Board (private)</a></li>
-      </ul>
-
-      <div class="projects-content">
-        <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
-      </div>
-    </div>
-
-    <div class="project-users-bar">
-      <ul class="nav nav-pills user-tab">
-        <li class="active"><a href="#">Users</a></li>
-        <li><a href="#">Watchers</a></li>
-      </ul>
-
-      <div class="user-container">
-        <div class="user-single-div">
-          Eric Webster
-          Owner
-        </div>
-        <div class="user-single-div">
-          Dennis Duan
-          Admin
-        </div>
-        <div class="user-single-div">
-          Brian Zhang
-          Admin
-        </div>
-      </div>
-    </div>
-
-    -->
-
-
+      </ul>-->
 
 <% end %>
 

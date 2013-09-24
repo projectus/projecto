@@ -1,13 +1,3 @@
-<%= render 'new' %>
-
-<div class="inner-heading-div">
-  <p>Announcements
-
-  </p>
-
-</div>
-
-<div class="scroll-splitter"></div>
 
 <% @news_posts.each do |news_post| %>
   <%= render partial: 'post', object: news_post %>

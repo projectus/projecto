@@ -1,3 +1,19 @@
 // Place all the styles related to the ProjectDetailsEntry controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.details-entry {
+  margin-bottom: 15px;
+
+	.details-entry-title, .details-entry-content {
+	  padding: 5px;
+	}
+	
+	.details-entry-content {
+		line-height: 2em;
+		font-size: 12pt;
+	}
+	.details-entry-title {
+	  text-align: center;
+	}
+}

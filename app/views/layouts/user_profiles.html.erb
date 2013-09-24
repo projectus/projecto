@@ -1,13 +1,13 @@
 <% content_for :content do %>
   <div>
     <div class="avatar-div">
-      <%= image_tag user_avatar_url(associated_user), class: 'img-polaroid box', id: 'user_avatar' %>
+      <%= image_tag user_avatar_url(associated_user), class: 'img-polaroid', id: 'user_avatar' %>
       <div class="user-name"><%= associated_user.username %></div>
 
       <div id="card">
         <%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %>
       </div>
-      <div class="action-bar">
+      <div>
         <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
         <%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>
         <%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user), :class=>"user-action" %>

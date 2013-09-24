@@ -2,282 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Project Title Bar ------------------------------------------------
-
-.project-title-bar{
-  height: 100px;
-  margin-bottom: 20px;
-
-  .project-title-image-div {
-    width: 100px;
-    float: left;
-    margin-right: 20px;
-  }
-
-  .project-headers-div{
-    float: left;
-    width: 640px;
-
-    .project-title-div {
-      margin: 8px 0px;
-
-      .project-title {
-        font-family: 'Happy Monkey', cursive;
-        text-transform: capitalize;
-        font-size: 22pt;
-        color: #333;
-        margin-top: 20px;
-      }
-    }
-
-    .project-owner-div {
-      font-size: 13pt;
-      margin-bottom: 5px;
-    }
-
-  }
-
-  .project-action-div{
-    float: right;
-    width: 80px;
-
-    a{
-      width: 70px !important;
-      margin-bottom: 5px;
-    }
-  }
-}
-
-// End Project Title Bar --------------------------------------------
-
-
 // Project Dashboard CSS -------------------------------------------------------
 
-  .project-dashboard {
-    width: 940px;
-    height: 500px;
+.project-dashboard {
+	
+	/* the title */
+	
+	h1 {
+	  margin-bottom: 10px;
+	  margin-top: 0;
+	}
 
-    .project-dashboard-content {
-      padding: 20px !important;
-      overflow: scroll;
-    }
+  /* the top pills */
 
-    .project-dashboard-top {
-      height: 120px;
-
-      .project-dashboard-top-logo {
-        height: 120px;
-        width: 150px;
-        float: left;
-
-        img {
-          height: 120px;
-        }
-      }
-
-      .project-dashboard-top-title {
-        color: #333333;
-        font-family: 'Happy Monkey',cursive;
-        font-size: 18pt;
-        text-transform: capitalize;
-        margin-bottom: 30px;
-      }
-
-    }
-
-    .project-dashboard-bottom {
-      clear: both;
-    }
-
-    .project-dashboard-top-links {
-      height: 70px;
-      margin-left: 200px;
-
-    }
-
-    .project-top-link {
-      float: left;
-      margin-right: 100px;
-
-    }
-
-
-    .project-dashboard-content {
-      height: 400px;
-
-      width: 780px;
-      float: right;
-    }
-
-    .project-dashboard-left-links {
-      float: left;
-      text-align: right;
-    }
-
-
-    .project-dashboard-bottom {
-      height: 500px;
-
-      .project-dashboard-content {
-        padding: 4px;
-        background: #E4E4E4;
-
-
-        .project-dashboard-content-inner {
-          border: 1px solid #999;
-          height: 100%;
-          background: #8FA177;
-        }
+  .span9 {
+	  .nav-pills {
+      img {
+          width: 100px;
       }
     }
-
   }
 
+/*
+  .span5 {
+	  background: red;
+	}
 
+  .span9 {
+	  background: red;
+	}
 
+*/
+	
+  /* the spacing between Apply, Subscribe and Setting */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//----------------------------------------------------------------------------------------
-
-
-
-// Project-profile content tabs
-
-.project-tabs {
-  float: left;
-  width: 700px;
-
-  .project-tab {
-	  li.active a {
-      text-shadow: #fff 0 1px 0;
-	    background: #E4E4E4 !important;
-	    color: #000 !important;
-    }
-		li a{
-		  margin-bottom: 0px;
+  .span7 {
+	  .row-fluid {
+		  margin-top: 10px;
 		}
   }
-
-	.projects-content {
-	  background: #E4E4E4;
-	  padding: 20px;
-	}
-}
-
-.project-users-bar {
-  float: right;
-  width: 200px;
-
-  li {
-    a {
-      margin-bottom: 0;
+	
+	/* size of vertical pills */
+	
+	.span5 {
+		.nav-pills {
+		  img {
+        width: 60px;
+      }
     }
-  }
-
-  li.active a{
-    background: #E4E4E4 !important;
-    color: #000 !important;
-  }
-}
-
-// End Project-profile content tabs -------------------------------------------
-
-.nav-pills > li > a {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-}
-
-.news-post-div {
-  background: #FFF;
-  padding: 20px;
-  border: 1px solid #999;
-  box-shadow: 2px 2px 2px #D4D4D4;
-  margin: 0px 20px;
-  margin-bottom: 20px;
-
-}
-
-
-.nav-pills > li > a {
-  margin-top: 0px !important;
-}
-
- #news_post_title {
-   width: 300px !important;
-   border: 1px solid #999;
- }
-
-.input-content{
-  width: 500px !important;
-  height: 80px !important;
-  border: 1px solid #999;
-}
-
-
-.projects-container form {
-  margin: 0px !important;
-}
-
-.news-post {
-   background: #FFF;
-   border: 1px solid #999;
-   margin: 0px 20px;
-}
-
-.user-container {
-  min-height: 200px;
-  background: #E4E4E4;
-  padding-left: 11px;
-}
-
-.scrollspy-users {
-  height: 400px;
-  width: 180px;
-  overflow: auto;
-  position: relative;
-}
-
-.project-action-div { 
-	float: right; 
-	width: 80px; 
-}
-
-.project-action-div input.btn[type="submit"] {
-  width: 96px !important;
-}
-
-.details-entry {
-  margin-bottom: 15px;
-
-	.details-entry-title, .details-entry-content {
-	  background: #FFF;
-	  padding: 5px;
 	}
 	
-	.details-entry-title {
-	  float: left;
-	  color: #919191;
-	  font-weight: bold;
-	  border-bottom: 1px dotted #A0A0A0;
-	}
-
-	.details-entry-content {
-	  clear: both;
+	.project-dashboard-content {
+		margin-left: 20px;
 	}
 }
 
+.project-profile-content {
+	margin-top: 20px;
+}
+
+//----------------------------------------------------------------------------------------
 

@@ -10,7 +10,8 @@ class Project < ActiveRecord::Base
   has_many :subscriptions, through: :activity_feed
 
 	has_many :collaborations, dependent: :destroy
-	has_many :users, through: :collaborations
+	has_many :collaborators, through: :collaborations, source: :user
+	
 	belongs_to :owner, class_name: 'User', foreign_key: :owner_id
 
 	has_many :task_groups, dependent: :destroy	

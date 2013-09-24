@@ -3,21 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comment-div{
-  width: 100%;
-  margin: 0px 50px;
 
   .comment-input {
-    margin-right: 30px;
     float: left;
   }
+
   .comment-input textarea {
-    width: 480px;
+    width: 450px;
     height: 93px;
   }
   .comment-avatar img {
     height: 70px;
   }
 }
+
 .new_comment input.btn {
   width: 80px;
   background: black;
@@ -27,9 +26,6 @@
 
 
 .single-comment-div{
-  border-top: 1px dotted #A0A0A0;
-  width: 600px;
-  margin-left: 50px;
   clear: both;
   display: block;
 
@@ -47,9 +43,5 @@
       line-height: 1.2em !important;
     }
   }
-}
-#final-comment-splitter{
-  clear: both;
-
 }
 

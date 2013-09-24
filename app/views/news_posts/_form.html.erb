@@ -1,15 +1,13 @@
 <%= form_for(@news_post) do |f| %>
   <%= render 'errors' %>
 
-  <div class="post-left">
-    <%= f.text_field :title, class: 'input-title', :placeholder => "News Heading" %>
+  <div class="field">
+    <%= f.text_field :title, :placeholder => "News Heading" %>
   </div>
 
-    <div class="post-right">
-      <%= f.text_area :content, class: 'input-content', :placeholder => "News Content"  %>
-    </div>
-
-
+  <div class="field">
+    <%= f.text_area :content, class: 'input-xxlarge', :placeholder => "News Content"  %>
+  </div>
 
   <%= f.hidden_field :project_id %>    
 

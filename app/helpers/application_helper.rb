@@ -58,11 +58,27 @@ module ApplicationHelper
     end
 	end
 	
+	def user_avatar_tag(user,type=:default)
+		if user.profile.avatar.image.nil?
+      image_tag 'site/avatar.png'
+    else	    
+      image_tag user.profile.avatar.image.url(type)
+    end
+	end
+	
 	def project_avatar_url(project,type=:default)
 		if project.profile.avatar.image.nil?
       'site/spotify-logo.png'
     else	    
       project.profile.avatar.image.url(type)
+    end
+	end
+	
+	def project_avatar_tag(project,type=:default)
+		if project.profile.avatar.image.nil?
+      image_tag 'site/spotify-logo.png'
+    else	    
+      image_tag project.profile.avatar.image.url(type)
     end
 	end
 end
