@@ -6,13 +6,13 @@ class ActivityReference < ActiveRecord::Base
   # VALIDATION #####################################################
 
   # Make sure a reference is only used once in an activity for each title
-  validates_uniqueness_of :activity_id, :scope => [:referenceable_id,:referenceable_type,:title]
+  #validates_uniqueness_of :activity_id, :scope => [:referenceable_id,:referenceable_type,:title]
  
   # Make sure the title of the reference is unique per activity
   validates_uniqueness_of :title, :scope => [:activity_id]
 
-  validates_presence_of :activity
-  validates_presence_of :referenceable
+  validates :activity, presence: true
+  validates :referenceable, presence: true
 
   # AFTER DESTROY ###################################################
 

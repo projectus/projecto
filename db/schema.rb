@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 20130923211811) do
     t.string  "title"
   end
 
-  add_index "activity_references", ["referenceable_id", "referenceable_type", "activity_id", "title"], name: "activity_references_index", unique: true, using: :btree
+  add_index "activity_references", ["referenceable_id","referenceable_type"], using: :btree
+  add_index "activity_references", ["activity_id","title"], unique: true, using: :btree
 
   create_table "avatars", force: true do |t|
     t.integer  "avatarable_id"

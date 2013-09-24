@@ -20,8 +20,8 @@ class Collaboration < ActiveRecord::Base
 	  def setup_activity(activity)
 	    activity.activity_feed = project.activity_feed
 	    activity.save!
-	    activity.activity_references.create(referenceable: user, title: 'user')	    
-	    activity.activity_references.create(referenceable: project, title: 'project')
+	    activity.activity_references.create!(referenceable: user, title: 'user')	    
+	    activity.activity_references.create!(referenceable: project, title: 'project')
 		end
 		
 	  def add_creation_activity_to_activity_feed
@@ -35,6 +35,8 @@ class Collaboration < ActiveRecord::Base
 	  end
 		
 	  def subscribe_user_to_project
-		  user.subscribe_to(project.activity_feed)
+		  subscription = user.subscribe_to(project.activity_feed)
+		  subscription.save!
+		  #project.activity_feed.subscriptions.build(user: user)
 		end
 end

@@ -56,39 +56,19 @@
   </div>
 
   <div class="span2">
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
-	  <h6>Eric Webster Eric Webster</h6>
+	  <h4>Members</h4>
+	  <h6><%= link_to_user_profile(associated_project.owner) %></h6>
 	  <% associated_project.collaborators.each do |c| %>
-	    <h6><%= c.name %></h6>
+	    <h5><%= link_to_user_profile(c) %></h5>
 	  <% end %>
+	  <h4>Last Active</h4>
+	  September 21st, 2013
+	  <h4>Recent Activities</h4>
+	  <% associated_project.activity_feed.activities.each do |a| %>
+	    <span style="color: red;"><%= a.species %>:</span>
+	    <p><%= activity_headline(a) %></p>
+	  <% end %>
+	  <h4>Related Projects</h4>	
 	</div>
 </div>
 
