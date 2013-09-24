@@ -16,7 +16,7 @@
     <div class="user-tab-wrapper">
       <div class="tabbable"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs user-tabs">
-          <li class="<%= profile_tab_class('user_profiles') %>"><a href="#tab1" data-toggle="tab">Feed</a></li>
+          <li class="<%= profile_tab_class('user_profiles') %>"><a href="#tab1" data-toggle="tab">Status Update</a></li>
           <li class="<%= profile_tab_class('resume') %>"><%= link_to 'Resume', resume_path(associated_user.profile) %></li>
           <li class="<%= tab_class('projects') %>"><%= link_to 'Projects', user_projects_path(associated_user) %></li>
           <li class="<%= tab_class('collaborations') %>"><%= link_to 'Collaborations', user_collaborations_path(associated_user) %></li>

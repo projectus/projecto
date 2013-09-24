@@ -1,5 +1,8 @@
 <% content_for :content do %>
 
+
+    <!--
+
     <div class="project-title-bar">
 
          <div class="project-title-image-div">
@@ -44,6 +47,93 @@
 
     </div>
 
+    -->
+
+
+    <div class="project-dashboard">
+
+      <div class="project-dashboard-top">
+
+        <div class="project-dashboard-top-logo">
+          <img src="http://routenote.com/blog/wp-content/uploads/2009/11/spotify-logo.png" />
+
+        </div>
+
+        <div class="project-dashboard-top-title">
+          The Flying Monkey Manager of Cards
+        </div>
+
+        <div class="project-dashboard-top-links">
+
+
+
+          <div class="project-top-link">
+            <%= image_tag "site/details.png" %><br>
+
+            <%= image_tag "site/puzzlepiece2.png" %>
+
+          </div>
+
+          <div class="project-top-link">
+            <%= image_tag "site/news.png" %><br>
+
+            <%= image_tag "site/puzzlepiece2.png" %>
+
+          </div>
+
+          <div class="project-top-link">
+            <%= image_tag "site/people.png" %><br>
+
+            <%= image_tag "site/puzzlepiece2.png" %>
+
+          </div>
+
+          <div class="project-top-link">
+            <%= image_tag "site/comment.png" %><br>
+
+            <%= image_tag "site/puzzlepiece2.png" %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+        <div class="project-dashboard-bottom">
+
+          <!--
+
+          <div class="project-dashboard-left-links">
+            <div class="project-left-link">
+              <%= image_tag "site/task.png" %>
+
+            </div>
+
+            <div class="project-left-link">
+              <%= image_tag "site/board2.png" %>
+
+            </div>
+          </div>
+
+          -->
+
+
+          <div class="project-dashboard-content">
+            <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+          </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <!---
+
     <div class="project-tabs">
       <ul class="nav nav-pills project-tab">
         <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'Details', project_details_path(associated_project.profile) %></li>
@@ -80,6 +170,10 @@
         </div>
       </div>
     </div>
+
+    -->
+
+
 
 <% end %>
 
