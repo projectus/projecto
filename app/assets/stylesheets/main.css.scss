@@ -51,6 +51,17 @@
     border-top: 1px solid #FFFFFF;
     overflow: hidden;
     padding: 15px 20px 3px;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  .section-bottom {
+    background: none repeat scroll 0 0 #E4E4E4;
+    border-top: 1px solid #FFF;
+
+    .pagination {
+      margin: 0px !important;
+
+    }
   }
 }
 

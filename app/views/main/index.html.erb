@@ -41,15 +41,13 @@
 
   <div class="section-body">
 
-
-
     <ul>
       <% @projects.each do |project| %>
           <%= render partial: 'projects/display', locals: {project: project} %>
       <% end %>
     </ul>
 
-
+  </div>
 
   <div class="section-bottom">
     <div class="pagination">
@@ -63,8 +61,6 @@
         <li><a href="#">Next</a></li>
       </ul>
     </div>
-
-  </div>
 
   </div>
 

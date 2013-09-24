@@ -50,6 +50,110 @@
 
 // End Project Title Bar --------------------------------------------
 
+
+// Project Dashboard CSS -------------------------------------------------------
+
+  .project-dashboard {
+    width: 940px;
+    height: 500px;
+
+    .project-dashboard-content {
+      padding: 20px !important;
+      overflow: scroll;
+    }
+
+    .project-dashboard-top {
+      height: 120px;
+
+      .project-dashboard-top-logo {
+        height: 120px;
+        width: 150px;
+        float: left;
+
+        img {
+          height: 120px;
+        }
+      }
+
+      .project-dashboard-top-title {
+        color: #333333;
+        font-family: 'Happy Monkey',cursive;
+        font-size: 18pt;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+      }
+
+    }
+
+    .project-dashboard-bottom {
+      clear: both;
+    }
+
+    .project-dashboard-top-links {
+      height: 70px;
+      margin-left: 200px;
+
+    }
+
+    .project-top-link {
+      float: left;
+      margin-right: 100px;
+
+    }
+
+
+    .project-dashboard-content {
+      height: 400px;
+
+      width: 780px;
+      float: right;
+    }
+
+    .project-dashboard-left-links {
+      float: left;
+      text-align: right;
+    }
+
+
+    .project-dashboard-bottom {
+      height: 500px;
+
+      .project-dashboard-content {
+        padding: 4px;
+        background: #E4E4E4;
+
+
+        .project-dashboard-content-inner {
+          border: 1px solid #999;
+          height: 100%;
+          background: #8FA177;
+        }
+      }
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------
+
+
+
 // Project-profile content tabs
 
 .project-tabs {
