@@ -1,7 +1,9 @@
 <% content_for :project_profiles_header_content do %>
   <div class="row-fluid">
     <div class="span3">
-      <h4>Project owner</h4><%= avatar_link(associated_project.owner, type: 'thumb') %> <%= link_to_user_profile(associated_project.owner) %>
+      <h4>Project owner</h4>
+      <%= avatar_link(associated_project.owner, type: 'thumb', style:'width: 30px;') %> 
+      <%= link_to_user_profile(associated_project.owner) %>
       <h4>Category</h4><%= associated_project.category.capitalize %>
     </div>
     <div class="span9">
