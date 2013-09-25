@@ -3,7 +3,7 @@
 <div class="row project-profile">
 
   <div class="span10">
-		<%= link_to 'Settings', edit_project_path(associated_project), class: 'btn square pull-right'%>
+		<%= link_to 'Settings', edit_project_path(associated_project), class: 'btn btn-inner-small pull-right'%>
 	  <div class="project-header">
       <div class="row-fluid">	        
 	      <div class="span3">
@@ -77,19 +77,6 @@
 	  <h4>Related Projects</h4>	
 	</div>
 </div>
-
-
-    <!--
-
-    <div class="project-tabs">
-      <ul class="nav nav-pills project-tab">
-        <li class="<%= profile_tab_class('project_profiles') %>"><%= link_to 'Details', project_details_path(associated_project.profile) %></li>
-        <li class="<%= profile_tab_class('news_posts') %>"><%= link_to 'News', project_news_posts_path(associated_project) %></li>
-        <li class="<%= profile_tab_class('project_collaboration_info') %>"><%= link_to 'Collaborations', project_collaborations_path(associated_project) %></li>
-        <li class="<%= profile_tab_class('comments') %>"><%= link_to 'Comments', project_comments_path(associated_project) %></li>
-        <li class="<%= profile_tab_class('task_groups') %>"><%= link_to 'Tasks (private)', project_task_groups_path(associated_project) %></li>
-        <li><a>Discussion Board (private)</a></li>
-      </ul>-->
 
 <% end %>
 

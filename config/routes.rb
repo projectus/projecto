@@ -35,7 +35,7 @@ Projecto::Application.routes.draw do
   resources :project_profiles, except: [:index, :new, :create]
   resources :project_details_entry, only: [:edit,:update,:destroy]
   get "project_profiles/:id/details_entry/new", to: 'project_details_entry#new', as: :new_project_details_entry
-  get "project_profiles/:id/details", to: 'project_profiles#details', as: :project_details
+  #get "project_profiles/:id/details", to: 'project_profiles#details', as: :project_details
   #get "project_profiles/:id/new", to: 'project_profiles#new', as:  :new_project_details
 
   # TASKS and TASK GROUPS ###################################

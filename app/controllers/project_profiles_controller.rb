@@ -5,18 +5,18 @@ class ProjectProfilesController < ApplicationController
 	#  authenticate_current_user_as_project_owner(associated_project, 
 	#                       "You don't have the permissions to modify this project.")
 	#end	
-  before_action :set_project_details, only: [:details, :edit]
+  before_action :set_project_details, only: [:show, :edit]
 
-  layout Proc.new{ 'project_details' if ['details','edit'].include?(action_name)  }
+  #layout Proc.new{ 'project_details' if ['details','edit'].include?(action_name)  }
 
   # GET /project_profiles/1
   # GET /project_profiles/1.json
   def show
-	  redirect_to project_details_url(associated_project)
+	  #redirect_to project_details_url(associated_project)
   end
 	
-	def details
-  end
+	#def details
+  #end
 	
   # GET /project_profiles/1/edit
   def edit
