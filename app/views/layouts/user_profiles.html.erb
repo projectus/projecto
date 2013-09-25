@@ -1,7 +1,7 @@
 <% content_for :content do %>
   <div>
     <div class="avatar-div">
-      <%= image_tag user_avatar_url(associated_user), class: 'img-polaroid', id: 'user_avatar' %>
+      <%= avatar_tag(associated_user, class: 'img-polaroid', id: 'user_avatar') %>
       <div class="user-name"><%= associated_user.username %></div>
 
       <div id="card">

@@ -1,16 +1,12 @@
 <li style="list-style-type: none;">
 
-  <div class="project-box">
-    <div class="project-image-box">
-      <%= link_to_project_profile project, image_tag(project_avatar_url(project), class: 'project-image-avatar') %>
-    </div>
+<div class="project-box">
+    <div class="project-image-box"><%= avatar_link(project, class: 'project-image-avatar') %></div>
     <div class="project-detail-bar">
-      <span class="title">
-        <strong><%= link_to_project_profile(project) %></strong> <br>
-      </span>
-      <%= link_to_user_profile project.owner, image_tag(user_avatar_url(project.owner,:thumb), class: 'project-owner-avatar') %>
-      <%= link_to_user_profile(project.owner) %> <br>
-      <span class="project-description"> <%= project.description%></span>
+      <div class="title"><%= link_to_project_profile(project) %></div>
+      <%= avatar_link(project.owner, type: 'thumb', class: 'project-owner-avatar') %>
+      <b><%= link_to_user_profile(project.owner) %></b>
+      <div class="project-description"> <%= project.description%></div>
     </div>
     <div class="project-action-bar-splitter"></div>
     <div class="project-action-panel">
@@ -20,6 +16,6 @@
         <li class="project-Subscribe"> <i class="icon-tag"></i> <br><small class="muted">Subscribe</small> </li>
       </ul>
     </div>
-  </div>
+</div>
 
 </li>
