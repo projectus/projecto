@@ -3,7 +3,7 @@
     <div class="single-comment-div">
       <div class="single-comment-inner">
         <div>
-          <%= link_to_user_profile comment.user, user_avatar_tag(comment.user,:thumb) %>
+          <%= avatar_link(comment.user, type: 'thumb') %>
         </div>
         <div class="comment-content">
           <%= comment.content %>

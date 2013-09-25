@@ -4,7 +4,7 @@
   <div class="project-dashboard span10">
     <div class="row-fluid">	        
 	    <div class="span3">
-		    <%= image_tag project_avatar_url(associated_project) %>
+		    <%= avatar_tag(associated_project) %>
 		  </div>		
       <div class="span9">
 	      <h1><%= associated_project.name %></h1>
@@ -57,9 +57,11 @@
 
   <div class="span2">
 	  <h4>Members</h4>
-	  <h6><%= link_to_user_profile(associated_project.owner) %></h6>
+	  <h5><%= avatar_link(associated_project.owner, type: 'thumb', style:'width: 40px;') %>
+	  <%= link_to_user_profile(associated_project.owner) %></h5>
 	  <% associated_project.collaborators.each do |c| %>
-	    <h5><%= link_to_user_profile(c) %></h5>
+	    <h5><%= avatar_link(c, type: 'thumb', style:'width: 40px;') %>
+	    <%= link_to_user_profile(c) %></h5>
 	  <% end %>
 	  <h4>Last Active</h4>
 	  September 21st, 2013

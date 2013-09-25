@@ -6,7 +6,7 @@
       <%= f.text_area :content %>
     </div>
     <div class="span2">
-      <%= user_avatar_tag(current_user,:thumb) %><br>
+      <%= avatar_tag(current_user,type: 'thumb') %><br>
       <%= f.submit 'Comment', class: 'btn' %>
     </div>
   </div>

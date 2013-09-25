@@ -49,36 +49,35 @@ module ApplicationHelper
 			x + ' is no longer with ' + y + '!'
 		end
 	end
-	
-	def user_avatar_url(user,type=:default)
-		if user.profile.avatar.image.nil?
-      'site/avatar.png'
+
+	def avatar_url(m,type=:default)
+		if m.profile.avatar.image.nil?
+			if m.class == Project
+        'site/spotify-logo.png'
+      elsif m.class == User
+	      'site/avatar.png'	  
+	    end
     else	    
-      user.profile.avatar.image.url(type)
+      m.profile.avatar.image.url(type)
     end
 	end
 	
-	def user_avatar_tag(user,type=:default)
-		if user.profile.avatar.image.nil?
-      image_tag 'site/avatar.png'
-    else	    
-      image_tag user.profile.avatar.image.url(type)
-    end
+	def avatar_tag(m,options={type: :default})
+		type = options.delete(:type) 
+		c = options[:class]
+		if c.nil? 
+			options[:class]='avatar' 
+	  else 
+		  options[:class]+=' avatar' 
+		end
+    image_tag avatar_url(m,type), options 
 	end
 	
-	def project_avatar_url(project,type=:default)
-		if project.profile.avatar.image.nil?
-      'site/spotify-logo.png'
-    else	    
-      project.profile.avatar.image.url(type)
-    end
-	end
-	
-	def project_avatar_tag(project,type=:default)
-		if project.profile.avatar.image.nil?
-      image_tag 'site/spotify-logo.png'
-    else	    
-      image_tag project.profile.avatar.image.url(type)
-    end
+	def avatar_link(m,options={type: :default})
+		if m.class == Project
+		  link_to_project_profile m, avatar_tag(m,options)
+		elsif m.class == User
+			link_to_user_profile m, avatar_tag(m,options)
+		end
 	end
 end
