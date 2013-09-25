@@ -1,29 +1,33 @@
 <% content_for :content do %>
 
-<div class="row">
-  <div class="project-dashboard span10">
-    <div class="row-fluid">	        
-	    <div class="span3">
-		    <%= avatar_tag(associated_project) %>
-		  </div>		
-      <div class="span9">
-	      <h1><%= associated_project.name %></h1>
-  		  <ul class="nav nav-pills">
-					<li><%= link_to image_tag('tiles/Outlook.png'), associated_project.profile %></li>
-					<li><%= link_to image_tag('tiles/OneNote.png'), project_news_posts_path(associated_project) %></li>
-					<li><%= link_to image_tag('tiles/PowerPoint.png'), project_comments_path(associated_project) %></li>
-					<li><%= link_to image_tag('tiles/Lync.png'), nil %></li>
-			  </ul>
-		  </div>
-    </div>
+<div class="row project-profile">
 
-    <div class="row-fluid">
-	    <div class="row-fluid span3">
-	      <div class="span7">
-		      <div class="row-fluid">
-	          <%= pluralize(associated_project.subscriptions.size, 'Subscriber') %>
-	        </div>
-		      <div class="row-fluid">
+  <div class="span10">
+		<%= link_to 'Settings', edit_project_path(associated_project), class: 'btn square pull-right'%>
+	  <div class="project-header">
+      <div class="row-fluid">	        
+	      <div class="span3">
+		      <%= avatar_tag(associated_project) %>
+		    </div>		
+        <div class="span9">
+	        <h1><%= associated_project.name %></h1>
+  		    <ul class="nav nav-pills">
+					  <li><%= link_to_project_profile(associated_project,image_tag('tiles/Outlook.png'))
+					%></li>
+					  <li><%= link_to image_tag('tiles/OneNote.png'), project_news_posts_path(associated_project) %></li>
+					  <li><%= link_to image_tag('tiles/PowerPoint.png'), project_comments_path(associated_project) %></li>
+					  <li><%= link_to image_tag('tiles/Lync.png'), nil %></li>
+			    </ul>
+		    </div>
+      </div>
+
+      <div class="row-fluid">
+	      <div class="row-fluid span3">
+	        <div class="span7">
+		        <p>
+	            <%= pluralize(associated_project.subscriptions.size, 'Subscriber') %>
+	          </p>
+		      <!--<div class="row-fluid">
 	          <%= link_to 'Apply', new_project_collaboration_application_path(associated_project), class: 'btn orange' %>
           </div>
 		      <div class="row-fluid">
@@ -34,28 +38,28 @@
           </div>
 		      <div class="row-fluid">
             <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn orange'%>
-          </div>
-	      </div>
-	      <div class="span5">
-				  <ul class="nav nav-pills">
-					  <li><%= link_to image_tag('tiles/Access.png'), project_task_groups_path(associated_project) %></li>
-					  <li><%= link_to image_tag('tiles/Excel.png'), nil %></li>
-			    </ul>
+          </div>-->
+	        </div>
+	        <div class="span5">
+				    <ul class="nav nav-pills">
+					    <li><%= link_to image_tag('tiles/Access.png'), project_task_groups_path(associated_project) %></li>
+					    <li><%= link_to image_tag('tiles/Excel.png'), nil %></li>
+			      </ul>
+		      </div>
 		    </div>
-		  </div>
-		  <div class="span9">
-        <div class="project-dashboard-content">
-          <%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
+		    <div class="span9">
+          <div class="project-header-content">
+            <%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
+          </div>
         </div>
       </div>
     </div>
-
-		<div class="row project-profile-content">
+		<div class="project-profile-content">
 		  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 		</div>
   </div>
 
-  <div class="span2">
+  <div class="span2 project-sidebar">
 	  <h4>Members</h4>
 	  <h5><%= avatar_link(associated_project.owner, type: 'thumb', style:'width: 40px;') %>
 	  <%= link_to_user_profile(associated_project.owner) %></h5>
