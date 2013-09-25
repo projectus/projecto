@@ -31,56 +31,54 @@
 
 $TotalHeight: 350px; $TotalWidth: 200px;
 
-.project-box { 
-	height: $TotalHeight; 
-	width: $TotalWidth; 
-	background-color: #FFF; 
-	border-radius: 5px; 
-	box-shadow: 1px 1px 1px #c3c3c3; 
-	padding: 4px;
-	
-	.project-image-box{ 
-		margin: 2px; 
-		height: $TotalHeight*0.44;
-		
-		.project-image-avatar { 
-			height: $TotalHeight*0.43; 
-			width: $TotalWidth*0.98; 
-		}
-	}
-	
-	.project-detail-bar { 
-		height: $TotalHeight*0.44;
-		
-		.title { 
-			margin-bottom: 3px; 
-		}
-		
-		.project-owner-avatar {
-			width: 30px;
-			height: 30px;
-		}
-		
-		.project-description { 
-			height: $TotalHeight*0.25; 
-			margin-top: 3px; 
-			font-size: 8pt;
-		  line-height:15px;
-		  text-overflow: ellipsis; 
-		  overflow: hidden;
-		}
-	}
-	
-	.project-action-bar-splitter {
-	   border-top: 1px dotted #666;
-	}
-	
-	.project-action-panel { 
-		font-size: 9pt; 
-		height: $TotalHeight*0.12; 
-	}
-}
+.project-box {
+  height: $TotalHeight;
+  width: $TotalWidth;
+  background-color: #FFF;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #c3c3c3;
+  padding: 4px;
 
+  .project-image-box{
+    margin: 2px;
+    height: $TotalHeight*0.44;
+
+    .project-image-avatar {
+      height: $TotalHeight*0.43;
+      width: $TotalWidth*0.98;
+    }
+  }
+
+  .project-detail-bar {
+    height: $TotalHeight*0.44;
+
+    .title {
+      margin-bottom: 3px;
+    }
+
+    .project-owner-avatar {
+      width: 30px;
+      height: 30px;
+    }
+
+    .project-description {
+      margin-top: 3px;
+      font-size: 8pt;
+      line-height:15px;
+    }
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .project-action-bar-splitter {
+    border-top: 1px dotted #666;
+  }
+
+  .project-action-panel {
+    font-size: 9pt;
+    height: $TotalHeight*0.12;
+  }
+}
 
 
 

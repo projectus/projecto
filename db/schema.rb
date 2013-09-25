@@ -22,16 +22,6 @@ ActiveRecord::Schema.define(version: 20130923211811) do
 
   add_index "activities", ["activity_feed_id"], name: "index_activities_on_activity_feed_id", using: :btree
 
-  create_table "activity_entries", force: true do |t|
-    t.string   "headline"
-    t.string   "species"
-    t.integer  "activity_feed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "activity_entries", ["activity_feed_id"], name: "index_activity_entries_on_activity_feed_id", using: :btree
-
   create_table "activity_feeds", force: true do |t|
     t.integer  "subscribable_id"
     t.string   "subscribable_type"
@@ -39,7 +29,7 @@ ActiveRecord::Schema.define(version: 20130923211811) do
     t.datetime "updated_at"
   end
 
-  add_index "activity_feeds", ["subscribable_id","subscribable_type"], name: "index_activity_feeds", unique: true, using: :btree
+  add_index "activity_feeds", ["subscribable_id"], name: "index_activity_feeds_on_subscribable_id", using: :btree
 
   create_table "activity_references", force: true do |t|
     t.integer "referenceable_id"
@@ -48,8 +38,7 @@ ActiveRecord::Schema.define(version: 20130923211811) do
     t.string  "title"
   end
 
-  add_index "activity_references", ["referenceable_id","referenceable_type"], using: :btree
-  add_index "activity_references", ["activity_id","title"], unique: true, using: :btree
+  add_index "activity_references", ["referenceable_id", "referenceable_type", "activity_id", "title"], name: "activity_references_index", unique: true, using: :btree
 
   create_table "avatars", force: true do |t|
     t.integer  "avatarable_id"
@@ -125,7 +114,7 @@ ActiveRecord::Schema.define(version: 20130923211811) do
     t.datetime "updated_at"
   end
 
-  add_index "gallery_folders", ["gallery_id","name"], name: "index_gallery_folders_on_gallery_id_and_name", unique: true, using: :btree
+  add_index "gallery_folders", ["gallery_id"], name: "index_gallery_folders_on_gallery_id", using: :btree
 
   create_table "gallery_images", force: true do |t|
     t.integer  "gallery_folder_id"
@@ -234,6 +223,16 @@ ActiveRecord::Schema.define(version: 20130923211811) do
   add_index "tasks", ["poster_id"], name: "index_tasks_on_poster_id", using: :btree
   add_index "tasks", ["task_group_id"], name: "index_tasks_on_task_group_id", using: :btree
 
+  create_table "user_avatars", force: true do |t|
+    t.integer  "gallery_image_id"
+    t.integer  "user_profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_avatars", ["gallery_image_id"], name: "index_user_avatars_on_gallery_image_id", using: :btree
+  add_index "user_avatars", ["user_profile_id"], name: "index_user_avatars_on_user_profile_id", using: :btree
+
   create_table "user_profiles", force: true do |t|
     t.text     "card_hash"
     t.text     "resume_hash"
@@ -242,7 +241,7 @@ ActiveRecord::Schema.define(version: 20130923211811) do
     t.datetime "updated_at"
   end
 
-  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", unique: true, using: :btree
+  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
