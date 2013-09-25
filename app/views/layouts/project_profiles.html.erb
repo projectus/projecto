@@ -12,11 +12,11 @@
         <div class="span9">
 	        <h1><%= associated_project.name %></h1>
   		    <ul class="nav nav-pills">
-					  <li><%= link_to_project_profile(associated_project,image_tag('tiles/Outlook.png'))
+					  <li><%= link_to_project_profile(associated_project,image_tag('tiles/details.png'))
 					%></li>
-					  <li><%= link_to image_tag('tiles/OneNote.png'), project_news_posts_path(associated_project) %></li>
-					  <li><%= link_to image_tag('tiles/PowerPoint.png'), project_comments_path(associated_project) %></li>
-					  <li><%= link_to image_tag('tiles/Lync.png'), nil %></li>
+					  <li><%= link_to image_tag('tiles/news.png'), project_news_posts_path(associated_project) %></li>
+					  <li><%= link_to image_tag('tiles/comments.png'), project_comments_path(associated_project) %></li>
+					  <li><%= link_to image_tag('tiles/gallery.png'), nil %></li>
 			    </ul>
 		    </div>
       </div>
@@ -42,8 +42,8 @@
 	        </div>
 	        <div class="span5">
 				    <ul class="nav nav-pills">
-					    <li><%= link_to image_tag('tiles/Access.png'), project_task_groups_path(associated_project) %></li>
-					    <li><%= link_to image_tag('tiles/Excel.png'), nil %></li>
+					    <li><%= link_to image_tag('tiles/tasks.png'), project_task_groups_path(associated_project) %></li>
+					    <li><%= link_to image_tag('tiles/discussion.png'), nil %></li>
 			      </ul>
 		      </div>
 		    </div>
