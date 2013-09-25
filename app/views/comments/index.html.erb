@@ -6,10 +6,11 @@
           <%= avatar_link(comment.user, type: 'thumb') %>
         </div>
         <div class="comment-content">
+          <%= link_to_user_profile(comment.user) %> <br>
           <%= comment.content %>
           <br>
           <%= link_to 'Edit', edit_comment_path(comment) %>
-          <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
     </div>

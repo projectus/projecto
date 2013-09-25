@@ -21,6 +21,10 @@
           width: 100px;
           border-radius: 5px;
       }
+      li>a{
+      padding-left: 8px;
+      padding-right: 8px;
+      }
     }
   }
 
@@ -45,13 +49,17 @@
 	
 	/* size of vertical pills */
 	
-	.span5 {
-		.nav-pills {
-		  img {
-        width: 60px;
-        border-radius: 5px;
+  .span5 {
+      .nav-pills {
+	    img {
+           width: 60px;
+           border-radius: 5px;
+        }
+        li>a{
+          padding-left: 8px;
+          padding-right: 8px;
+        }
       }
-    }
 	}
 	
 	.project-dashboard-content {
