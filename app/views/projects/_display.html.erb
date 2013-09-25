@@ -3,10 +3,10 @@
 <div class="project-box">
     <div class="project-image-box"><%= avatar_link(project, class: 'project-image-avatar') %></div>
     <div class="project-detail-bar">
-      <div class="title"><%= link_to_project_profile(project) %></div>
+      <strong><span class="title"><%= link_to_project_profile(project) %></span></strong><br>
       <%= avatar_link(project.owner, type: 'thumb', class: 'project-owner-avatar') %>
-      <b><%= link_to_user_profile(project.owner) %></b>
-      <div class="project-description"> <%= project.description%></div>
+      <%= link_to_user_profile(project.owner) %><br>
+      <span class="project-description"> <%= project.description%></span>
     </div>
     <div class="project-action-bar-splitter"></div>
     <div class="project-action-panel">
