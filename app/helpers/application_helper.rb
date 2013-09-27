@@ -62,18 +62,18 @@ module ApplicationHelper
     end
 	end
 	
-	def avatar_tag(m,options={type: :default})
+	def avatar_tag(m,options={})
 		type = options.delete(:type) 
 		c = options[:class]
-		if c.nil? 
-			options[:class]='avatar' 
-	  else 
-		  options[:class]+=' avatar' 
-		end
-    image_tag avatar_url(m,type), options 
+		c.nil? ? options[:class]='avatar' : options[:class]+=' avatar'
+		if type.nil?
+			image_tag avatar_url(m), options
+		else
+      image_tag avatar_url(m,type), options
+    end 
 	end
 	
-	def avatar_link(m,options={type: :default})
+	def avatar_link(m,options={})
 		if m.class == Project
 		  link_to_project_profile m, avatar_tag(m,options)
 		elsif m.class == User

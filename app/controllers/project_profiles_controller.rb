@@ -7,16 +7,12 @@ class ProjectProfilesController < ApplicationController
 	#end	
   before_action :set_project_details, only: [:show, :edit]
 
-  #layout Proc.new{ 'project_details' if ['details','edit'].include?(action_name)  }
+  layout Proc.new{ 'project_details' if ['show','edit'].include?(action_name)  }
 
   # GET /project_profiles/1
   # GET /project_profiles/1.json
   def show
-	  #redirect_to project_details_url(associated_project)
   end
-	
-	#def details
-  #end
 	
   # GET /project_profiles/1/edit
   def edit
