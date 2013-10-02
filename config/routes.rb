@@ -55,7 +55,8 @@ Projecto::Application.routes.draw do
 		resources :comments, except: [:create, :show, :new]
 		resources :news_posts, except: [:create, :new]
 		resources :collaborations, except: [:show, :new, :create]
-		resources :task_groups, only: [:new, :index] 
+		resources :task_groups, only: [:new, :index]
+		resources :tasks, only: [:index]
 	end
 
   # USERS AND ASSOCIATED ########################################

@@ -3,7 +3,7 @@
   <%= @task_group.name %>
 </p>
 
-<%= render partial: 'tasks/form', locals: { task: @task } %> 
+<%= render partial: 'tasks/form', locals: { task: @task, task_group: @task_group } %> 
 
 <%= render partial: 'tasks/index', locals: { tasks: @task_group.tasks } %>
 
