@@ -1,7 +1,7 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+/*
 .avatar-div{
   float: left;
   margin-right: 40px;
@@ -65,9 +65,87 @@
 .edit-resume-div {
   clear: both;
 }
+*/
+
+.user-profile{
+  background-color: black;
+}
+
+.user-sidebar{
+
+  .user-avatar{
+    margin: 5px;
+  }
+  .user-info{
+    font-color: white;
+    margin-left: 5px;
+  }
+
+  .btn-group{
+    margin-left: 2px;
+  }
+  .project-group{
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+
+}
+.span9{
+
+  .user-navbar{
+    margin-top: 94px;
+
+    img{
+      width: 100px;
+      border-radius: 50px;
+    }
+    li>a{
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-right: 20px;
+      border-radius: 60px;
+    }
+  }
+
+  .user-tab-content{
+    margin-top: 20px;
 
 
+    li.skills-icon{
+      height:120px;
+      width: 120px;
+      background-color: #fffff9;
+      margin:10px;
+      border-radius: 5px;
 
+      a{
+        line-height: 10px;
+      }
+      img{
+        margin-left:35px;
+        margin-bottom: 5px;
+      }
+      p{
+        font-size: 11px;
+        line-height: 10px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+      }
+      .progress{
+        width: 110px;
+        height: 10px;
+        margin-left: 5px;
+        margin-bottom: 0px;
+      }
+    }
+
+    #mycarousel{
+      margin-top: 50px;
+    }
+
+  }
+
+}
 
 
 
