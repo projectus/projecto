@@ -2,31 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#user-profile{
-}
-
 #user-sidebar{
 
   background: red;
 
-  #user-avatar{
-    margin: 5px;
-  }
-
   #user-info{
-    font-color: white;
-    margin-left: 5px;
-  }
-
-  .btn-group{
-    margin-left: 2px;
+    color: white;
   }
 
   #project-group{
     margin-top: 20px;
-    margin-left: 5px;
   }
-
 }
 
 .span9{
@@ -69,10 +55,6 @@
 	    }
 	  }
 	}
-	
-  #mycarousel{
-    margin-top: 50px;
-  }
 }
 
 

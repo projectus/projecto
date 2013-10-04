@@ -1,62 +1,59 @@
 <% content_for :content do %>
-    <div id="user-profile">			
-      <div class="row-fluid">
-        <div class="span3" id="user-sidebar">
-          <div class="span11 ">
-            <div id="user-avatar">
-              <%= avatar_tag(associated_user, class: 'img-polaroid', id: 'user_avatar') %>
-            </div>
+    <div id="user-profile" class="row">			
+      <div class="span3" id="user-sidebar">
+        <div id="user-avatar">
+          <%= avatar_tag(associated_user, class: 'img-polaroid', id: 'user_avatar') %>
+        </div>
 
-            <div id="user-info">
-              <h3><strong><%= associated_user.username %></strong></h3>
-              <p><%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %></p>
-            </div>
-            <div class="btn-group">
-              <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), class: "btn btn-info" %>
-							<!-- Button to trigger modal -->
-							<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
-								Invite
-							</a>
-            </div>
+        <div id="user-info">
+          <h3><strong><%= associated_user.username %></strong></h3>
+          <p><%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %></p>
+        </div>
 
-            <div id="project-group">
-              <div class="accordion" id="projects-associated">
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-worked-on">
-                      <h4>Projects Created</h4>
-                    </a>
-                  </div>
-                  <div id="projects-worked-on" class="accordion-body collapse in">
-                    <div class="accordion-inner">
-                      <% associated_user.owned_projects.each do |project| %>
-                        <%= link_to_project_profile(project) %></br>
-                      <% end %>
-                    </div>
-                  </div>
+        <div class="btn-group">
+          <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), class: "btn btn-info" %>
+					<!-- Button to trigger modal -->
+					<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
+						Invite
+					</a>
+        </div>
+
+        <div id="project-group">
+          <div class="accordion">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-worked-on">
+                  <h4>Projects Created</h4>
+                </a>
+              </div>
+              <div id="projects-worked-on" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  <% associated_user.owned_projects.each do |project| %>
+                    <%= link_to_project_profile(project) %></br>
+                  <% end %>
                 </div>
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-favored">
-                      <h4>Collaborations</h4>
-                    </a>
-                  </div>
-                  <div id="projects-favored" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                      <% associated_user.projects.each do |project| %>
-                        <%= link_to_project_profile(project) %></br>
-                      <% end %>
-                    </div>
-                  </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-favored">
+                  <h4>Collaborations</h4>
+                </a>
+              </div>
+              <div id="projects-favored" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <% associated_user.projects.each do |project| %>
+                    <%= link_to_project_profile(project) %></br>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="span9">
-				  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
-        </div>
+      <div class="span9">
+			  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
       </div>
     </div>
 
@@ -68,8 +65,9 @@
 			
 		  <div class="modal-header">
 		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		    <h3 id="myModalLabel">Invite User to Project</h3>
+		    <h3 id="myModalLabel">Invite <%= associated_user.username %> to help with your project!</h3>
 		  </div>
+		
 		  <div class="modal-body">
 			  <div class="row-fluid">
 				  <% if current_user.owned_projects.size.zero? %>
