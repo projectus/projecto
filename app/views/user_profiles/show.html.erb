@@ -1,3 +1,30 @@
-<div class="content">
+<div id="user-skills">
+  <h2>Skills</h2>
+  <ul class="nav nav-pills">
+    <%= render partial: 'skill', object: 'C++' %>
+    <%= render partial: 'skill', object: 'Java' %>
+    <%= render partial: 'skill', object: 'Ruby' %>
+    <%= render partial: 'skill', object: 'League of Legends' %>
+  </ul>
+</div>
 
+<div id="user-portfolio">
+  <h2>Portfolio</h2>
+  <div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      <% associated_user.gallery.images.each_with_index do |image,i| %>
+      <div class="item <%= 'active' if i==0 %>">
+        <%= gallery_image_tag(image) %>
+      </div>
+      <% end %>
+    </div>
+
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+  </div>
 </div>

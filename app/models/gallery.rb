@@ -2,6 +2,7 @@ class Gallery < ActiveRecord::Base
 	belongs_to :showcasable, polymorphic: true
 	
 	has_many :folders, class_name: 'GalleryFolder', dependent: :destroy
+	has_many :images, through: :folders
 	
 	# Make sure every showcasable model has only one gallery
   validates :showcasable, presence: true
