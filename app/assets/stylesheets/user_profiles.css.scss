@@ -1,82 +1,19 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*
-.avatar-div{
-  float: left;
-  margin-right: 40px;
 
-  #user_avatar{
-    width: 180px !important;
-    margin-bottom: 8px;
-  }
-
-  .user-name {
-    font-family: 'Francois One',sans-serif !important;
-    font-size: 14pt;
-    text-align: center;
-  }
-
-  .full-name {
-    font-family: 'Happy Monkey',cursive;
-    margin: auto;
-    text-align: center;
-  }
-
-  #card{
-    float: left;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
-    font-size: 11pt;
-    width: 185px;
-  }
-
+#user-profile{
 }
 
-.user-tab-wrapper {
-  float: right;
-  width: 710px;
+#user-sidebar{
 
-  .user-tabs li.active a {
-    background: #E4E4E4 !important;
-  }
+  background: red;
 
-  .user-tab-content {
-    background: #E4E4E4;
-    padding: 20px;
-  }
-}
-
-.edit-contact-card-div {
-  width: 100%;
-
-  .edit-contact-card {
-    background: white;
-    padding: 20px;
-    border: 1px solid #DDD;
-    border-radius: 7px 7px 7px 7px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-    font-family: 'Denk One',sans-serif;
-    color: #666666 !important;
-    float: left;
-    margin-right: 30px;
-  }
-}
-
-.edit-resume-div {
-  clear: both;
-}
-*/
-
-.user-profile{
-  background-color: black;
-}
-
-.user-sidebar{
-
-  .user-avatar{
+  #user-avatar{
     margin: 5px;
   }
-  .user-info{
+
+  #user-info{
     font-color: white;
     margin-left: 5px;
   }
@@ -84,67 +21,58 @@
   .btn-group{
     margin-left: 2px;
   }
-  .project-group{
+
+  #project-group{
     margin-top: 20px;
     margin-left: 5px;
   }
 
 }
+
 .span9{
+  
+  #user-portfolio {
+		background: blue;
+	}
+	
+  #user-skills {
+		background: green;
+	
+	  li.skills-icon{
+	    height:120px;
+	    width: 120px;
+	    background-color: #fffff9;
+	    margin:10px;
+	    border-radius: 5px;
 
-  .user-navbar{
-    margin-top: 94px;
-
-    img{
-      width: 100px;
-      border-radius: 50px;
-    }
-    li>a{
-      padding-left: 8px;
-      padding-right: 8px;
-      margin-right: 20px;
-      border-radius: 60px;
-    }
+	    a{
+	      line-height: 10px;
+	    }
+	
+	    img{
+	      margin-left:35px;
+	      margin-bottom: 5px;
+	    }
+	
+	    p{
+	      font-size: 11px;
+	      line-height: 10px;
+	      margin-bottom: 5px;
+	      margin-left: 5px;
+	    }
+	
+	    .progress{
+	      width: 110px;
+	      height: 10px;
+	      margin-left: 5px;
+	      margin-bottom: 0px;
+	    }
+	  }
+	}
+	
+  #mycarousel{
+    margin-top: 50px;
   }
-
-  .user-tab-content{
-    margin-top: 20px;
-
-
-    li.skills-icon{
-      height:120px;
-      width: 120px;
-      background-color: #fffff9;
-      margin:10px;
-      border-radius: 5px;
-
-      a{
-        line-height: 10px;
-      }
-      img{
-        margin-left:35px;
-        margin-bottom: 5px;
-      }
-      p{
-        font-size: 11px;
-        line-height: 10px;
-        margin-bottom: 5px;
-        margin-left: 5px;
-      }
-      .progress{
-        width: 110px;
-        height: 10px;
-        margin-left: 5px;
-        margin-bottom: 0px;
-      }
-    }
-
-    #mycarousel{
-      margin-top: 50px;
-    }
-
-  }
-
 }
 
 
