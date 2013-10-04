@@ -1,23 +1,19 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task_group_and_project, only: [:create]
 
   # Authenticate current user as project owner. Set project depending on the action.
   before_action(except: [:index, :show]) do
-	  if @task.nil?
-		  task_group = TaskGroup.find(params[:task_group_id]||=params[:task][:task_group_id])
-		  project = task_group.project
-		else
-	    project = @task.task_group.project
-	  end
-	  authenticate_current_user_as_project_owner(project, 
+	  authenticate_current_user_as_project_owner(associated_project, 
 	                       "You don't have the permissions to modify tasks.")
 	end
 
   # GET /tasks
   # GET /tasks.json
   def index
-	  @task_group = TaskGroup.find(params[:task_group_id])
-    @tasks = @task_group.tasks
+	  @project = Project.includes(task_groups: :tasks).find(params[:project_id])
+    @tasks = @project.tasks
+    @task = Task.new
   end
 
   # GET /tasks/1
@@ -26,10 +22,10 @@ class TasksController < ApplicationController
   end
 
   # GET task_groups/1/tasks/new
-  def new
-    @task = Task.new
-    @task.task_group_id = params[:task_group_id]
-  end
+  #def new
+  #  @task = @task_group.tasks.build
+    #@task.task_group_id = params[:task_group_id]
+  #end
 
   # GET /tasks/1/edit
   def edit
@@ -38,11 +34,12 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = current_user.posted_tasks.build(task_params)
+    @task = @task_group.tasks.build(task_params)
+    @task.poster = current_user
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task.task_group, notice: 'Task was successfully created.' }
+        format.html { redirect_to project_tasks_url(@project), notice: 'Task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @task }
       else
         format.html { render action: 'task_groups/index' }
@@ -68,10 +65,10 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-	  task_group = @task.task_group
+	  project = @task.task_group.project
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to task_group_tasks_url(task_group) }
+      format.html { redirect_to project_tasks_url(project) }
       format.json { head :no_content }
     end
   end
@@ -81,9 +78,18 @@ class TasksController < ApplicationController
     def set_task
       @task = Task.find(params[:id])
     end
-	
+
+    def set_task_group_and_project
+	    @task_group = TaskGroup.includes(:project).find(params[:task][:task_group_id])
+	    @project = @task_group.project
+	  end
+			
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :details, :priority, :task_group_id)
+      params.require(:task).permit(:title, :details, :priority)
     end
+
+    def associated_project
+	    @project ||= @task.task_group.project 
+	  end
 end

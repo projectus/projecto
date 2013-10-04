@@ -16,7 +16,7 @@
     <%= f.text_field :name %>
   </div>
   
-  <%= f.hidden_field :project_id %>
+  <%= hidden_field_tag :project_id, @task_group.project.id %>
   
   <%= f.submit 'Add Group', class: 'btn' %>
 <% end %>

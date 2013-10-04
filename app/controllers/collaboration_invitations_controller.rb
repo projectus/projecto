@@ -81,7 +81,7 @@ class CollaborationInvitationsController < ApplicationController
 			
     # Never trust parameters from the scary internet, only allow the white list through.
     def invitation_params
-      params.require(:collaboration_invitation).permit(:project_id, :message, :invited_user_id)
+      params.permit(:project_id, :message, :invited_user_id)
     end
 		
 		# Redirect if current user doesn't have any projects he can invite to

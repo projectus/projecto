@@ -19,13 +19,12 @@ class TaskGroupsController < ApplicationController
   # GET /task_groups/1.json
   def show
 	  @task = Task.new
-	  @task.task_group_id = params[:id]
   end
 
   # GET /projects/1/task_groups/new
   def new
-    @task_group = TaskGroup.new
-    @task_group.project_id = params[:project_id]
+    @task_group = @project.task_groups.build
+    #@task_group.project_id = params[:project_id]
   end
 
   # GET /task_groups/1/edit
@@ -35,7 +34,7 @@ class TaskGroupsController < ApplicationController
   # POST /task_groups
   # POST /task_groups.json
   def create
-    @task_group = TaskGroup.new(task_group_params)
+    @task_group = @project.task_groups.build(task_group_params)
 
     respond_to do |format|
       if @task_group.save
@@ -76,16 +75,16 @@ class TaskGroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task_group
-      @task_group = TaskGroup.find(params[:id])
+      @task_group = TaskGroup.includes(:project).find(params[:id])
     end
 	
    def set_project
-	   @project = Project.find(params[:project_id]||=task_group_params[:project_id])
+	   @project = Project.find(params[:project_id])
 	 end
 	 
    # Never trust parameters from the scary internet, only allow the white list through.
     def task_group_params
-      params.require(:task_group).permit(:name, :project_id)
+      params.require(:task_group).permit(:name)
     end
 
     def associated_project

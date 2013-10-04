@@ -4,7 +4,7 @@
   <tbody>
   <% @task_groups.each_with_index do |task_group,index| %>
       <tr>
-        <td class="taskgroup-td" colspan="8"><%#= task_group.name %>Task Group:
+        <td class="taskgroup-td" colspan="8">Task Group:
         <%= render partial: 'group', object: task_group %>
         </td>
       </tr>
