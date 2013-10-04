@@ -29,7 +29,7 @@
 	}
 }
 
-$TotalHeight: 350px; $TotalWidth: 200px;
+$TotalHeight: 400px; $TotalWidth: 200px;
 
 .project-box {
   height: $TotalHeight;
@@ -41,16 +41,16 @@ $TotalHeight: 350px; $TotalWidth: 200px;
 
   .project-image-box{
     margin: 2px;
-    height: $TotalHeight*0.44;
+    height: $TotalHeight*0.50;
 
     .project-image-avatar {
-      height: $TotalHeight*0.43;
+      height: $TotalHeight*0.49;
       width: $TotalWidth*0.98;
     }
   }
 
   .project-detail-bar {
-    height: $TotalHeight*0.44;
+    height: $TotalHeight*0.40;
 
     .title {
       margin-bottom: 3px;
@@ -76,7 +76,7 @@ $TotalHeight: 350px; $TotalWidth: 200px;
 
   .project-action-panel {
     font-size: 9pt;
-    height: $TotalHeight*0.12;
+    height: $TotalHeight*0.10;
   }
 }
 
