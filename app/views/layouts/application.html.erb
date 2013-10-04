@@ -62,18 +62,11 @@
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret caret-white"></span></a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "Profile", user_profile_path(current_user.profile) %>
-              </li>
-              <li>
                 <%= link_to 'Invitations', user_invitations_path(current_user) %>
               </li>
               <li>
                 <%= link_to 'Applications', user_applications_path(current_user) %>
               </li>
-              <li>
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-              </li>
-
             </ul>
           </div>
         </li>

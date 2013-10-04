@@ -41,6 +41,38 @@
             </div>
       //-->
 
+			
+			<!-- Modal -->
+			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<%= form_tag collaboration_invitations_path, method: "post" do |f| %>
+			  <%= hidden_field_tag :invited_user_id, associated_user.id %>
+			  <%= render partial: 'errors' %>
+				
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			    <h3 id="myModalLabel">Invite User to Project</h3>
+			  </div>
+			  <div class="modal-body">
+				  <div class="row-fluid">
+					  <% if current_user.owned_projects.size.zero? %>
+					    You have no projects to invite to!
+					  <% else %>
+              <%= select_tag :project_id, options_from_collection_for_select(current_user.owned_projects,"id","name") %>
+					  <% end %>
+				  </div>
+			    <div class="row-fluid">
+					  <%= label_tag :message %>
+					  <%= text_area_tag :message %>    
+					</div>
+			  </div>
+			  <div class="modal-footer">
+			    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			    <%= submit_tag 'Invite', class: 'btn btn-primary' %>
+			  </div>
+				<% end %>
+			
+			</div>
+			
       <div class="row-fluid">
         <div class="user-column span3 user-sidebar">
           <div class="span11 ">
@@ -48,16 +80,16 @@
               <%= avatar_tag(associated_user, class: 'img-polaroid', id: 'user_avatar') %>
             </div>
 
-
             <div class="user-info">
               <h3><strong><%= associated_user.username %></strong></h3>
               <p><%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %></p>
             </div>
             <div class="btn-group">
-              <button class="btn btn-info"><%= link_to 'Follow', new_user_collaboration_invitation_path(associated_user)%></button>
-              <button class="btn btn-info"><%= link_to 'Message', new_user_collaboration_invitation_path(associated_user)%></button>
-              <button class="btn btn-info"><%= link_to 'Invite', new_user_collaboration_invitation_path(associated_user)%></button>
-
+              <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), class: "btn btn-info" %>
+							<!-- Button to trigger modal -->
+							<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
+								Invite
+							</a>
             </div>
 
             <div class="project-group">
@@ -66,30 +98,28 @@
                 <div class="accordion-group">
                   <div class="accordion-heading">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-worked-on">
-                      <h4>Projects Worked On</h4>
+                      <h4>Projects Created</h4>
                     </a>
                   </div>
                   <div id="projects-worked-on" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                      League Of Legends<br>
-                      League Of Legends<br>
-                      League Of Legends<br>
-                      League Of Legends<br>
+                      <% associated_user.owned_projects.each do |project| %>
+                        <%= link_to_project_profile(project) %></br>
+                      <% end %>
                     </div>
                   </div>
                 </div>
                 <div class="accordion-group">
                   <div class="accordion-heading">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-favored">
-                      <h4>Projects Favored</h4>
+                      <h4>Collaborations</h4>
                     </a>
                   </div>
                   <div id="projects-favored" class="accordion-body collapse">
                     <div class="accordion-inner">
-                      League Of Legends<br>
-                      League Of Legends<br>
-                      League Of Legends<br>
-                      League Of Legends<br>
+                      <% associated_user.projects.each do |project| %>
+                        <%= link_to_project_profile(project) %></br>
+                      <% end %>
                     </div>
                   </div>
                 </div>
