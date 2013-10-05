@@ -1,5 +1,5 @@
 <%= form_for(@application) do |f| %>
-  <%= render partial: 'errors', object: @application.errors %>
+  <%= render 'errors' %>
 
   <div class="row-fluid">
     <%= f.label :message %>

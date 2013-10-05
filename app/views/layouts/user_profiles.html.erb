@@ -7,15 +7,13 @@
 
         <div id="user-info">
           <h3><strong><%= associated_user.username %></strong></h3>
-          <p><%= render partial: 'user_profiles/contact', locals: {contact: associated_user.profile.card} %></p>
+          <p><%= render partial: 'user_profiles/contact', :locals=>{contact: associated_user.profile.card} %></p>
         </div>
 
         <div class="btn-group">
           <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), class: "btn btn-info" %>
-					<!-- Button to trigger modal -->
-					<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
-						Invite
-					</a>
+          <!-- Button to trigger modal -->
+          <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">Invite</a>
         </div>
 
         <div id="project-group">
@@ -53,39 +51,38 @@
       </div>
 
       <div class="span9">
-			  <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
+        <%= content_for?(:user_profiles_content) ? yield(:user_profiles_content) : yield %>
       </div>
     </div>
 
-		<!-- Modal -->
-		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<%= form_tag collaboration_invitations_path, method: "post" do |f| %>
-		  <%= hidden_field_tag :invited_user_id, associated_user.id %>
-			
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		    <h3 id="myModalLabel">Invite <%= associated_user.username %> to help with your project!</h3>
-		  </div>
-		
-		  <div class="modal-body">
-			  <div class="row-fluid">
-				  <% if current_user.has_any_project? %>
-				    <%= select_tag :project_id, options_from_collection_for_select(current_user.owned_projects,"id","name") %>
-				  <% else %>
-			      You have no projects to invite to!
-				  <% end %>
-			  </div>
-		    <div class="row-fluid">
-				  <%= label_tag :message %>
-				  <%= text_area_tag :message %>    
-				</div>
-		  </div>
-		  <div class="modal-footer">
-		    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		    <%= submit_tag 'Invite', class: 'btn btn-primary' %>
-		  </div>
-			<% end %>
-		</div>
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <%= form_tag collaboration_invitations_path, method: "post" do |f| %>
+          <%= hidden_field_tag :invited_user_id, associated_user.id %>
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Invite <%= associated_user.username %> to help with your project!</h3>
+          </div>
+          <% if current_user.has_any_projects? %>
+              <div class="modal-body">
+                <div class="row-fluid">
+                  <%= select_tag :project_id, options_from_collection_for_select(current_user.owned_projects,"id","name") %>
+                </div>
+                <div class="row-fluid">
+                  <%= label_tag :message %>
+                  <%= text_area_tag :message %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <%= submit_tag 'Invite', :class=>'btn btn-primary' %>
+              </div>
+          <% else %>
+              <div>You have no projects to invite to!</div>
+          <% end %>
+      <% end %>
+    </div>
 <% end %>
 
 <%= render template: "layouts/application" %>
