@@ -1,10 +1,7 @@
-<div class="full-name">[<%= contact[:name].split(',').join(' ') %>]</div>
+<div>[<%= contact[:name].split(',').join(' ') %>]</div>
 
   <%#= contact[:birthday].split(',').join('-') %>
-  <div class="email-location">
-    <img src="http://png.findicons.com/files/icons/141/toolbar_icons_6_by_ruby_softwar/16/email.png" />
-    <%= contact[:secondary_email]%>
-    <br>
+  <div>
     <img src="http://png.findicons.com/files/icons/183/gis_gps_map/16/bulbgrey.png" />
     <%= contact[:location] %>
   </div>

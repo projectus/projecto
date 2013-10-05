@@ -51,7 +51,11 @@ class User < ActiveRecord::Base
 	def is_owner_of_project?(project)
 	  self == project.owner
 	end
-	
+
+  def has_any_project?
+	  !owned_projects.size.zero? 
+	end
+		
 	def is_collaborating_on_project?(project)
 	  collaborations.exists?(project: project)
 	end
