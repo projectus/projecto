@@ -51,11 +51,11 @@
         </li>
       </ul>
       <ul class="nav pull-right nav-links">
-        <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-about"><%= link_to "What is Projectore?", about_path, :class => "multiline white" %></div></li>
         <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-projects"><%= link_to "Browse Projects", projects_path, :class => "multiline white" %></div></li>
         <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-projects"><%= link_to "Start Project", new_project_path, :class => "multiline white" %></div></li>
 
         <% if user_signed_in? %>
+        <li class="nav-li"><div class="li-hover-top"></div><div class="navbar-about"><%= link_to "What is Projectore?", about_path, :class => "multiline white" %></div></li>
         <li>
           <div class="btn-group">
             <a class="btn" href="<%= user_profile_path(current_user.profile) %>"><i class="icon-user icon-black"></i> <%= current_user.username %></a>
@@ -73,8 +73,8 @@
 
         <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign Out", destroy_user_session_path, :class => "white", method: :delete %></li>
         <% else %>
+          <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign In", new_user_session_path, :class => "white" %></li>
 	      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign Up", new_user_registration_path, :class => "white" %></li>
-	      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign In", new_user_session_path, :class => "white" %></li>
         <% end %>
 
       </ul>
