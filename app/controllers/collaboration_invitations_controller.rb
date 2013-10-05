@@ -1,19 +1,12 @@
 class CollaborationInvitationsController < ApplicationController
 	before_action :authenticate_user!
   before_action :set_invitation, only: [:show, :update]
-	before_action :check_has_owned_projects, only: [:new]
 	before_action :authenticate_current_user_as_invited_user, only: [:update]
 	before_action(only: [:create]) do
 		project = Project.find(invitation_params[:project_id]) 
 	  authenticate_current_user_as_project_owner(project, 
 	                       "You don't have the permissions to invite to this project.")
 	end
-	
-  # GET /collaboration_invitations
-  # GET /collaboration_invitations.json
-  #def index
-  #  @collaboration_invitations = CollaborationInvitation.all
-  #end
 	
   # GET /collaboration_invitations/1
   # GET /collaboration_invitations/1.json
@@ -34,10 +27,8 @@ class CollaborationInvitationsController < ApplicationController
     respond_to do |format|
       if @invitation.save
         format.html { redirect_to @invitation, notice: 'Invitation was sent successfully.' }
-        format.json { render action: 'show', status: :created, location: @invitation }
       else
         format.html { render partial: 'errors' }
-        format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,23 +42,11 @@ class CollaborationInvitationsController < ApplicationController
 	
       if @invitation.update(status_param)	
         format.html { redirect_to user_invitations_path(@invitation.invited_user), notice: "Invitation was successfully #{@invitation.status}." }
-        format.json { head :no_content }
       else
         format.html { render action: 'show' }
-        format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
   end
-
-  # DELETE /collaboration_invitations/1
-  # DELETE /collaboration_invitations/1.json
-  #def destroy
-  #  @collaboration_invitation.destroy
-  #  respond_to do |format|
-  #    format.html { redirect_to collaboration_invitations_url }
-  #    format.json { head :no_content }
-  #  end
-  #end
 		
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -83,13 +62,6 @@ class CollaborationInvitationsController < ApplicationController
     def invitation_params
       params.permit(:project_id, :message, :invited_user_id)
     end
-		
-		# Redirect if current user doesn't have any projects he can invite to
-    def check_has_owned_projects
-	    if current_user.owned_projects.empty?
-		    redirect_to :back, alert: 'You have no projects you can invite to.'
-		  end
-	  end
 	
     # Authenticate the signed in user as the invited user
     def authenticate_current_user_as_invited_user

@@ -26,10 +26,8 @@ class CollaborationApplicationsController < ApplicationController
     respond_to do |format|
       if @application.save
         format.html { redirect_to @application, notice: 'Application was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @application }
       else
         format.html { render partial: 'errors' }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +40,9 @@ class CollaborationApplicationsController < ApplicationController
 	    status = @application.status
       if @application.update(status_param)
         format.html { redirect_to @application, notice: "Application was successfully #{@application.status}." }
-        format.json { head :no_content }
       else
 	      @application.status = status
         format.html { render action: 'show' }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
   end
