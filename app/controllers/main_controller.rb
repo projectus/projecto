@@ -1,7 +1,7 @@
 class MainController < ApplicationController
 
   def index
-    @projects = Project.find(:all)
+    @projects = Project.all
   end
 
   def about
