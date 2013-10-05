@@ -28,7 +28,7 @@ class CollaborationApplicationsController < ApplicationController
         format.html { redirect_to @application, notice: 'Application was successfully created.' }
         format.json { render action: 'show', status: :created, location: @application }
       else
-        format.html { render action: 'new' }
+        format.html { render partial: 'errors' }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end

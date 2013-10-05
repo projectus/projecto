@@ -7,34 +7,31 @@
 .project-profile {
 	
   .project-header, .project-profile-content, .project-sidebar {
-		background: image-url('bkg/darker.jpg') center center no-repeat; 
-	  background-attachment: fixed;
-	  //opacity:0.98;
-	
+	  background: image-url('bkg/darker.jpg') center center no-repeat;
+      box-shadow: 0 0 10px 1px black;
+      background-attachment: fixed;
 	  padding-left: 10px;
 	}
 
-	.project-header {
-	  box-shadow: 0 0 10px 1px black;
+  .project-header {
     padding-top: 20px;
   }
 	
-	.project-sidebar {
-	  box-shadow: 0 0 10px 1px black;
-	  margin-left: 10px;
+  .project-sidebar {
+    margin-left: 10px;
   }
 
-	/* the title */
+  /* the title */
 	
-	h1 {
-	  margin-bottom: 10px;
-	  margin-top: 0;
-	}
+  h1 {
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
 
   /* the top pills */
 
   .span9 {
-	  .nav-pills {
+    .nav-pills {
       img {
         width: 100px;
         border-radius: 5px;

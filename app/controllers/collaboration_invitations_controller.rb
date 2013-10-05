@@ -36,7 +36,7 @@ class CollaborationInvitationsController < ApplicationController
         format.html { redirect_to @invitation, notice: 'Invitation was sent successfully.' }
         format.json { render action: 'show', status: :created, location: @invitation }
       else
-        format.html { render action: 'new' }
+        format.html { render partial: 'errors' }
         format.json { render json: @invitation.errors, status: :unprocessable_entity }
       end
     end
