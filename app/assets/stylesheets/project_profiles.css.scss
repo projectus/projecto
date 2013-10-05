@@ -9,18 +9,15 @@
   .project-header, .project-profile-content, .project-sidebar {
 		background: image-url('bkg/darker.jpg') center center no-repeat; 
 	  background-attachment: fixed;
-	  //opacity:0.98;
-	
+	  box-shadow: 0 0 10px 1px black;	
 	  padding-left: 10px;
 	}
 
 	.project-header {
-	  box-shadow: 0 0 10px 1px black;
     padding-top: 20px;
   }
 	
 	.project-sidebar {
-	  box-shadow: 0 0 10px 1px black;
 	  margin-left: 10px;
   }
 
@@ -83,7 +80,6 @@
 
 .project-profile-content {
 	margin-top: 10px;
-	box-shadow: 0 0 10px 1px black;
 	padding-left: 10px;
 }
 
