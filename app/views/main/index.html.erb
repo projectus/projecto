@@ -1,23 +1,24 @@
+
 <div class="row-fluid">
-    <div class="span12 project-section">
+
+    <div class="menu-section">
       <h2>Popular Projects</h2>
-      <div class="section-menu">
+
         <ul class="nav nav-pills">
           <li class="active"><a href="#">Most Viewed</a></li>
           <li><a href="#">Most Subscribed</a></li>
           <li><a href="#">Most Collaborators</a></li>
         </ul>
-      </div>
+     </div>
 
-      <div class="section-body">
+    <div class="project-section">
         <ul class="project-listings">
           <% @projects.each do |project| %>
               <li class="span3"><%= render partial: 'projects/display', locals: {project: project} %></li>
           <% end %>
         </ul>
-      </div>
 
-      <div class="pagination pagination-right">
+      <div class="pagination pagination-centered project-page-bar">
         <ul>
           <li><a href="#">Prev</a></li>
           <li><a href="#">1</a></li>
