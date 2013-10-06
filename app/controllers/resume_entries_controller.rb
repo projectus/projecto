@@ -1,7 +1,7 @@
 class ResumeEntriesController < ApplicationController
-	before_action :authenticate_user!, only: [:update, :destroy]
+	before_action :authenticate_user!
   before_action :set_user_profile
-	before_action :authenticate_current_user_as_profile_owner, only: [:update, :destroy]
+	before_action :authenticate_current_user_as_profile_owner
 
   def new
 	  @section = params[:section].to_sym

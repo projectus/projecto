@@ -2,37 +2,15 @@
   <p>Education
     <%= link_to 'Edit Resume', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
   </p>
-
 </div>
-
-<div class="scroll-splitter"></div>
 
 
 <%= render partial: 'section', locals: {section: :education} %>
 
-    <div class="inner-heading-div">
-      <p>Skills
-      </p>
+<%= render partial: 'section', locals: {section: :skills} %>
 
-    </div>
-
-    <div class="scroll-splitter"></div>
-
-
-		  <%= render partial: 'section', locals: {section: :skills} %>
+<%= render partial: 'section', locals: {section: :experience} %>
 
 
 
-
-<div class="inner-heading-div">
-  <p>
-	Experience
-  </p>
-
-</div>
-
-<div class="scroll-splitter"></div>
-
-
-  <%= render partial: 'section', locals: {section: :experience} %>
 
