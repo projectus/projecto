@@ -26,13 +26,13 @@ Projecto::Application.routes.draw do
   get "user_profiles/:id/resume", to: 'resume#show', as: :resume
   get "user_profiles/:id/resume/edit", to: 'resume#edit', as: :edit_resume
 
-  resources :user_profiles, except: [:index, :new, :create, :destroy]
+  resources :user_profiles, only: [:show, :edit, :update]
   resources :resume_entries, only: [:edit,:update,:destroy]
   get "user_profiles/:id/resume_entry/new", to: 'resume_entries#new', as: :new_resume_entry
 
   # PROJECT PROFILES ########################
 
-  resources :project_profiles, except: [:index, :new, :create]
+  resources :project_profiles, only: [:show, :edit], controller: :project_details
   resources :project_details_entry, only: [:edit,:update,:destroy]
   get "project_profiles/:id/details_entry/new", to: 'project_details_entry#new', as: :new_project_details_entry
 

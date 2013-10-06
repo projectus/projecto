@@ -12,9 +12,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Edit Details', edit_project_profile_path(@project_profile), class: 'btn pull-right btn-inner-small' %>
-
-<% @details.sort.map do |key,entry| %>
-  <%= render partial: 'project_details_entry/entry', locals: {entry: entry} %>
-<% end %>
-
+<%= render template: "layouts/project_profiles" %>
