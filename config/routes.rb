@@ -1,5 +1,4 @@
 Projecto::Application.routes.draw do
-
   get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
   get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
@@ -18,8 +17,8 @@ Projecto::Application.routes.draw do
 
   get 'tags/:tag', to: 'projects#index', as: :tag
   get 'category/:cat', to: 'projects#index', as: :cat
-	
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   # USER PROFILES ################
 
