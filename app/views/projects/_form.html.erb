@@ -1,16 +1,5 @@
 <%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render 'errors' %>
 <fieldset>
   <legend>Enter project details</legend>
 
@@ -40,11 +29,11 @@
     <div class="wrapper">
       <%= f.file_field :image %>
     </div>
-    <button class="btn btn-primary">Select a file</button>
+    <a class="btn btn-primary">Select a file</a>
   </div>
 	
   <div class="actions">
-    <%=f.submit"Submit Application", class: "btn btn-primary" %>
+    <%=f.submit "Submit Application", class: "btn btn-primary" %>
   </div>
 </fieldset>
 <% end %>

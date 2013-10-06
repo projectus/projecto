@@ -7,9 +7,10 @@
 .project-profile {
 	
   .project-header, .project-profile-content, .project-sidebar {
-		background: image-url('bkg/darker.jpg') center center no-repeat; 
-	  background-attachment: fixed;
-	  box-shadow: 0 0 10px 1px black;	
+		//background: image-url('bkg/darker.jpg') center center no-repeat; 
+	  //background-attachment: fixed;
+	  background: white;
+	  box-shadow: 0 0 5px 1px black;	
 	  padding: 5px;
 	}
 
@@ -28,13 +29,17 @@
     margin-top: 0;
   }
 
-  /* the top pills */
+  .nav-pills {
+    img {
+      border-radius: 5px;
+      border: 2px solid black;
+    }
+  }
 
   .span9 {
     .nav-pills {
       img {
         width: 100px;
-        border-radius: 5px;
       }
       li>a{
         margin-right: 42px;
@@ -55,8 +60,7 @@
   .span5 {
     .nav-pills {
 	    img {
-         width: 60px;
-         border-radius: 5px;
+        width: 60px;
       }
       li>a{
         padding-left: 8px;
