@@ -10,7 +10,7 @@
 		background: image-url('bkg/darker.jpg') center center no-repeat; 
 	  background-attachment: fixed;
 	  box-shadow: 0 0 10px 1px black;	
-	  padding-left: 10px;
+	  padding: 5px;
 	}
 
 	.project-header {
@@ -37,22 +37,10 @@
         border-radius: 5px;
       }
       li>a{
-        padding-left: 8px;
-        padding-right: 8px;
+        margin-right: 42px;
       }
     }
   }
-
-/*
-  .span5 {
-	  background: red;
-	}
-
-  .span9 {
-	  background: red;
-	}
-
-*/
 	
   /* the spacing between Apply, Subscribe and Setting */
 
@@ -80,7 +68,6 @@
 
 .project-profile-content {
 	margin-top: 10px;
-	padding-left: 10px;
 }
 
 
