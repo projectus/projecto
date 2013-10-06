@@ -1,6 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-	before_filter :sign_up_permitted_parameters, :only => [:create]
-	before_filter :account_update_permitted_parameters, :only => [:update]
+	before_action :sign_up_permitted_parameters, :only => [:create]
+	before_action :account_update_permitted_parameters, :only => [:update]
+
+  def new
+    build_resource({})
+    render 'users/signinup'
+  end
 
   protected
     def after_sign_up_path_for(resource)
