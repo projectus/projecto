@@ -12,20 +12,23 @@
 	  box-shadow: 0 0 5px 1px black;	
 	  padding: 5px;
 	}
-
-	.project-header {
-    padding-top: 20px;
-  }
 	
 	.project-sidebar {
 	  margin-left: 10px;
   }
 
+	.project-profile-content {
+		margin-top: 10px;
+	}
+	
+	.project-header {
+		padding-top: 10px;
+	}
+	
   /* the title */
 	
   h1 {
     margin-bottom: 10px;
-    margin-top: 0;
   }
 
   .nav-pills {
@@ -68,11 +71,6 @@
     }
 	}		
 }
-
-.project-profile-content {
-	margin-top: 10px;
-}
-
 
 //----------------------------------------------------------------------------------------
 

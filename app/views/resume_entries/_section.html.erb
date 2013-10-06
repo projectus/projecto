@@ -10,9 +10,7 @@
   <% @resume[section].sort.each do |key,entry| %>
       <%= render partial: 'resume_entries/editable_entry', locals: {entry: entry, section: section, key: key} %>
   <% end %>
-  <p>
 
-  </p>
 
 <%= form_tag(new_resume_entry_path(@user_profile), method: :get) do %>
     <%= hidden_field_tag :section, section %>

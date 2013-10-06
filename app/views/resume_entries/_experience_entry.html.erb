@@ -1,6 +1,6 @@
-  <% entry.each do |type,info| %>
-    <% unless type == :title %>
-      <b><%= type.to_s.gsub('_',' ').capitalize %></b>
-    <% end %>
-      <%= info %><br>
+<% entry.each do |type,info| %>
+  <% unless type == :title %>
+    <b><%= type.to_s.gsub('_',' ').capitalize %></b>
   <% end %>
+    <%= info %><br>
+<% end %>

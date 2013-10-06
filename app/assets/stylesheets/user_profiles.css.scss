@@ -41,18 +41,18 @@
 	}
 
 	.span9{
-
 	  #user-portfolio {
 			box-shadow: 0 0 5px 1px black;
 			#user-portfolio-interior {
 				box-shadow: inset 0 0 2px 1px #BBB;
 				padding: 10px;
-				background: #EBEBEB;
+				background: #EBEBEB;				
 				.gallery-item {
 					margin-right: 10px;
 			    img {
 				    box-shadow: 0 0 2px 1px #BBB;
 						border-radius: 5px;
+						background: lightblue;
 			    }
 			  }
 			  .row-fluid {
