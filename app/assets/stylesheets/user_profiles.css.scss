@@ -21,6 +21,9 @@
 
 	  #project-group{
 	    margin-top: 20px;
+	    .accordion-group {
+				box-shadow: 0 0 2px 1px #000;		    
+		  }
 	    .accordion-heading {
 		    background: #BBB;
 		    a:hover {

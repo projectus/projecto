@@ -13,7 +13,7 @@
   <div id="user-portfolio-interior">
 	  <div class="row-fluid">
 	  <% associated_user.gallery.images.each_with_index do |image,i| %>
-		<div class="modal fade" id="gallery<%= i %>" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal hide fade" id="gallery<%= i %>" tabindex="-1" role="dialog" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -27,8 +27,8 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	  <% if i%4 == 0 %>
-	    </div>
-	    <div class="row-fluid">
+	  </div>
+	  <div class="row-fluid">
 		<% end %>
 	    <div class="span3">
 			  <a data-toggle="modal" href="#gallery<%= i %>"><%= gallery_image_tag(image) %></a>
