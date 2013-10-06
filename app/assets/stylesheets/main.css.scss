@@ -65,8 +65,21 @@
   }
 }
 */
-.project-listings li{
-  float: left;
-  display: inline;
-  margin-bottom: 10px;
+.project-page-bar{
+  clear:both;
+}
+
+.menu-section{
+  background: purple;
+}
+.project-section{
+  background-color: blue;
+  .span3{
+    float: left;
+    display: inline;
+    margin-left: 0px !important;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+  }
 }
