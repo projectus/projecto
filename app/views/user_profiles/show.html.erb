@@ -26,13 +26,13 @@
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-	  <% if i%4 == 0 %>
+	  <% if i%5 == 0 %>
 	  </div>
 	  <div class="row-fluid">
 		<% end %>
-	    <div class="span3">
+		  <span class="gallery-item">
 			  <a data-toggle="modal" href="#gallery<%= i %>"><%= gallery_image_tag(image) %></a>
-	    </div>
+			</span>
 	  <% end %>
 	  </div>
   </div>
