@@ -16,25 +16,10 @@ $(function() {
 */
 
 
-$(document).ready(function(){
-    $("a[data-remote]").bind("click"), function(e, data, status, xhr){
-        alert("ddd");
-    }
-
-
-    $(".down-arrow").bind("click", function(){
-        $(".task-details-collapse").show();
-    })
-
+$(function(){
     $(".nav-li").mouseover(function(){
-
         $(this).children(".li-hover-top").css("visibility", "visible")
     }).mouseout(function(){
-            $(this).children(".li-hover-top").css("visibility", "hidden")
-        })
-
-
-
-
-
-})
+        $(this).children(".li-hover-top").css("visibility", "hidden")
+    });
+});

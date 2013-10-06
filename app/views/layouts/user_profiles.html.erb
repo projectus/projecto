@@ -13,37 +13,35 @@
         <div class="btn-group">
           <%= link_to 'Message', new_user_collaboration_invitation_path(associated_user), class: "btn btn-info" %>
           <!-- Button to trigger modal -->
-          <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">Invite</a>
+          <a href="#inviteModal" role="button" class="btn btn-info" data-toggle="modal">Invite</a>
         </div>
 
-        <div id="project-group">
-          <div class="accordion">
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-worked-on">
-                  <h4>Projects Created</h4>
-                </a>
-              </div>
-              <div id="projects-worked-on" class="accordion-body collapse in">
-                <div class="accordion-inner">
-                  <% associated_user.owned_projects.each do |project| %>
-                    <%= link_to_project_profile(project) %></br>
-                  <% end %>
-                </div>
+        <div id="project-group" class="accordion">
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#project-group" href="#projects-owned">
+                <h4>Projects Created</h4>
+              </a>
+            </div>
+            <div id="projects-owned" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                <% associated_user.owned_projects.each do |project| %>
+                  <%= link_to_project_profile(project) %></br>
+                <% end %>
               </div>
             </div>
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#projects-associated" href="#projects-favored">
-                  <h4>Collaborations</h4>
-                </a>
-              </div>
-              <div id="projects-favored" class="accordion-body collapse">
-                <div class="accordion-inner">
-                  <% associated_user.projects.each do |project| %>
-                    <%= link_to_project_profile(project) %></br>
-                  <% end %>
-                </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#project-group" href="#collaborations">
+                <h4>Collaborations</h4>
+              </a>
+            </div>
+            <div id="collaborations" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <% associated_user.projects.each do |project| %>
+                  <%= link_to_project_profile(project) %></br>
+                <% end %>
               </div>
             </div>
           </div>
@@ -56,13 +54,13 @@
     </div>
 
     <!-- Modal -->
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="inviteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
       <%= form_tag collaboration_invitations_path, method: "post" do |f| %>
           <%= hidden_field_tag :invited_user_id, associated_user.id %>
 
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Invite <%= associated_user.username %> to help with your project!</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Invite <%= associated_user.username %> to help with your project!</h3>
           </div>
           <% if current_user.has_any_projects? %>
               <div class="modal-body">
