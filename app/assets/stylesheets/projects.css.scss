@@ -2,7 +2,7 @@
 // They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+/*
 .heading-buttons {
   float: right;
 }
@@ -29,7 +29,38 @@
 	text-decoration: none;
   }
 }
+*/
+//New Project Css
+.photo-attachment-container {
+  position: relative;
+}
 
+.photo-attachment-container .wrapper {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.photo-attachment-container .wrapper:hover {
+  opacity: 0.5;
+}
+
+.photo-attachment-container button {
+  background-color: #ccc;
+  border: none;
+  color: #666;
+  padding: 3px 5px;
+  border-radius: 5px;
+  position: relative;
+  top: 0;
+  z-index: 1;
+}
+
+
+
+//Project Box Css
 $TotalHeight: 400px; $TotalWidth: 200px;
 
 .project-box {
