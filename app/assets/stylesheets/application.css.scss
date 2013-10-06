@@ -16,17 +16,20 @@
 	border-radius: 5px;
 }
 
+.avatar-thumb {
+	width: 30px;
+}
 
 // NAVBAR Element ------------------------------------------------------------------
 
 .navbar-inner {
-  //box-shadow: 0px 1px 3px #000000;
+  box-shadow: 0 0 10px 1px black !important;	
   background-color: #1b1b24 !important;
   background-image: none !important;
   //background: none !important; 
   border: 0 !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
+  //box-shadow: none !important;
+  //-webkit-box-shadow: none !important;
   padding: 10px 0 10px 0;
 
   #nav-center{

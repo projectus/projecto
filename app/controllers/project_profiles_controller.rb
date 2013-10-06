@@ -1,13 +1,11 @@
 class ProjectProfilesController < ApplicationController
-	#before_action :authenticate_user!, except: [:details, :show]	
+	before_action :authenticate_user!, except: [:show]	
   before_action :set_project_profile
-	#before_action(except: [:details, :show]) do
-	#  authenticate_current_user_as_project_owner(associated_project, 
-	#                       "You don't have the permissions to modify this project.")
-	#end	
-  before_action :set_project_details, only: [:show, :edit]
-
-  layout Proc.new{ 'project_details' if ['show','edit'].include?(action_name)  }
+	before_action(except: [:show]) do
+	  authenticate_current_user_as_project_owner(associated_project, 
+	                       "You don't have the permissions to modify this project.")
+	end	
+  before_action :set_project_details
 
   # GET /project_profiles/1
   # GET /project_profiles/1.json

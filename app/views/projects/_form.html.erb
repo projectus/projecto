@@ -13,33 +13,38 @@
 
 <fieldset>
   <legend>Enter project details</legend>
+
   <div class="row-fluid">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, autocomplete: :off %>
+    <%= f.label :name, "Project Name" %>
+    <%= f.text_field :name, autocomplete: :off, :placeholder=>"Project Name" %>
   </div>
   
   <div class="row-fluid">
-    <%= f.label :category %><br>
+    <%= f.label :category, "Project Category" %><br>
     <%= f.select(:category, Project::CATEGORIES.map(&:capitalize)) %>
   </div>
 
   <div class="row-fluid">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label :description, "Project Description" %><br>
+    <%= f.text_area :description, :placeholder=>"Project Description" %>
   </div>
 
   <div class="row-fluid">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list, autocomplete: :off %>
+    <%= f.text_field :tag_list, autocomplete: :off, :placerholder=>"Project Tag"%>
   </div>
 
-  <div class="field">
-	  <%= label_tag :avatar %>
-	  <%= f.file_field :image %>
-	</div>
+  <%= label_tag :avatar, "Project Avatar" %>
+  <div class="field photo-attachment-container">
+
+    <div class="wrapper">
+      <%= f.file_field :image %>
+    </div>
+    <button class="btn btn-primary">Select a file</button>
+  </div>
 	
   <div class="actions">
-    <%= f.submit %>
+    <%=f.submit"Submit Application", class: "btn btn-primary" %>
   </div>
 </fieldset>
 <% end %>
