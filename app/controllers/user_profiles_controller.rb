@@ -10,27 +10,32 @@ class UserProfilesController < ApplicationController
 	
   # GET /user_profiles/1/edit
   def edit
-	  @contact = @user_profile.card		
-	  @name = @contact[:name].nil? ? ['','',''] : @contact[:name].split(',')	
+	  set_contact_info
   end
 
   # PATCH/PUT /user_profiles/1
   # PATCH/PUT /user_profiles/1.json
   def update
-	  unless params[:contact].nil?
-      @user_profile.update_contact_card(permitted_fields)	
-	  end
-	
-	  gi = associated_user.gallery.root.images.create!(params[:user_profile].permit(:image))
+    @user_profile.update_contact_card(permitted_fields)	
+
+    set_contact_info
+
+    # Attempt to save the uploaded image to the user's gallery root folder	
+	  gi = associated_user.gallery.root.images.build(params[:user_profile].permit(:image))
+	  unless gi.save
+		  flash[:alert] = 'Images must be no larger than 2mb.'
+		  render action: 'edit'
+		  return
+		end
+		
+		# Update the user's avatar with the gallery image
 	  @user_profile.avatar.update_image(gi)
 	
     respond_to do |format|
       if @user_profile.save
         format.html { redirect_to @user_profile, notice: 'Profile was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @user_profile.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,6 +50,11 @@ class UserProfilesController < ApplicationController
 	    @user_profile.user
 	  end
 
+    def set_contact_info
+		  @contact = @user_profile.card		
+		  @name = @contact[:name].nil? ? ['','',''] : @contact[:name].split(',')		  
+	  end
+	
     def permitted_fields
 		  pf = params.require(:contact)
 		  pf[:name] = pf[:name].values.join(',')
