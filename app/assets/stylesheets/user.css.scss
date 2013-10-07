@@ -1,7 +1,7 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+/*
 .signup-form-div {
   float: left;
   background: white;
@@ -32,7 +32,14 @@
     text-shadow: 1px 0 1px rgba(0, 0, 0, 0.75);
   }
 }
-
+*/
+.signup-form-div{
+  float: left;
+  background: #1B1B24;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px grey;
+  padding: 10px;
+}
 
 
 
