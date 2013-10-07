@@ -1,5 +1,5 @@
 
-<%= link_to 'Back', @project_profile, :class=>'btn pull-right btn-inner-small' %>
+<%= link_to 'Done Editing', @project_profile, :class=>'btn btn-inner-small' %>
 
 <% @details.sort.map do |key,entry| %>
   <%= render partial: 'project_details_entry/editable_entry', locals: {key: key, entry: entry} %>
@@ -7,5 +7,4 @@
 
 <p>
   <%= link_to 'New Section', new_project_details_entry_path(@project_profile), class: 'btn btn-inner-small' %>
-  <%= link_to 'Done Editing', @project_profile, :class=>'btn btn-inner-small' %>
 </p>
