@@ -36,7 +36,7 @@
       <file leaf-file-name="signinup.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/signinup.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="35" selection-start="260" selection-end="260" vertical-scroll-proportion="0.2020958">
+            <state line="13" column="39" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.29191616">
               <folding />
             </state>
           </provider>
@@ -704,7 +704,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/signinup.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="35" selection-start="260" selection-end="260" vertical-scroll-proportion="0.2020958">
+        <state line="13" column="39" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.29191616">
           <folding />
         </state>
       </provider>
