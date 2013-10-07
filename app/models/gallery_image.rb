@@ -11,7 +11,7 @@ class GalleryImage < ActiveRecord::Base
 	return q }
 
   validates :gallery_folder, presence: true
-  validates :image, :attachment_presence=>true, :content_type => { :content_type => "image" },
+  validates_attachment :image, :presence=>true, :content_type => { :content_type => "image" },
 	  :size => { :in => 0..2.megabytes }
 
 	def reset!
