@@ -24,8 +24,10 @@
 
 .navbar-inner {
   box-shadow: 0 0 10px 1px black !important;	
-  background-color: #1b1b24 !important;
-  background-image: none !important;
+  //background-color: #1b1b24 !important;
+	background: image-url('bkg/darker.jpg') center center no-repeat !important; 
+
+  //background-image: none !important;
   //background: none !important; 
   border: 0 !important;
   //box-shadow: none !important;
