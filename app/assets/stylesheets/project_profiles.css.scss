@@ -7,10 +7,17 @@
 .project-profile {
 	
   .project-header, .project-profile-content, .project-sidebar {
-		background: image-url('bkg/darker.jpg') center center no-repeat; 
+
+      background: #111;
+    //background: image-url('bkg/darker.jpg') center center no-repeat;
 	  background-attachment: fixed;
 	  box-shadow: 0 0 5px 1px black;	
 	  padding: 5px;
+
+      .nav.nav-pills img {
+        width: 80px !important;
+      }
+
 	}
 	
 	.project-sidebar {
@@ -22,7 +29,14 @@
 	}
 	
 	.project-header {
+      background: #111111 !important;
 		//padding-top: 10px;
+
+      .project-header-content {
+        //background: #EEE;
+
+
+      }
 	}
 	
   /* the title */
@@ -70,6 +84,12 @@
       }
     }
 	}		
+}
+
+.header-divider{
+  border-top: 1px dotted #999;
+  margin-top: -5px;
+  margin-bottom: 5px;
 }
 
 //----------------------------------------------------------------------------------------

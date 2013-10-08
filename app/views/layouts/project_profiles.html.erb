@@ -9,7 +9,7 @@
 		      <%= avatar_tag(associated_project) %>
 		    </div>		
         <div class="span9">
-	        <h1><%= associated_project.name %></h1>
+	        <h2><%= associated_project.name %></h2>
   		    <ul class="nav nav-pills">
 					  <li><%= link_to_project_profile(associated_project,image_tag('tiles/details.png'))
 					%></li>
@@ -21,7 +21,9 @@
 
       <div class="row-fluid">
 	      <div class="span3">
-	        <div class="span7">
+
+            <!--
+            <div class="span7">
 		        <div class="row-fluid">
 	            <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
 								Apply
@@ -37,7 +39,11 @@
 		          <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn btn-danger'%>
             </div>
 	        </div>
-	        <div class="span5">
+
+	        -->
+
+            <div class="span3"></div>
+	        <div class="span5 private-buttons">
 				    <ul class="nav nav-pills">
 					    <li><%= link_to image_tag('tiles/tasks.png'), project_tasks_path(associated_project) %></li>
 					    <li><%= link_to image_tag('tiles/discussion.png'), nil %></li>
