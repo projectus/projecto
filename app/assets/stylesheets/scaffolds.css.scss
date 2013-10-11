@@ -2,9 +2,9 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   line-height: 18px;
-
-  //background: #626366;//#ddd;//#1b1b24;//#162726;
-  background: image-url('bkg/paper.png') center center no-repeat; 
+  //background: #F3F3F3;
+  //background: #fdf3ea;
+  background: image-url('bkg/paper.png') center center no-repeat;
   background-attachment: fixed;
   color: #7a7a8a;
   margin: 0;
@@ -13,7 +13,8 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-	color: #999;
+	color: #CCC;
+  font-family: 'Roboto Slab', serif !important;
 }
 
 p, ol, ul, td {

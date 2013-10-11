@@ -1,0 +1,21 @@
+
+
+<h2><strong>New to Projector?</strong></h2>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username, :autofocus => true, :class => "itext" %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, :class => "itext"  %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, :class => "itext"  %>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation,  :class => "itext"  %>
+
+      <div><%= f.submit "Create Account", :class=> "btn btn-large btn-success" %></div>
+    <% end %>
+

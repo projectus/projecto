@@ -2,62 +2,100 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#user-sidebar{
-
-  background: red;
-
-  #user-avatar {
-	  width: 180px;
+#user-profile {
+	h1,h2,h3,h4,h5,h6 {
+		color: black !important;
 	}
 	
-  #user-info{
-    color: white;
-  }
-
-  #project-group{
-    margin-top: 20px;
-  }
-}
-
-.span9{
-  
-  #user-portfolio {
-		background: blue;
+	.well {
+		border-radius: 0;
 	}
 	
-  #user-skills {
-		background: green;
-	
-	  li.skills-icon{
-	    height:120px;
-	    width: 120px;
-	    background-color: #fffff9;
-	    margin:10px;
-	    border-radius: 5px;
+	#user-sidebar {
+	  box-shadow: 0 0 5px 1px black;
+	  margin: auto;
+	  text-align: center;
 
-	    a{
-	      line-height: 10px;
-	    }
-	
-	    img{
-	      margin-left:35px;
-	      margin-bottom: 5px;
-	    }
-	
-	    p{
-	      font-size: 11px;
-	      line-height: 10px;
-	      margin-bottom: 5px;
-	      margin-left: 5px;
-	    }
-	
-	    .progress{
-	      width: 110px;
-	      height: 10px;
-	      margin-left: 5px;
-	      margin-bottom: 0px;
-	    }
+	  #user-avatar {
+		}
+
+	  #user-info{
+	    color: black;
 	  }
+
+	  #project-group{
+	    margin-top: 20px;
+	    .accordion-group {
+				box-shadow: 0 0 2px 1px #BBB;		    
+		  }
+	    .accordion-heading {
+		    background: #EBEBEB;
+		    a:hover {
+			    text-decoration:none;
+			  }
+		  }
+		  .accordion-inner {
+			  background: white;
+		  }
+	  }
+	}
+
+	.span9{
+	  #user-portfolio {
+			box-shadow: 0 0 5px 1px black;
+			#user-portfolio-interior {
+				box-shadow: inset 0 0 2px 1px #BBB;
+				padding: 10px;
+				background: #EBEBEB;				
+				.gallery-item {
+					margin-right: 10px;
+			    img {
+				    box-shadow: 0 0 2px 1px #BBB;
+						border-radius: 5px;
+						background: lightblue;
+			    }
+			  }
+			  .row-fluid {
+				  margin-bottom: 10px;
+				}
+		  }
+		}
+
+	  #user-skills {
+			box-shadow: 0 0 5px 1px black;
+
+		  li.skills-icon{
+		    height:120px;
+		    width: 120px;
+		    background-color: #fffff9;
+				box-shadow: 0 0 2px 1px #BBB;
+		    margin:10px;
+		    border-radius: 5px;
+
+		    a{
+		      line-height: 10px;
+		    }
+
+		    img{
+		      margin-left:35px;
+		      margin-bottom: 5px;
+		    }
+
+		    p{
+		      font-size: 11px;
+		      line-height: 10px;
+		      margin-bottom: 5px;
+		      margin-left: 5px;
+		    }
+
+		    .progress{
+		      width: 110px;
+		      height: 10px;
+		      margin-left: 5px;
+		      margin-bottom: 0px;
+		    }
+		  }
+		}
 	}
 }
 

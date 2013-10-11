@@ -1,4 +1,4 @@
-class ProjectProfilesController < ApplicationController
+class ProjectDetailsController < ApplicationController
 	before_action :authenticate_user!, except: [:show]	
   before_action :set_project_profile
 	before_action(except: [:show]) do

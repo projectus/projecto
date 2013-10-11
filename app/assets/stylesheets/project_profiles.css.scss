@@ -5,85 +5,68 @@
 // Project Dashboard CSS -------------------------------------------------------
 
 .project-profile {
-	
-  .project-header, .project-profile-content, .project-sidebar {
-	  background: image-url('bkg/darker.jpg') center center no-repeat;
-      box-shadow: 0 0 10px 1px black;
-      background-attachment: fixed;
-	  padding-left: 10px;
-	}
 
-  .project-header {
-    padding-top: 20px;
+  .project-header, .project-profile-content, .project-sidebar {
+    background: image-url('bkg/darker.jpg') center center no-repeat;
+    background-attachment: fixed;
+    box-shadow: 0 0 5px 1px black;
+    padding: 5px;
   }
-	
+
   .project-sidebar {
     margin-left: 10px;
   }
 
+  .project-profile-content {
+    margin-top: 10px;
+  }
+	
   /* the title */
 	
   h1 {
-    margin-bottom: 10px;
-    margin-top: 0;
+    //margin-bottom: 10px;
   }
 
-  /* the top pills */
+  .nav-pills {
+    img {
+      border-radius: 5px;
+      border: 1px solid white;
+    }
+  }
 
   .span9 {
     .nav-pills {
       img {
         width: 100px;
-        border-radius: 5px;
       }
       li>a{
-        padding-left: 8px;
-        padding-right: 8px;
+        margin-right: 42px;
       }
     }
   }
-
-/*
-  .span5 {
-	  background: red;
-	}
-
-  .span9 {
-	  background: red;
-	}
-
-*/
 	
   /* the spacing between Apply, Subscribe and Setting */
 
   .span7 {
-	  .row-fluid {
-		  margin-top: 10px;
-		}
+    .row-fluid {
+      margin-top: 10px;
+    }
   }
 	
 	/* size of vertical pills */
 	
   .span5 {
     .nav-pills {
-	    img {
-         width: 60px;
-         border-radius: 5px;
+	  img {
+        width: 60px;
       }
       li>a{
         padding-left: 8px;
         padding-right: 8px;
       }
     }
-	}		
+  }
 }
-
-.project-profile-content {
-	margin-top: 10px;
-	box-shadow: 0 0 10px 1px black;
-	padding-left: 10px;
-}
-
 
 //----------------------------------------------------------------------------------------
 

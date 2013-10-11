@@ -53,9 +53,9 @@ module ApplicationHelper
 	def avatar_url(m,type=:default)
 		if m.profile.avatar.image.nil?
 			if m.class == Project
-        'site/spotify-logo.png'
+        'site/pig.jpeg'
       elsif m.class == User
-	      'site/avatar.png'	  
+	      'site/projecticon.png'	  
 	    end
     else	    
       m.profile.avatar.image.url(type)

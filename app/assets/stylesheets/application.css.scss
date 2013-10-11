@@ -23,15 +23,23 @@
 // NAVBAR Element ------------------------------------------------------------------
 
 .navbar-inner {
-  //box-shadow: 0px 1px 3px #000000;
-  background-color: #1b1b24 !important;
-  background-image: none !important;
+  box-shadow: 0 0 10px 1px black !important;	
+  //background-color: #1b1b24 !important;
+	background: image-url('bkg/darker.jpg') center center no-repeat !important; 
+
+  //background-image: none !important;
   //background: none !important; 
   border: 0 !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
+  //box-shadow: none !important;
+  //-webkit-box-shadow: none !important;
   padding: 10px 0 10px 0;
 
+	.li-hover-top {
+	  height: 3px;
+	  background: white;
+	  visibility: hidden;
+	}
+	
   #nav-center{
     width: 1000px;
     margin: auto;
@@ -61,6 +69,7 @@
       .navbar-projects {
         width: 55px;
       }
+
       .navbar-about, .navbar-projects {
         display: table;
         line-height: 1.2em;
@@ -128,28 +137,6 @@
 
 
 // End Introbar-----------------------------------------------------------------------
-
-// Footer area -----------------------------------
-
-.footer{
-  background: #000 !important;
-  height: 200px;
-
-  .footer-inner {
-    width: 76em;
-    margin: auto;
-
-    .about-div{
-      float: left;
-      color: #FFF;
-      margin-right: 50px;
-    }
-  }
-}
-
-
-// End Footer area--------------------------------------------------------------------------
-
 
 // About page CSS
 
@@ -240,12 +227,6 @@
 
 .taskgroup-table {
   font-size: 9pt;
-}
-
-.li-hover-top {
-  height: 3px;
-  background: white;
-  visibility: hidden;
 }
 
 .inner-heading-div{

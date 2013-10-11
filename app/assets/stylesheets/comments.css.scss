@@ -1,47 +1,10 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*
-.comment-div{
 
-  .comment-input {
-    float: left;
-  }
-
-  .comment-input textarea {
-    width: 450px;
-    height: 93px;
-  }
-  .comment-avatar img {
-    height: 70px;
-  }
+.single-comment-div {
+	background: #1b1b24 !important;
+  box-shadow: 0 0 2px 1px #BBB;
+  border: none;
+  border-radius: 0;
 }
-
-.new_comment input.btn {
-  width: 80px;
-  background: black;
-  color: white;
-  margin-top: auto;
-}
-
-
-.single-comment-div{
-  clear: both;
-  display: block;
-
-  .single-comment-div .avatar{
-    float: left;
-    width: 12%;
-  }
-  .single-comment-inner {
-    margin-top: 10px;
-
-    .comment-content{
-      width: 85%;
-      float: right;
-      font-size: 9pt;
-      line-height: 1.2em !important;
-    }
-  }
-}
-*/

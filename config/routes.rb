@@ -1,5 +1,4 @@
 Projecto::Application.routes.draw do
-
   get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
   get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
@@ -18,21 +17,21 @@ Projecto::Application.routes.draw do
 
   get 'tags/:tag', to: 'projects#index', as: :tag
   get 'category/:cat', to: 'projects#index', as: :cat
-	
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   # USER PROFILES ################
 
   get "user_profiles/:id/resume", to: 'resume#show', as: :resume
   get "user_profiles/:id/resume/edit", to: 'resume#edit', as: :edit_resume
 
-  resources :user_profiles, except: [:index, :new, :create, :destroy]
+  resources :user_profiles, only: [:show, :edit, :update]
   resources :resume_entries, only: [:edit,:update,:destroy]
   get "user_profiles/:id/resume_entry/new", to: 'resume_entries#new', as: :new_resume_entry
 
   # PROJECT PROFILES ########################
 
-  resources :project_profiles, except: [:index, :new, :create]
+  resources :project_profiles, only: [:show, :edit], controller: :project_details
   resources :project_details_entry, only: [:edit,:update,:destroy]
   get "project_profiles/:id/details_entry/new", to: 'project_details_entry#new', as: :new_project_details_entry
 
