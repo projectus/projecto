@@ -9,14 +9,6 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
 
-  def view
-    @projects = Project.all
-
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def index
 	  if params[:cat]
 	    @projects = Project.find_all_by_category(params[:cat].downcase)
@@ -28,7 +20,6 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js
     end
   end
 
