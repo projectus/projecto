@@ -7,7 +7,7 @@
 		    <h1><%= associated_project.name %></h1>
 		  </div>
 		  <div class="span3">
-			  <%= form_tag({controller: 'subscriptions', action: 'create'}, class:'form-inline') do %>
+			  <%= form_tag({controller: 'subscriptions', action: 'create'}, id:'subscribe-form') do %>
 	        <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
 	        <%= submit_tag 'Subscribe', class: 'btn btn-small' %>
 	      <% end %>
