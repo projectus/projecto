@@ -1,10 +1,5 @@
-<div class="inner-heading-div">
-  <p>New <%= @section.capitalize %> Entry
-    <%= link_to 'Cancel', edit_resume_path(@user_profile), :class=>"pull-right btn btn-inner-small" %>
-  </p>
-
-</div>
-
-<div class="scroll-splitter"></div>
+<p>New <%= @section.capitalize %> Entry
+  <%= link_to 'Cancel', edit_resume_path(@user_profile), :class=>"pull-right btn btn-inner-small" %>
+</p>
 
 <%= render partial: 'resume_entries/form', locals: {entry: @entry, key: @key, section: @section} %>

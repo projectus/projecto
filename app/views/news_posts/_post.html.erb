@@ -2,25 +2,11 @@
   <span class="news-title"><%= post.title %></span>
 
   <div class="news-poster">Posted by: <%= link_to_user_profile(post.user) %>
-
   | <%= post.species.capitalize %> Post
   </div>
 
-  <div class="scroll-splitter"></div>
+  <p class="pcontent"><%= post.content %><br></p>
 
-  <p class="pcontent">
-
-
-
-  <%= post.content %><br>
-
-  <div class="scroll-splitter"></div>
-
-
-  </p>
-  <div>
-
-  </div>
   <div> 
 	  <%= link_to 'Edit', edit_news_post_path(post), :class => "btn btn-inner-small" %>
   </div>	

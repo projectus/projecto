@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
+// Avatar properties ---------------------------------------
+
 .avatar {
 	border-radius: 5px;
 }
@@ -24,14 +26,8 @@
 
 .navbar-inner {
   box-shadow: 0 0 2px 1px black !important;	
-  //background-color: #1b1b24 !important;
 	background: image-url('bkg/darker.jpg') center center no-repeat !important; 
-
-  //background-image: none !important;
-  //background: none !important; 
   border: 0 !important;
-  //box-shadow: none !important;
-  //-webkit-box-shadow: none !important;
   padding: 10px 0 10px 0;
 
 	.li-hover-top {
@@ -82,14 +78,7 @@
       }
       a.white{
         color: #FFF !important;
-        font-family: 'Merienda One';
-        font-size: 9pt;
-
       }
-
-    }
-    .divider-vertical {
-      height: 40px !important;
     }
   }
 }
@@ -115,10 +104,9 @@
       width: 360px;
       float: left;
       color: white;
-      .introbar-heading{
+      .introbar-heading {
         font-size: 15pt;
         font-weight: bold;
-        font-family: 'Denk One', sans-serif;
       }
 
       .introbar-buttondiv {
@@ -144,37 +132,14 @@
   margin-left: 2em;
 }
 
-.sub-nav {
-  float: left;
-  width: 180px;
-}
-
 // END About page CSS
-
-.square {
-  border-radius: 0 !important;
-}
-
-.hero-unit {
-  padding: 1em 2em !important;
-  border: 1px solid #BBB;
-  background-color: #FFF;
-	border-radius: 0;
-}
 
 .nav.nav-pills {
 	margin: 0;
 }
 
-.divider-vertical {
-	height: 45px !important;
-	border-left: 1px solid #BBB !important;
-	margin: 0 !important;
-}
-
 .brand {
   color: white !important;
-  //font-family: 'Lily Script One';
 }
 
 // Search bar CSS
@@ -185,66 +150,6 @@
 }
 
 // -------------------------------------------------------------------------
-
-.tabbable {
-	clear: both;
-  
-	li {
-		a:hover {
-		  background: orange !important;
-		}
-  }
-
-	.tab-content {
-	  background: #EDEDED;
-	}
-	
-	ul.nav-tabs {
-	  margin-bottom: 0 !important;
-	}
-}
-
-.heading-div {
-  margin: 8px 0px;
-  .heading {
-    font-size: 16pt;
-    font-family: 'Denk One',sans-serif !important;
-    color: #888;
-    margin: 5px 0px;
-    font-weight: bold;
-  }
-}
-
-.btn-gray {
-  background: none repeat scroll 0 0 #828282;
-  border-radius: 3px 3px 3px 3px;
-  color: #FFFFFF;
-  font-weight: 400;
-  padding: 5px 10px 3px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  font: 14px/21px "Helvetica Neue","Helvetica","Arial","Tahoma","Geneva",sans-serif;
-}
-
-.taskgroup-table {
-  font-size: 9pt;
-}
-
-.inner-heading-div{
-  text-shadow: 1px 1px 0px #FFFFFF;
-}
-
-.title-font{
-  font-family: 'Francois One',sans-serif !important;
-}
-
-.resume-list {
-  margin-left: 20px !important;
-}
-
-
-
-// -----------------------------------------------
-
 
 @import "bootstrap";
 

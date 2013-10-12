@@ -50,7 +50,6 @@ Projecto::Application.routes.draw do
   # PROJECTS AND ASSOCIATED ####################################
 
   resources :projects, shallow: true, except: [:show] do
-		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
 		resources :news_posts, except: [:create, :new]
 		resources :collaborations, except: [:show, :new, :create]
@@ -66,7 +65,6 @@ Projecto::Application.routes.draw do
   #get "members", to: "users#index"
 	
   resources :users, only: [:index] do
-	  resources :collaboration_invitations, only: [:new]
 		resources :subscriptions, only: [:index]  
 	end
 	
