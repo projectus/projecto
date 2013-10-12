@@ -1,13 +1,7 @@
-<div class="news-post">
-  <span class="news-title"><%= post.title %></span>
+<h4><%= post.title %></h4>
 
-  <div class="news-poster">Posted by: <%= link_to_user_profile(post.user) %>
-  | <%= post.species.capitalize %> Post
-  </div>
-
-  <p class="pcontent"><%= post.content %><br></p>
-
-  <div> 
-	  <%= link_to 'Edit', edit_news_post_path(post), :class => "btn btn-inner-small" %>
-  </div>	
+<div>Posted by: <%= link_to_user_profile(post.user) %> | <%= post.species.capitalize %> Post
 </div>
+
+<div><%= post.content %></div>
+<%= link_to 'Edit', edit_news_post_path(post), :class => "btn btn-small pull-right" %>

@@ -1,13 +1,14 @@
 <% content_for :project_profiles_header_content do %>
   <div class="row-fluid">
     <div class="span3">
-      <h5>Project owner</h5>
+      <div><strong>Project owner</strong><br/>
       <%= avatar_link(associated_project.owner, type: 'thumb', class: 'avatar-thumb') %> 
-      <%= link_to_user_profile(associated_project.owner) %>
-      <h5>Category</h5><%= associated_project.category.capitalize %>
+      <%= link_to_user_profile(associated_project.owner) %></div><br/>
+      <div><strong>Category</strong><br/>
+      <%= associated_project.category.capitalize %></div>
     </div>
     <div class="span9">
-      <h5>Description</h5>
+      <strong>Description</strong><br/>
       <%= associated_project.description %>
     </div>
   </div>
