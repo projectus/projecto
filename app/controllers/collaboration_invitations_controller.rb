@@ -13,12 +13,6 @@ class CollaborationInvitationsController < ApplicationController
   def show
   end
 
-  # GET /users/:user_id/collaboration_invitation/new
-  def new
-	  @invitation = CollaborationInvitation.new
-    @invitation.invited_user = User.find(params[:user_id])
-  end
-
   # POST /collaboration_invitations
   # POST /collaboration_invitations.json
   def create

@@ -1,32 +1,35 @@
-<div class="row-fluid">
+<h2>Popular</h2>
+<p class="lead">Top projects of the day.</p>
+<div class="header-splitter"></div>
 
-    <div class="menu-section">
-      <h2>Popular Projects</h2>
+<div id="popular-projects-menu" class="subnav">
+  <ul class="nav nav-pills">
+    <li class="active"><a href="#">Most Viewed</a></li>
+    <li><a href="#">Most Subscribed</a></li>
+    <li><a href="#">Most Collaborators</a></li>
+  </ul>
+</div>
 
-        <ul class="nav nav-pills">
-          <li class="active"><a href="#">Most Viewed</a></li>
-          <li><a href="#">Most Subscribed</a></li>
-          <li><a href="#">Most Collaborators</a></li>
-        </ul>
-     </div>
+<div id="popular-projects">
+	<div class="row">
+	<% @projects.each_with_index do |project,index| %>
+	  <div class="span3"><%= render partial: 'projects/display', locals: {project: project} %></div>
+	  <% if (index+1)%4==0 %>
+	    </div>
+			<div class="row">
+	  <% end %>
+	<% end %>
+	</div>
+</div>
 
-    <div class="project-section">
-        <ul class="project-listings">
-          <% @projects.each do |project| %>
-              <li class="span3"><%= render partial: 'projects/display', locals: {project: project} %></li>
-          <% end %>
-        </ul>
-
-      <div class="pagination pagination-centered pagination-large">
-        <ul>
-          <li><a href="#">Prev</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">Next</a></li>
-        </ul>
-      </div>
-    </div>
+<div class="pagination pagination-centered pagination-large">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
 </div>

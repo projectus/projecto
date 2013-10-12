@@ -1,4 +1,6 @@
-
-<% @news_posts.each do |news_post| %>
+<h2 id="news-header">News</h2>
+<% @news_posts.each_with_index do |news_post,index| %>
+<div class="row-fluid">
   <%= render partial: 'post', object: news_post %>
+</div>
 <% end %>

@@ -1,7 +1,7 @@
 class CollaborationApplicationsController < ApplicationController
 	# See the bottom of this controller for the definitions of these methods
-  before_action :set_application, only: [:show, :update]
 	before_action :authenticate_user!
+  before_action :set_application, only: [:show, :update]
 	before_action(only: [:update]) do 
 	  authenticate_current_user_as_project_owner(@application.project, 
 	                       "You don't have the permissions to accept or decline this application.")

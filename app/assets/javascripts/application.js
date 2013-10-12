@@ -14,12 +14,3 @@ $(function() {
     });
 });
 */
-
-
-$(function(){
-    $(".nav-li").mouseover(function(){
-        $(this).children(".li-hover-top").css("visibility", "visible")
-    }).mouseout(function(){
-        $(this).children(".li-hover-top").css("visibility", "hidden")
-    });
-});
