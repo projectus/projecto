@@ -5,25 +5,21 @@
 // Project Dashboard CSS -------------------------------------------------------
 
 .project-profile {
-	
+
   .project-header, .project-profile-content, .project-sidebar {
-		background: image-url('bkg/darker.jpg') center center no-repeat; 
-	  background-attachment: fixed;
-	  box-shadow: 0 0 5px 1px black;	
-	  padding: 5px;
-	}
-	
-	.project-sidebar {
-	  margin-left: 10px;
+    background: image-url('bkg/darker.jpg') center center no-repeat;
+    background-attachment: fixed;
+    box-shadow: 0 0 5px 1px black;
+    padding: 5px;
   }
 
-	.project-profile-content {
-		margin-top: 10px;
-	}
-	
-	.project-header {
-		//padding-top: 10px;
-	}
+  .project-sidebar {
+    margin-left: 10px;
+  }
+
+  .project-profile-content {
+    margin-top: 10px;
+  }
 	
   /* the title */
 	
@@ -52,16 +48,16 @@
   /* the spacing between Apply, Subscribe and Setting */
 
   .span7 {
-	  .row-fluid {
-		  margin-top: 10px;
-		}
+    .row-fluid {
+      margin-top: 10px;
+    }
   }
 	
 	/* size of vertical pills */
 	
   .span5 {
     .nav-pills {
-	    img {
+	  img {
         width: 60px;
       }
       li>a{
@@ -69,7 +65,7 @@
         padding-right: 8px;
       }
     }
-	}		
+  }
 }
 
 //----------------------------------------------------------------------------------------

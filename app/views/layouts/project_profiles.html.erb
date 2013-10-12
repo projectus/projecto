@@ -9,7 +9,7 @@
 		      <%= avatar_tag(associated_project) %>
 		    </div>		
         <div class="span9">
-	        <h1><%= associated_project.name %></h1>
+	        <h2><%= associated_project.name %></h2>
   		    <ul class="nav nav-pills">
 					  <li><%= link_to_project_profile(associated_project,image_tag('tiles/details.png'))
 					%></li>
@@ -20,32 +20,32 @@
       </div>
 
       <div class="row-fluid">
-	      <div class="span3">
-	        <div class="span7">
-		        <div class="row-fluid">
-	            <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
-								Apply
-							</a>
+	      <div class="span3" id="gy">
+          <div class="span7">
+            <div class="row-fluid">
+              <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
+                Apply
+              </a>
             </div>
-			      <div class="row-fluid">
-	            <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
-	              <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-	              <%= submit_tag 'Subscribe', class: 'btn btn-info' %>
-	            <% end %>
-	          </div>
-	          <div class="row-fluid">
-		          <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn btn-danger'%>
+            <div class="row-fluid">
+              <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
+                <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
+                <%= submit_tag 'Subscribe', class: 'btn btn-info' %>
+              <% end %>
             </div>
-	        </div>
-	        <div class="span5">
-				    <ul class="nav nav-pills">
-					    <li><%= link_to image_tag('tiles/tasks.png'), project_tasks_path(associated_project) %></li>
-					    <li><%= link_to image_tag('tiles/discussion.png'), nil %></li>
-			      </ul>
-		      </div>
+            <div class="row-fluid">
+              <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn btn-danger'%>
+            </div>
+          </div>
+          <div class="span5">
+            <ul class="nav nav-pills">
+              <li><%= link_to image_tag('tiles/tasks.png'), project_tasks_path(associated_project) %></li>
+              <li><%= link_to image_tag('tiles/discussion.png'), nil %></li>
+            </ul>
+          </div>
 		    </div>
 		    <div class="span9">
-          <div class="project-header-content">
+          <div id="project-header-content">
             <%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
           </div>
         </div>

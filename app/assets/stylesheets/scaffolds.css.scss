@@ -2,9 +2,9 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 13px;
   line-height: 18px;
-
+  //background: #F3F3F3;
   //background: #fdf3ea;
-  background: image-url('bkg/paper.png') center center no-repeat; 
+  background: image-url('bkg/paper.png') center center no-repeat;
   background-attachment: fixed;
   color: #7a7a8a;
   margin: 0;
@@ -13,7 +13,8 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-	color: #999;
+	color: #CCC;
+  font-family: 'Roboto Slab', serif !important;
 }
 
 p, ol, ul, td {
@@ -169,29 +170,7 @@ p {
 
 }
 
-.orange {
-  color: #000;
-  border: solid 1px #da7c0c;
-  background: #f78d1d;
-  background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-  background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
-  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
-  font-family: 'Francois One',sans-serif !important;
-}
-.orange:hover {
-  background: #f47c20;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
-  background: -moz-linear-gradient(top,  #f88e11,  #f06015);
-  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
-  font-family: 'Francois One',sans-serif !important;
-}
-.orange:active {
-  color: #000;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
-  background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
-  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
-  font-family: 'Francois One',sans-serif !important;
-}
+
 //--------------------------------------------------------------------------------------
 
 

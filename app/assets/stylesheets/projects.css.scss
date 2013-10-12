@@ -36,8 +36,7 @@ $TotalHeight: 400px; $TotalWidth: 200px;
 .project-box {
   height: $TotalHeight;
   width: $TotalWidth;
-  //background-color: #FFF;
-	background: image-url('bkg/darker.jpg') center center no-repeat; 
+  background: image-url('bkg/darker.jpg') center center no-repeat;
   border-radius: 5px;
   box-shadow: 1px 1px 1px #000;
   padding: 4px 4px 20px 4px;
