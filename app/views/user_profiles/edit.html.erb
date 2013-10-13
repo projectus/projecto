@@ -1,2 +1,3 @@
-<%= render 'contact_form' %>
+<%= render partial: 'gallery/avatar_selection', locals: {gallery: current_user.gallery} %>
+<%= render 'form' %>
 <%= link_to 'Cancel', @user_profile %>

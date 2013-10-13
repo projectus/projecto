@@ -1,0 +1,31 @@
+<%= form_for(@user_profile, multipart: true) do |f| %>
+  <%= render 'errors' %>
+
+  <div class="row-fluid">
+    <div class="span8 well">
+      <%= label_tag :first_name %>
+      <%= text_field_tag "contact[name][0]", @name[0] %>
+      <%= label_tag :middle_name %>
+      <%= text_field_tag "contact[name][1]", @name[1] %>
+      <%= label_tag :last_name %>
+      <%= text_field_tag "contact[name][2]", @name[2] %>
+    </div>
+    <div class="span4">
+			<%= gallery_image_tag(@avatar_image, class: 'img-polaroid', id: 'avatar') %>
+			<%= hidden_field_tag('avatar[image_id]', @avatar_image.nil? ? '' : @avatar_image.id) %>
+			<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
+		    Change Avatar
+		  </a>
+		</div>
+  </div>
+
+  <div class="well row-fluid">
+    <%= label_tag :birthday %>
+    <%= date_select "contact[birthday]", '', default: DateTime.strptime(@contact[:birthday],'%Y,%m,%d') %>
+
+    <%= label_tag :location %>
+    <%= text_field_tag "contact[location]", @contact[:location] %>
+  </div>
+
+  <%= f.submit 'Update Profile', class: 'btn btn-info' %>
+<% end %>

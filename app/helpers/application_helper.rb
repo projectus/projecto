@@ -66,7 +66,7 @@ module ApplicationHelper
 		end
 	end
 
-	def avatar_url(m,type=:default)
+	def avatar_url(m,type=:avatar)
 		if m.profile.avatar.image.nil?
 			if m.class == Project
         'site/pig.jpeg'
@@ -95,15 +95,5 @@ module ApplicationHelper
 		elsif m.class == User
 			link_to_user_profile m, avatar_tag(m,options)
 		end
-	end
-	
-	def gallery_image_url(gallery_image)
-		return nil if gallery_image.nil?
-	  gallery_image.image.url(:gallery)
-	end
-	
-	def gallery_image_tag(gallery_image,options={})
-		return nil if gallery_image.nil?
-	  image_tag gallery_image_url(gallery_image), options
 	end
 end

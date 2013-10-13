@@ -1,4 +1,4 @@
 <h1>Editing project</h1>
-<%= render partial: 'gallery/avatar_selection', locals: {project: @project} %>
+<%= render partial: 'gallery/avatar_selection', locals: {gallery: @project.gallery} %>
 <%= render 'edit_form' %>
 <%= link_to 'Back', @project.profile %>
