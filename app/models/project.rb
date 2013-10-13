@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   # Associations ################################
 
   has_one  :gallery, as: :showcasable, dependent: :destroy
-  has_one  :avatar, through: :profile
+  #has_one  :avatar, through: :profile
 
   has_one  :activity_feed, as: :subscribable, dependent: :destroy
   has_many :subscriptions, through: :activity_feed

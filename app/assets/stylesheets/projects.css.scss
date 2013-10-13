@@ -19,6 +19,16 @@ form.edit_project { // defined by rails
   }
 }
 
+form.new_project { // defined by rails
+	input[type=text] {
+		width: 400px;
+	}
+	textarea {
+		width: 680px;
+		//resize: none;
+	}
+}
+
 #gallery {
   li img {
 	  cursor: pointer;

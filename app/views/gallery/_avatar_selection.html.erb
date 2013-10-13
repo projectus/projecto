@@ -34,14 +34,18 @@
 <script>
 $(function(){
 	$('#avatar-confirm').click(function(){
-		var $act = $('#gallery').find('.active');
-		var src = $act.find('img').attr('src');
-		$('#avatar').attr('src',src);
-		$('#avatar_image_id').val($act.find('input[type=hidden]').val());
+		var $active = $('#gallery').find('.active');
+		if ($active.length) {
+			var src = $active.find('img').attr('src');
+			var id = $active.find('input[type=hidden]').val();
+			var image_id = document.getElementById('avatar_image_id');
+			image_id.value = id;
+			$('#avatar').attr('src',src);
+	  }
 	});
 	
 	$(document).on('click','#gallery li',function(){
-		var $act = $('#gallery').find('.active').removeClass('active');
+		$('#gallery').find('.active').removeClass('active');
 		$(this).addClass('active');
 	});
 });
