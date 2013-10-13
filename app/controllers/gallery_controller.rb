@@ -22,4 +22,8 @@ class GalleryController < ApplicationController
     def associated_project
 	    @gallery.showcasable
 	  end
+	
+	  def associated_user
+		  @gallery.showcasable
+		end
 end

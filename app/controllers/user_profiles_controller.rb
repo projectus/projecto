@@ -11,6 +11,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1/edit
   def edit
 	  set_contact_info
+	  @avatar_image = @user_profile.avatar
   end
 
   # PATCH/PUT /user_profiles/1
@@ -19,17 +20,13 @@ class UserProfilesController < ApplicationController
     @user_profile.update_contact_card(permitted_fields)	
 
     set_contact_info
-
-    # Attempt to save the uploaded image to the user's gallery root folder	
-	  gi = associated_user.gallery.root.images.build(params[:user_profile].permit(:image))
-	  unless gi.save
-		  flash[:alert] = 'Images must be no larger than 2mb.'
-		  render action: 'edit'
-		  return
-		end
-		
+	
 		# Update the user's avatar with the gallery image
-	  @user_profile.avatar.update_image(gi)
+	  image_id = params[:avatar][:image_id]
+	  unless image_id.empty?
+	    gi = GalleryImage.find(image_id)
+	    @user_profile.avatar.update_image(gi)
+    end
 	
     respond_to do |format|
       if @user_profile.save

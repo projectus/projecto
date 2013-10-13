@@ -8,7 +8,7 @@
 
   <div class="modal-body" id="gallery">
 		  <ul class="nav nav-pills">
-				<% project.gallery.images.each_with_index do |image,index| %>
+				<% gallery.images.each_with_index do |image,index| %>
 				<li class="<%= 'active' if image==@avatar_image %>">
 				  <a><%= gallery_image_tag(image,class: 'img-polaroid') %></a>
 					<%= hidden_field_tag "image_#{image.id}", image.id %>
@@ -20,7 +20,7 @@
   <div class="modal-footer">
 		<div style="float:left;">
 		  <h4 style="float:left;">Or upload an image</h4><br/>
-		  <%= form_tag(gallery_upload_path(project.gallery),
+		  <%= form_tag(gallery_upload_path(gallery),
 		               method: :post,remote: true,multipart: true) do %>
 		    <%= token_tag form_authenticity_token %>
 			  <%= file_field_tag :image %>
