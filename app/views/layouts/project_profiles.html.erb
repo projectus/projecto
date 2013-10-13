@@ -20,9 +20,9 @@
 		  <ul class="nav nav-pills">
 		    <li><%=link_to_project_profile(associated_project,'Details')%></li>
 		    <li><%= link_to 'News', project_news_posts_path(associated_project) %></li>
+			  <li><%= link_to 'Comments', project_comments_path(associated_project) %></li>
 		    <li><%= link_to 'Gallery', nil %></li>
 		    <li><%= link_to 'Tasks', project_tasks_path(associated_project), class: 'btn-warning'%></li>
-        <li><%= link_to 'Discussion', nil, class: 'btn-warning' %></li>
 		    <li class="pull-right"><%= link_to 'Settings', edit_project_path(associated_project), class: 'btn-success'%></li>
 		  </ul>
 		</div>
@@ -42,9 +42,6 @@
 	    <h5><%= avatar_link(c, type: 'thumb', class: 'avatar-thumb') %>
 	    <%= link_to_user_profile(c) %></h5>
 	  <% end %>
-	  <h4>Recent Comments</h4>
-	  <%= render partial: 'comments/list' , locals: {comments: associated_project.comments }%>
-	  <%= link_to 'View all comments', project_comments_path(associated_project) %>
 	  <h4>Last Active</h4>
 	  September 21st, 2013
 	  <h4>Recent Activities</h4>
