@@ -47,9 +47,11 @@ class ProjectsController < ApplicationController
   end
 
   def update
-	  gi = GalleryImage.find(params[:avatar][:image_id])
-	  @project.profile.avatar.update_image(gi)
-	
+	  image_id = params[:avatar][:image_id]
+	  unless image_id.empty?
+	    gi = GalleryImage.find(image_id)
+	    @project.profile.avatar.update_image(gi)
+    end
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project.profile, notice: 'Project was successfully updated.' }

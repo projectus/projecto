@@ -1,0 +1,29 @@
+<%= form_for(@project) do |f| %>
+  <%= render 'errors' %>
+  <fieldset>
+    <legend>Enter project details</legend>
+		<div class="row">
+	    <div class="span9">
+		    <div class="row-fluid well">
+			    <div class="span8">
+			      <%= f.label :name, "Name" %>
+			      <%= f.text_field :name, autocomplete: :off, :placeholder=>"Project Name" %>
+		      </div>
+			    <div class="span4">
+			      <%= f.label :category, "Category" %>
+			      <%= f.select(:category, Project.categories) %>
+			    </div>
+			    <%= f.label :description, "Description" %>
+		      <%= f.text_area :description, :placeholder=>"Project Description", rows: 6 %>
+	      </div>
+	
+				<div class="row-fluid well">
+				  <%= f.label :tag_list, "Tags (separated by commas)" %>
+				  <%= f.text_field :tag_list, autocomplete: :off, :placeholder=>"Project Tag"%>
+				</div>
+	    </div>
+		</div>
+    <%=f.submit "Create Project", class: "btn btn-primary" %>
+  </fieldset>
+<% end %>
+

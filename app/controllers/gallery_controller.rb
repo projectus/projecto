@@ -1,4 +1,9 @@
 class GalleryController < ApplicationController
+	def show
+		@gallery = Gallery.find(params[:id])
+	  @images = @gallery.images
+	end
+	
   def upload
 	  unless params[:image].nil?
 		  gallery = Gallery.find(params[:id])
@@ -12,4 +17,9 @@ class GalleryController < ApplicationController
 	    end
 	  end
   end
+
+  private
+    def associated_project
+	    @gallery.showcasable
+	  end
 end

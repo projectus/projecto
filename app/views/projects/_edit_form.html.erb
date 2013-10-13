@@ -1,5 +1,3 @@
-<%= render partial: 'gallery/avatar_selection', locals: {project: @project} %>
-
 <%= form_for(@project) do |f| %>
   <%= render 'errors' %>
   <fieldset>
@@ -23,7 +21,7 @@
 	    </div>
 			<div class="span2">
 				<%= avatar_tag(@project, class: 'img-polaroid', id: 'avatar') %>
-				<%= hidden_field_tag 'avatar[image_id]', @project.avatar.gallery_image.id %>
+				<%= hidden_field_tag('avatar[image_id]', @avatar_image.nil? ? '' : @avatar_image.id) %>
 				<%#= gallery_image_tag(@avatar_image, class: 'img-polaroid', id: 'avatar') %>
 				<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
           Change Avatar
