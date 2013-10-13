@@ -10,17 +10,8 @@
   </ul>
 </div>
 
-<div id="popular-projects">
-	<div class="row">
-	<% @projects.each_with_index do |project,index| %>
-	  <div class="span3"><%= render partial: 'projects/display', locals: {project: project} %></div>
-	  <% if (index+1)%4==0 %>
-	    </div>
-			<div class="row">
-	  <% end %>
-	<% end %>
-	</div>
-</div>
+<div class="header-splitter-thin"></div>
+<%= render partial: 'projects/list', locals: {projects: @projects}%>
 
 <div class="pagination pagination-centered pagination-large">
   <ul>

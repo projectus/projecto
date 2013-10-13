@@ -1,0 +1,48 @@
+<!-- Collaboration Application Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Choose an image from your gallery</h3>
+  </div>
+
+  <div class="modal-body" id="gallery">
+		  <ul class="nav nav-pills">
+				<% project.gallery.images.each_with_index do |image,index| %>
+				<li class="<%= 'active' if image==@avatar_image %>">
+				  <a><%= gallery_image_tag(image,class: 'img-polaroid') %></a>
+					<%= hidden_field_tag "image_#{image.id}", image.id %>
+				</li>
+				<% end %>
+			</ul>
+  </div>
+
+  <div class="modal-footer">
+		<div style="float:left;">
+		  <h4 style="float:left;">Or upload an image</h4><br/>
+		  <%= form_tag(gallery_upload_path(project.gallery),
+		               method: :post,remote: true,multipart: true) do %>
+		    <%= token_tag form_authenticity_token %>
+			  <%= file_field_tag :image %>
+			  <%= submit_tag 'Upload' %>
+			<% end %>
+		</div>
+    <button class="btn btn-success" id="avatar-confirm" data-dismiss="modal" aria-hidden="true">Ok</button>
+  </div>
+</div>
+
+<script>
+$(function(){
+	$('#avatar-confirm').click(function(){
+		var $act = $('#gallery').find('.active');
+		var src = $act.find('img').attr('src');
+		$('#avatar').attr('src',src);
+		$('#avatar_image_id').val($act.find('input[type=hidden]').val());
+	});
+	
+	$(document).on('click','#gallery li',function(){
+		var $act = $('#gallery').find('.active').removeClass('active');
+		$(this).addClass('active');
+	});
+});
+</script>

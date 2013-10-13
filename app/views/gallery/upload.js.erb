@@ -1,0 +1,4 @@
+var option = "<li><a><%=j gallery_image_tag(@uploaded_image,class: 'img-polaroid') %></a><%=j hidden_field_tag 'image_#{@uploaded_image.id}', @uploaded_image.id %></li>";
+$('#gallery .nav').prepend(option);
+
+$('#gallery').find('li').first().click();

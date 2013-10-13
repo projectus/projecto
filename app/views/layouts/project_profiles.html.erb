@@ -29,7 +29,7 @@
 		<div class="header-splitter"></div>
     
 		<%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
-    <div class="header-splitter"></div>
+    <div class="header-splitter-thin"></div>
 
 	  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 	</div>

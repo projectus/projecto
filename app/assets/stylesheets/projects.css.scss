@@ -2,32 +2,34 @@
 // They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//New Project Css
-.photo-attachment-container {
-  position: relative;
+// Edit project page
+
+form.edit_project { // defined by rails
+	input[type=text] {
+		width: 400px;
+	}
+	textarea {
+		width: 680px;
+		//resize: none;
+	}
+	.span2 {
+		.img-polaroid {
+			margin-bottom: 10px;
+		}
+  }
 }
 
-.photo-attachment-container .wrapper {
-  opacity: 0;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  z-index: 2;
+#gallery {
+  li img {
+	  cursor: pointer;
+  }
+  height: 300px !important;
 }
 
-.photo-attachment-container .wrapper:hover {
-  opacity: 0.5;
-}
-
-.photo-attachment-container button {
-  background-color: #ccc;
-  border: none;
-  color: #666;
-  padding: 3px 5px;
-  border-radius: 5px;
-  position: relative;
-  top: 0;
-  z-index: 1;
+.project-list {
+	.row {
+		margin-bottom: 20px;
+	}
 }
 
 //Project Box Css
@@ -37,14 +39,14 @@ $TotalHeight: 400px; $TotalWidth: 200px;
   height: $TotalHeight;
   width: $TotalWidth;
   border-radius: 5px;
-  background: #ddd;
-  color: #444;
+  background: #034482;
+  color: #fff;
   box-shadow: 1px 1px 1px #000;
   padding: 4px 4px 20px 4px;
   margin-right: 0px !important;
 
   a {
-	  color:#444;
+	  color:#fff;
 	}
 	
   .project-image-box{

@@ -1,14 +1,10 @@
  <h2>PROJECTS</h2>
 
-<ul class="nav nav-pills project-tab">
+<ul class="nav nav-pills">
   <li class="<%= 'active' if category_selected?('all') %>"><%= link_to 'All', projects_path %></li>
   <% Project.categories.each do |cat| %>
     <li class="<%= 'active' if category_selected?(cat) %>"><%= link_to cat, cat_path(cat) %></li>
   <% end %>
 </ul>
 
-<div class="projects-container">
-  <% @projects.each do |project| %>
-    <%= render partial: 'projects/display', locals: {project: project} %>
-  <% end %>
-</div>
+<%= render partial: 'projects/list', locals: {projects: @projects}%>
