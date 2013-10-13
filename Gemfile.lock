@@ -105,6 +105,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -152,6 +153,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.0)
   rails_12factor
+  remotipart
   sass-rails (~> 4.0.0)
   sdoc
   uglifier (>= 1.3.0)

@@ -18,6 +18,20 @@ module ApplicationHelper
 	  return link_to name, user.profile unless name.nil?
 	  link_to user.username, user.profile
 	end
+
+  # Make a link to profile (not currently using this)	
+  def link_to_profile(m,name=nil)
+	  return nil if m.nil?
+	  return link_to name, m.profile unless name.nil?
+	  if m.class == Project
+		  mname = m.name
+		elsif m.class == User
+			mname = m.username
+		else
+			mname = nil
+		end
+	  link_to mname, m.profile
+	end
 	
 	# Make a link to project profile from project
   def link_to_project_profile(project,name=nil)
@@ -81,5 +95,15 @@ module ApplicationHelper
 		elsif m.class == User
 			link_to_user_profile m, avatar_tag(m,options)
 		end
+	end
+	
+	def gallery_image_url(gallery_image)
+		return nil if gallery_image.nil?
+	  gallery_image.image.url(:gallery)
+	end
+	
+	def gallery_image_tag(gallery_image,options={})
+		return nil if gallery_image.nil?
+	  image_tag gallery_image_url(gallery_image), options
 	end
 end

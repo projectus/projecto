@@ -1,4 +1,5 @@
 Projecto::Application.routes.draw do
+  post "gallery/:id/upload", to: 'gallery#upload', as: :gallery_upload
   get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
   get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations

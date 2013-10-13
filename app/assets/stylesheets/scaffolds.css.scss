@@ -49,7 +49,7 @@ div {
 /* Removes focus outline of unimportant things, like the user dropdown in the navbar */
 
 *:focus {
-  outline: none;
+  outline: none !important;
 }
 
 
