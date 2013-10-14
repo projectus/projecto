@@ -31,13 +31,17 @@
    <div class="navbar-inner">
      <div class="container">
 		    <a class="brand" href="<%= root_path %>">Projectore</a>
+		<% unless params[:action]=='landing' %>
         <%= form_tag projects_path, method: :get, class: "navbar-search" do %>
           <%= text_field_tag :tag, nil, class: 'search-query', placeholder: 'Search' %>
         <% end %>
+    <% end %>
         <ul class="nav pull-right">
-		      <li><%#= link_to "Browse Projects", projects_path %></li>
+					<% unless params[:action]=='landing' %>
 		      <li><%= link_to "Start Project", new_project_path %></li>
-		      <li><%= link_to "About", about_path %></li>		
+		      <% end %>
+		      <li><%= link_to "About", about_path %></li>
+					<% unless params[:action]=='landing' %>	
 		      <% if user_signed_in? %>
 		      <li>
 		        <div class="btn-group">
@@ -62,6 +66,7 @@
 		      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign In", new_user_session_path, :class => "white" %></li>
 		      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign Up", new_user_registration_path, :class => "white" %></li>
 		      <% end %>
+		      <% end %>
         </ul>
      </div>
    </div>
@@ -76,9 +81,15 @@
     <% end %>
   </div>
 
+	<% if params[:action]=='landing' %>
+	<div style="margin-top: -30px;">
+  <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
+  <% else %>
   <div class="container">
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
+  <% end %>
 
 </body>
 </html>

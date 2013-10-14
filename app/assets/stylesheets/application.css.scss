@@ -39,5 +39,15 @@
 
 /*@import "bootstrap";*/
 
+#banner {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: image-url('site/banner.jpg');
+}
 
-
+.hero-unit {
+	margin: 0 !important;
+	height: 300px;
+}

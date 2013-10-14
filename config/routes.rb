@@ -16,7 +16,7 @@ Projecto::Application.routes.draw do
   resources :messages
 
   # You can have the root of your site routed with "root"
-  root 'main#index'
+  root 'main#landing'
   get "about", to: 'main#about', as: :about
 
   get 'tags/:tag', to: 'projects#index', as: :tag
