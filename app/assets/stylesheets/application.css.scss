@@ -39,18 +39,40 @@
 
 /*@import "bootstrap";*/
 
+.brand {
+	font-family: 'Iceberg', cursive !important;
+	font-size: x-large !important;
+}
+
 #landing{
+	
 	#banner {
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
 	  background-image: image-url('bkg/banner.jpg');
+	  h1 {
+		  font-family: 'Iceberg', cursive;
+	  }
 	}
 
   #about1 {
 	  background-image: image-url('bkg/whitediamond.png');
   }
+
+  #footer {
+	  background-image: image-url('bkg/footer.jpg');
+  }
+
+  #footer, #banner {
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+  }
+
+  .row {
+		margin: 0 !important;
+		height: 300px;	
+  }
+
 	.hero-unit {
 		margin: 0 !important;
 		height: 300px;

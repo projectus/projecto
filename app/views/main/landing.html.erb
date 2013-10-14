@@ -1,11 +1,9 @@
 <div id="landing">
 	<div class="hero-unit" id="banner">
-	  <h1>Projectore</h1>
+	  <h1>projectore</h1>
 	  <p>What's on your mind?</p>
 	  <p>
-	    <a class="btn btn-primary btn-large">
-	      Learn more
-	    </a>
+	    <%= link_to 'Learn more', about_path, class: 'btn btn-primary btn-large' %>
 	  </p>
 	</div>
 
@@ -27,5 +25,13 @@
 	      Learn more
 	    </a>
 	  </p>
+	</div>
+	
+	<div class="row" id="footer">
+	  <h1>Heading</h1>
+    <%= form_tag(nil,class: 'form-inline') do %>
+      <%= text_field_tag 'email', '', placeholder:  'Enter' %>
+      <%= submit_tag 'Eyo' %>
+    <% end %>	  
 	</div>
 </div>
