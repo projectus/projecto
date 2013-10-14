@@ -42,15 +42,15 @@
       </div>
 
 			<div class="hero-unit" id="footer">
-			  <div class="span2">
-			  </div>
-			  <div class="span8" style="background: red;">
-					<h1>We will notify you for the beta!</h1>
+				<div class="row-fluid">
+			  <div class="span2"></div>
+			  <div class="span8" style="text-align:center;">
+					<h2>We will notify you for the beta!</h2>
 			    <%= form_tag(nil,class: 'form-inline') do %>
-			      <%= text_field_tag 'email', '', placeholder:  'Enter' %>
-			      <%= submit_tag 'Eyo' %>
+			      <%= text_field_tag 'email', '', placeholder:  'Your email', id: 'signup' %>
+			      <%= submit_tag '', id: 'submit' %>
 			    <% end %>
 		    </div>
-		    <div class="span2" style="background:blue">yo
+		    <div class="span2"></div>
 			  </div>
 			</div>
