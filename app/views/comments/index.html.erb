@@ -1,1 +1,8 @@
-<%= render partial: 'list' , locals: {comments: @comments }%>
+<% content_for :project_profiles_header_content do %>
+  <h4>Post a Comment</h4>
+  <%= render 'comments/new' %>
+<% end %>
+
+<% content_for :project_profiles_content do %>
+  <%= render partial: 'list' , locals: {comments: @comments }%>
+<% end %>

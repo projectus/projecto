@@ -1,6 +1,8 @@
 Projecto::Application.routes.draw do
+	
 	get "gallery/:id", to: 'gallery#show', as: :gallery
   post "gallery/:id/upload", to: 'gallery#upload', as: :gallery_upload
+
   get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
   get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
@@ -14,7 +16,7 @@ Projecto::Application.routes.draw do
   resources :messages
 
   # You can have the root of your site routed with "root"
-  root 'main#index'
+  root 'main#landing'
   get "about", to: 'main#about', as: :about
 
   get 'tags/:tag', to: 'projects#index', as: :tag
@@ -44,8 +46,8 @@ Projecto::Application.routes.draw do
 
   # APPLICATIONS AND INVITATIONS ###########################
 
-  resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
-  resources :collaboration_applications, except: [:index, :new, :destroy, :edit]
+  resources :collaboration_invitations, only: [:show, :create, :update]
+  resources :collaboration_applications, only: [:show, :create, :update]
   resources :comments, only: [:create]
   resources :news_posts, only: [:create]
 

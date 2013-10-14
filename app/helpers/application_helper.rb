@@ -8,8 +8,8 @@ module ApplicationHelper
 
   # Determine bootstrap alert type based on rails flash key
   def bootstrap_alert_type(key)
-    return 'alert alert-danger' if key.to_s == 'alert'
-	  return 'alert alert-success' if key.to_s == 'notice'
+    return 'alert alert-danger fade in' if key.to_s == 'alert'
+	  return 'alert alert-success fade in' if key.to_s == 'notice'
   end
 
   # Make a link to user profile from user

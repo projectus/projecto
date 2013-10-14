@@ -1,11 +1,5 @@
-<div class="single-comment-div well well-small">
-  <div class="single-comment-inner">
-    <div>
-      <%= avatar_link(comment.user, type: 'thumb') %>
-      <%= link_to_user_profile(comment.user) %>
-    </div>
-    <div class="comment-content">
-      <%= comment.content %>
-    </div>
-  </div>
+<div class="well well-small">
+  <%= avatar_link(comment.user, type: 'thumb', class: 'avatar-thumb') %>
+  <%= link_to_user_profile(comment.user) %><br/>
+  <%= comment.content %>
 </div>

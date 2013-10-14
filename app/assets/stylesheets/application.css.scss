@@ -22,10 +22,15 @@
 	margin: 20px 0 20px 0;	
 }
 
+.form-inline {
+	display: inline;
+}
+
 // Avatar properties ---------------------------------------
 
 .avatar {
 	border-radius: 5px;
+	background: white;
 }
 
 .avatar-thumb {
@@ -34,5 +39,15 @@
 
 /*@import "bootstrap";*/
 
+#banner {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-image: image-url('site/banner.jpg');
+}
 
-
+.hero-unit {
+	margin: 0 !important;
+	height: 300px;
+}

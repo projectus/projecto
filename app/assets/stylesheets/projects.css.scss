@@ -95,9 +95,9 @@ $TotalHeight: 400px; $TotalWidth: 200px;
 
   .project-action-bar-splitter {
     margin-top: 10px;
-    height: 4px;
-    border: 0;
-    box-shadow: inset 0 4px 4px -4px rgba(0,0,0,0.5);
+    height: 0;
+    border: 1px solid rgba(255,255,255,0.4);
+    //box-shadow: inset 0 4px 4px -4px rgba(255,255,255,0.8);
   }
 
   .project-action-panel {

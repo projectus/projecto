@@ -11,7 +11,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1/edit
   def edit
 	  set_contact_info
-	  @avatar_image = @user_profile.avatar
+	  @avatar_image = @user_profile.avatar.gallery_image
   end
 
   # PATCH/PUT /user_profiles/1
