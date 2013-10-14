@@ -1,48 +1,62 @@
-    <div id="landing">
-        <div class="hero-unit" id="banner">
-          <h1>projectore</h1>
-          <p>What's on your mind?</p>
-          <p>
-	          <%= link_to 'Learn more', about_path, class: 'btn btn-primary btn-large' %>
-          </p>
-        </div>
+<div id="landing">
+  <div class="hero-unit" id="banner">
+    <h1>projectore</h1>
+    <p>What's on your mind?</p>
+    <p>
+      <%= link_to 'Learn more', about_path, class: 'btn btn-primary btn-large' %>
+    </p>
+  </div>
 
-        <div class="hero-unit" id="about1">
-          <div class="row-fluid">
-              <div class="container">
-                  <div class="span6">
-                  <h2>Publish Your Projects</h2>
-                  <p>Tagline</p>
-
-                  </div>
-              </div>
-          </div>
-        </div>
-
-      <div class="hero-unit" id="about2">
-        <div class="row-fluid">
-          <div class="container">
-            <div class="span6 offset6">
-              <h2>Discover New Projects</h2>
-              <p>Projectore is an online social platform that offers like minded people the opportunity to come together and collaborate on projects.</p>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-			<div class="hero-unit" id="signup">
-				<div class="row-fluid">
-			  <div class="span2"></div>
-			  <div class="span8" style="text-align:center;">
-					<h2>We will notify you for the beta!</h2>
-			    <%= form_tag(nil,class: 'form-inline') do %>
-			      <%= text_field_tag 'email', '', placeholder:  'Your email' %>
-			      <%= submit_tag '' %>
-			    <% end %>
+  <div class="hero-unit" id="about1">
+    <div class="row-fluid">
+      <div class="container">
+	      <div class="span6">
+		      <%= image_tag 'landing/ss.png' %>
 		    </div>
-		    <div class="span2"></div>
-			  </div>
-			</div>
+        <div class="span6">
+          <h2>Discover New Projects</h2>
+          <p>Projectore is an online social platform that offers like minded people the opportunity to come together and collaborate on projects.</p>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="hero-unit" id="about2">
+    <div class="row-fluid">
+      <div class="container">
+        <div class="span6">
+          <h2>Discover New Projects</h2>
+          <p>Projectore is an online social platform that offers like minded people the opportunity to come together and collaborate on projects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<div class="hero-unit" id="signup">
+		<div class="row-fluid">
+      <div class="container">
+    	  <div class="span8 offset2" style="text-align:center;">
+    			<h2>We will notify you for the beta!</h2>
+    	    <%= form_tag(nil,class: 'form-inline') do %>
+    	      <%= text_field_tag 'email', '', placeholder:  'Your email' %>
+    	      <%= submit_tag '' %>
+    	    <% end %>
+        </div>
+      </div>
+	  </div>
+  </div>
+
+  <div class="hero-unit" id="footer">
+    <div class="row-fluid" >
+  	  <div class="container">
+    	  <div class="span8 offset2" style="text-align:center;">
+    			<h2>projectore is</h2>
+    			<span id="powered">powered by </span>
+    			<a href='http://heroku.com/'><%= image_tag('landing/heroku.png') %></a>
+    			<a href='http://aws.amazon.com/'><%= image_tag('landing/amazon.png') %></a>     
+        </div>
+      </div>
+  	</div>
+  </div>
+</div>
 
