@@ -48,11 +48,19 @@
 	  background-image: image-url('bkg/banner.jpg');
 	}
 
-  #about1 {
-	  background-image: image-url('bkg/whitediamond.png');
+
+  #banner1{
+    background-image: image-url('bkg/ricepaper.png');
+    height: 300px;
+    margin: 0 !important;
   }
-	.hero-unit {
-		margin: 0 !important;
-		height: 300px;
-	}
+  #banner2{
+    background-image: image-url('bkg/ricepaper.png');
+    height: 300px;
+  }
+  #banner3{
+    background-image: image-url('bkg/ricepaper.png');
+    height: 300px;
+  }
+
 }
