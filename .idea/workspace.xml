@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f372702-ab59-4e25-8612-52cf51895cdf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/site/banner.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/site/hoffman.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/bkg/grey_sandbag.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/bkg/ricepaper.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/bkg/whitediamond.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main/landing.html.erb" afterPath="$PROJECT_DIR$/app/views/main/landing.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -22,8 +23,8 @@
     <file path="/user_profiles.css.scss" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381729244711" ignored="false" />
     <file path="/_skill.html.erb" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381729843433" ignored="false" />
     <file path="/show.html.erb" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381716634178" ignored="false" />
-    <file path="/application.css.scss" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381736389509" ignored="false" />
-    <file path="/landing.html.erb" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381736010365" ignored="false" />
+    <file path="/application.css.scss" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381738287623" ignored="false" />
+    <file path="/landing.html.erb" changelist="1f372702-ab59-4e25-8612-52cf51895cdf" time="1381737106631" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +44,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="landing.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="landing.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/main/landing.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="38" selection-start="240" selection-end="240" vertical-scroll-proportion="-4.375">
+            <state line="3" column="21" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0625">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -54,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="51" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.7177419">
+            <state line="73" column="43" selection-start="1531" selection-end="1540" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -95,8 +96,8 @@
         <option value="$PROJECT_DIR$/app/views/user_profiles/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_profiles/_skill.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/user_profiles.css.scss" />
-        <option value="$PROJECT_DIR$/app/views/main/landing.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/main/landing.html.erb" />
       </list>
     </option>
   </component>
@@ -781,19 +782,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/main/landing.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="38" selection-start="240" selection-end="240" vertical-scroll-proportion="-4.375">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="73" column="43" selection-start="1531" selection-end="1540" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/main/landing.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="51" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.7177419">
-          <folding />
+        <state line="3" column="21" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0625">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
