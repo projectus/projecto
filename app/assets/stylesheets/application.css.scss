@@ -39,19 +39,35 @@
 
 /*@import "bootstrap";*/
 
+.brand {
+	font-family: 'Iceberg', cursive !important;
+	font-size: x-large !important;
+}
+
 #landing{
+	
 	#banner {
+	  background-image: image-url('bkg/banner.jpg');
+	  h1 {
+		  font-family: 'Iceberg', cursive;
+	  }
+	}
+
+  #footer {
+	  background-image: image-url('bkg/footer.jpg');
+  }
+
+  #footer, #banner {
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
-	  background-image: image-url('bkg/banner.jpg');
-      height: 500px;
-	}
+  }
 
   #about1 {
 	  background-image: image-url('bkg/ricepaper.png');
   }
+
 	.hero-unit {
 		margin: 0 !important;
 		height: 300px;

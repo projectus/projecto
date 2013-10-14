@@ -7,6 +7,9 @@
 <head>
   <meta charset="utf-8" />
 
+  <% if landing? %>
+	<link href='http://fonts.googleapis.com/css?family=Iceberg' rel='stylesheet' type='text/css'>
+  <% end %>
   <!-- Uncomment to make IE8 render like IE7 -->
   <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
@@ -30,18 +33,18 @@
  <div class="navbar navbar-fixed-top">
    <div class="navbar-inner">
      <div class="container">
-		    <a class="brand" href="<%= root_path %>">Projectore</a>
-		<% unless params[:action]=='landing' %>
+		    <a class="brand" href="<%= root_path %>">projectore</a>
+		<% unless landing? %>
         <%= form_tag projects_path, method: :get, class: "navbar-search" do %>
           <%= text_field_tag :tag, nil, class: 'search-query', placeholder: 'Search' %>
         <% end %>
     <% end %>
         <ul class="nav pull-right">
-					<% unless params[:action]=='landing' %>
+					<% unless landing? %>
 		      <li><%= link_to "Start Project", new_project_path %></li>
 		      <% end %>
 		      <li><%= link_to "About", about_path %></li>
-					<% unless params[:action]=='landing' %>	
+					<% unless landing? %>	
 		      <% if user_signed_in? %>
 		      <li>
 		        <div class="btn-group">
