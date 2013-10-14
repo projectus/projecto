@@ -50,6 +50,9 @@
 	}
 	
   #signup {
+
+  		height: 200px !important;
+
 		::-webkit-input-placeholder { /* WebKit browsers */
 		    color:    #000;
 		}
@@ -96,12 +99,16 @@
 	}
 
   #footer {
-	  height: 200px !important;
+  	  h2{
+  	  	margin: 0;
+  	  }
+	  height: 50px !important;
 	  img {
 		  width: 100px;
 		}
 		background: #6db6a2;
   }
+
 
 	.hero-unit {
 	  margin: 0 !important;
