@@ -91,19 +91,26 @@
   }
 
   #about1 {
-	  background-image: image-url('bkg/whitediamond.png');
-    .span3{
+	  background-image: image-url('bkg/shattered.png');
+    .span6{
       float:left;
+      text-align: left;
+      h3{
+
+      }
 
     }
   }
 
 
   #about2 {
-    background-image: image-url('bkg/grey_sandbag.png');
-    .span3{
+    background-image: image-url('bkg/type.png');
+    .span6{
       float:right;
       text-align: right;
+     h3{
+
+     }
     }
   }
 }
