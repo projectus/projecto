@@ -78,6 +78,11 @@
   #footer {
   }
 
+	.hero-unit {
+	  margin: 0 !important;
+	  height: 300px;
+	}
+
   #footer, #banner, #signup {
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -86,11 +91,19 @@
   }
 
   #about1 {
-	  background-image: image-url('bkg/ricepaper.png');
+	  background-image: image-url('bkg/whitediamond.png');
+    .span3{
+      float:left;
+
+    }
   }
 
-	.hero-unit {
-		margin: 0 !important;
-		height: 300px;
-	}
+
+  #about2 {
+    background-image: image-url('bkg/grey_sandbag.png');
+    .span3{
+      float:right;
+      text-align: right;
+    }
+  }
 }
