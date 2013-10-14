@@ -39,15 +39,20 @@
 
 /*@import "bootstrap";*/
 
-#banner {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-image: image-url('site/banner.jpg');
-}
+#landing{
+	#banner {
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  background-image: image-url('bkg/banner.jpg');
+	}
 
-.hero-unit {
-	margin: 0 !important;
-	height: 300px;
+  #about1 {
+	  background-image: image-url('bkg/whitediamond.png');
+  }
+	.hero-unit {
+		margin: 0 !important;
+		height: 300px;
+	}
 }
