@@ -3,9 +3,7 @@
           <h1>projectore</h1>
           <p>What's on your mind?</p>
           <p>
-            <a class="btn btn-primary btn-large">
-              Learn more
-            </a>
+	          <%= link_to 'Learn more', about_path, class: 'btn btn-primary btn-large' %>
           </p>
         </div>
 
@@ -41,15 +39,14 @@
         </div>
       </div>
 
-
-			<div class="hero-unit" id="footer">
+			<div class="hero-unit" id="signup">
 				<div class="row-fluid">
 			  <div class="span2"></div>
 			  <div class="span8" style="text-align:center;">
 					<h2>We will notify you for the beta!</h2>
 			    <%= form_tag(nil,class: 'form-inline') do %>
-			      <%= text_field_tag 'email', '', placeholder:  'Your email', id: 'signup' %>
-			      <%= submit_tag '', id: 'submit' %>
+			      <%= text_field_tag 'email', '', placeholder:  'Your email' %>
+			      <%= submit_tag '' %>
 			    <% end %>
 		    </div>
 		    <div class="span2"></div>

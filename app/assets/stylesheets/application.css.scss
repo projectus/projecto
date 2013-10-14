@@ -49,8 +49,9 @@
 		margin-bottom: 20px;
 	}
 	
-	form {
-	  #signup {
+  #signup {
+	  background-image: image-url('bkg/footer.jpg');
+		input[type=text]{
 		  height: 60px;
 		  width: 500px;
 		  margin: auto;
@@ -59,14 +60,13 @@
 		  font-size: x-large;
 		  padding-top: 10px !important;
 		}
-
-		#submit {
+		input[type=submit] {
 		  height: 75px;
 		  background: none;
 		  border: 2px solid white;
 		  width: 75px;
-		}
-  }
+	  }
+	}
 	
 	#banner {
 	  background-image: image-url('bkg/banner.jpg');
@@ -76,13 +76,14 @@
 	}
 
   #footer {
-	  background-image: image-url('bkg/footer.jpg');
   }
-  .hero-unit {
-    margin: 0 !important;
-    height: 300px;
-  }
-  #footer, #banner {
+
+	.hero-unit {
+	  margin: 0 !important;
+	  height: 300px;
+	}
+
+  #footer, #banner, #signup {
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -91,10 +92,10 @@
 
   #about1 {
 	  background-image: image-url('bkg/whitediamond.png');
-      .span3{
-        float:left;
+    .span3{
+      float:left;
 
-      }
+    }
   }
 
 
