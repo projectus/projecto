@@ -1,5 +1,5 @@
 <div class="row-fluid">
-  <% @images.each_with_index do |image,i| %>
+<% @images.each_with_index do |image,i| %>
   <span class="gallery-item">
 	  <a data-toggle="modal" href="#gallery<%= i %>"><%= gallery_image_tag(image,class: 'img-polaroid') %></a>
 	</span>
@@ -20,5 +20,5 @@
     </div>
     <div class="row-fluid">
 	<% end %>
-  <% end %>
+<% end %>
 </div>
