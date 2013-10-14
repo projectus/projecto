@@ -33,7 +33,7 @@
 
 	  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 	</div>
-	<div class="span3">
+	<div class="span3" id="sidebar">
     <%= avatar_tag(associated_project) %>
 		<h4>Members</h4>
 	  <h5><%= avatar_link(associated_project.owner, type: 'thumb', class: 'avatar-thumb') %>
