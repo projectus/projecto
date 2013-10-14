@@ -45,6 +45,28 @@
 }
 
 #landing{
+	.span8 h2 {
+		margin-bottom: 20px;
+	}
+	
+	form {
+	  #signup {
+		  height: 60px;
+		  width: 500px;
+		  margin: auto;
+		  border-radius: 0;
+		  font-family: 'Iceberg', cursive;
+		  font-size: x-large;
+		  padding-top: 10px !important;
+		}
+
+		#submit {
+		  height: 75px;
+		  background: none;
+		  border: 2px solid white;
+		  width: 75px;
+		}
+  }
 	
 	#banner {
 	  background-image: image-url('bkg/banner.jpg');
@@ -56,7 +78,10 @@
   #footer {
 	  background-image: image-url('bkg/footer.jpg');
   }
-
+  .hero-unit {
+    margin: 0 !important;
+    height: 300px;
+  }
   #footer, #banner {
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
@@ -65,11 +90,19 @@
   }
 
   #about1 {
-	  background-image: image-url('bkg/grey-sandbag.png');
+	  background-image: image-url('bkg/whitediamond.png');
+      .span3{
+        float:left;
+
+      }
   }
 
-	.hero-unit {
-		margin: 0 !important;
-		height: 300px;
-	}
+
+  #about2 {
+    background-image: image-url('bkg/grey_sandbag.png');
+    .span3{
+      float:right;
+      text-align: right;
+    }
+  }
 }
