@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$SkillHeight: 160px;
-$SkillWidth: 160px;
+$SkillHeight: 125px;
+$SkillWidth: 125px;
 
 #user-profile {
 	
@@ -75,14 +75,14 @@ $SkillWidth: 160px;
 
             .skill-header{
 
-              h4{
+              h5{
                 display: inline;
-
+                font-size: 15px;
               }
 
-;             width: 100%;
-              height: $SkillHeight*0.2;
-              margin-top: $SkillHeight*0.05;
+;             width: 98%;
+              height: $SkillHeight*0.25;
+
               float: left;
               text-align: center;
               white-space: nowrap;
@@ -97,14 +97,18 @@ $SkillWidth: 160px;
 
             .skill-bar-bot{
               height: $SkillHeight*0.2;
-              b{
+              p{
                 margin-left: $SkillWidth*0.02;
+                margin-botton: 0px !important;
+                line-height: 10px;
+                font-size:10px;
               }
               .progress{
                 width: $SkillWidth*0.96;
-                height: 15px;
+                height: 10px;
                 margin-left: $SkillWidth*0.02;
                 margin-bottom: 0px !important;
+                margin-top: 0px !important;
               }
             }
 		  }
