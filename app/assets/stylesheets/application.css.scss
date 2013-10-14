@@ -46,21 +46,14 @@
 	  -o-background-size: cover;
 	  background-size: cover;
 	  background-image: image-url('bkg/banner.jpg');
+      height: 500px;
 	}
 
-
-  #banner1{
-    background-image: image-url('bkg/ricepaper.png');
-    height: 300px;
-    margin: 0 !important;
+  #about1 {
+	  background-image: image-url('bkg/ricepaper.png');
   }
-  #banner2{
-    background-image: image-url('bkg/ricepaper.png');
-    height: 300px;
-  }
-  #banner3{
-    background-image: image-url('bkg/ricepaper.png');
-    height: 300px;
-  }
-
+	.hero-unit {
+		margin: 0 !important;
+		height: 300px;
+	}
 }
