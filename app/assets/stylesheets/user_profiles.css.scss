@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+$SkillHeight: 160px;
+$SkillWidth: 160px;
+
 #user-profile {
 	
 	.well {
@@ -62,35 +66,47 @@
 			box-shadow: 0 0 5px 1px black;
 
 		  li.skills-icon{
-		    height:120px;
-		    width: 120px;
+		    height: $SkillHeight;
+		    width: $SkillWidth;
 		    background-color: #fffff9;
-				box-shadow: 0 0 2px 1px #BBB;
-		    margin:10px;
+			box-shadow: 0 0 2px 1px #BBB;
+		    margin:5px;
 		    border-radius: 5px;
 
-		    a{
-		      line-height: 10px;
-		    }
+            .skill-header{
+
+              h4{
+                display: inline;
+
+              }
+
+;             width: 100%;
+              height: $SkillHeight*0.2;
+              margin-top: $SkillHeight*0.05;
+              float: left;
+              text-align: center;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
 
 		    img{
-		      margin-left:35px;
-		      margin-bottom: 5px;
+                height: $SkillHeight*0.5;
+                margin-left: $SkillWidth*0.25;
 		    }
 
-		    p{
-		      font-size: 11px;
-		      line-height: 10px;
-		      margin-bottom: 5px;
-		      margin-left: 5px;
-		    }
-
-		    .progress{
-		      width: 110px;
-		      height: 10px;
-		      margin-left: 5px;
-		      margin-bottom: 0px;
-		    }
+            .skill-bar-bot{
+              height: $SkillHeight*0.2;
+              b{
+                margin-left: $SkillWidth*0.02;
+              }
+              .progress{
+                width: $SkillWidth*0.96;
+                height: 15px;
+                margin-left: $SkillWidth*0.02;
+                margin-bottom: 0px !important;
+              }
+            }
 		  }
 		}
 	}
