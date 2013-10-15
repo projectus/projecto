@@ -86,7 +86,6 @@
 <script>
 $(function(){
 
-
   function init_flip() {
 	  var cans = ['create.','discover.','collaborate.'];
 	  var can_colors = ['red','blue','green'];
@@ -145,7 +144,7 @@ $(function(){
 	
 	$email_field.on('focus', function(){
 		$(this).email_validate();
-	}).on('keyup',function(){
+	}).on('input',function(){
 	  $(this).email_validate();
 	}).on('blur',function(){
 		$(this).css('border-color','white');
