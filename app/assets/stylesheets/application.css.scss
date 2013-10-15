@@ -93,6 +93,7 @@
 	
 	#banner {
 	  background-image: image-url('bkg/banner.jpg');
+	  height: 350px;
 	  h1 {
 		  font-family: 'Iceberg', cursive;
 	  }
@@ -112,7 +113,7 @@
 
 	.hero-unit {
 	  margin: 0 !important;
-	  height: 300px;
+	  height: 250px;
 	  border-radius: 0;
 	}
 
@@ -124,27 +125,24 @@
   }
 
   #about1 {
-	  background-image: image-url('bkg/shattered.png');
-    .span6{
+	background-image: image-url('bkg/shattered.png');
+   	img {
+	    border-radius: 5px;
+	}
+    .content{
       float:left;
       text-align: left;
-      img {
-	      border-radius: 5px;
-	    }
-      h3{
-
-      }
     }
   }
 
   #about2 {
     background-image: image-url('bkg/type.png');
-    .span6{
+    img{
+    	border-radius: 5px;
+    }
+    .content{
       float:left;
       text-align: left;
-     h3{
-
-     }
     }
   }
 }
