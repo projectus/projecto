@@ -1,19 +1,14 @@
-
+<% if user_signed_in? %>
 <%= form_for(@comment) do |f| %>
   <%= render 'errors' %>
-	<div class="row-fluid">
-	  <div class="span10 comment-input">
-      <%= f.text_area :content %>
-    </div>
-    <div class="span2">
-	    <% if user_signed_in? %>
-        <%= avatar_tag(current_user,type: 'thumb') %><br>
-      <% end %>
-      <%= f.submit 'Comment', class: 'btn' %>
-    </div>
-  </div>
+  <%= f.text_area :content %>
+  <%= avatar_tag(current_user, type: 'thumb', class: 'avatar-thumb') %>
+  <%= current_user.username %><br>
+  <%= f.submit 'Comment', class: 'btn' %>
   <div>
     <%= f.hidden_field :project_id %>
   </div>
 <% end %>
+<% end %>
+
 

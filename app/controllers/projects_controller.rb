@@ -5,17 +5,6 @@ class ProjectsController < ApplicationController
 	  authenticate_current_user_as_project_owner(@project, 
 	          "You don't have the permissions to modify this project.")
 	end
-	
-  # GET /projects
-  # GET /projects.json
-
-  def view
-    @projects = Project.all
-
-    respond_to do |format|
-      format.js
-    end
-  end
 
   def index
 	  if params[:cat]
@@ -28,27 +17,21 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
      @project = Project.find(params[:id])
   end
 
-  # GET /projects/new
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
   def edit
+	  @avatar_image = @project.profile.avatar.gallery_image
   end
-
-  # POST /projects
-  # POST /projects.json
+	
   def create
     @project = current_user.owned_projects.build(project_params)
 
@@ -63,14 +46,12 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
-	  unless params[:project][:image].nil?
-	    gi = @project.gallery.root.images.create!(params.require(:project).permit(:image))
+	  image_id = params[:avatar][:image_id]
+	  unless image_id.empty?
+	    gi = GalleryImage.find(image_id)
 	    @project.profile.avatar.update_image(gi)
     end
-	
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project.profile, notice: 'Project was successfully updated.' }

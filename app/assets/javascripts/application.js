@@ -1,11 +1,18 @@
 
 //= require jquery
-//= require jquery_ujs
+//= require jquery.remotipart
 //= require bootstrap
 //= require_tree .
 
 //$(function(){ $(document).foundation(); });
 
+$(function(){
+	window.setTimeout(function() {
+	    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+	      $(this).remove(); 
+	    });
+	}, 2000);
+});
 /*
 $(function() {
     var faye = new Faye.Client('http://localhost:9292/faye');
@@ -14,12 +21,3 @@ $(function() {
     });
 });
 */
-
-
-$(function(){
-    $(".nav-li").mouseover(function(){
-        $(this).children(".li-hover-top").css("visibility", "visible")
-    }).mouseout(function(){
-        $(this).children(".li-hover-top").css("visibility", "hidden")
-    });
-});

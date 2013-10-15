@@ -12,243 +12,156 @@
  *= require_tree .
  */
 
+.header-splitter {
+	border-bottom: 5px solid;
+	margin: 20px 0 20px 0;
+}
+
+.header-splitter-thin {
+	border-bottom: 2px solid;
+	margin: 20px 0 20px 0;	
+}
+
+.form-inline {
+	display: inline;
+}
+
+// Avatar properties ---------------------------------------
+
 .avatar {
 	border-radius: 5px;
+	background: white;
 }
 
 .avatar-thumb {
 	width: 30px;
 }
 
-// NAVBAR Element ------------------------------------------------------------------
-
-.navbar-inner {
-  box-shadow: 0 0 10px 1px black !important;	
-  //background-color: #1b1b24 !important;
-	background: image-url('bkg/darker.jpg') center center no-repeat !important; 
-
-  //background-image: none !important;
-  //background: none !important; 
-  border: 0 !important;
-  //box-shadow: none !important;
-  //-webkit-box-shadow: none !important;
-  padding: 10px 0 10px 0;
-
-	.li-hover-top {
-	  height: 3px;
-	  background: white;
-	  visibility: hidden;
-	}
-	
-  #nav-center{
-    width: 1000px;
-    margin: auto;
-
-    .logo {
-      margin-top: 6px;
-      margin-right: -2px;
-      width: 30px;
-    }
-
-    #logo-li {
-      margin-left: 2px !important;
-    }
-  }
-
-  ul.nav {
-    height: 40px;
-    li {
-      margin-left: 8px;
-      margin-right: 8px;
-      padding-top: 1px !important;
-
-      .navbar-about {
-        width: 75px;
-      }
-
-      .navbar-projects {
-        width: 55px;
-      }
-
-      .navbar-about, .navbar-projects {
-        display: table;
-        line-height: 1.2em;
-        margin-top: 2px;
-        .multiline {
-          text-decoration: none !important;
-          vertical-align: middle;
-          display: table-cell;
-        }
-      }
-      a.white{
-        color: #FFF !important;
-        font-family: 'Merienda One';
-        font-size: 9pt;
-
-      }
-
-    }
-    .divider-vertical {
-      height: 40px !important;
-    }
-  }
-}
-
-//---------------------------------------------------------------
-
-// INTRO bar CSS styles
-
-
-#intro-bar{
-
-  background: linear-gradient(to bottom, #748600 0%, #9AC201 100%) repeat scroll 0 0 transparent;
-  height: 190px;
-  box-shadow: 0px 2px 5px #000000;
-
-  .introbar-center{
-    width: 940px;
-    margin: auto;
-    padding-top: 2em;
-    padding-bottom: 2em;
-
-    .intro-bar-left {
-      width: 360px;
-      float: left;
-      color: white;
-      .introbar-heading{
-        font-size: 15pt;
-        font-weight: bold;
-        font-family: 'Denk One', sans-serif;
-      }
-
-      .introbar-buttondiv {
-        margin-top: 40px;
-        .button-left {
-          margin-right: 10px;
-        }
-      }
-    }
-
-    .intro-bar-right{
-      float: right;
-    }
-  }
-}
-
-
-// End Introbar-----------------------------------------------------------------------
-
-// About page CSS
-
-#about-content {
-  margin-left: 2em;
-}
-
-.sub-nav {
-  float: left;
-  width: 180px;
-}
-
-// END About page CSS
-
-.square {
-  border-radius: 0 !important;
-}
-
-.hero-unit {
-  padding: 1em 2em !important;
-  border: 1px solid #BBB;
-  background-color: #FFF;
-	border-radius: 0;
-}
-
-.nav.nav-pills {
-	margin: 0;
-}
-
-.divider-vertical {
-	height: 45px !important;
-	border-left: 1px solid #BBB !important;
-	margin: 0 !important;
-}
+/*@import "bootstrap";*/
 
 .brand {
-  color: white !important;
-  //font-family: 'Lily Script One';
+	font-family: 'Iceberg', cursive !important;
 }
 
-// Search bar CSS
-
-#searchbar {
-  border-radius: 0px 5px 5px 0px !important;
-  background-image: linear-gradient(to bottom, white, #EAEAEA);
+.navbar {
+	.brand {
+		font-size: x-large !important;
+	}
 }
 
-// -------------------------------------------------------------------------
-
-.tabbable {
-	clear: both;
-  
-	li {
-		a:hover {
-		  background: orange !important;
-		}
-  }
-
-	.tab-content {
-	  background: #EDEDED;
+#landing{
+	.span8 h2 {
+		margin-bottom: 20px;
 	}
 	
-	ul.nav-tabs {
-	  margin-bottom: 0 !important;
+	#email_notice {
+		.brand {
+			color: #317eac !important;
+		}
 	}
-}
+	
+  #signup {
 
-.heading-div {
-  margin: 8px 0px;
-  .heading {
-    font-size: 16pt;
-    font-family: 'Denk One',sans-serif !important;
-    color: #888;
-    margin: 5px 0px;
-    font-weight: bold;
+  	height: 200px !important;
+
+		::-webkit-input-placeholder { /* WebKit browsers */
+		    color:    #000;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		    color:    #000;
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+		    color:    #000;
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10+ */
+		    color:    #000;
+		}
+	  background-image: image-url('bkg/footer.jpg');
+		input[type=text]{
+		  height: 60px;
+		  width: 500px;
+		  margin: auto;
+		  border-radius: 0;
+		  border: 2px solid white;
+		  font-family: 'Iceberg', cursive;
+		  font-size: x-large;
+		  line-height: 30px;
+		  background: none;
+		  color: black !important;
+		}
+		input[type=submit] {
+		  height: 72px;
+		  background-image: image-url('landing/thumbs.png') !important;
+		  background: none;
+		  border: 2px solid white;
+		  width: 72px;
+		  -webkit-background-size:100% 100%;
+		  -moz-background-size:100% 100%;
+		  -o-background-size:100% 100%;
+      background-size:100% 100%;
+	  }
+	}
+	
+	#banner {
+	  background-image: image-url('bkg/bannerpic.png');
+	  height: 350px;
+	  #flip {
+		  color: red;
+		}
+		.btn {
+			margin-top: 30px;
+		}
+	}
+
+  #footer {
+  	  h2{
+  	  	margin: 0;
+  	  }
+	  height: 50px !important;
+	  img {
+		  width: 100px;
+		}
+		.brand {
+			font-size: x-large !important;
+		}
+		background: #6db6a2;
+  }
+
+
+	.hero-unit {
+	  margin: 0 !important;
+	  height: 250px;
+	  border-radius: 0;
+	}
+
+  #footer, #banner, #signup {
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+  }
+
+  #about1 {
+	background-image: image-url('bkg/shattered.png');
+   	img {
+	    border-radius: 5px;
+	    height: 280px;
+	}
+    .content{
+      float:left;
+      text-align: left;
+    }
+  }
+
+  #about2 {
+    background-image: image-url('bkg/type.png');
+    img{
+    	border-radius: 5px;
+    	height: 280px;
+    }
+    .content{
+      float: left;
+      text-align: left;
+    }
   }
 }
-
-.btn-gray {
-  background: none repeat scroll 0 0 #828282;
-  border-radius: 3px 3px 3px 3px;
-  color: #FFFFFF;
-  font-weight: 400;
-  padding: 5px 10px 3px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  font: 14px/21px "Helvetica Neue","Helvetica","Arial","Tahoma","Geneva",sans-serif;
-}
-
-.taskgroup-table {
-  font-size: 9pt;
-}
-
-.inner-heading-div{
-  text-shadow: 1px 1px 0px #FFFFFF;
-}
-
-.title-font{
-  font-family: 'Francois One',sans-serif !important;
-}
-
-.resume-list {
-  margin-left: 20px !important;
-}
-
-
-
-// -----------------------------------------------
-
-
-@import "bootstrap";
-
-
-
-
-

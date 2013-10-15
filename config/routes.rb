@@ -1,4 +1,8 @@
 Projecto::Application.routes.draw do
+	
+	get "gallery/:id", to: 'gallery#show', as: :gallery
+  post "gallery/:id/upload", to: 'gallery#upload', as: :gallery_upload
+
   get "project/:id/collaborations", to: 'project_collaboration_info#collaborations', as: :project_collaborations
   get "project/:id/applications", to: 'project_collaboration_info#applications', as: :project_applications
   get "project/:id/invitations", to: 'project_collaboration_info#invitations', as: :project_invitations
@@ -10,6 +14,9 @@ Projecto::Application.routes.draw do
   get "users/:id/invitations", to: 'user_request_info#invitations', as: :user_invitations
 
   resources :messages
+
+  get "landing", to: 'main#landing', as: :landing
+  resources :beta_users, only: [:create]
 
   # You can have the root of your site routed with "root"
   root 'main#index'
@@ -42,15 +49,14 @@ Projecto::Application.routes.draw do
 
   # APPLICATIONS AND INVITATIONS ###########################
 
-  resources :collaboration_invitations, except: [:index, :new, :destroy, :edit]
-  resources :collaboration_applications, except: [:index, :new, :destroy, :edit]
+  resources :collaboration_invitations, only: [:show, :create, :update]
+  resources :collaboration_applications, only: [:show, :create, :update]
   resources :comments, only: [:create]
   resources :news_posts, only: [:create]
 
   # PROJECTS AND ASSOCIATED ####################################
 
   resources :projects, shallow: true, except: [:show] do
-		resources :collaboration_applications, only: [:new]
 		resources :comments, except: [:create, :show, :new]
 		resources :news_posts, except: [:create, :new]
 		resources :collaborations, except: [:show, :new, :create]
@@ -66,7 +72,6 @@ Projecto::Application.routes.draw do
   #get "members", to: "users#index"
 	
   resources :users, only: [:index] do
-	  resources :collaboration_invitations, only: [:new]
 		resources :subscriptions, only: [:index]  
 	end
 	

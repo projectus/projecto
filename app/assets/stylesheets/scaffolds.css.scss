@@ -1,57 +1,20 @@
 body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  //background: #F3F3F3;
-  //background: #fdf3ea;
-  background: image-url('bkg/paper.png') center center no-repeat;
-  background-attachment: fixed;
-  color: #7a7a8a;
-  margin: 0;
-
-  padding-top: 60px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	color: #CCC;
-  font-family: 'Roboto Slab', serif !important;
-}
-
-p, ol, ul, td {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-
+/* Rails defined form styles */
 div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
 }
 
-#alert {
-	background: pink;
-	color:      darkred;
-	padding:    0.5em;
-}
-
 .alert, .alert-success {
-  margin-top: 30px !important;
-  margin: auto !important;
+  margin: -20px 40px 10px 40px;
 }
 
-#notice {
-	background: lightblue;
-	color:      green;
-	padding:    0.5em;
-}
+/* Rails defined error styling ----------------------------*/
 
 .field_with_errors {
   padding: 2px;
@@ -85,115 +48,8 @@ div {
 /* Removes focus outline of unimportant things, like the user dropdown in the navbar */
 
 *:focus {
-  outline: none;
+  outline: none !important;
 }
-
-#alerts {
-  margin: 0;
-}
-
-.table {
-  background: white !important;
-}
-
-// The content area of the page
-
-#content {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  p {
-	  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
-	}
-}
-
-.box {
-  box-shadow: 2px 2px 2px #d4d4d4;
-  background: white;
-  border: 1px solid #BBB;
-  background-color: #FFF;
-  border-radius: 0;
-}
-
-#scroll {
-  padding-top: 41px;
-  margin: auto;
-}
-
-.scroll-splitter {
-  clear: both;
-  border-bottom: 1px dotted #AAA !important;
-  margin-top: 0.5em !important;
-  margin-bottom: 0.5em !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Rationale', sans-serif;
-}
-
-#content .inner-heading-div p {
-  font-family: 'Francois One', sans-serif !important;
-}
-
-p {
-  font-family: 'Francois One', sans-serif !important;
-}
-
-.space-less {
-  padding: 0px !important;
-  margin: 0px !important;
-}
-
-// Linked button styles -------------------------------------------------------
-
-.btn a.btn {
-  border-radius: none !important;
-}
-
-.btn-group a:first-child {
-  border-radius: 5px 0px 0px 5px !important;
-}
-
-.btn-group a:nth-child(2) {
-  border-radius: 0px 5px 5px 0px !important;
-}
-
-.btn-inner-small{
-  font-size: 9pt;
-  padding: 1px 8px !important;
-  font-family: 'Francois One',sans-serif !important;
-}
-
-.btn-standard{
-  width: 90px !important;
-  font-family: 'Francois One',sans-serif !important;
-  height: 30px !important;
-
-}
-
-.orange {
-  color: #000;
-  border: solid 1px #da7c0c;
-  background: #f78d1d;
-  background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-  background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
-  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
-  font-family: 'Francois One',sans-serif !important;
-}
-.orange:hover {
-  background: #f47c20;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
-  background: -moz-linear-gradient(top,  #f88e11,  #f06015);
-  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
-  font-family: 'Francois One',sans-serif !important;
-}
-.orange:active {
-  color: #000;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
-  background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
-  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
-  font-family: 'Francois One',sans-serif !important;
-}
-//--------------------------------------------------------------------------------------
 
 
 

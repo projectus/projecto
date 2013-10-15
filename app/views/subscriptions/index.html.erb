@@ -1,10 +1,5 @@
-<div class="inner-heading-div">
-  <p>Subscriptions
-  </p>
+<p>Subscriptions</p>
 
-</div>
-
-<div class="scroll-splitter"></div>
 <% @subscriptions.includes(activity_feed: {subscribable: :profile}).each do |subscription| %>
   <%= render partial: 'subscription', object: subscription %>
 <% end %>

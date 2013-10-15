@@ -10,6 +10,7 @@ class Avatar < ActiveRecord::Base
 	end
 	
 	def update_image(gi)
+		return if gi == gallery_image
 	  old_gi = gallery_image
 	  self.gallery_image = gi
 	  save!

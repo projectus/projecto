@@ -1,4 +1,14 @@
+<% content_for :project_profiles_header_content do %>
+<div class="well well-small" style="background: #3daae9;">
+  <%= render 'news_posts/new' %>
+</div>
+<% end %>
 
-<% @news_posts.each do |news_post| %>
-  <%= render partial: 'post', object: news_post %>
+<% content_for :project_profiles_content do %>
+  <h2 id="news-header">News</h2>
+  <% @news_posts.each_with_index do |news_post,index| %>
+    <div class="row-fluid">
+      <%= render partial: 'post', object: news_post %>
+    </div>
+  <% end %>
 <% end %>

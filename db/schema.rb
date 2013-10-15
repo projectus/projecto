@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923211811) do
+ActiveRecord::Schema.define(version: 20131014235907) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
     t.string   "species"
@@ -50,6 +53,14 @@ ActiveRecord::Schema.define(version: 20130923211811) do
 
   add_index "avatars", ["avatarable_id", "avatarable_type"], name: "index_avatars_on_avatarable_id_and_avatarable_type", unique: true, using: :btree
   add_index "avatars", ["gallery_image_id"], name: "index_avatars_on_gallery_image_id", using: :btree
+
+  create_table "beta_users", force: true do |t|
+    t.string   "email",      default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beta_users", ["email"], name: "index_beta_users_on_email", unique: true, using: :btree
 
   create_table "collaboration_applications", force: true do |t|
     t.integer  "project_id"

@@ -1,9 +1,6 @@
-<div class="inner-heading-div">
-  <p>Education
-    <%= link_to 'Edit Resume', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
-  </p>
-</div>
-
+<p>Education
+  <%= link_to 'Edit Resume', edit_resume_path(@user_profile), class: 'btn pull-right btn-inner-small' %>
+</p>
 
 <%= render partial: 'section', locals: {section: :education} %>
 

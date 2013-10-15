@@ -1,12 +1,14 @@
 class GalleryImage < ActiveRecord::Base
+	default_scope { order('created_at DESC') }
+
   belongs_to :gallery_folder
 
-  has_attached_file :image, :styles => lambda { |a| 
-	q={:gallery => "120x120#"};
+  has_attached_file :image, dependent: :destroy, :styles => lambda { |a| 
+	q={:default => "120x120#"};
 	if a.instance.user_avatar?
-	  q.update({:thumb => "30x30#",:default => "180x180#"});
+	  q.update({:thumb => "30x30#",:avatar => "180x180#"});
 	elsif a.instance.project_avatar?
-		q.update({:thumb => "30x30#",:default => "180x180#"});
+		q.update({:thumb => "30x30#",:avatar => "180x180#"});
 	end
 	return q }
 
@@ -15,7 +17,7 @@ class GalleryImage < ActiveRecord::Base
 	  :size => { :in => 0..2.megabytes }
 
 	def reset!
-		image.reprocess!(:thumb,:default)
+		image.reprocess!(:thumb,:avatar)
 	end
 	
   def user_avatar?

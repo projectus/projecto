@@ -8,6 +8,7 @@ gem 'rails_12factor', group: :production
 gem 'rails', '4.0.0'
 
 gem "paperclip", "~> 3.0"
+gem "remotipart"
 gem 'aws-sdk'
 
 # Use Postgresql as the database for Active Record

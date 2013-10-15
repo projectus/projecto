@@ -1,18 +1,8 @@
 <%= form_for(@news_post) do |f| %>
   <%= render 'errors' %>
-
-  <div class="field">
-    <%= f.text_field :title, :placeholder => "News Heading" %>
-  </div>
-
-  <div class="field">
-    <%= f.text_area :content, class: 'input-xlarge', :placeholder => "News Content"  %>
-  </div>
-
+  <%= f.text_field :title, :placeholder => "News Heading" %><br/>
+  <%= f.text_area :content, class: 'input-xxlarge', :placeholder => "News Content"  %><br/>
   <%= f.hidden_field :project_id %>    
-
-  <div>
-    <%= f.submit 'Post News', class: 'btn btn-inner-small' %>
-  </div>
+  <%= f.submit 'Post News', class: 'btn btn-success' %>
 <% end %>
 

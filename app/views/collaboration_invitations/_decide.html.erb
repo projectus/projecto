@@ -3,11 +3,11 @@
 <div class="row-fluid" style="text-align: center">
 <%= form_for(@invitation, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.hidden_field :status, value: CollaborationInvitation::STATUS_ACCEPTED %>    
-  <%= f.submit 'Accept', class: 'btn orange' %>  
+  <%= f.submit 'Accept', class: 'btn btn-success' %>  
 <% end %>
 
 <%= form_for(@invitation, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.hidden_field :status, value: CollaborationInvitation::STATUS_DECLINED %>    
-  <%= f.submit 'Decline', class: 'btn' %>  
+  <%= f.submit 'Decline', class: 'btn btn-danger' %>  
 <% end %>
 </div>

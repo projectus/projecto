@@ -52,8 +52,8 @@ class UserProfile < ActiveRecord::Base
   def generate_empty_card(defaults={})
     contact = {
       :secondary_email => defaults[:email],
-      :name =>           'Brian,Gay,Zhang',
-      :birthday =>       '1989,7,16',
+      :name =>           'John,S,Doe',
+      :birthday =>       '1992,4,11',
       :location =>       'Waterloo, ON'
     }
     self.card_hash = contact.inspect

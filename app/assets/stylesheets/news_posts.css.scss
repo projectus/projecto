@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#news-header {
+	border-bottom: 2px solid;
+	width: 50%;
+}
+
 .news-post {
 	border-bottom: 1px solid #BBB;
 	padding: 1em;

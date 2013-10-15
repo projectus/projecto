@@ -1,72 +1,47 @@
 <% content_for :content do %>
 
-<div class="row project-profile">
-
+<div class="row">
   <div class="span9">
-	  <div class="project-header">
-      <div class="row-fluid">	        
-	      <div class="span3" id="avatar">
-		      <%= avatar_tag(associated_project) %>
-		    </div>		
-        <div class="span9">
-	        <h2><%= associated_project.name %></h2>
-  		    <ul class="nav nav-pills">
-					  <li><%= link_to_project_profile(associated_project,image_tag('tiles/details.png'))
-					%></li>
-					  <li><%= link_to image_tag('tiles/news.png'), project_news_posts_path(associated_project) %></li>
-					  <li><%= link_to image_tag('tiles/gallery.png'), nil %></li>
-			    </ul>
-		    </div>
+	  <div class="row-fluid">
+		  <div class="span9">
+		    <h1><%= associated_project.name %></h1>
+		  </div>
+		  <div class="span3">
+			  <%= form_tag({controller: 'subscriptions', action: 'create'}, id:'subscribe-form') do %>
+	        <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
+	        <%= submit_tag 'Subscribe', class: 'btn btn-small' %>
+	      <% end %>
+	      <a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">
+          Apply
+        </a>
       </div>
-
-      <div class="row-fluid">
-	      <div class="span3" id="gy">
-          <div class="span7">
-            <div class="row-fluid">
-              <a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
-                Apply
-              </a>
-            </div>
-            <div class="row-fluid">
-              <%= form_tag({controller: 'subscriptions', action: 'create'}, style:'display:inline;') do %>
-                <%= hidden_field_tag :feed_id, associated_project.activity_feed.id %>
-                <%= submit_tag 'Subscribe', class: 'btn btn-info' %>
-              <% end %>
-            </div>
-            <div class="row-fluid">
-              <%= link_to 'Settings', edit_project_path(associated_project), class: 'btn btn-danger'%>
-            </div>
-          </div>
-          <div class="span5">
-            <ul class="nav nav-pills">
-              <li><%= link_to image_tag('tiles/tasks.png'), project_tasks_path(associated_project) %></li>
-              <li><%= link_to image_tag('tiles/discussion.png'), nil %></li>
-            </ul>
-          </div>
-		    </div>
-		    <div class="span9">
-          <div id="project-header-content">
-            <%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
-          </div>
-        </div>
-      </div>
-    </div>
-		<div class="project-profile-content">
-		  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
 		</div>
-  </div>
+		<div class="subnav">
+		  <ul class="nav nav-pills">
+		    <li><%=link_to_project_profile(associated_project,'Details')%></li>
+		    <li><%= link_to 'News', project_news_posts_path(associated_project) %></li>
+			  <li><%= link_to 'Comments', project_comments_path(associated_project) %></li>
+		    <li><%= link_to 'Gallery', gallery_path(associated_project.gallery) %></li>
+		    <li><%= link_to 'Tasks', project_tasks_path(associated_project), class: 'btn-warning' %></li>
+		    <li class="pull-right"><%= link_to 'Settings', edit_project_path(associated_project), class: 'btn-info'%></li>
+		  </ul>
+		</div>
+		<div class="header-splitter"></div>
+    
+		<%= yield(:project_profiles_header_content) if content_for?(:project_profiles_header_content) %>
+    <div class="header-splitter-thin"></div>
 
-  <div class="span3 project-sidebar">
-	  <h4>Members</h4>
+	  <%= content_for?(:project_profiles_content) ? yield(:project_profiles_content) : yield %>
+	</div>
+	<div class="span3" id="sidebar">
+    <%= avatar_tag(associated_project) %>
+		<h4>Members</h4>
 	  <h5><%= avatar_link(associated_project.owner, type: 'thumb', class: 'avatar-thumb') %>
 	  <%= link_to_user_profile(associated_project.owner) %></h5>
 	  <% associated_project.collaborators.each do |c| %>
 	    <h5><%= avatar_link(c, type: 'thumb', class: 'avatar-thumb') %>
 	    <%= link_to_user_profile(c) %></h5>
 	  <% end %>
-	  <h4>Recent Comments</h4>
-	  <%= render partial: 'comments/list' , locals: {comments: associated_project.comments }%>
-	  <%= link_to 'View all comments', project_comments_path(associated_project) %>
 	  <h4>Last Active</h4>
 	  September 21st, 2013
 	  <h4>Recent Activities</h4>
@@ -104,3 +79,14 @@
 <% end %>
 
 <%= render template: "layouts/application" %>
+
+
+<script>
+$(function(){
+  $('.subnav a').on('mouseover',function(){
+	  $(this).css('background','pink');
+	}).on('mouseout',function(){
+	  $(this).css('background','');		
+	});
+});
+</script>

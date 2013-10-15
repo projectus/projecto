@@ -2,32 +2,44 @@
 // They will automatically be included in applicaltion.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//New Project Css
-.photo-attachment-container {
-  position: relative;
+// Edit project page
+
+form.edit_project { // defined by rails
+	input[type=text] {
+		width: 400px;
+	}
+	textarea {
+		width: 680px;
+		//resize: none;
+	}
+	.span2 {
+		.img-polaroid {
+			margin-bottom: 10px;
+		}
+  }
 }
 
-.photo-attachment-container .wrapper {
-  opacity: 0;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  z-index: 2;
+form.new_project { // defined by rails
+	input[type=text] {
+		width: 400px;
+	}
+	textarea {
+		width: 680px;
+		//resize: none;
+	}
 }
 
-.photo-attachment-container .wrapper:hover {
-  opacity: 0.5;
+#gallery {
+  li img {
+	  cursor: pointer;
+  }
+  height: 300px !important;
 }
 
-.photo-attachment-container button {
-  background-color: #ccc;
-  border: none;
-  color: #666;
-  padding: 3px 5px;
-  border-radius: 5px;
-  position: relative;
-  top: 0;
-  z-index: 1;
+.project-list {
+	.row {
+		margin-bottom: 20px;
+	}
 }
 
 //Project Box Css
@@ -36,12 +48,17 @@ $TotalHeight: 400px; $TotalWidth: 200px;
 .project-box {
   height: $TotalHeight;
   width: $TotalWidth;
-  background: image-url('bkg/darker.jpg') center center no-repeat;
   border-radius: 5px;
+  background: #034482;
+  color: #fff;
   box-shadow: 1px 1px 1px #000;
   padding: 4px 4px 20px 4px;
   margin-right: 0px !important;
 
+  a {
+	  color:#fff;
+	}
+	
   .project-image-box{
     margin: 2px;
     height: $TotalHeight*0.50;
@@ -69,7 +86,7 @@ $TotalHeight: 400px; $TotalWidth: 200px;
       padding: 3px 3px 0 3px;
       overflow: hidden;
       span {
-        font-size: 9pt;
+        font-size: 10pt;
         line-height:10px;
       }
     }
@@ -78,13 +95,13 @@ $TotalHeight: 400px; $TotalWidth: 200px;
 
   .project-action-bar-splitter {
     margin-top: 10px;
-    height: 4px;
-    border: 0;
-    box-shadow: inset 0 4px 4px -4px rgba(255,255,255,0.5);
+    height: 0;
+    border: 1px solid rgba(255,255,255,0.4);
+    //box-shadow: inset 0 4px 4px -4px rgba(255,255,255,0.8);
   }
 
   .project-action-panel {
-    font-size: 9pt;
+    font-size: 10pt;
   }
 }
 

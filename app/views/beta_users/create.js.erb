@@ -1,0 +1,9 @@
+<% if @beta_user.errors.any? %>
+  $('#beta_user_email').flash_border();
+  $('#email_notice').html("<%=j @beta_user.errors.full_messages.first %>");
+  $('#email_notice').css('color','red');
+<% else %>
+  $('#beta_user_email').val('');
+  $('#email_notice').html("Thank you! An email will be sent to <%=j @beta_user.email %> when <span class='brand'>projectore</span> is ready.");
+  $('#email_notice').css('color','green');
+<% end %>
