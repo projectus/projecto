@@ -58,6 +58,7 @@
     	      <%= f.text_field :email, placeholder:  'Your email' %>
     	      <%= f.submit '' %>
     	    <% end %>
+          <h4 id="email_notice"></h4>
         </div>
       </div>
 	  </div>
@@ -67,7 +68,7 @@
     <div class="row-fluid" >
   	  <div class="container">
     	  <div class="span8 offset2" style="text-align:center;">
-    			<h2>projectore is</h2>
+    			<div><span class="brand">projectore</span> is</div>
     			<span id="powered">powered by </span>
     			<a href='http://heroku.com/'><%= image_tag('landing/heroku.png') %></a>
     			<a href='http://aws.amazon.com/'><%= image_tag('landing/amazon.png') %></a>     
@@ -79,10 +80,50 @@
 
 <script>
 $(function(){
-	$('#beta_user_email').on('keyup',function(){
-    if (!/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i.test(this.value)) {
-		  alert('bad');
-	  }
+	
+	var email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	
+  var $email_field = $('#beta_user_email');
+	
+	$.fn.email_validate = function() {
+		var val = this.val();
+		if (val.length==0) {
+			this.css('border-color','#317eac');
+		  return;
+		}
+    if (email_regex.test(val)) {
+		  this.css('border-color','#317eac');
+	  } else {
+		  this.css('border-color','red');		
+	  }		
+	}
+
+  $.fn.flash_border = function() {
+	  var flashing = this;
+	  flashing.css('border-color','red');
+    flashing.animate({
+		    marginRight: "5px",
+		  }, 150, function() {
+		    flashing.css('margin-right','0px');
+		    flashing.focus();
+	  });
+  }
+	
+	$('#new_beta_user').on('submit',function(){
+		var val = $email_field.val();
+		$('#email_notice').html("");
+    if (!email_regex.test(val)) {	
+	    $email_field.flash_border();
+	    return false;
+	  }  
+	});
+	
+	$email_field.on('focus', function(){
+		$(this).email_validate();
+	}).on('keyup',function(){
+	  $(this).email_validate();
+	}).on('blur',function(){
+		$(this).css('border-color','white');
 	});
 });
 </script>
