@@ -28,7 +28,7 @@
 	
   <!-- Navbar
     ================================================== -->
- <div class="navbar navbar-fixed-top">
+ <div class="navbar navbar-inverse navbar-fixed-top">
    <div class="navbar-inner">
      <div class="container">
 		    <a class="brand" href="<%= root_path %>">projectore</a>
@@ -78,7 +78,7 @@
     <% end %>
   </div>
 
-	<% if landing? %>
+	<% if params[:action]=='landing' %>
 	<div style="margin-top: -30px; margin-bottom: -80px;">
   <% else %>
   <div class="container">

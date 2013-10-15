@@ -54,14 +54,20 @@
 		margin-bottom: 20px;
 	}
 	
-	#email_notice {
-		.brand {
-			color: #317eac !important;
-		}
-	}
-	
   #signup {
 
+    h4 {
+	    color: #000;
+	  }
+	
+		#email_notice {
+			display: none;
+			.brand {
+				color: #317eac !important;
+				font-size: x-large;
+			}
+		}
+			
   	height: 200px !important;
 
 		::-webkit-input-placeholder { /* WebKit browsers */
@@ -77,33 +83,37 @@
 		    color:    #000;
 		}
 	  background-image: image-url('bkg/footer.jpg');
-		input[type=text]{
-		  height: 60px;
-		  width: 500px;
-		  margin: auto;
-		  border-radius: 0;
-		  border: 2px solid white;
-		  font-family: 'Iceberg', cursive;
-		  font-size: x-large;
-		  line-height: 30px;
-		  background: none;
-		  color: black !important;
-		}
-		input[type=submit] {
-		  height: 72px;
-		  background-image: image-url('landing/thumbs.png') !important;
-		  background: none;
-		  border: 2px solid white;
-		  width: 72px;
-		  -webkit-background-size:100% 100%;
-		  -moz-background-size:100% 100%;
-		  -o-background-size:100% 100%;
-      background-size:100% 100%;
-	  }
+	  #new_beta_user {
+			input[type=text]{
+			  height: 60px;
+			  width: 500px;
+			  margin: auto;
+			  border-radius: 0;
+			  border: 2px solid white;
+			  font-family: 'Iceberg', cursive;
+			  font-size: x-large;
+			  line-height: 30px;
+			  background: none;
+			  color: black !important;
+			}
+			input[type=submit] {
+			  height: 72px;
+			  background-image: image-url('landing/thumbs.png') !important;
+			  background: none;
+			  border: 2px solid white;
+			  width: 72px;
+			  -webkit-background-size:100% 100%;
+			  -moz-background-size:100% 100%;
+			  -o-background-size:100% 100%;
+	      background-size:100% 100%;
+		  }
+    }
 	}
 	
 	#banner {
-	  background-image: image-url('bkg/bannerpic.png');
+	  background-image: image-url('http://usbloghardware.files.wordpress.com/2012/12/thumbnail.jpg');
+
+
 	  height: 350px;
 	  #flip {
 		  color: red;
@@ -111,12 +121,23 @@
 		.btn {
 			margin-top: 30px;
 		}
+
+      h1 {
+        color: #FFF;
+        font-family: "helvetica neue" !important;
+        text-shadow: 2px 2px 0em #333, 2px 2px 0em #333;
+
+      }
+
+      h2 {
+        color: #FFF;
+      }
 	}
 
   #footer {
-  	  h2{
-  	  	margin: 0;
-  	  }
+	  h2{
+	  	margin: 0;
+	  }
 	  height: 50px !important;
 	  img {
 		  width: 100px;
@@ -141,27 +162,24 @@
 	  background-size: cover;
   }
 
-  #about1 {
-	background-image: image-url('bkg/shattered.png');
+  .about1, .about2 {
    	img {
 	    border-radius: 5px;
 	    height: 280px;
-	}
-    .content{
-      float:left;
-      text-align: left;
-    }
+	  }
   }
 
-  #about2 {
-    background-image: image-url('bkg/type.png');
-    img{
-    	border-radius: 5px;
-    	height: 280px;
+  .about1 {background-image: image-url('bkg/shattered.png');}
+  .about2 {background-image: image-url('bkg/type.png');}
+
+  .about2 {
+    p{
+      color: #DDD;
     }
-    .content{
-      float: left;
-      text-align: left;
+
+    h2 {
+      color: #81BDDD;
     }
   }
 }
+

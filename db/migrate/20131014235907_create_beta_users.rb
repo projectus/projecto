@@ -5,5 +5,6 @@ class CreateBetaUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :beta_users, :email, unique: true
   end
 end
