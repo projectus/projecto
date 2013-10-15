@@ -2,8 +2,11 @@
   $('#beta_user_email').flash_border();
   $('#email_notice').html("<%=j @beta_user.errors.full_messages.first %>");
   $('#email_notice').css('color','red');
+  $('#email_notice').fadeIn(500);
 <% else %>
-  $('#beta_user_email').val('');
-  $('#email_notice').html("Thank you! An email will be sent to <%=j @beta_user.email %> when <span class='brand'>projectore</span> is ready.");
   $('#email_notice').css('color','green');
+  $('#email_notice').html("Thank you! An email will be sent to <%=j @beta_user.email %> when <span class='brand'>projectore</span> is ready.");	
+  $('#new_beta_user').fadeOut(500,function(){
+    $('#email_notice').fadeIn(500);
+  });
 <% end %>
