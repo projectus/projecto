@@ -11,7 +11,11 @@
       <%= text_field_tag "contact[name][2]", @name[2] %>
     </div>
     <div class="span4">
-			<%= gallery_image_tag(@avatar_image, class: 'img-polaroid', id: 'avatar') %>
+	    <% if @avatar_image.nil? %>
+	      <%= avatar_tag(current_user, class: 'img-polaroid', id: 'avatar') %>
+	    <% else %>
+			  <%= gallery_image_tag(@avatar_image, class: 'img-polaroid', id: 'avatar') %>
+			<% end %>
 			<%= hidden_field_tag('avatar[image_id]', @avatar_image.nil? ? '' : @avatar_image.id) %>
 			<a href="#myModal" role="button" class="btn btn-info" data-toggle="modal">
 		    Change Avatar
