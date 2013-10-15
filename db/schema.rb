@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923211811) do
+ActiveRecord::Schema.define(version: 20131014235907) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
     t.string   "species"
@@ -21,6 +24,16 @@ ActiveRecord::Schema.define(version: 20130923211811) do
   end
 
   add_index "activities", ["activity_feed_id"], name: "index_activities_on_activity_feed_id", using: :btree
+
+  create_table "activity_entries", force: true do |t|
+    t.string   "headline"
+    t.string   "species"
+    t.integer  "activity_feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activity_entries", ["activity_feed_id"], name: "index_activity_entries_on_activity_feed_id", using: :btree
 
   create_table "activity_feeds", force: true do |t|
     t.integer  "subscribable_id"
@@ -50,6 +63,14 @@ ActiveRecord::Schema.define(version: 20130923211811) do
 
   add_index "avatars", ["avatarable_id", "avatarable_type"], name: "index_avatars_on_avatarable_id_and_avatarable_type", unique: true, using: :btree
   add_index "avatars", ["gallery_image_id"], name: "index_avatars_on_gallery_image_id", using: :btree
+
+  create_table "beta_users", force: true do |t|
+    t.string   "email",      default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beta_users", ["email"], name: "index_beta_users_on_email", unique: true, using: :btree
 
   create_table "collaboration_applications", force: true do |t|
     t.integer  "project_id"
@@ -129,6 +150,20 @@ ActiveRecord::Schema.define(version: 20130923211811) do
 
   add_index "gallery_images", ["gallery_folder_id"], name: "index_gallery_images_on_gallery_folder_id", using: :btree
 
+  create_table "hub_posts", force: true do |t|
+    t.string   "content"
+    t.string   "sender_desc"
+    t.string   "receiver_desc"
+    t.string   "mood",           default: "neutral"
+    t.integer  "sender_id"
+    t.integer  "virtual_hub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hub_posts", ["sender_id"], name: "index_hub_posts_on_sender_id", unique: true, using: :btree
+  add_index "hub_posts", ["virtual_hub_id"], name: "index_hub_posts_on_virtual_hub_id", using: :btree
+
   create_table "messages", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -151,6 +186,22 @@ ActiveRecord::Schema.define(version: 20130923211811) do
 
   add_index "news_posts", ["project_id"], name: "index_news_posts_on_project_id", using: :btree
   add_index "news_posts", ["user_id"], name: "index_news_posts_on_user_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "location"
+    t.text     "content"
+    t.string   "sender_desc"
+    t.string   "receiver_desc"
+    t.string   "mood",          default: "neutral"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sender_id"
+  end
+
+  add_index "posts", ["latitude", "longitude"], name: "index_posts_on_latitude_and_longitude", using: :btree
+  add_index "posts", ["sender_id"], name: "index_posts_on_sender_id", using: :btree
 
   create_table "project_profiles", force: true do |t|
     t.integer  "project_id"
@@ -262,5 +313,13 @@ ActiveRecord::Schema.define(version: 20130923211811) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "virtual_hubs", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "virtual_hubs", ["name"], name: "index_virtual_hubs_on_name", unique: true, using: :btree
 
 end

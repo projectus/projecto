@@ -15,6 +15,8 @@ Projecto::Application.routes.draw do
 
   resources :messages
 
+  resources :beta_users, only: [:create]
+
   # You can have the root of your site routed with "root"
   root 'main#landing'
   get "about", to: 'main#about', as: :about

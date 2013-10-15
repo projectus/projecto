@@ -37,9 +37,9 @@
       <div class="container">
     	  <div class="span8 offset2" style="text-align:center;">
     			<h2>We will notify you for the beta!</h2>
-    	    <%= form_tag(nil,class: 'form-inline') do %>
-    	      <%= text_field_tag 'email', '', placeholder:  'Your email' %>
-    	      <%= submit_tag '' %>
+    	    <%= form_for(:beta_user, method: :post, remote: true, class: 'form-inline') do |f| %>
+    	      <%= f.text_field :email, placeholder:  'Your email' %>
+    	      <%= f.submit '' %>
     	    <% end %>
         </div>
       </div>
