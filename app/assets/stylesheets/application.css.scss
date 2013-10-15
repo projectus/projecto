@@ -85,7 +85,7 @@
 	  background-image: image-url('bkg/footer.jpg');
 	  #new_beta_user {
 			input[type=text]{
-			  height: 60px;
+			  height: 50px;
 			  width: 500px;
 			  margin: auto;
 			  border-radius: 0;
@@ -97,7 +97,7 @@
 			  color: black !important;
 			}
 			input[type=submit] {
-			  height: 72px;
+			  height: 62px;
 			  background-image: image-url('landing/thumbs.png') !important;
 			  background: none;
 			  border: 2px solid white;
@@ -145,7 +145,7 @@
 		.brand {
 			font-size: x-large !important;
 		}
-		background: #6db6a2;
+		background: #C9E9F6;
   }
 
 
@@ -178,7 +178,7 @@
     }
 
     h2 {
-      color: #81BDDD;
+      color: #C9E9F6;
     }
   }
 }
