@@ -3,13 +3,14 @@
 		<div class="container">
 	    <h1>With <span class="brand">projectore</span></h1>
 	    <h1>you can <span id="flip">collaborate</span></h1>
+	    <h2 style="text-align: center;">The best way to meet all of your creative needs!<h2>
 	    <p>
 	      <%= link_to 'Learn more', about_path, class: 'btn btn-primary btn-large' %>
 	    </p>
 	  </div>
   </div>
 
-  <div class="hero-unit" id="about1">
+  <div class="hero-unit about1">
     <div class="row-fluid">
       <div class="container">
 	      <div class="span6 image">
@@ -17,18 +18,18 @@
 		    </div>
         <div class="span5 offset1 content">
           <h2>Discover New Projects</h2>
-          <p>You can discover new projects base on your desired location and interest. Whether you want to collaborate on them it is up to you!</p>
+          <p>You can discover new projects based on your desired location and interest. Whether you want to collaborate on them is up to you!</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-unit" id="about2">
+  <div class="hero-unit about2">
     <div class="row-fluid">
       <div class="container">
         <div class="span5 content">
           <h2>Post Your Projects</h2>
-          <p>By posting your projects on Projectore, you can show case your idea and find awesome collaboraters to help bringing your idea to life!</p>
+          <p>By posting your projects on Projectore, you can showcase your idea and find awesome collaborators to help bring your idea to life!</p>
         </div>
         <div class="span6 offset1 image">
           <%= image_tag 'landing/imac.png' %>
@@ -37,7 +38,7 @@
     </div>
   </div>
 
-    <div class="hero-unit" id="about1">
+    <div class="hero-unit about1">
     <div class="row-fluid">
       <div class="container">
         <div class="span6 image">
@@ -45,7 +46,7 @@
         </div>
         <div class="span5 offset1 content">
           <h2>Find Your Collaborators</h2>
-          <p>You can have you own personalized profile and browse other users' profiles to determine if they are the right fit for your project!</p>
+          <p>You can have your own personalized profile and browse other users' profiles to determine if they are the right fit for your project!</p>
         </div>
       </div>
     </div>
@@ -55,7 +56,8 @@
 		<div class="row-fluid">
       <div class="container">
     	  <div class="span8 offset2" style="text-align:center;">
-    			<h2>We will notify you for the beta!</h2>
+    			<h2>Sign up for the beta!</h2>
+          <h4 style="margin-bottom: 20px;">We are working hard to bring Projectore to life and would love to hear your feedback during the beta stage!</h4>
     	    <%= form_for(@beta_user, method: :post, remote: true, class: 'form-inline') do |f| %>
     	      <%= f.text_field :email, placeholder:  'Your email' %>
     	      <%= f.submit '' %>
@@ -70,9 +72,10 @@
     <div class="row-fluid" >
   	  <div class="container">
     	  <div class="span8 offset2" style="text-align:center;">
-    			<div><span class="brand">projectore</span> is</div>
+    			<span class="brand">projectore</span> is
     			powered by 
     			<a href='http://heroku.com/'><%= image_tag('landing/heroku.png') %></a>
+          and 
     			<a href='http://aws.amazon.com/'><%= image_tag('landing/amazon.png') %></a>     
         </div>
       </div>
@@ -85,22 +88,18 @@ $(function(){
 
  
   function init_flip() {
-	  var cans = ['create','discover','collaborate'];
+	  var cans = ['create.','discover.','collaborate.'];
 	  var can_colors = ['red','blue','green'];
 	  var call = 0;
 		$('#flip').css('color',can_colors[call]).html(cans[call]);		  
 	
 	  function flip_it() {
-		  $('#flip').animate({
-        opacity:"toggle"
-      },1000,function(){
-			  call+=1;
-			  call%=3;
-				$('#flip').css('color',can_colors[call]).html(cans[call]);		  
-			  $(this).fadeIn(1000,function(){
-				  flip_it();		
+		  setTimeout(function(){
+			  $('#flip').fadeOut(1000,function(){
+				  call+=1;call%=3;
+				  $(this).css('color',can_colors[call]).html(cans[call]).fadeIn(1000,flip_it);
 			  });
-		  });	  
+		  },1000);	  
 	  }
 	  flip_it();
   }
@@ -137,7 +136,7 @@ $(function(){
 	
 	$('#new_beta_user').on('submit',function(){
 		var val = $email_field.val();
-		$('#email_notice').html("");
+		$('#email_notice').hide();
     if (!email_regex.test(val)) {	
 	    $email_field.flash_border();
 	    return false;
