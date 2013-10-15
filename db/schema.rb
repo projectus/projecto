@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20131014235907) do
 
   add_index "activities", ["activity_feed_id"], name: "index_activities_on_activity_feed_id", using: :btree
 
+  create_table "activity_entries", force: true do |t|
+    t.string   "headline"
+    t.string   "species"
+    t.integer  "activity_feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activity_entries", ["activity_feed_id"], name: "index_activity_entries_on_activity_feed_id", using: :btree
+
   create_table "activity_feeds", force: true do |t|
     t.integer  "subscribable_id"
     t.string   "subscribable_type"
