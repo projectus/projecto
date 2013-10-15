@@ -41,12 +41,23 @@
 
 .brand {
 	font-family: 'Iceberg', cursive !important;
-	font-size: x-large !important;
+}
+
+.navbar {
+	.brand {
+		font-size: x-large !important;
+	}
 }
 
 #landing{
 	.span8 h2 {
 		margin-bottom: 20px;
+	}
+	
+	#email_notice {
+		.brand {
+			color: #317eac !important;
+		}
 	}
 	
   #signup {
@@ -87,17 +98,19 @@
 		  -webkit-background-size:100% 100%;
 		  -moz-background-size:100% 100%;
 		  -o-background-size:100% 100%;
-      	  background-size:100% 100%;
+      background-size:100% 100%;
 	  }
 	}
 	
 	#banner {
 	  background-image: image-url('bkg/bannerpic.png');
-
 	  height: 350px;
-	  h1 {
-		  font-family: 'Iceberg', cursive;
-	  }
+	  #flip {
+		  color: red;
+		}
+		.btn {
+			margin-top: 30px;
+		}
 	}
 
   #footer {
@@ -107,6 +120,9 @@
 	  height: 50px !important;
 	  img {
 		  width: 100px;
+		}
+		.brand {
+			font-size: x-large !important;
 		}
 		background: #6db6a2;
   }

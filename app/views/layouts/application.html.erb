@@ -14,7 +14,7 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "Projectore" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "projectore" %></title>
   <%= stylesheet_link_tag "application" %>
 
   <%#= javascript_include_tag :defaults, "http://localhost:9292/faye.js" %>
@@ -32,6 +32,7 @@
    <div class="navbar-inner">
      <div class="container">
 		    <a class="brand" href="<%= root_path %>">projectore</a>
+				<% unless landing? %>
         <%= form_tag projects_path, method: :get, class: "navbar-search" do %>
           <%= text_field_tag :tag, nil, class: 'search-query', placeholder: 'Search' %>
         <% end %>
@@ -63,6 +64,7 @@
 		      <li class="nav-li"><div class="li-hover-top"></div><%= link_to "Sign Up", new_user_registration_path, :class => "white" %></li>
 		      <% end %>
         </ul>
+        <% end %>
      </div>
    </div>
  </div>
@@ -76,7 +78,7 @@
     <% end %>
   </div>
 
-	<% if params[:action]=='landing' %>
+	<% if landing? %>
 	<div style="margin-top: -30px; margin-bottom: -80px;">
   <% else %>
   <div class="container">

@@ -4,6 +4,6 @@
   $('#email_notice').css('color','red');
 <% else %>
   $('#beta_user_email').val('');
-  $('#email_notice').html("Thank you!");
+  $('#email_notice').html("Thank you! An email will be sent to <%=j @beta_user.email %> when <span class='brand'>projectore</span> is ready.");
   $('#email_notice').css('color','green');
 <% end %>

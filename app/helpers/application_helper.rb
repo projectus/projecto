@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def landing?
-	  true
+	  return params[:action]=='landing'
 	end
 	
   def broadcast(channel, &block)
