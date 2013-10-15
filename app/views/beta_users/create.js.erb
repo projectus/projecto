@@ -1,2 +1,9 @@
-$('#beta_user_email').val('');
-alert('thanks!');
+<% if @beta_user.errors.any? %>
+  $('#beta_user_email').flash_border();
+  $('#email_notice').html("<%=j @beta_user.errors.full_messages.first %>");
+  $('#email_notice').css('color','red');
+<% else %>
+  $('#beta_user_email').val('');
+  $('#email_notice').html("Thank you!");
+  $('#email_notice').css('color','green');
+<% end %>
