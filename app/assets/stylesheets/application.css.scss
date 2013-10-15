@@ -145,6 +145,7 @@
 	background-image: image-url('bkg/shattered.png');
    	img {
 	    border-radius: 5px;
+	    height: 280px;
 	}
     .content{
       float:left;
@@ -156,9 +157,10 @@
     background-image: image-url('bkg/type.png');
     img{
     	border-radius: 5px;
+    	height: 280px;
     }
     .content{
-      float:left;
+      float: left;
       text-align: left;
     }
   }
