@@ -8,5 +8,6 @@ class MainController < ApplicationController
   end
 
   def landing
+	  @beta_user = BetaUser.new
 	end
 end
