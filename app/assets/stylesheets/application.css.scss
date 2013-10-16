@@ -55,7 +55,6 @@
 	}
 	
   #signup {
-
     h4 {
 	    color: #000;
 	  }
@@ -71,16 +70,16 @@
   	height: 200px !important;
 
 		::-webkit-input-placeholder { /* WebKit browsers */
-		    color:    #000;
+		    color:    #fff;
 		}
 		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-		    color:    #000;
+		    color:    #fff;
 		}
 		::-moz-placeholder { /* Mozilla Firefox 19+ */
-		    color:    #000;
+		    color:    #fff;
 		}
 		:-ms-input-placeholder { /* Internet Explorer 10+ */
-		    color:    #000;
+		    color:    #fff;
 		}
 	  background-image: image-url('bkg/footer.jpg');
 	  #new_beta_user {
@@ -93,13 +92,13 @@
 			  font-family: 'Iceberg', cursive;
 			  font-size: x-large;
 			  line-height: 30px;
-			  background: none;
-			  color: black !important;
+		    background: rgba(100,100,100,0.5);
+			  color: white !important;
 			}
 			input[type=submit] {
 			  height: 62px;
 			  background-image: image-url('landing/thumbs.png') !important;
-			  background: none;
+		    background: rgba(100,100,100,0.5);
 			  border: 2px solid white;
 			  width: 72px;
 			  -webkit-background-size:100% 100%;
@@ -111,8 +110,7 @@
 	}
 	
 	#banner {
-	  background-image: image-url('http://usbloghardware.files.wordpress.com/2012/12/thumbnail.jpg');
-
+	  background-image: image-url('landing/banner.jpg');
 
 	  height: 350px;
 	  #flip {
@@ -120,18 +118,22 @@
 		}
 		.btn {
 			margin-top: 30px;
-		}
+	    border: 2px solid white;
+	    background: rgba(100,100,100,0.5);
+	    color: white;
+	    padding: 20px;
+	    border-radius: 0;
+    }
+    h1 {
+      color: #FFF;
+      font-family: "helvetica neue" !important;
+      text-shadow: 2px 2px 0em #333, 2px 2px 0em #333;
 
-      h1 {
-        color: #FFF;
-        font-family: "helvetica neue" !important;
-        text-shadow: 2px 2px 0em #333, 2px 2px 0em #333;
+    }
 
-      }
-
-      h2 {
-        color: #FFF;
-      }
+    h2 {
+      color: #FFF;
+    }
 	}
 
   #footer {
@@ -147,7 +149,6 @@
 		}
 		background: #C9E9F6;
   }
-
 
 	.hero-unit {
 	  margin: 0 !important;

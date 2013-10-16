@@ -1,8 +1,4 @@
 module ApplicationHelper
-
-  def landing?
-	  return params[:action]=='landing' || params[:action]=='about'
-	end
 	
   def broadcast(channel, &block)
     message = {:channel => channel, :data => capture(&block)}
