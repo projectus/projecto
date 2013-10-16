@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
 	  end
 	
 	  def landing?
-		  return params[:action]=='landing' || params[:action]=='about'
+		  return params[:action]=='landing' || params[:action]=='about' || params[:controller]=='beta_users'
 		end
 end
