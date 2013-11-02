@@ -56,13 +56,13 @@ module ApplicationHelper
 			usr = activity.referenceable_by_type('user')
 			x = usr.nil? ? '(user deleted)' : link_to_user_profile(usr)
 			y = prj.nil? ? '(project deleted)' : link_to_project_profile(prj)
-			x + ' joined ' + y + '!'
+			(x + ' joined ' + y + '!').html_safe
 		elsif species == 'collaboration ended'
 			prj = activity.referenceable_by_type('project')
 			usr = activity.referenceable_by_type('user')
 			x = usr.nil? ? '(user deleted)' : link_to_user_profile(usr)
 			y = prj.nil? ? '(project deleted)' : link_to_project_profile(prj)
-			x + ' is no longer with ' + y + '!'
+			(x + ' is no longer with ' + y + '!').html_safe
 		end
 	end
 
